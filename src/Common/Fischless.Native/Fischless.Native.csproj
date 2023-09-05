@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <UseWindowsForms>true</UseWindowsForms>
+        <Platforms>x64</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Management" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="Vanara.PInvoke.DwmApi" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.NtDll" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.User32" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.SHCore" Version="3.4.16" />
+        <PackageReference Include="Vanara.PInvoke.UxTheme" Version="3.4.16" />
+    </ItemGroup>
+
+</Project>

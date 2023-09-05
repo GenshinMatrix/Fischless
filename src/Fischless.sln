@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless", "Desktop\Fischless\Fischless.csproj", "{02C11777-12B7-4E41-AD55-2FE0A5F0C5E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{2944494E-EB09-4387-9677-BB38A224A624}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{53B99E64-B289-4394-8C49-241B0CB015D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HoneyWorks", "HoneyWorks", "{B4DB293D-352B-4733-AC07-A9B1465FB7FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Common", "Common\Fischless.Common\Fischless.Common.csproj", "{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Native", "Common\Fischless.Native\Fischless.Native.csproj", "{DA7E3FFC-B647-404A-B083-AE510C307761}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Hosting", "Common\Fischless.Hosting\Fischless.Hosting.csproj", "{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LottieSharp.WPF", "HoneyWorks\LottieSharp.WPF\LottieSharp.WPF.csproj", "{7B20B23D-4F90-4E5D-866B-C57EB2B83949}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Markdig.Wpf", "HoneyWorks\Markdig.Wpf\Markdig.Wpf.csproj", "{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A1A92E3-AE80-42B2-BBDF-091182E174BD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Mapper", "Common\Fischless.Mapper\Fischless.Mapper.csproj", "{C52C692B-6D5E-48AD-BC53-C0BB4DECD283}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.AppCenter", "Common\Fischless.AppCenter\Fischless.AppCenter.csproj", "{00F06A42-E296-4132-95DF-88AC1C3E3915}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Threading", "Common\Fischless.Threading\Fischless.Threading.csproj", "{183C638A-88F4-46D6-A2AF-844DE8FF13EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02C11777-12B7-4E41-AD55-2FE0A5F0C5E4}.Debug|x64.ActiveCfg = Debug|x64
+		{02C11777-12B7-4E41-AD55-2FE0A5F0C5E4}.Debug|x64.Build.0 = Debug|x64
+		{02C11777-12B7-4E41-AD55-2FE0A5F0C5E4}.Release|x64.ActiveCfg = Release|x64
+		{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12}.Debug|x64.ActiveCfg = Debug|x64
+		{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12}.Debug|x64.Build.0 = Debug|x64
+		{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12}.Release|x64.ActiveCfg = Release|x64
+		{DA7E3FFC-B647-404A-B083-AE510C307761}.Debug|x64.ActiveCfg = Debug|x64
+		{DA7E3FFC-B647-404A-B083-AE510C307761}.Debug|x64.Build.0 = Debug|x64
+		{DA7E3FFC-B647-404A-B083-AE510C307761}.Release|x64.ActiveCfg = Release|x64
+		{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB}.Debug|x64.ActiveCfg = Debug|x64
+		{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB}.Debug|x64.Build.0 = Debug|x64
+		{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB}.Release|x64.ActiveCfg = Release|x64
+		{7B20B23D-4F90-4E5D-866B-C57EB2B83949}.Debug|x64.ActiveCfg = Debug|x64
+		{7B20B23D-4F90-4E5D-866B-C57EB2B83949}.Debug|x64.Build.0 = Debug|x64
+		{7B20B23D-4F90-4E5D-866B-C57EB2B83949}.Release|x64.ActiveCfg = Release|x64
+		{7B20B23D-4F90-4E5D-866B-C57EB2B83949}.Release|x64.Build.0 = Release|x64
+		{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}.Debug|x64.ActiveCfg = Debug|x64
+		{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}.Debug|x64.Build.0 = Debug|x64
+		{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}.Release|x64.ActiveCfg = Release|x64
+		{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}.Release|x64.Build.0 = Release|x64
+		{C52C692B-6D5E-48AD-BC53-C0BB4DECD283}.Debug|x64.ActiveCfg = Debug|x64
+		{C52C692B-6D5E-48AD-BC53-C0BB4DECD283}.Debug|x64.Build.0 = Debug|x64
+		{C52C692B-6D5E-48AD-BC53-C0BB4DECD283}.Release|x64.ActiveCfg = Release|x64
+		{C52C692B-6D5E-48AD-BC53-C0BB4DECD283}.Release|x64.Build.0 = Release|x64
+		{00F06A42-E296-4132-95DF-88AC1C3E3915}.Debug|x64.ActiveCfg = Debug|x64
+		{00F06A42-E296-4132-95DF-88AC1C3E3915}.Debug|x64.Build.0 = Debug|x64
+		{00F06A42-E296-4132-95DF-88AC1C3E3915}.Release|x64.ActiveCfg = Release|x64
+		{00F06A42-E296-4132-95DF-88AC1C3E3915}.Release|x64.Build.0 = Release|x64
+		{183C638A-88F4-46D6-A2AF-844DE8FF13EA}.Debug|x64.ActiveCfg = Debug|x64
+		{183C638A-88F4-46D6-A2AF-844DE8FF13EA}.Debug|x64.Build.0 = Debug|x64
+		{183C638A-88F4-46D6-A2AF-844DE8FF13EA}.Release|x64.ActiveCfg = Release|x64
+		{183C638A-88F4-46D6-A2AF-844DE8FF13EA}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02C11777-12B7-4E41-AD55-2FE0A5F0C5E4} = {2944494E-EB09-4387-9677-BB38A224A624}
+		{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+		{DA7E3FFC-B647-404A-B083-AE510C307761} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+		{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+		{7B20B23D-4F90-4E5D-866B-C57EB2B83949} = {B4DB293D-352B-4733-AC07-A9B1465FB7FF}
+		{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451} = {B4DB293D-352B-4733-AC07-A9B1465FB7FF}
+		{C52C692B-6D5E-48AD-BC53-C0BB4DECD283} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+		{00F06A42-E296-4132-95DF-88AC1C3E3915} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+		{183C638A-88F4-46D6-A2AF-844DE8FF13EA} = {53B99E64-B289-4394-8C49-241B0CB015D7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
+	EndGlobalSection
+EndGlobal

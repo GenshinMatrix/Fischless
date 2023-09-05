@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:Fischless.Converters">
+    
+    <converter:IsNullConverter x:Key="IsNullConverter"/>
+    <converter:IsNotNullConverter x:Key="IsNotNullConverter"/>
+    <converter:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+    <converter:BoolToInvisibleConverter x:Key="BoolToInvisibleConverter"/>
+
+</ResourceDictionary>

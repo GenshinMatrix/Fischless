@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>net48;net7.0-windows10.0.22621.0;</TargetFrameworks>
+        <AssemblyName>Markdig.Wpf</AssemblyName>
+        <AssemblyTitle>Markdig.Wpf</AssemblyTitle>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <VersionPrefix>0.5.0.1</VersionPrefix>
+        <UseWPF>true</UseWPF>
+        <Configurations>Debug;Release;</Configurations>
+        <LangVersion>11.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <PlatformTarget>x64</PlatformTarget>
+        <Platforms>x64</Platforms>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|x64'">
+        <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|x64'">
+        <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Markdig" Version="0.33.0" />
+        <PackageReference Include="ColorCode.Core" Version="2.0.15" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>

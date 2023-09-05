@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>11.0</LangVersion>
+        <StartupObject>Fischless.Program</StartupObject>
+        <Platforms>x64</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="CompiledBindings.WPF" Version="1.0.17.3" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="WPF-UI" Version="3.0.0-preview.6" />
+        <PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.1-dev-00947" />
+        <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+        <PackageReference Include="WpfAnalyzers" Version="4.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+		<PackageReference Include="ValueConverters" Version="3.0.26" />
+		<PackageReference Include="XAMLMarkupExtensions" Version="2.1.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Common\Fischless.AppCenter\Fischless.AppCenter.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Common\Fischless.Common.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Hosting\Fischless.Hosting.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Mapper\Fischless.Mapper.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
+        <ProjectReference Include="..\..\HoneyWorks\LottieSharp.WPF\LottieSharp.WPF.csproj" />
+        <ProjectReference Include="..\..\HoneyWorks\Markdig.Wpf\Markdig.Wpf.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
+        <None Remove="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
+        <None Remove="Assets\Fonts\Segoe Fluent Icons.ttf" />
+        <None Remove="Assets\Images\UI_Img_Aster_MainRewardS.png" />
+        <None Remove="Assets\Images\UI_ItemIcon_223.png" />
+        <None Remove="Assets\Images\UI_ItemIcon_224.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
+        <Resource Include="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
+        <Resource Include="Assets\Images\UI_Img_Aster_MainRewardS.png" />
+        <Resource Include="Assets\Images\UI_ItemIcon_223.png" />
+        <Resource Include="Assets\Images\UI_ItemIcon_224.png" />
+    </ItemGroup>
+
+</Project>

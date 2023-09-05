@@ -1,0 +1,26 @@
+﻿<Application x:Class="Fischless.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:th="clr-namespace:Fischless.Themes"
+             xmlns:res="clr-namespace:Fischless.Resources"
+             xmlns:local="clr-namespace:Fischless"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemeResources RequestedTheme="Dark"/>
+                <ui:XamlControlsResources/>
+                <ui:ResourceDictionaryEx/>
+                <ui:ColorPaletteResources TargetTheme="Dark"/>
+                <ui:IntellisenseResources/>
+                <wui:ThemesDictionary Theme="Dark" />
+                <wui:ControlsDictionary />
+                <res:XamlControlsResources/>
+                <th:ThemeStyleResources/>
+                <th:ThemeResource RequestedTheme="Dark"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
