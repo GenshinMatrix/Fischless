@@ -40,6 +40,7 @@
         <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
         <ProjectReference Include="..\..\HoneyWorks\LottieSharp.WPF\LottieSharp.WPF.csproj" />
         <ProjectReference Include="..\..\HoneyWorks\Markdig.Wpf\Markdig.Wpf.csproj" />
+        <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

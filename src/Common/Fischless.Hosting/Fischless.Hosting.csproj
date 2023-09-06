@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Platforms>x64</Platforms>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Platforms>x64</Platforms>
+	    <LangVersion>11.0</LangVersion>
+    </PropertyGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='UseInsteadCode'">
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />

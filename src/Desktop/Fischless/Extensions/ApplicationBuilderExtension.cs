@@ -3,6 +3,7 @@ using Fischless.Helpers;
 using Fischless.Hosting.Absraction;
 using Fischless.Mapper;
 using Fischless.Native;
+using Fischless.Plugin.Abstractions;
 using Microsoft.AppCenter;
 using Serilog;
 using System;

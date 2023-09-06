@@ -13,9 +13,10 @@ public class Startup
         IHost app = new App()
             .UseDispatcherUnhandledExceptionCatched();
 
-        services.AddSingleton(app);
-        services.AddSingleton(Log.Logger);
-        services.AddLogging(c => c.AddSerilog(Log.Logger));
+        services.AddSingleton(app)
+                .AddSingleton(Log.Logger)
+                .AddLogging(c => c.AddSerilog(Log.Logger))
+                .AddPlugins(app);
     }
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)

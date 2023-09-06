@@ -1,5 +1,8 @@
 ﻿using Fischless.Hosting.Absraction;
+using Fischless.Plugin.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -7,6 +10,17 @@ namespace Fischless.Extensions;
 
 public static class HostExtension
 {
+    public static IHost UsePlugins(this IHost app, IServiceCollection services)
+    {
+        IEnumerable<PluginBuilder> pluginBuilders = PluginProvider.Reload();
+
+        foreach (PluginBuilder pluginBuilder in pluginBuilders)
+        {
+            pluginBuilder?.UseService(services);
+        }
+        return app;
+    }
+
     public static IHost UseDispatcherUnhandledExceptionCatched(this IHost app, DispatcherUnhandledExceptionEventHandler handler = null!)
     {
         if (app != null)
@@ -32,5 +46,9 @@ public static class HostExtension
             }
         }
         return app!;
+    }
+
+    public static void Forget(this IHost builder)
+    {
     }
 }
