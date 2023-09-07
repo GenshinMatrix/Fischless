@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{2944
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{53B99E64-B289-4394-8C49-241B0CB015D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HoneyWorks", "HoneyWorks", "{B4DB293D-352B-4733-AC07-A9B1465FB7FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{B4DB293D-352B-4733-AC07-A9B1465FB7FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Common", "Common\Fischless.Common\Fischless.Common.csproj", "{2E8AE929-DC62-4C72-B7C7-FAEA1B5CAB12}"
 EndProject
