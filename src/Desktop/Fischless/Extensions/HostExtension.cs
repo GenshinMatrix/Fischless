@@ -1,4 +1,5 @@
-﻿using Fischless.Hosting.Absraction;
+﻿using Fischless.Core;
+using Fischless.Hosting.Absraction;
 using Fischless.Plugin.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -19,6 +20,12 @@ public static class HostExtension
             pluginBuilder?.UseService(services);
         }
         return app;
+    }
+
+    public static IHost UseMuiLanguage(this IHost builder)
+    {
+        MuiLanguage.SetupLanguage();
+        return builder;
     }
 
     public static IHost UseDispatcherUnhandledExceptionCatched(this IHost app, DispatcherUnhandledExceptionEventHandler handler = null!)

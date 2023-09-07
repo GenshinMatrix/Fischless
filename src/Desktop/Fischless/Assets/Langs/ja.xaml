@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <s:String x:Key="__LeftParenthesis__">「</s:String>
+    <s:String x:Key="__RightParenthesis__">」</s:String>
+    <s:String x:Key="__Colon__">：</s:String>
+    <s:String x:Key="__Yajirushi__">⇒</s:String>
+    <s:String x:Key="Loading">ローディング</s:String>
+    <s:String x:Key="MessageBoxCaptionInfo">ヒント</s:String>
+    <s:String x:Key="MessageBoxCaptionWarn">警告</s:String>
+    <s:String x:Key="MessageBoxCaptionQuestion">質問</s:String>
+    <s:String x:Key="MessageBoxCaptionError">エラー</s:String>
+    <s:String x:Key="Exit">終了</s:String>
+    <s:String x:Key="Restart">再起動</s:String>
+    <s:String x:Key="Language">言語</s:String>
+    
+</ResourceDictionary>

@@ -74,6 +74,12 @@ public sealed class SnapLayout
                     }
                 }
                 return (int)User32.HitTestValues.HTMAXBUTTON;
+            case User32.WindowMessage.WM_SETCURSOR:
+                if (isButtonFocused)
+                {
+                    handled = true;
+                }
+                break;
             default:
                 handled = false;
                 break;

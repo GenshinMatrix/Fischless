@@ -11,7 +11,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         IHost app = new App()
-            .UseDispatcherUnhandledExceptionCatched();
+            .UseDispatcherUnhandledExceptionCatched()
+            .UseMuiLanguage();
 
         services.AddSingleton(app)
                 .AddSingleton(Log.Logger)

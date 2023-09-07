@@ -8,6 +8,7 @@
         <LangVersion>11.0</LangVersion>
         <StartupObject>Fischless.Program</StartupObject>
         <Platforms>x64</Platforms>
+        <ApplicationIcon>Assets\Icons\UI_Img_Aster_MainRewardS.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,19 +28,22 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-		<PackageReference Include="ValueConverters" Version="3.0.26" />
-		<PackageReference Include="XAMLMarkupExtensions" Version="2.1.3" />
+        <PackageReference Include="ValueConverters" Version="3.0.26" />
+        <PackageReference Include="XAMLMarkupExtensions" Version="2.1.3" />
+        <PackageReference Include="IndexRange" Version="1.0.2" />
+        <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\Common\Fischless.AppCenter\Fischless.AppCenter.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Common\Fischless.Common.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Configuration\Fischless.Configuration.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Hosting\Fischless.Hosting.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Mapper\Fischless.Mapper.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
-        <ProjectReference Include="..\..\HoneyWorks\LottieSharp.WPF\LottieSharp.WPF.csproj" />
-        <ProjectReference Include="..\..\HoneyWorks\Markdig.Wpf\Markdig.Wpf.csproj" />
+        <ProjectReference Include="..\..\External\LottieSharp.WPF\LottieSharp.WPF.csproj" />
+        <ProjectReference Include="..\..\External\Markdig.Wpf\Markdig.Wpf.csproj" />
         <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
     </ItemGroup>
 
@@ -47,17 +51,41 @@
         <None Remove="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
         <None Remove="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
         <None Remove="Assets\Fonts\Segoe Fluent Icons.ttf" />
+        <None Remove="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
+        <None Remove="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
+        <None Remove="Assets\Images\UI_AnimalIcon_Cat_01.png" />
+        <None Remove="Assets\Images\UI_Icon_GcgBossChallenges_Difficulty.png" />
         <None Remove="Assets\Images\UI_Img_Aster_MainRewardS.png" />
+        <None Remove="Assets\Images\UI_Img_Cursor_PC.png" />
+        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint1Character.png" />
+        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint2Character.png" />
+        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint3Character.png" />
+        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint4Character.png" />
+        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint5Character.png" />
         <None Remove="Assets\Images\UI_ItemIcon_223.png" />
         <None Remove="Assets\Images\UI_ItemIcon_224.png" />
+        <None Remove="Assets\Images\UI_MallTabIcon_Wing.png" />
+        <None Remove="Assets\Images\UI_SummerTime_ImgCharacter_01.png" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
         <Resource Include="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
+        <Resource Include="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
+        <Resource Include="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
+        <Resource Include="Assets\Images\UI_AnimalIcon_Cat_01.png" />
+        <Resource Include="Assets\Images\UI_Icon_GcgBossChallenges_Difficulty.png" />
         <Resource Include="Assets\Images\UI_Img_Aster_MainRewardS.png" />
+        <Resource Include="Assets\Images\UI_Img_Cursor_PC.png" />
+        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint1Character.png" />
+        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint2Character.png" />
+        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint3Character.png" />
+        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint4Character.png" />
+        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint5Character.png" />
         <Resource Include="Assets\Images\UI_ItemIcon_223.png" />
         <Resource Include="Assets\Images\UI_ItemIcon_224.png" />
+        <Resource Include="Assets\Images\UI_MallTabIcon_Wing.png" />
+        <Resource Include="Assets\Images\UI_SummerTime_ImgCharacter_01.png" />
     </ItemGroup>
 
 </Project>

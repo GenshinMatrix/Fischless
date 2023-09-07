@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Native", "Common\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Hosting", "Common\Fischless.Hosting\Fischless.Hosting.csproj", "{35BF9D30-AF8E-47DF-BA1A-D0E6BEC178EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LottieSharp.WPF", "HoneyWorks\LottieSharp.WPF\LottieSharp.WPF.csproj", "{7B20B23D-4F90-4E5D-866B-C57EB2B83949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LottieSharp.WPF", "External\LottieSharp.WPF\LottieSharp.WPF.csproj", "{7B20B23D-4F90-4E5D-866B-C57EB2B83949}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Markdig.Wpf", "HoneyWorks\Markdig.Wpf\Markdig.Wpf.csproj", "{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Markdig.Wpf", "External\Markdig.Wpf\Markdig.Wpf.csproj", "{72FB21F0-EDDC-4F9D-AA2B-37DDB1181451}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A1A92E3-AE80-42B2-BBDF-091182E174BD}"
 	ProjectSection(SolutionItems) = preProject
@@ -37,6 +37,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.Abstractions", "Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj", "{EE03913A-8E7E-49D3-A4C1-75744ECC0616}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.Demo", "Plugins\Fischless.Plugin.Demo\Fischless.Plugin.Demo.csproj", "{E69CC415-FEB7-4C0B-9747-38C50E4EBFE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Configuration", "Common\Fischless.Configuration\Fischless.Configuration.csproj", "{5EE58231-8E18-43FC-856B-16B9776E0685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,10 @@ Global
 		{E69CC415-FEB7-4C0B-9747-38C50E4EBFE8}.Debug|x64.Build.0 = Debug|x64
 		{E69CC415-FEB7-4C0B-9747-38C50E4EBFE8}.Release|x64.ActiveCfg = Release|x64
 		{E69CC415-FEB7-4C0B-9747-38C50E4EBFE8}.Release|x64.Build.0 = Release|x64
+		{5EE58231-8E18-43FC-856B-16B9776E0685}.Debug|x64.ActiveCfg = Debug|x64
+		{5EE58231-8E18-43FC-856B-16B9776E0685}.Debug|x64.Build.0 = Debug|x64
+		{5EE58231-8E18-43FC-856B-16B9776E0685}.Release|x64.ActiveCfg = Release|x64
+		{5EE58231-8E18-43FC-856B-16B9776E0685}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{183C638A-88F4-46D6-A2AF-844DE8FF13EA} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{EE03913A-8E7E-49D3-A4C1-75744ECC0616} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
 		{E69CC415-FEB7-4C0B-9747-38C50E4EBFE8} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
+		{5EE58231-8E18-43FC-856B-16B9776E0685} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
