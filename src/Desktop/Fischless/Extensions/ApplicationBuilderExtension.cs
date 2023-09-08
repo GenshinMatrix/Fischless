@@ -1,9 +1,7 @@
-﻿using ColorCode.Compilation.Languages;
-using Fischless.Helpers;
+﻿using Fischless.Helpers;
 using Fischless.Hosting.Absraction;
 using Fischless.Mapper;
 using Fischless.Native;
-using Fischless.Plugin.Abstractions;
 using Microsoft.AppCenter;
 using Serilog;
 using System;
@@ -30,19 +28,11 @@ public static class ApplicationBuilderExtension
     {
         if (new Version(AppCenter.SdkVersion).Major < 5)
         {
-#if DEBUG
-            AppCenterProvider.Start(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? "8323035c-2874-45d7-bb2a-9f96ba612595");
-#else
-            AppCenterProvider.Start(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? "36ccce6a-a3e1-4024-8fbd-193a2231af2d");
-#endif
+            AppCenterProvider.Start(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? AppConfig.AppCenterSecret.AppSecret);
         }
         else
         {
-#if DEBUG
-            AppCenterProvider.StartPrepare(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? "8323035c-2874-45d7-bb2a-9f96ba612595");
-#else
-            AppCenterProvider.StartPrepare(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? "36ccce6a-a3e1-4024-8fbd-193a2231af2d");
-#endif
+            AppCenterProvider.StartPrepare(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? AppConfig.AppCenterSecret.AppSecret);
         }
         return app;
     }
