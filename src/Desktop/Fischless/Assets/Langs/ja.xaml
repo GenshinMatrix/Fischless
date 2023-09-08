@@ -14,5 +14,14 @@
     <s:String x:Key="Exit">終了</s:String>
     <s:String x:Key="Restart">再起動</s:String>
     <s:String x:Key="Language">言語</s:String>
+    <s:String x:Key="AboutProgram">プログラムについて</s:String>
+    <s:String x:Key="CheckUpdate">アップデートを確認</s:String>
+    <s:String x:Key="PrivacyPolicy">プライバシーポリシー</s:String>
+    <s:String x:Key="LicenseInfo">ライセンス情報</s:String>
+    <s:String x:Key="CopySuccessfully">コピー成功</s:String>
+    <s:String x:Key="CopyFailed">コピー失敗</s:String>
+    <s:String x:Key="Home">ホームページ</s:String>
+    <s:String x:Key="GlobalSettings">グローバル設定</s:String>
+    <s:String x:Key="CopyVersionInfo">バージョン情報をコピー</s:String>
     
 </ResourceDictionary>

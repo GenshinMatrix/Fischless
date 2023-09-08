@@ -4,7 +4,7 @@
              xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:tb="http://www.hardcodet.net/taskbar"
-             xmlns:th="clr-namespace:Fischless.Themes"
+             xmlns:th="clr-namespace:Fischless.Designs.Themes"
              xmlns:res="clr-namespace:Fischless.Resources"
              xmlns:vm="clr-namespace:Fischless.ViewModels"
              xmlns:local="clr-namespace:Fischless"

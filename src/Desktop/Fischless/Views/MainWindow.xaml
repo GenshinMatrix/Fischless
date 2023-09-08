@@ -1,12 +1,15 @@
-﻿<control:WindowX x:Class="Fischless.Views.MainWindow"
+﻿<controls:WindowX x:Class="Fischless.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-        xmlns:local="clr-namespace:Fischless"
-        xmlns:markups="clr-namespace:Fischless.Markups"
-        xmlns:control="clr-namespace:Fischless.Controls"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:local="clr-namespace:Fischless.Views"
+        xmlns:services="clr-namespace:Fischless.Services"
+        xmlns:markups="clr-namespace:Fischless.Designs.Markups"
+        xmlns:controls="clr-namespace:Fischless.Designs.Controls"
         mc:Ignorable="d"
         FontFamily="{StaticResource TextThemeFontFamily}"
         Style="{StaticResource DefaultWindowXStyle}"
@@ -14,7 +17,106 @@
         WindowStartupLocation="CenterScreen"
         Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
         Icon="pack://application:,,,/Fischless;component/Assets/Icons/UI_Img_Aster_MainRewardS.ico"
-        Title="Fishless" Height="450" Width="800">
+        FontSize="12"
+        Title="Fishless" Height="600" Width="900">
     <Grid>
+
+        <ui:NavigationView x:Name="NavView"
+            FontFamily="{DynamicResource TextThemeFontFamily}"
+            ItemInvoked="{x:Bind ViewModel.OnNavViewItemInvoked}"
+            PaneOpening="{x:Bind ViewModel.OnNavViewPaneOpening}"
+            PaneOpened="{x:Bind ViewModel.OnNavViewPaneOpened}"
+            SelectedItem="{x:Reference HomeNavigationViewItem}"
+            IsPaneOpen="False"
+            IsSettingsVisible="False">
+
+            <i:Interaction.Behaviors>
+                <controls:NavigationViewClosePaneOnLoadedBehavior/>
+                <controls:NavigationViewUseServiceBehavior ServiceType="{x:Type services:NavigationService}"/>
+            </i:Interaction.Behaviors>
+
+            <ui:NavigationView.MenuItems>
+
+                <ui:NavigationViewItem x:Name="HomeNavigationViewItem"
+                                       Content="{DynamicResource Home}" FontFamily="{DynamicResource TextThemeFontFamily}"
+                                       controls:NavigationHelper.NavigateTo="{x:Type local:PageHome}"
+                                       CornerRadius="4">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xe70f;" FontFamily="{StaticResource SymbolThemeFontFamily}"/>
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+            </ui:NavigationView.MenuItems>
+
+            <ui:NavigationView.FooterMenuItems>
+
+                <ui:NavigationViewItem Content="{DynamicResource GlobalSettings}" FontFamily="{DynamicResource TextThemeFontFamily}"
+                                       controls:NavigationHelper.NavigateTo="{x:Type local:PageSettings}"
+                                       Style="{StaticResource DefaultNavigationViewItemStyle}"
+                                       CornerRadius="4">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xf6a9;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="18" Width="18" Height="18">
+                            <ui:FontIcon.RenderTransform>
+                                <RotateTransform x:Name="IconRotationTransform" Angle="0" CenterX="9" CenterY="9"/>
+                            </ui:FontIcon.RenderTransform>
+                        </ui:FontIcon>
+                    </ui:NavigationViewItem.Icon>
+
+                    <ui:NavigationViewItem.Triggers>
+                        <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(ui:NavigationViewItem.Icon).(Grid.RenderTransform).(RotateTransform.Angle)" 
+                                                         Duration="0:0:0.1" To="-22.5">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CircleEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(ui:NavigationViewItem.Icon).(Grid.RenderTransform).(RotateTransform.Angle)" 
+                                                         Duration="0:0:0.5" To="360">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CircleEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetProperty="(ui:NavigationViewItem.Icon).(Grid.RenderTransform).(RotateTransform.Angle)" 
+                                                         BeginTime="0:0:0.5" Duration="0:0:0.0" To="0">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ui:NavigationViewItem.Triggers>
+
+                </ui:NavigationViewItem>
+
+            </ui:NavigationView.FooterMenuItems>
+
+            <ui:Frame>
+                <i:Interaction.Behaviors>
+                    <controls:FrameClearCommandBindingsBehavior/>
+                </i:Interaction.Behaviors>
+                <ui:Frame.ContentTransitions>
+                    <ui:TransitionCollection>
+                        <ui:NavigationThemeTransition>
+                            <ui:DrillInNavigationTransitionInfo/>
+                        </ui:NavigationThemeTransition>
+                    </ui:TransitionCollection>
+                </ui:Frame.ContentTransitions>
+                <Frame.Content>
+                    <controls:ServiceContentFrame ContentType="{x:Type local:PageHome}"/>
+                </Frame.Content>
+            </ui:Frame>
+
+        </ui:NavigationView>
     </Grid>
-</control:WindowX>
+</controls:WindowX>

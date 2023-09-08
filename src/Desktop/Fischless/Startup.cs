@@ -1,5 +1,7 @@
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
+using Fischless.Services;
+using Fischless.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
@@ -17,7 +19,10 @@ public class Startup
         services.AddSingleton(app)
                 .AddSingleton(Log.Logger)
                 .AddLogging(c => c.AddSerilog(Log.Logger))
-                .AddPlugins(app);
+                .AddPlugins(app)
+                .AddSingleton<INavigationService, NavigationService>()
+                .AddSingleton<PageHome>()
+                .AddTransient<PageSettings>();
     }
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)

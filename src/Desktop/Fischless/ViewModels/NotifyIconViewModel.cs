@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System;
 using System.Windows;
 
 namespace Fischless.ViewModels;

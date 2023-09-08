@@ -14,5 +14,14 @@
     <s:String x:Key="Exit">Exit</s:String>
     <s:String x:Key="Restart">Restart</s:String>
     <s:String x:Key="Language">Language</s:String>
-    
+    <s:String x:Key="AboutProgram">About Program</s:String>
+    <s:String x:Key="CheckUpdate">Check for updates</s:String>
+    <s:String x:Key="PrivacyPolicy">Privacy Policy</s:String>
+    <s:String x:Key="LicenseInfo">License</s:String>
+    <s:String x:Key="CopySuccessfully">Successfully copied</s:String>
+    <s:String x:Key="CopyFailed">Copy failed</s:String>
+    <s:String x:Key="Home">Home</s:String>
+    <s:String x:Key="GlobalSettings">Global Settings</s:String>
+    <s:String x:Key="CopyVersionInfo">Copy version information</s:String>
+
 </ResourceDictionary>

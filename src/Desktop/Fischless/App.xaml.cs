@@ -1,10 +1,8 @@
-﻿using Fischless.Controls;
+﻿using Fischless.Designs.Controls;
 using Fischless.Hosting.Absraction;
 using Hardcodet.Wpf.TaskbarNotification;
-using Microsoft.AppCenter;
 using System;
 using System.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Fischless;
 

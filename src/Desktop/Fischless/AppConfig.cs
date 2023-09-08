@@ -1,6 +1,7 @@
 ﻿using Fischless.Native;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Reflection;
 using System.Windows;
 
@@ -48,6 +49,12 @@ internal static class AppConfig
     public static T GetService<T>() where T : class
     {
         return (Application.Current as App)?.Services?.GetService<T>()!;
+    }
+
+
+    public static object? GetService(Type type)
+    {
+        return (Application.Current as App)?.Services?.GetService(type)!;
     }
 
     public static ILogger<T> GetLogger<T>() where T : class

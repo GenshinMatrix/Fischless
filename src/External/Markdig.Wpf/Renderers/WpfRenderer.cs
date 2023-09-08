@@ -52,7 +52,7 @@ namespace Markdig.Renderers
         public FlowDocument? Document { get; protected set; }
 
         /// <inheritdoc/>
-        public override object? Render(MarkdownObject markdownObject)
+        public override object Render(MarkdownObject markdownObject)
         {
             Write(markdownObject);
             return Document;

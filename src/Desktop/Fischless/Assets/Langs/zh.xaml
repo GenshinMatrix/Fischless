@@ -14,5 +14,14 @@
     <s:String x:Key="Exit">退出</s:String>
     <s:String x:Key="Restart">重启</s:String>
     <s:String x:Key="Language">语言</s:String>
+    <s:String x:Key="AboutProgram">关于程序</s:String>
+    <s:String x:Key="CheckUpdate">检查更新</s:String>
+    <s:String x:Key="PrivacyPolicy">隐私政策</s:String>
+    <s:String x:Key="LicenseInfo">许可信息</s:String>
+    <s:String x:Key="CopySuccessfully">复制成功</s:String>
+    <s:String x:Key="CopyFailed">复制失败</s:String>
+    <s:String x:Key="Home">主页</s:String>
+    <s:String x:Key="GlobalSettings">全局设定</s:String>
+    <s:String x:Key="CopyVersionInfo">复制版本信息</s:String>
 
 </ResourceDictionary>
