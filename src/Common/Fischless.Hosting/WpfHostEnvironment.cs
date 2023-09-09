@@ -10,4 +10,11 @@ public class WpfHostEnvironment : IWpfHostEnvironment
     {
         CommandLineBuilder = commandLineBuilder;
     }
+
+    public bool IsDevelopment() =>
+#if DEBUG
+        true;
+#else
+        false;
+#endif
 }
