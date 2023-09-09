@@ -2,11 +2,13 @@
 
 namespace Fischless.Designs.Markups;
 
-[MarkupExtensionReturnType(typeof(string))]
-public class StringEmptyExtension : MarkupExtension
+[MarkupExtensionReturnType(typeof(double))]
+public sealed class DoubleExtension : MarkupExtension
 {
+    public double Value { get; set; }
+
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
-        return string.Empty;
+        return Value;
     }
 }

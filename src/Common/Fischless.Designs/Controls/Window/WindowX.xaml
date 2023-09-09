@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Fischless.Designs.Controls"
-    xmlns:converter="clr-namespace:Fischless.Designs.Converters">
+    xmlns:markups="clr-namespace:Fischless.Designs.Markups"
+    xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters">
 
     <Color x:Key="SystemAltHighColor">#FF000000</Color>
     <Color x:Key="SystemAltLowColor">#33000000</Color>
@@ -46,12 +47,11 @@
     <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
     
-    <converter:IsNullConverter x:Key="IsNullConverter"/>
-    <converter:IsNotNullConverter x:Key="IsNotNullConverter"/>
-    <converter:Add10Converter x:Key="Add10Converter"/>
-    <converter:Add5Converter x:Key="Add5Converter"/>
-    <converter:BoolInverseConverter x:Key="BoolInverseConverter"/>
-    <converter:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
+    <conv:AddConverter x:Key="AddConverter" />
+    <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    <conv:BoolNegationConverter x:Key="BoolNegationConverter" />
+    <conv:NullToBoolConverter x:Key="NullToBoolConverter" />
+    <conv:NullToBoolConverter x:Key="NullToBoolInvertedConverter" IsInverted="True"/>
 
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
 
@@ -108,8 +108,8 @@
                                                Source="{Binding Path=Icon,RelativeSource={RelativeSource AncestorType=Window}}"
                                                RenderOptions.BitmapScalingMode="HighQuality"
                                                VerticalAlignment="Center"
-                                               Width="{TemplateBinding FontSize,Converter={StaticResource Add5Converter}}"
-                                               Height="{TemplateBinding FontSize,Converter={StaticResource Add5Converter}}"
+                                               Width="{TemplateBinding FontSize,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=5}}"
+                                               Height="{TemplateBinding FontSize,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=5}}"
                                                Margin="8,0,0,0">
                                             <i:Interaction.Behaviors>
                                                 <local:WindowTitleIconBehavior/>
@@ -137,7 +137,7 @@
                                     <Button Grid.Column="2"
                                             x:Name="PART_BtnFullScreen"
                                             Style="{Binding Path=(local:WindowXCaption.FullScreenButtonStyle),RelativeSource={RelativeSource AncestorType=Window}}"
-                                            Visibility="{Binding Path=(local:WindowXCaption.ShowFullScreenButton),RelativeSource={RelativeSource AncestorType=Window},Converter={StaticResource BoolToVisibleConverter}}"
+                                            Visibility="{Binding Path=(local:WindowXCaption.ShowFullScreenButton),RelativeSource={RelativeSource AncestorType=Window},Converter={StaticResource BoolToVisibilityConverter}}"
                                             Command="{Binding FullScreenOrRestoreWindowCommand,RelativeSource={RelativeSource TemplatedParent}}"
                                             CommandParameter="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
                                     <Button Grid.Column="3"
@@ -152,7 +152,7 @@
                                             CommandParameter="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
                                     <Button Grid.Column="5"
                                             x:Name="PART_BtnClose"
-                                            IsEnabled="{Binding Path=(local:WindowXCaption.DisableCloseButton),RelativeSource={RelativeSource AncestorType=Window},Converter={StaticResource BoolInverseConverter}}"
+                                            IsEnabled="{Binding Path=(local:WindowXCaption.DisableCloseButton),RelativeSource={RelativeSource AncestorType=Window},Converter={StaticResource BoolNegationConverter}}"
                                             Style="{Binding Path=(local:WindowXCaption.CloseButtonStyle),RelativeSource={RelativeSource AncestorType=Window}}"
                                             Command="{Binding CloseWindowCommand,RelativeSource={RelativeSource TemplatedParent}}"
                                             CommandParameter="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
@@ -191,25 +191,25 @@
                                     Property="Opacity"
                                     Value="0.9" />
                         </Trigger>
-                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Icon),RelativeSource={RelativeSource Self},Mode=OneWay,Converter={StaticResource IsNullConverter}}"
+                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Icon),RelativeSource={RelativeSource Self},Mode=OneWay,Converter={StaticResource NullToBoolConverter}}"
                                      Value="True">
                             <Setter TargetName="PART_ImgIcon"
                                     Property="Source"
                                     Value="{Binding Path=Icon,RelativeSource={RelativeSource AncestorType=Window}}" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Icon),RelativeSource={RelativeSource Self},Mode=OneWay,Converter={StaticResource IsNotNullConverter}}"
+                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Icon),RelativeSource={RelativeSource Self},Mode=OneWay,Converter={StaticResource NullToBoolInvertedConverter}}"
                                      Value="True">
                             <Setter TargetName="PART_ImgIcon"
                                     Property="Source" 
                                     Value="{Binding Path=(local:WindowXCaption.Icon),RelativeSource={RelativeSource AncestorType=Window}}" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Icon,RelativeSource={RelativeSource Self},Mode=OneWay, Converter={StaticResource IsNullConverter}}"
+                        <DataTrigger Binding="{Binding Icon,RelativeSource={RelativeSource Self},Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
                                      Value="True">
                             <Setter TargetName="PART_ImgIcon"
                                     Property="Visibility"
                                     Value="Collapsed" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Header),RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={StaticResource IsNotNullConverter}}"
+                        <DataTrigger Binding="{Binding Path=(local:WindowXCaption.Header),RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={StaticResource NullToBoolInvertedConverter}}"
                                      Value="True">
                             <Setter TargetName="PART_StkTitle"
                                     Property="Visibility"
@@ -243,7 +243,7 @@
                     <Setter Property="Height"
                             Value="35" />
                     <Setter Property="Width"
-                            Value="{Binding ActualHeight,Converter={StaticResource Add10Converter},RelativeSource={RelativeSource Self}}" />
+                            Value="{Binding ActualHeight,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=10},RelativeSource={RelativeSource Self}}" />
                     <Setter Property="BorderThickness"
                             Value="0" />
                     <Setter Property="FontSize"
@@ -332,7 +332,7 @@
                     <Setter Property="Height"
                                     Value="35" />
                     <Setter Property="Width"
-                                    Value="{Binding ActualHeight,Converter={StaticResource Add10Converter},RelativeSource={RelativeSource Self}}" />
+                                    Value="{Binding ActualHeight,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=10},RelativeSource={RelativeSource Self}}" />
                     <Setter Property="BorderThickness"
                                     Value="0" />
                     <Setter Property="FontSize"
@@ -386,7 +386,7 @@
                     <Setter Property="Height"
                                     Value="35" />
                     <Setter Property="Width"
-                                    Value="{Binding ActualHeight,Converter={StaticResource Add10Converter},RelativeSource={RelativeSource Self}}" />
+                                    Value="{Binding ActualHeight,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=10},RelativeSource={RelativeSource Self}}" />
                     <Setter Property="BorderThickness"
                                     Value="0" />
                     <Setter Property="FontSize"
@@ -444,7 +444,7 @@
                     <Setter Property="Height"
                                     Value="35" />
                     <Setter Property="Width"
-                                    Value="{Binding ActualHeight,Converter={StaticResource Add10Converter},RelativeSource={RelativeSource Self}}" />
+                                    Value="{Binding ActualHeight,Converter={StaticResource AddConverter},ConverterParameter={markups:Double Value=10},RelativeSource={RelativeSource Self}}" />
                     <Setter Property="BorderThickness"
                                     Value="0" />
                     <Setter Property="FontSize"
