@@ -70,7 +70,7 @@ internal static class WindowSystemCommands
             }
             windowX.IsFullScreen = false;
         }
-        _ = User32.PostMessage(new WindowInteropHelper(window).Handle, (int)User32.WindowMessage.WM_NCLBUTTONDOWN, (int)User32.HitTestValues.HTCAPTION, 0);
+        _ = User32.PostMessage(new WindowInteropHelper(window).Handle, (int)User32.WindowMessage.WM_NCLBUTTONDOWN, (nint)User32.HitTestValues.HTCAPTION, IntPtr.Zero);
         window.WindowStyle = WindowStyle.SingleBorderWindow;
     }
 

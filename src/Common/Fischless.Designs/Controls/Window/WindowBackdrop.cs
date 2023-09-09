@@ -216,7 +216,7 @@ public static class WindowBackdrop
         {
             nint windowHandle =
                 new WindowInteropHelper(sender as Window ?? null)?.Handle
-                ?? nint.Zero;
+                ?? IntPtr.Zero;
 
             if (windowHandle == 0x00)
                 return;
@@ -243,7 +243,7 @@ public static class WindowBackdrop
         var windowSource = HwndSource.FromHwnd(windowHandle);
 
         // Remove background from client area
-        if (windowSource?.Handle != 0x00 && windowSource?.CompositionTarget != null)
+        if (windowSource?.Handle.ToInt32() != 0x00 && windowSource?.CompositionTarget != null)
             windowSource.CompositionTarget.BackgroundColor = Colors.Transparent;
 
         return true;
@@ -303,7 +303,7 @@ public static class WindowBackdrop
         var windowSource = HwndSource.FromHwnd(hWnd);
 
         // Restore client area background
-        if (windowSource?.Handle != 0x00 && windowSource?.CompositionTarget != null)
+        if (windowSource?.Handle.ToInt32() != 0x00 && windowSource?.CompositionTarget != null)
             windowSource.CompositionTarget.BackgroundColor = SystemColors.WindowColor;
 
         if (windowSource?.RootVisual is System.Windows.Window window)

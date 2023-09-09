@@ -79,14 +79,14 @@ public class CursorExtension : MarkupExtension
             }
         };
 
-        using var safeHdc = Gdi32.CreateCompatibleDC(0);
+        using var safeHdc = Gdi32.CreateCompatibleDC(HDC.NULL);
 
         if (safeHdc.IsInvalid)
         {
             throw new InvalidOperationException("Failed to create a compatible device context.");
         }
 
-        safeHBitmap = Gdi32.CreateDIBSection(safeHdc, pbmi, Gdi32.DIBColorMode.DIB_RGB_COLORS, out nint pBits, 0, 0);
+        safeHBitmap = Gdi32.CreateDIBSection(safeHdc, pbmi, Gdi32.DIBColorMode.DIB_RGB_COLORS, out nint pBits, Gdi32.HSECTION.NULL, 0);
 
         if (safeHBitmap.IsInvalid)
         {
