@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Fischless.Plugin.Demo"
-        xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless"
+        xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
         mc:Ignorable="d"
         FontFamily="{DynamicResource SymbolThemeFontFamily}"
         Style="{DynamicResource DefaultWindowXStyle}"

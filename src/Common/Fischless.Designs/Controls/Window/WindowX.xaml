@@ -53,7 +53,7 @@
     <converter:BoolInverseConverter x:Key="BoolInverseConverter"/>
     <converter:BoolToVisibleConverter x:Key="BoolToVisibleConverter"/>
 
-    <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
+    <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
 
     <Style TargetType="{x:Type local:WindowX}" x:Key="DefaultWindowXStyle">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -352,7 +352,7 @@
                                     <Grid>
                                         <TextBlock Width="12" Height="12"
                                                Text="&#xe740;"
-                                               FontSize="12" FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="12" FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center">
                                             <i:Interaction.Behaviors>

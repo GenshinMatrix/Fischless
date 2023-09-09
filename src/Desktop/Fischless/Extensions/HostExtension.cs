@@ -1,5 +1,6 @@
-﻿using Fischless.Core;
+﻿using Fischless.Globalization;
 using Fischless.Hosting.Absraction;
+using Fischless.Models;
 using Fischless.Plugin.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -24,7 +25,7 @@ public static class HostExtension
 
     public static IHost UseMuiLanguage(this IHost builder)
     {
-        MuiLanguage.SetupLanguage();
+        MuiLanguage.SetupLanguage(Configurations.Language.Get());
         return builder;
     }
 

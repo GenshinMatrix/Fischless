@@ -2,9 +2,9 @@
 using System.Windows.Baml2006;
 using System.Xaml;
 
-namespace Fischless.Designs.Helpers;
+namespace Fischless.Globalization.Helpers;
 
-public static class BamlHelper
+internal static class BamlHelper
 {
     public static object LoadBaml(Stream stream)
     {

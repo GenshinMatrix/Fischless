@@ -1,15 +1,11 @@
-﻿using Fischless.Designs.Helpers;
-using Fischless.Models;
-using Fischless.Resources;
+﻿using Fischless.Globalization.Helpers;
 using Serilog;
-using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
-using System.Threading;
 using System.Windows;
 
-namespace Fischless.Core;
+namespace Fischless.Globalization;
 
 public static class MuiLanguage
 {
@@ -22,11 +18,11 @@ public static class MuiLanguage
         "en" or _ => "en",
     };
 
-    public static void SetupLanguage()
+    public static void SetupLanguage(string lang)
     {
-        if (!string.IsNullOrWhiteSpace(Configurations.Language))
+        if (!string.IsNullOrWhiteSpace(lang))
         {
-            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture = new CultureInfo(Configurations.Language);
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
         }
         _ = SetLanguage();
     }
@@ -125,7 +121,7 @@ public static class MuiLanguage
 
     private static string GetXamlUriString()
     {
-        static string GetUriString(string name) => $"pack://application:,,,/Fischless;component/Assets/Langs/{name}.xaml";
+        static string GetUriString(string name) => $"pack://application:,,,/Fischless.Globalization;component/Assets/Langs/{name}.xaml";
 
         if (ResourceHelper.HasResource(GetUriString(CultureInfo.CurrentUICulture.Name)))
         {

@@ -8,8 +8,8 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Fischless.Views"
-        xmlns:controls="clr-namespace:Fischless.Designs.Controls"
-        xmlns:animations="clr-namespace:Fischless.Designs.Animations"
+        xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
+        xmlns:animations="clr-namespace:Fischless.Designs.Animations;assembly=Fischless.Designs"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
     <Grid>

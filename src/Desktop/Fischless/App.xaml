@@ -4,15 +4,16 @@
              xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:tb="http://www.hardcodet.net/taskbar"
-             xmlns:th="clr-namespace:Fischless.Designs.Themes"
-             xmlns:res="clr-namespace:Fischless.Resources"
+             xmlns:th="clr-namespace:Fischless.Designs.Themes;assembly=Fischless.Designs"
+             xmlns:mui="clr-namespace:Fischless.Globalization;assembly=Fischless.Globalization"
+             xmlns:de="clr-namespace:Fischless.Designs;assembly=Fischless.Designs"
              xmlns:vm="clr-namespace:Fischless.ViewModels"
              xmlns:local="clr-namespace:Fischless"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <res:MuiLanguageResources/>
+                <mui:MuiLanguageResources/>
                 <ui:ThemeResources RequestedTheme="Dark"/>
                 <ui:XamlControlsResources/>
                 <ui:ResourceDictionaryEx/>
@@ -20,7 +21,7 @@
                 <ui:IntellisenseResources/>
                 <wui:ThemesDictionary Theme="Dark" />
                 <wui:ControlsDictionary />
-                <res:XamlControlsResources/>
+                <de:XamlControlsResources/>
                 <th:ThemeStyleResources/>
                 <th:ThemeResource RequestedTheme="Dark"/>
             </ResourceDictionary.MergedDictionaries>

@@ -51,7 +51,6 @@ internal static class AppConfig
         return (Application.Current as App)?.Services?.GetService<T>()!;
     }
 
-
     public static object? GetService(Type type)
     {
         return (Application.Current as App)?.Services?.GetService(type)!;

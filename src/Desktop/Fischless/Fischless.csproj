@@ -38,6 +38,8 @@
         <ProjectReference Include="..\..\Common\Fischless.AppCenter\Fischless.AppCenter.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Common\Fischless.Common.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Configuration\Fischless.Configuration.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Designs\Fischless.Designs.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Globalization\Fischless.Globalization.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Hosting\Fischless.Hosting.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Mapper\Fischless.Mapper.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
@@ -48,9 +50,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
-        <None Remove="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
-        <None Remove="Assets\Fonts\Segoe Fluent Icons.ttf" />
         <None Remove="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
         <None Remove="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
         <None Remove="Assets\Images\UI_AnimalIcon_Cat_01.png" />
@@ -69,8 +68,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
-        <Resource Include="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
         <Resource Include="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
         <Resource Include="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
         <Resource Include="Assets\Images\UI_AnimalIcon_Cat_01.png" />
