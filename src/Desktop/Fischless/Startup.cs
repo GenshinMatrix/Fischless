@@ -28,7 +28,7 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)
     {
         app.UseLogger()
-           .UseSingleInstance("FischlessFischless")
+           .UseSingleInstance("Fischless")
            .UseMapper()
            .UseAppCenter()
            .UseDpiAware()
@@ -36,7 +36,7 @@ public class Startup
            .UseUnobservedTaskExceptionCatched()
            .Forget();
 
-        Log.Information($"Welcome to Starward v{AppConfig.AppVersion}|System: {Environment.OSVersion}|Command Line: {Environment.CommandLine}");
+        Log.Information($"Welcome to Fischless v{AppConfig.AppVersion}|System: {Environment.OSVersion}|Command Line: {Environment.CommandLine}");
 
         if (env.IsDevelopment())
         {
