@@ -47,8 +47,4 @@
 	  <Resource Include="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Converters\" />
-	</ItemGroup>
-
 </Project>

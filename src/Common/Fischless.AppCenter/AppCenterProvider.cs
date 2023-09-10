@@ -3,8 +3,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
+using Windows.System;
 
 namespace Fischless;
 
@@ -36,9 +36,6 @@ public static class AppCenterProvider
         AppSecret = appSecret;
     }
 
-    /// <summary>
-    /// <see cref="Application.OnStartup"/>
-    /// </summary>
     public static void CompletePrepare()
     {
         if (IsUseAppCenter && !IsStarted)
@@ -86,11 +83,11 @@ public static class AppCenterProvider
         {
             if (string.IsNullOrEmpty(owner) || string.IsNullOrEmpty(appName))
             {
-                _ = Process.Start("https://appcenter.ms");
+                _ = Launcher.LaunchUriAsync(new Uri("https://appcenter.ms"));
             }
             else
             {
-                _ = Process.Start($"https://appcenter.ms/{(isOrgs ? "orgs" : "users")}/{owner}/apps/{appName}/crashes/errors");
+                _ = Launcher.LaunchUriAsync(new Uri($"https://appcenter.ms/{(isOrgs ? "orgs" : "users")}/{owner}/apps/{appName}/crashes/errors"));
             }
         }
         catch

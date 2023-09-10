@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>11.0</LangVersion>
         <PlatformTarget>x64</PlatformTarget>
         <Platforms>x64</Platforms>
+		<UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

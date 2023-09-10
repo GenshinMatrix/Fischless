@@ -17,8 +17,49 @@
         WindowStartupLocation="CenterScreen"
         Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
         Icon="pack://application:,,,/Fischless;component/Assets/Icons/UI_Img_Aster_MainRewardS.ico"
-        FontSize="12"
-        Title="Fishless" Height="600" Width="900">
+        FontSize="14"
+        controls:WindowXCaption.Height="36"
+        Title="Fischless" Height="600" Width="900">
+
+    <controls:WindowXCaption.Header>
+        <Border Height="30">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                    <Image Source="{Binding Path=Icon,RelativeSource={RelativeSource AncestorType=Window}}"
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                           VerticalAlignment="Center"
+                           Width="24" Height="24"
+                           Margin="8,0,0,0">
+                        <i:Interaction.Behaviors>
+                            <controls:WindowTitleIconBehavior/>
+                        </i:Interaction.Behaviors>
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="0" CenterX="12" CenterY="12"/>
+                        </Image.RenderTransform>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.Angle">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="10"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="-10"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                    <TextBlock Margin="5,0,0,0"
+                               Text="{Binding Path=Title,RelativeSource={RelativeSource AncestorType=Window}}"
+                               FontSize="14"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </controls:WindowXCaption.Header>
+
     <Grid>
 
         <ui:NavigationView x:Name="NavView"
@@ -42,7 +83,7 @@
                                        controls:NavigationHelper.NavigateTo="{x:Type local:PageHome}"
                                        CornerRadius="4">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xe70f;" FontFamily="{StaticResource SymbolThemeFontFamily}"/>
+                        <ui:FontIcon Glyph="&#xe70f;" FontSize="18" FontFamily="{StaticResource SymbolThemeFontFamily}"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
