@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <Platforms>x64</Platforms>
 		<LangVersion>11.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     </PropertyGroup>
 
 	<ItemGroup>
@@ -17,6 +18,7 @@
 		<PackageReference Include="Vanara.PInvoke.ComCtl32" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.16" />
+		<PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.16" />
 	</ItemGroup>
 
 	<ItemGroup>
