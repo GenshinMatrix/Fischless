@@ -46,6 +46,7 @@ public static class AppCenterProvider
 
     public static void TrackEvent(string name, params string?[] properties)
     {
+        if (!IsStarted) return;
         try
         {
             var dic = new Dictionary<string, string>();
@@ -74,6 +75,7 @@ public static class AppCenterProvider
 
     public static void TrackError(Exception exception, IDictionary<string, string> properties = null!, params ErrorAttachmentLog[] attachments)
     {
+        if (!IsStarted) return;
         Crashes.TrackError(exception, properties, attachments);
     }
 

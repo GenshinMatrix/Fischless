@@ -159,4 +159,8 @@
     <SolidColorBrush x:Key="MarkdownH6Brush" Color="{DynamicResource MarkdownParagraphDisableColor}" />
     <SolidColorBrush x:Key="MarkdownLinkBrush" Color="{DynamicResource MarkdownParagraphAccentColor}" />
 
+    <!--  Fischless brushes  -->
+    <SolidColorBrush x:Key="AccentForeground" Color="#FE009F" />
+    <SolidColorBrush x:Key="IndicatorForeground" Color="#4CC2FF" />
+    
 </ResourceDictionary>

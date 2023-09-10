@@ -15,7 +15,7 @@ public sealed class NavigationService : INavigationService
 {
     public static NavigationView NavigationView { get; set; } = null!;
     public static Frame Frame { get; private set; } = null!;
-    public Type NavigateFrom { get; set; } = null!;
+    public Type NavigateFrom { get; set; } = typeof(PageHome);
 
     public void Navigate(Type navigateTo, object? extraData = null)
     {

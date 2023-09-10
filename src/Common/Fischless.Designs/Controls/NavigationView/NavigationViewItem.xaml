@@ -113,18 +113,18 @@
                         <Grid x:Name="PresenterContentRootGrid">
                             <!-- Wrap SelectionIndicator in a grid so that its offset is 0,0 - this enables the offset animation. -->
                             <Grid
-                                Margin="4,0,0,0"
+                                Margin="1,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
 
                                 <Rectangle
                                     x:Name="SelectionIndicator"
-                                    Width="2"
-                                    Height="24"
-                                    Fill="{DynamicResource NavigationViewSelectionIndicatorForeground}"
-                                    Opacity="0.0"
-                                    RadiusX="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TopLeftCornerRadiusDoubleValueConverter}}"
-                                    RadiusY="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BottomRightCornerRadiusDoubleValueConverter}}"/>
+                                    Width="3"
+                                    Height="20"
+                                    Fill="{DynamicResource IndicatorForeground}"
+                                    Opacity="0"
+                                    RadiusX="2"
+                                    RadiusY="2"/>
                             </Grid>
 
                             <Grid
@@ -141,7 +141,7 @@
                                          Height="16"
                                          Margin="{DynamicResource NavigationViewItemOnLeftIconBoxMargin}">
                                     <ContentPresenter 
-                                        x:Name="Icon" 
+                                        x:Name="Icon"
                                         Content="{TemplateBinding Icon}" />
                                 </Viewbox>
 
@@ -240,8 +240,8 @@
                     </ui:VisualStateGroupListener.Listener>
                     <VisualState x:Name="OnLeftNavigation" />
                     <!--
-                                     <VisualState x:Name="OnLeftNavigationReveal" />
-                                -->
+                            <VisualState x:Name="OnLeftNavigationReveal" />
+                    -->
                     <VisualState x:Name="OnTopNavigationPrimary">
                         <Storyboard>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChildrenFlyout" Storyboard.TargetProperty="Placement">
@@ -250,14 +250,14 @@
                         </Storyboard>
                     </VisualState>
                     <!--
-                                     <VisualState x:Name="OnTopNavigationPrimaryReveal">
-                                     <Storyboard>
-                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChildrenFlyout" Storyboard.TargetProperty="Placement">
-                                     <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static primitives:FlyoutPlacementMode.BottomEdgeAlignedLeft}" />
-                                     </ObjectAnimationUsingKeyFrames>
-                                     </Storyboard>
-                                     </VisualState>
-                                -->
+                            <VisualState x:Name="OnTopNavigationPrimaryReveal">
+                            <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChildrenFlyout" Storyboard.TargetProperty="Placement">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static primitives:FlyoutPlacementMode.BottomEdgeAlignedLeft}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                            </VisualState>
+                    -->
                     <VisualState x:Name="OnTopNavigationOverflow" />
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
@@ -316,10 +316,10 @@
             </Trigger>
             <!-- OnLeftNavigationReveal -->
             <!--
-                             <Trigger Property="CurrentStateName" Value="OnLeftNavigationReveal" SourceName="ItemOnNavigationViewListPositionStatesListener">
-                             <Setter TargetName="NavigationViewItemPresenter" Property="Style" Value="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnLeftPaneWithRevealFocus}" />
-                             </Trigger>
-                        -->
+                    <Trigger Property="CurrentStateName" Value="OnLeftNavigationReveal" SourceName="ItemOnNavigationViewListPositionStatesListener">
+                    <Setter TargetName="NavigationViewItemPresenter" Property="Style" Value="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnLeftPaneWithRevealFocus}" />
+                    </Trigger>
+            -->
             <!-- OnTopNavigationPrimary -->
             <Trigger Property="CurrentStateName" Value="OnTopNavigationPrimary" SourceName="ItemOnNavigationViewListPositionStatesListener">
                 <Setter TargetName="NavigationViewItemPresenter" Property="Margin" Value="{DynamicResource TopNavigationViewItemMargin}" />
@@ -327,11 +327,11 @@
             </Trigger>
             <!-- OnTopNavigationPrimaryReveal -->
             <!--
-                             <Trigger Property="CurrentStateName" Value="OnTopNavigationPrimaryReveal" SourceName="ItemOnNavigationViewListPositionStatesListener">
-                             <Setter TargetName="NavigationViewItemPresenter" Property="Margin" Value="{DynamicResource TopNavigationViewItemMargin}" />
-                             <Setter TargetName="NavigationViewItemPresenter" Property="Style" Value="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnTopPaneWithRevealFocus}" />
-                             </Trigger>
-                        -->
+                    <Trigger Property="CurrentStateName" Value="OnTopNavigationPrimaryReveal" SourceName="ItemOnNavigationViewListPositionStatesListener">
+                    <Setter TargetName="NavigationViewItemPresenter" Property="Margin" Value="{DynamicResource TopNavigationViewItemMargin}" />
+                    <Setter TargetName="NavigationViewItemPresenter" Property="Style" Value="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnTopPaneWithRevealFocus}" />
+                    </Trigger>
+            -->
             <!-- OnTopNavigationOverflow -->
             <Trigger Property="CurrentStateName" Value="OnTopNavigationOverflow" SourceName="ItemOnNavigationViewListPositionStatesListener">
                 <Setter TargetName="NavigationViewItemPresenter" Property="Style" Value="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnTopPaneOverflow}" />

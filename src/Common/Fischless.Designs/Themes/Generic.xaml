@@ -6,5 +6,9 @@
         <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/NavigationView/NavigationView.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/NavigationView/NavigationViewItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/MessageBox/MessageBoxX.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/ListView/ListView.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/ListView/ListViewItem.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/ContentDialog/ContentDialog.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Controls/ScrollBar/ScrollBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

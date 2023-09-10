@@ -16,13 +16,13 @@
         Background="#00FFFFFF"
         WindowStartupLocation="CenterScreen"
         Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
-        Icon="pack://application:,,,/Fischless;component/Assets/Icons/UI_Img_Aster_MainRewardS.ico"
+        Icon="/Assets/Icons/SummerTime_Ball.ico"
         FontSize="14"
         controls:WindowXCaption.Height="36"
         Title="Fischless" Height="600" Width="900">
 
     <controls:WindowXCaption.Header>
-        <Border Height="30">
+        <Border Height="30" Margin="3,5,0,0">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                     <Image Source="{Binding Path=Icon,RelativeSource={RelativeSource AncestorType=Window}}"
@@ -51,9 +51,10 @@
                             </EventTrigger>
                         </Image.Triggers>
                     </Image>
-                    <TextBlock Margin="5,0,0,0"
+                    <TextBlock Margin="18,0,0,0"
                                Text="{Binding Path=Title,RelativeSource={RelativeSource AncestorType=Window}}"
                                FontSize="14"
+                               Foreground="#B1B4B1"
                                VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

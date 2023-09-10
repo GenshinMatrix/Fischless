@@ -8,7 +8,7 @@
         <LangVersion>11.0</LangVersion>
         <StartupObject>Fischless.Program</StartupObject>
         <Platforms>x64</Platforms>
-        <ApplicationIcon>Assets\Icons\UI_Img_Aster_MainRewardS.ico</ApplicationIcon>
+        <ApplicationIcon>Assets\Icons\SummerTime_Ball.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -47,42 +47,20 @@
         <ProjectReference Include="..\..\External\LottieSharp.WPF\LottieSharp.WPF.csproj" />
         <ProjectReference Include="..\..\External\Markdig.Wpf\Markdig.Wpf.csproj" />
         <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
+        <ProjectReference Include="..\Fischless.Fetch\Fischless.Fetch.csproj" />
+        <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
-        <None Remove="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
-        <None Remove="Assets\Images\UI_AnimalIcon_Cat_01.png" />
-        <None Remove="Assets\Images\UI_Icon_GcgBossChallenges_Difficulty.png" />
-        <None Remove="Assets\Images\UI_Img_Aster_MainRewardS.png" />
-        <None Remove="Assets\Images\UI_Img_Cursor_PC.png" />
-        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint1Character.png" />
-        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint2Character.png" />
-        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint3Character.png" />
-        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint4Character.png" />
-        <None Remove="Assets\Images\UI_Irodori_ImgEntry_Paint5Character.png" />
-        <None Remove="Assets\Images\UI_ItemIcon_223.png" />
-        <None Remove="Assets\Images\UI_ItemIcon_224.png" />
-        <None Remove="Assets\Images\UI_MallTabIcon_Wing.png" />
-        <None Remove="Assets\Images\UI_SummerTime_ImgCharacter_01.png" />
+        <None Remove="Assets\Icons\*.ico" />
+        <None Remove="Assets\Images\*.png" />
+		<None Remove="Assets\Images\LocalAvatars\*.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <Resource Include="Assets\Icons\UI_AnimalIcon_Cat_01.ico" />
-        <Resource Include="Assets\Icons\UI_Img_Aster_MainRewardS.ico" />
-        <Resource Include="Assets\Images\UI_AnimalIcon_Cat_01.png" />
-        <Resource Include="Assets\Images\UI_Icon_GcgBossChallenges_Difficulty.png" />
-        <Resource Include="Assets\Images\UI_Img_Aster_MainRewardS.png" />
-        <Resource Include="Assets\Images\UI_Img_Cursor_PC.png" />
-        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint1Character.png" />
-        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint2Character.png" />
-        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint3Character.png" />
-        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint4Character.png" />
-        <Resource Include="Assets\Images\UI_Irodori_ImgEntry_Paint5Character.png" />
-        <Resource Include="Assets\Images\UI_ItemIcon_223.png" />
-        <Resource Include="Assets\Images\UI_ItemIcon_224.png" />
-        <Resource Include="Assets\Images\UI_MallTabIcon_Wing.png" />
-        <Resource Include="Assets\Images\UI_SummerTime_ImgCharacter_01.png" />
+        <Resource Include="Assets\Icons\*.ico" />
+        <Resource Include="Assets\Images\*.png" />
+		<Resource Include="Assets\Images\LocalAvatars\*.png" />
     </ItemGroup>
 
 </Project>

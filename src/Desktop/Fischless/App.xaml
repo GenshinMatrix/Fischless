@@ -26,7 +26,7 @@
                 <th:ThemeResource RequestedTheme="Dark"/>
             </ResourceDictionary.MergedDictionaries>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
-                            IconSource="pack://application:,,,/Fischless;component/Assets/Icons/UI_AnimalIcon_Cat_01.ico"
+                            IconSource="/Assets/Icons/SummerTime_Ball.ico"
                             ToolTipText="Fischless"
                             DoubleClickCommand="{Binding ShowOrHideCommand}">
                 <tb:TaskbarIcon.DataContext>
