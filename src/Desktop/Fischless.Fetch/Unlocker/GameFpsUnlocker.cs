@@ -1,7 +1,4 @@
-﻿// Copyright (c) DGP Studio. All rights reserved.
-// Licensed under the MIT license.
-
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Vanara.PInvoke;
 using static Vanara.PInvoke.Kernel32;

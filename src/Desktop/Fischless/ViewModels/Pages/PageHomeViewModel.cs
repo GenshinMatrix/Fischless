@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Fischless.ViewModels;
 
-public partial class PageHomeViewModel : ObservableRecipient
+public partial class PageHomeViewModel : ObservableObject
 {
     [RelayCommand]
-    public async Task AddContact()
+    public async Task AddContactAsync()
     {
         ContactContentDialog contentDialog = new();
         await contentDialog.ShowAsync();
@@ -18,8 +18,4 @@ public partial class PageHomeViewModel : ObservableRecipient
     public void Refresh()
     {
     }
-}
-
-public partial class Contact : ObservableObject
-{
 }

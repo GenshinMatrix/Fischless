@@ -20,7 +20,7 @@ public partial class AboutViewModel : ObservableObject
     {
         try
         {
-            Clipboard.SetText($"Fischless {Version}");
+            Clipboard.SetText($"Fischless {this.Version}");
             Toast.Success(Mui("CopySuccessfully"), ToastLocation.BottomCenter);
         }
         catch

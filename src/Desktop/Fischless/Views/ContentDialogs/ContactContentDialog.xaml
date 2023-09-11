@@ -14,7 +14,7 @@
              PrimaryButtonText="取消"
              SecondaryButtonText="保存"
              DefaultButton="Secondary">
-    <Grid Width="400">
+    <Grid Width="450">
         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-40,0,0" Panel.ZIndex="999">
             <Image Width="84" Opacity="0.5" Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png"/>
         </Grid>
@@ -26,12 +26,16 @@
                         <Run Text="头像" FontSize="16"/>
                     </TextBlock.Inlines>
                 </TextBlock>
-                <Button x:Name="LocalIconButton" Margin="30,0,0,5" Width="90" Padding="0" Background="Transparent" BorderBrush="Transparent">
+                <Button x:Name="LocalIconButton" Margin="20,0,0,5" Width="104" Padding="0" Background="Transparent" BorderBrush="Transparent">
                     <Button.Content>
-                        <ui:PersonPicture HorizontalAlignment="Left" Width="80"
-                                          Margin="0" Padding="0"
+                        <Image HorizontalAlignment="Left" Width="100" Height="100"
+                               Source="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},ConverterParameter=100,Mode=OneWay}"/>
+                        <!--<ui:PersonPicture HorizontalAlignment="Left" Width="100"
+                                          Margin="0" Padding="-1"
                                           DisplayName="F" Initials="F"
-                                          ProfilePicture="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},ConverterParameter=80,Mode=OneWay}"/>
+                                          BorderBrush="Transparent"
+                                          BorderThickness="0"
+                                          ProfilePicture="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},ConverterParameter=100,Mode=OneWay}"/>-->
                     </Button.Content>
                     <ui:FlyoutService.Flyout>
                         <ui:Flyout Placement="Right">
@@ -44,7 +48,7 @@
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
-                                    <DataTemplate DataType="x:Type vm:AddContactSelectionViewModel">
+                                    <DataTemplate DataType="x:Type vm:ContactSelectionViewModel">
                                         <Button Tag="{Binding LocalIconUri}"
                                                 Command="{Binding Parent.ChangeIconButtonCommand}"
                                                 CommandParameter="{Binding LocalIconUri}"
@@ -53,13 +57,21 @@
                                             <Button.Content>
                                                 <Image Width="64" Source="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},ConverterParameter=64,Mode=OneWay}"/>
                                             </Button.Content>
-                                            <ui:FlyoutService.Flyout>
-                                                <ui:Flyout Placement="BottomEdgeAlignedLeft">
-                                                    <Grid>
-                                                        <Image Source="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},Mode=OneWay}"/>
-                                                    </Grid>
-                                                </ui:Flyout>
-                                            </ui:FlyoutService.Flyout>
+                                            <Button.ContextMenu>
+                                                <ContextMenu>
+                                                    <ContextMenu.Style>
+                                                        <Style TargetType="{x:Type ContextMenu}">
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate>
+                                                                        <Image Source="{Binding LocalIconUri,Converter={x:Static converters:UriToImageSourceConverter.Instance},Mode=OneWay}"/>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </ContextMenu.Style>
+                                                </ContextMenu>
+                                            </Button.ContextMenu>
                                         </Button>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
