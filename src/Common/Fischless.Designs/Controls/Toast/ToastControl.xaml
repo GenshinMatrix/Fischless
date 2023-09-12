@@ -25,12 +25,13 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="textBlockIcon"
                        Grid.Column="0"
-                       Width="16"
-                       Height="16"
+                       Width="24"
+                       Height="24"
                        Margin="6,3,0,0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                       FontSize="{Binding IconSize}"
                        Foreground="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.Instance}}"
                        Text="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.Instance}}" />
             <TextBlock x:Name="textBlockToast"

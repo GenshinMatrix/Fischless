@@ -75,7 +75,7 @@ public partial class ToastControl : UserControl
         }
         UIDispatcherHelper.Invoke(() =>
         {
-            Popup = new Popup
+            Popup = new Popup()
             {
                 Width = Width,
                 Height = Height,
@@ -85,12 +85,19 @@ public partial class ToastControl : UserControl
                 Placement = PlacementMode.Relative,
                 IsOpen = false,
                 Child = this,
-                PlacementTarget = Window
+                PlacementTarget = Window,
             };
             Window.LocationChanged += UpdatePosition;
             Window.SizeChanged += UpdatePosition;
             SetPopupOffset(Popup, this);
-            Popup.Closed += (s, e) =>
+            Popup.Opened += (s, _) =>
+            {
+                if (s is Popup popup)
+                {
+                    popup.ApplyCursorFromRelativeSource();
+                }
+            };
+            Popup.Closed += (s, _) =>
             {
                 if (s is not Popup popup)
                 {

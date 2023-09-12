@@ -4,12 +4,11 @@
          xmlns:animations="clr-namespace:Fischless.Designs.Animations;assembly=Fischless.Designs"
          xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:dd="urn:gong-wpf-dragdrop"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-         xmlns:local="clr-namespace:Fischless.Views"
+         xmlns:m="clr-namespace:Fischless.Models"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:sys="clr-namespace:System;assembly=mscorlib"
          xmlns:ui="http://schemas.modernwpf.com/2019"
-         xmlns:vm="clr-namespace:Fischless.ViewModels"
          d:DesignHeight="450"
          d:DesignWidth="800"
          FontSize="14"
@@ -62,7 +61,9 @@
                                          Margin="6,3,6,3"
                                          PanningMode="None"
                                          VerticalScrollBarVisibility="Visible">
-                <ListView ScrollViewer.CanContentScroll="False"
+                <ListView dd:DragDrop.IsDragSource="True"
+                          dd:DragDrop.IsDropTarget="True"
+                          ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
                           VirtualizingPanel.IsVirtualizing="False">
@@ -79,39 +80,26 @@
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
-                        <DataTemplate DataType="vm:Contact">
+                        <DataTemplate DataType="m:Contact">
                             <Grid Height="45">
                                 <TextBlock Margin="0"
                                            FontSize="16"
                                            Foreground="#A0A0A0"
-                                           Text="2asf" />
+                                           Text="{Binding AliasName}" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Items>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
-                        <sys:String>4s5ew</sys:String>
+                        <m:Contact AliasName="1" />
+                        <m:Contact AliasName="2" />
+                        <m:Contact AliasName="3" />
+                        <m:Contact AliasName="4" />
+                        <m:Contact AliasName="5" />
+                        <m:Contact AliasName="6" />
+                        <m:Contact AliasName="7" />
+                        <m:Contact AliasName="8" />
+                        <m:Contact AliasName="9" />
+                        <m:Contact AliasName="0" />
                     </ListView.Items>
                 </ListView>
             </controls:SmoothScrollViewer>

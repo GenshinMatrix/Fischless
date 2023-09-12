@@ -28,6 +28,7 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)
     {
         app.UseLogger()
+           .UseConfiguration()
            .UseSingleInstance("Fischless")
            .UseMapper()
            .UseAppCenter()

@@ -16,9 +16,9 @@ public class ToastConfig
     public Brush Foreground { get; set; } = Brushes.White;
     public FontStyle FontStyle { get; set; } = SystemFonts.MessageFontStyle;
     public FontStretch FontStretch { get; set; } = FontStretches.Normal;
-    public double FontSize { get; set; } = SystemFonts.MessageFontSize;
+    public double FontSize { get; set; } = 14d;
     public FontWeight FontWeight { get; set; } = SystemFonts.MenuFontWeight;
-    public double IconSize { get; set; } = 26d;
+    public double IconSize { get; set; } = 20d;
     public CornerRadius CornerRadius { get; set; } = new CornerRadius(3d);
     public Brush BorderBrush { get; set; } = (Brush)new BrushConverter().ConvertFromString("#1B1B1B");
     public Thickness BorderThickness { get; set; } = new Thickness(1.5d);

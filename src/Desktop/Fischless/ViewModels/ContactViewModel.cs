@@ -5,6 +5,7 @@ using Fischless.Fetch.Regedit;
 using Fischless.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Fischless.ViewModels;
@@ -19,11 +20,32 @@ public partial class ContactViewModel : ObservableObject
 
     public ObservableCollection<ContactSelectionViewModel> LocalIconSelectionUris { get; } = new();
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProdMD5))]
     private string? prod = null!;
-    public string? Prod
+    partial void OnProdChanged(string? value)
     {
-        get => prod;
-        set => SetProperty(ref prod, value?.Replace("\n", string.Empty) ?? string.Empty);
+        Prod = value?.Replace("\n", string.Empty) ?? string.Empty;
+    }
+    public string? ProdMD5
+    {
+        get
+        {
+            byte[] hashBytes = MD5.HashData(Encoding.UTF8.GetBytes(Prod));
+            StringBuilder sb = new();
+
+            sb.Append("MD5: ");
+            if (string.IsNullOrEmpty(Prod))
+            {
+                sb.Append("NULL");
+                return sb.ToString();
+            }
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
     }
 
     [ObservableProperty]
@@ -38,6 +60,9 @@ public partial class ContactViewModel : ObservableObject
 
     [ObservableProperty]
     private string? cookie = null!;
+
+    [ObservableProperty]
+    private bool isUseCookie = true;
 
     public ContactViewModel()
     {
@@ -107,39 +132,6 @@ public partial class ContactViewModel : ObservableObject
                 break;
         }
     }
-}
-
-public partial class Contact : ObservableObject
-{
-    [ObservableProperty]
-    public string guid = System.Guid.NewGuid().ToString("N");
-
-    [ObservableProperty]
-    private string? aliasName = null!;
-
-    [ObservableProperty]
-    private string? nickName = null!;
-
-    [ObservableProperty]
-    private string? localIconUri = null!;
-
-    [ObservableProperty]
-    private string? prod = null!;
-
-    [ObservableProperty]
-    private string? server = null!;
-
-    [ObservableProperty]
-    private string? regionName = null!;
-
-    [ObservableProperty]
-    private string? cookie = null!;
-
-    [ObservableProperty]
-    private int? uid = null!;
-
-    [ObservableProperty]
-    private int? level = null!;
 }
 
 public partial class ContactSelectionViewModel : ObservableObject

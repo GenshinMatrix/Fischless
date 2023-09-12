@@ -11,7 +11,9 @@
                   Title="添加账号"
                   DefaultButton="Secondary"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
+                  PrimaryButtonClick="OnPrimaryButtonClick"
                   PrimaryButtonText="取消"
+                  SecondaryButtonClick="OnSecondaryButtonClick"
                   SecondaryButtonText="保存"
                   Style="{DynamicResource DefaultContentDialogStyle}"
                   mc:Ignorable="d">
@@ -138,9 +140,9 @@
                     <ComboBox Margin="0,8,0,0"
                               Cursor="{x:Null}"
                               SelectedIndex="{Binding SelectedServerIndex, Mode=TwoWay}">
-                        <ComboBoxItem Content="自动" Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
-                        <ComboBoxItem Content="国服" Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
-                        <ComboBoxItem Content="国际服" Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
+                        <ComboBoxItem Content="自动" />
+                        <ComboBoxItem Content="国服" />
+                        <ComboBoxItem Content="国际服" />
                     </ComboBox>
                 </StackPanel>
             </Grid>
@@ -177,17 +179,23 @@
                          PlaceholderText="请勿随意修改"
                          Text="{Binding Prod, Mode=TwoWay}"
                          TextWrapping="Wrap" />
+            <TextBlock Foreground="#61666D" Text="{Binding ProdMD5}" />
             <StackPanel>
-                <CheckBox Margin="0,15,0,0"
+                <CheckBox Margin="0,8,0,0"
                           Content="输入 Cookie"
                           Cursor="{x:Null}"
-                          FontSize="16" />
+                          FontSize="16"
+                          IsChecked="{Binding IsUseCookie, Mode=TwoWay}" />
                 <TextBlock Margin="0,0,0,5"
                            FontSize="14"
                            Foreground="#61666D"
-                           Text="支持国服米游社，同时支持国际服。" />
+                           Text="支持国服米游社，同时支持国际服，风控原因仅访问基本信息。"
+                           TextWrapping="Wrap" />
             </StackPanel>
-            <TextBox Margin="0,0,0,16" Text="{Binding Cookie, Mode=TwoWay}" />
+            <wui:TextBox Margin="0,0,0,16"
+                         IsEnabled="{Binding IsUseCookie}"
+                         PlaceholderText="可留空"
+                         Text="{Binding Cookie, Mode=TwoWay}" />
         </StackPanel>
     </Grid>
 </ui:ContentDialog>

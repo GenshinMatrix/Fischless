@@ -1,4 +1,5 @@
-﻿using Fischless.Helpers;
+﻿using Fischless.Configuration;
+using Fischless.Helpers;
 using Fischless.Hosting.Absraction;
 using Fischless.Mapper;
 using Fischless.Native;
@@ -87,6 +88,12 @@ public static class ApplicationBuilderExtension
             .WriteTo.File(path: AppConfig.LogFile, outputTemplate: "{Timestamp:HH:mm:ss.fff}|{Level:u4}|{SourceContext}|{Message}{NewLine}{Exception}{NewLine}")
             .Enrich.FromLogContext()
             .CreateLogger();
+        return app;
+    }
+
+    public static IApplicationBuilder UseConfiguration(this IApplicationBuilder app)
+    {
+        ConfigurationManager.Setup(SpecialPathHelper.GetPath("config.yaml"));
         return app;
     }
 

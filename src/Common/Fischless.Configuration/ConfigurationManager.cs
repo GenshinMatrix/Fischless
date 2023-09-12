@@ -9,7 +9,7 @@ public class ConfigurationManager
     public static void Setup(string filePath)
     {
         FilePath = filePath;
-        _ = Cache;
+        Cache = Init();
         Save();
     }
 

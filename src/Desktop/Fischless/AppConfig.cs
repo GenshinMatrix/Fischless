@@ -9,6 +9,7 @@ namespace Fischless;
 
 internal static class AppConfig
 {
+    public static string? AppName => "Fischless";
     public static string? AppVersion { get; private set; }
     public static string LogFile { get; internal set; }
     public static AppCenterSecret AppCenterSecret { get; private set; }
