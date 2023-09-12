@@ -2,6 +2,6 @@
 
 public enum HoyolabRegion
 {
-    Cn,
-    Global,
+    CN,
+    OVERSEA,
 }

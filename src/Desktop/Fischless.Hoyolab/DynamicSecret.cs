@@ -6,11 +6,8 @@ namespace Fischless.Hoyolab;
 
 internal abstract class DynamicSecret
 {
-
     private static readonly string ApiSalt = "V1PYbXKQY7ysdx3MNCcNbsE1LtY2QZpW";
-
     private static readonly string ApiSalt2 = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs";
-
 
     public static string CreateSecret()
     {
@@ -20,7 +17,6 @@ internal abstract class DynamicSecret
         var check = Convert.ToHexString(bytes).ToLower();
         return $"{t},{r},{check}";
     }
-
 
     public static string CreateSecret2(string url, object? postBody = null)
     {
@@ -39,7 +35,6 @@ internal abstract class DynamicSecret
         string result = $"{t},{r},{check}";
         return result;
     }
-
 
     private static string GetRandomString(int timestamp)
     {

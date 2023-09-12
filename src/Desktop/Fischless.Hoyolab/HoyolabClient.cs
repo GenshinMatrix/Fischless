@@ -44,13 +44,13 @@ public partial class HoyolabClient
         }
         var url = region switch
         {
-            HoyolabRegion.Cn => UrlAccountServerCn,
-            HoyolabRegion.Global or _ => UrlAccountServerGlobal,
+            HoyolabRegion.CN => UrlAccountServerCn,
+            HoyolabRegion.OVERSEA or _ => UrlAccountServerGlobal,
         };
         var clientType = region switch
         {
-            HoyolabRegion.Cn => HeaderValueClientTypeServerCn,
-            HoyolabRegion.Global or _ => HeaderValueClientTypeServerGlobal,
+            HoyolabRegion.CN => HeaderValueClientTypeServerCn,
+            HoyolabRegion.OVERSEA or _ => HeaderValueClientTypeServerGlobal,
         };
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.Add(Cookie, cookie);
@@ -72,18 +72,18 @@ public partial class HoyolabClient
         }
         var url = region switch
         {
-            HoyolabRegion.Cn => UrlCharactersServerCn,
-            HoyolabRegion.Global or _ => UrlCharactersServerGlobal,
+            HoyolabRegion.CN => UrlCharactersServerCn,
+            HoyolabRegion.OVERSEA or _ => UrlCharactersServerGlobal,
         };
         var referer = region switch
         {
-            HoyolabRegion.Cn => HeaderValueRefererServerCn,
-            HoyolabRegion.Global or _ => HeaderValueRefererServerGlobal,
+            HoyolabRegion.CN => HeaderValueRefererServerCn,
+            HoyolabRegion.OVERSEA or _ => HeaderValueRefererServerGlobal,
         };
         var clientType = region switch
         {
-            HoyolabRegion.Cn => HeaderValueClientTypeServerCn,
-            HoyolabRegion.Global or _ => HeaderValueClientTypeServerGlobal,
+            HoyolabRegion.CN => HeaderValueClientTypeServerCn,
+            HoyolabRegion.OVERSEA or _ => HeaderValueClientTypeServerGlobal,
         };
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.Add(Cookie, cookie);
