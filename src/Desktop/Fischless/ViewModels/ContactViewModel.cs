@@ -30,7 +30,7 @@ public partial class ContactViewModel : ObservableObject
     private string? server = null!;
 
     [ObservableProperty]
-    private int selectedServerIndex = (int)ContactServer.AUTO;
+    private int selectedServerIndex = (int)ContactServer.Auto;
     partial void OnSelectedServerIndexChanged(int value)
     {
         RegetProd();
@@ -49,6 +49,7 @@ public partial class ContactViewModel : ObservableObject
                 LocalIconUri = kv.Value,
             });
         }
+        Reload();
     }
 
     public void Reload(Contact contact = null!)
@@ -85,7 +86,7 @@ public partial class ContactViewModel : ObservableObject
     {
         switch ((ContactServer)SelectedServerIndex)
         {
-            case ContactServer.AUTO:
+            case ContactServer.Auto:
                 if (!string.IsNullOrEmpty(Prod = GIRegedit.ProdCN))
                 {
                     Server = GILauncher.RegionCN;
@@ -151,7 +152,7 @@ public partial class ContactSelectionViewModel : ObservableObject
 
 public enum ContactServer
 {
-    AUTO,
+    Auto,
     CN,
     OVERSEA,
 }

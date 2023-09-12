@@ -1,58 +1,58 @@
 ﻿<Application x:Class="Fischless.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:de="clr-namespace:Fischless.Designs;assembly=Fischless.Designs"
+             xmlns:local="clr-namespace:Fischless"
+             xmlns:mui="clr-namespace:Fischless.Globalization;assembly=Fischless.Globalization"
              xmlns:tb="http://www.hardcodet.net/taskbar"
              xmlns:th="clr-namespace:Fischless.Designs.Themes;assembly=Fischless.Designs"
-             xmlns:mui="clr-namespace:Fischless.Globalization;assembly=Fischless.Globalization"
-             xmlns:de="clr-namespace:Fischless.Designs;assembly=Fischless.Designs"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:vm="clr-namespace:Fischless.ViewModels"
-             xmlns:local="clr-namespace:Fischless"
+             xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <mui:MuiLanguageResources/>
-                <ui:ThemeResources RequestedTheme="Dark"/>
-                <ui:XamlControlsResources/>
-                <ui:ResourceDictionaryEx/>
-                <ui:ColorPaletteResources TargetTheme="Dark"/>
-                <ui:IntellisenseResources/>
+                <mui:MuiLanguageResources />
+                <ui:ThemeResources RequestedTheme="Dark" />
+                <ui:XamlControlsResources />
+                <ui:ResourceDictionaryEx />
+                <ui:ColorPaletteResources TargetTheme="Dark" />
+                <ui:IntellisenseResources />
                 <wui:ThemesDictionary Theme="Dark" />
                 <wui:ControlsDictionary />
-                <de:XamlControlsResources/>
-                <th:ThemeStyleResources/>
-                <th:ThemeResource RequestedTheme="Dark"/>
+                <de:XamlControlsResources />
+                <th:ThemeStyleResources />
+                <th:ThemeResource RequestedTheme="Dark" />
             </ResourceDictionary.MergedDictionaries>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
+                            DoubleClickCommand="{Binding ShowOrHideCommand}"
                             IconSource="/Assets/Icons/SummerTime_Ball.ico"
-                            ToolTipText="Fischless"
-                            DoubleClickCommand="{Binding ShowOrHideCommand}">
+                            ToolTipText="Fischless">
                 <tb:TaskbarIcon.DataContext>
-                    <vm:NotifyIconViewModel/>
+                    <vm:NotifyIconViewModel />
                 </tb:TaskbarIcon.DataContext>
                 <tb:TaskbarIcon.ContextMenu>
-                    <ContextMenu Padding="0,5" MinWidth="160">
+                    <ContextMenu MinWidth="160" Padding="0,5">
                         <MenuItem x:Name="PART_RestartMenuItem"
-                                  Visibility="Collapsed"
+                                  Command="{Binding RestartCommand}"
                                   Header="{DynamicResource Restart}"
                                   Tag="Restart"
-                                  Command="{Binding RestartCommand}">
+                                  Visibility="Collapsed">
                             <MenuItem.Icon>
-                                <TextBlock Text="&#xe777;"
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="12"
-                                           FontFamily="{StaticResource SymbolThemeFontFamily}"/>
+                                           Text="&#xe777;" />
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem x:Name="PART_ExitMenuItem"
+                                  Command="{Binding ExitCommand}"
                                   Header="{DynamicResource Exit}"
-                                  Tag="Exit"
-                                  Command="{Binding ExitCommand}">
+                                  Tag="Exit">
                             <MenuItem.Icon>
-                                <TextBlock Text="&#xf367;"
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="12"
-                                           FontFamily="{StaticResource SymbolThemeFontFamily}"/>
+                                           Text="&#xf367;" />
                             </MenuItem.Icon>
                         </MenuItem>
                     </ContextMenu>

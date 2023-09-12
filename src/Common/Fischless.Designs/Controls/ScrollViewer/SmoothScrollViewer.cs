@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -7,9 +6,6 @@ using System.Windows.Media.Animation;
 
 namespace Fischless.Designs.Controls;
 
-/// <summary>
-/// https://github.com/HandyOrg/HandyControl/blob/master/src/Shared/HandyControl_Shared/Controls/Other/ScrollViewer.cs
-/// </summary>
 public class SmoothScrollViewer : ScrollViewer
 {
     private double _totalVerticalOffset;

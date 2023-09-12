@@ -1,5 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="DefaultListViewItemStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="Foreground">
@@ -15,34 +14,30 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border
-                        x:Name="Border"
-                        Margin="0"
-                        Padding="0"
-                        Background="Transparent"
-                        BorderThickness="1"
-                        CornerRadius="{TemplateBinding Border.CornerRadius}">
+                    <Border x:Name="Border"
+                            Margin="0"
+                            Padding="0"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}">
                         <Grid>
                             <ContentPresenter Margin="{TemplateBinding Padding}" />
-                            <Rectangle
-                                x:Name="ActiveRectangle"
-                                Width="3"
-                                Height="20"
-                                Margin="0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                RadiusX="2"
-                                RadiusY="2"
-                                Visibility="Collapsed"
-                                Fill="{DynamicResource IndicatorForeground}">
-                            </Rectangle>
+                            <Rectangle x:Name="ActiveRectangle"
+                                       Width="3"
+                                       Height="20"
+                                       Margin="0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Fill="{DynamicResource IndicatorForeground}"
+                                       RadiusX="2"
+                                       RadiusY="2"
+                                       Visibility="Collapsed" />
                         </Grid>
                         <Border.Triggers>
                             <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ActiveRectangle"
-                                                                       Storyboard.TargetProperty="Height">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ActiveRectangle" Storyboard.TargetProperty="Height">
                                             <EasingDoubleKeyFrame KeyTime="0:0:0" Value="10" />
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="20">
                                                 <EasingDoubleKeyFrame.EasingFunction>
@@ -71,7 +66,7 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="Border" Property="Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource SubtleFillColorSecondary}" Opacity="0.8"/>
+                                    <SolidColorBrush Opacity="0.8" Color="{DynamicResource SubtleFillColorSecondary}" />
                                 </Setter.Value>
                             </Setter>
                         </MultiTrigger>

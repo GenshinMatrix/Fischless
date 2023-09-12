@@ -26,14 +26,12 @@
     <SolidColorBrush x:Key="AccentTextFillColorTertiaryBrush" Color="{DynamicResource SystemAccentColorLight2}" />
     <SolidColorBrush x:Key="AccentFillColorSelectedTextBackgroundBrush" Color="{DynamicResource SystemAccentColor}" />
     <SolidColorBrush x:Key="AccentFillColorDefaultBrush" Color="{DynamicResource SystemAccentColorLight2}" />
-    <SolidColorBrush
-        x:Key="AccentFillColorSecondaryBrush"
-        Opacity="0.9"
-        Color="{DynamicResource SystemAccentColorLight2}" />
-    <SolidColorBrush
-        x:Key="AccentFillColorTertiaryBrush"
-        Opacity="0.8"
-        Color="{DynamicResource SystemAccentColorLight2}" />
+    <SolidColorBrush x:Key="AccentFillColorSecondaryBrush"
+                     Opacity="0.9"
+                     Color="{DynamicResource SystemAccentColorLight2}" />
+    <SolidColorBrush x:Key="AccentFillColorTertiaryBrush"
+                     Opacity="0.8"
+                     Color="{DynamicResource SystemAccentColorLight2}" />
 
     <!--  Brushes  -->
 
@@ -148,7 +146,7 @@
     <!--  Neo fixed brushes  -->
 
     <SolidColorBrush x:Key="ScrollBarThumbBorderBrush" Color="Transparent" />
-    
+
     <!--  Markdown brushes  -->
 
     <SolidColorBrush x:Key="MarkdownH1Brush" Color="{DynamicResource SystemAccentColorLight1}" />
@@ -162,5 +160,5 @@
     <!--  Fischless brushes  -->
     <SolidColorBrush x:Key="AccentForeground" Color="#FE009F" />
     <SolidColorBrush x:Key="IndicatorForeground" Color="#4CC2FF" />
-    
+
 </ResourceDictionary>

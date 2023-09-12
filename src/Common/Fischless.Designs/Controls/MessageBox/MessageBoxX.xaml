@@ -1,9 +1,8 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Fischless.Designs.Controls"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:ui="http://schemas.modernwpf.com/2019">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Fischless.Designs.Controls"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ui="http://schemas.modernwpf.com/2019">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <ui:CornerRadiusFilterConverter x:Key="BottomCornerRadiusDoubleValueConverter" Filter="Bottom" />
@@ -18,13 +17,12 @@
     <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
     <Thickness x:Key="ContentDialogPadding">24</Thickness>
 
-    <WindowChrome
-        x:Key="AeroWindowChrome"
-        x:Shared="False"
-        GlassFrameThickness="-1"
-        NonClientFrameEdges="None"
-        ResizeBorderThickness="0"
-        UseAeroCaptionButtons="False" />
+    <WindowChrome x:Key="AeroWindowChrome"
+                  x:Shared="False"
+                  GlassFrameThickness="-1"
+                  NonClientFrameEdges="None"
+                  ResizeBorderThickness="0"
+                  UseAeroCaptionButtons="False" />
 
     <Style TargetType="{x:Type local:MessageBoxX}">
         <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
@@ -53,68 +51,62 @@
                 <ControlTemplate TargetType="{x:Type local:MessageBoxX}">
                     <Border x:Name="Container">
                         <Grid x:Name="LayoutRoot" SnapsToDevicePixels="True">
-                            <Grid
-                                x:Name="BackgroundElement"
-                                MinWidth="{StaticResource ContentDialogMinWidth}"
-                                MinHeight="{StaticResource ContentDialogMinHeight}"
-                                MaxWidth="{StaticResource ContentDialogMaxWidth}"
-                                MaxHeight="{StaticResource ContentDialogMaxHeight}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FlowDirection="{TemplateBinding FlowDirection}"
-                                RenderTransformOrigin="0.5,0.5">
+                            <Grid x:Name="BackgroundElement"
+                                  MinWidth="{StaticResource ContentDialogMinWidth}"
+                                  MinHeight="{StaticResource ContentDialogMinHeight}"
+                                  MaxWidth="{StaticResource ContentDialogMaxWidth}"
+                                  MaxHeight="{StaticResource ContentDialogMaxHeight}"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  FlowDirection="{TemplateBinding FlowDirection}"
+                                  RenderTransformOrigin="0.5,0.5">
                                 <Grid.RenderTransform>
                                     <ScaleTransform x:Name="ScaleTransform" />
                                 </Grid.RenderTransform>
-                                <Border
-                                    x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="{TemplateBinding CornerRadius}"
-                                    Opacity="0" />
-                                <Border
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    ClipToBounds="True"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <Border x:Name="BackgroundBorder"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="{TemplateBinding CornerRadius}"
+                                        Opacity="0" />
+                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        ClipToBounds="True"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
                                     <Border x:Name="DialogSpace">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*" />
                                                 <RowDefinition Height="Auto" />
                                             </Grid.RowDefinitions>
-                                            <ScrollViewer
-                                                x:Name="ContentScrollViewer"
-                                                HorizontalScrollBarVisibility="Disabled"
-                                                IsTabStop="False"
-                                                VerticalScrollBarVisibility="Disabled">
+                                            <ScrollViewer x:Name="ContentScrollViewer"
+                                                          HorizontalScrollBarVisibility="Disabled"
+                                                          IsTabStop="False"
+                                                          VerticalScrollBarVisibility="Disabled">
                                                 <Border Padding="{StaticResource ContentDialogPadding}" Background="{DynamicResource ContentDialogTopOverlay}">
                                                     <Grid>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="Auto" />
                                                             <RowDefinition Height="*" />
                                                         </Grid.RowDefinitions>
-                                                        <ContentControl
-                                                            x:Name="Title"
-                                                            Margin="{StaticResource ContentDialogTitleMargin}"
-                                                            HorizontalAlignment="Left"
-                                                            VerticalAlignment="Top"
-                                                            Content="{TemplateBinding Caption}"
-                                                            ContentTemplate="{TemplateBinding CaptionTemplate}"
-                                                            FontFamily="{DynamicResource TextThemeFontFamily}"
-                                                            FontSize="20"
-                                                            FontWeight="Normal"
-                                                            Foreground="{TemplateBinding Foreground}"
-                                                            IsTabStop="False"
-                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                        <ContentControl x:Name="Title"
+                                                                        Margin="{StaticResource ContentDialogTitleMargin}"
+                                                                        HorizontalAlignment="Left"
+                                                                        VerticalAlignment="Top"
+                                                                        Content="{TemplateBinding Caption}"
+                                                                        ContentTemplate="{TemplateBinding CaptionTemplate}"
+                                                                        FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                                        FontSize="20"
+                                                                        FontWeight="Normal"
+                                                                        Foreground="{TemplateBinding Foreground}"
+                                                                        IsTabStop="False"
+                                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                                                             <ContentControl.Template>
                                                                 <ControlTemplate TargetType="ContentControl">
-                                                                    <ui:ContentPresenterEx
-                                                                        Margin="{TemplateBinding Padding}"
-                                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                                        Content="{TemplateBinding Content}"
-                                                                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                        TextWrapping="Wrap" />
+                                                                    <ui:ContentPresenterEx Margin="{TemplateBinding Padding}"
+                                                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                           Content="{TemplateBinding Content}"
+                                                                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                                           TextWrapping="Wrap" />
                                                                 </ControlTemplate>
                                                             </ContentControl.Template>
                                                         </ContentControl>
@@ -123,40 +115,39 @@
                                                                 <ColumnDefinition Width="Auto" />
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
-                                                            <ContentControl
-                                                                x:Name="UserIconBox"
-                                                                Margin="0,0,16,0"
-                                                                VerticalAlignment="Center"
-                                                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.IconElement}"
-                                                                IsTabStop="False"
-                                                                Visibility="Collapsed" />
+                                                            <ContentControl x:Name="UserIconBox"
+                                                                            Margin="0,0,16,0"
+                                                                            VerticalAlignment="Center"
+                                                                            Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.IconElement}"
+                                                                            IsTabStop="False"
+                                                                            Visibility="Collapsed" />
                                                             <TextBlock x:Name="UserIconBlock"
-                                                                Margin="4,0,16,0"
-                                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.Instance}}"
-                                                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.Instance}}"
-                                                                VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                                FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                FontSize="36"
-                                                                Width="36" Height="36"/>
-                                                            <ui:ContentPresenterEx
-                                                                Grid.Column="1"
-                                                                VerticalAlignment="Center"
-                                                                FontFamily="{DynamicResource TextThemeFontFamily}"
-                                                                FontSize="{DynamicResource ControlContentThemeFontSize}"
-                                                                Foreground="{TemplateBinding Foreground}"
-                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                                TextWrapping="Wrap" />
+                                                                       Width="36"
+                                                                       Height="36"
+                                                                       Margin="4,0,16,0"
+                                                                       HorizontalAlignment="Center"
+                                                                       VerticalAlignment="Center"
+                                                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                       FontSize="36"
+                                                                       Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.Instance}}"
+                                                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.Instance}}" />
+                                                            <ui:ContentPresenterEx Grid.Column="1"
+                                                                                   VerticalAlignment="Center"
+                                                                                   FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                                                   FontSize="{DynamicResource ControlContentThemeFontSize}"
+                                                                                   Foreground="{TemplateBinding Foreground}"
+                                                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                                   TextWrapping="Wrap" />
                                                         </Grid>
                                                     </Grid>
                                                 </Border>
                                             </ScrollViewer>
-                                            <Grid
-                                                x:Name="CommandSpace"
-                                                Grid.Row="1"
-                                                Margin="{StaticResource ContentDialogPadding}"
-                                                HorizontalAlignment="Stretch"
-                                                VerticalAlignment="Bottom"
-                                                KeyboardNavigation.DirectionalNavigation="Contained">
+                                            <Grid x:Name="CommandSpace"
+                                                  Grid.Row="1"
+                                                  Margin="{StaticResource ContentDialogPadding}"
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Bottom"
+                                                  KeyboardNavigation.DirectionalNavigation="Contained">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition x:Name="PrimaryColumn" Width="*" />
                                                     <ColumnDefinition x:Name="FirstSpacer" Width="{StaticResource ContentDialogButtonSpacing}" />
@@ -164,34 +155,30 @@
                                                     <ColumnDefinition x:Name="SecondSpacer" Width="{StaticResource ContentDialogButtonSpacing}" />
                                                     <ColumnDefinition x:Name="CloseColumn" Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <Button
-                                                    x:Name="OKButton"
-                                                    Grid.Column="0"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{Binding TemplateSettings.OKButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    Style="{TemplateBinding OKButtonStyle}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"/>
-                                                <Button
-                                                    x:Name="YesButton"
-                                                    Grid.Column="0"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{Binding TemplateSettings.YesButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    Style="{TemplateBinding YesButtonStyle}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"/>
-                                                <Button
-                                                    x:Name="NoButton"
-                                                    Grid.Column="2"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{Binding TemplateSettings.NoButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    Style="{TemplateBinding NoButtonStyle}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"/>
-                                                <Button
-                                                    x:Name="CancelButton"
-                                                    Grid.Column="4"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{Binding TemplateSettings.CancelButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    Style="{TemplateBinding CancelButtonStyle}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"/>
+                                                <Button x:Name="OKButton"
+                                                        Grid.Column="0"
+                                                        HorizontalAlignment="Stretch"
+                                                        Content="{Binding TemplateSettings.OKButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                        Style="{TemplateBinding OKButtonStyle}" />
+                                                <Button x:Name="YesButton"
+                                                        Grid.Column="0"
+                                                        HorizontalAlignment="Stretch"
+                                                        Content="{Binding TemplateSettings.YesButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                        Style="{TemplateBinding YesButtonStyle}" />
+                                                <Button x:Name="NoButton"
+                                                        Grid.Column="2"
+                                                        HorizontalAlignment="Stretch"
+                                                        Content="{Binding TemplateSettings.NoButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                        Style="{TemplateBinding NoButtonStyle}" />
+                                                <Button x:Name="CancelButton"
+                                                        Grid.Column="4"
+                                                        HorizontalAlignment="Stretch"
+                                                        Content="{Binding TemplateSettings.CancelButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                        Style="{TemplateBinding CancelButtonStyle}" />
                                             </Grid>
                                         </Grid>
                                     </Border>

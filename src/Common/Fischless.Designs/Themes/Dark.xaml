@@ -154,7 +154,7 @@
     <!--  Brushes based on colors  -->
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Themes/Brushes.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Designs;component/Themes/Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
