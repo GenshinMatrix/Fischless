@@ -48,6 +48,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Fetch", "Desktop\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Hoyolab", "Desktop\Fischless.Hoyolab\Fischless.Hoyolab.csproj", "{8892E40A-CDCE-4102-8998-4551564163F3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Mvvm", "Common\Fischless.Mvvm\Fischless.Mvvm.csproj", "{DAE9FF89-8D24-4C30-B770-CAAD6AA86674}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -118,6 +120,10 @@ Global
 		{8892E40A-CDCE-4102-8998-4551564163F3}.Debug|x64.Build.0 = Debug|x64
 		{8892E40A-CDCE-4102-8998-4551564163F3}.Release|x64.ActiveCfg = Release|x64
 		{8892E40A-CDCE-4102-8998-4551564163F3}.Release|x64.Build.0 = Release|x64
+		{DAE9FF89-8D24-4C30-B770-CAAD6AA86674}.Debug|x64.ActiveCfg = Debug|x64
+		{DAE9FF89-8D24-4C30-B770-CAAD6AA86674}.Debug|x64.Build.0 = Debug|x64
+		{DAE9FF89-8D24-4C30-B770-CAAD6AA86674}.Release|x64.ActiveCfg = Release|x64
+		{DAE9FF89-8D24-4C30-B770-CAAD6AA86674}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +145,7 @@ Global
 		{A935D579-40BB-45D3-96E4-2B10A3AB6DBE} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{57CD15FE-633C-42C8-B8E4-DC0D2176A029} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{8892E40A-CDCE-4102-8998-4551564163F3} = {2944494E-EB09-4387-9677-BB38A224A624}
+		{DAE9FF89-8D24-4C30-B770-CAAD6AA86674} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}

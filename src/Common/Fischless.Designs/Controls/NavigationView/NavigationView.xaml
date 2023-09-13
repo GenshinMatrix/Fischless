@@ -51,9 +51,9 @@
 
                         <ui:FontIcon x:Name="Icon"
                                      Width="16"
-                                     FontFamily="{DynamicResource FluentSystemIcons}"
-                                     FontSize="16"
-                                     Glyph="&#xe85f;">
+                                     FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                     FontSize="14"
+                                     Glyph="{x:Static controls:FontSymbols.GlobalNavButton}">
                             <ui:FontIcon.RenderTransform>
                                 <TransformGroup>
                                     <RotateTransform Angle="0" CenterX="8" CenterY="8" />

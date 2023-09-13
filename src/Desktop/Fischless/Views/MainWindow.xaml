@@ -90,7 +90,7 @@
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                      FontSize="18"
-                                     Glyph="&#xe70f;" />
+                                     Glyph="{x:Static controls:FontSymbols.Home}" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
@@ -108,7 +108,7 @@
                                      Height="18"
                                      FontFamily="{StaticResource SymbolThemeFontFamily}"
                                      FontSize="18"
-                                     Glyph="&#xf6a9;">
+                                     Glyph="{x:Static controls:FontSymbols.Settings}">
                             <ui:FontIcon.RenderTransform>
                                 <RotateTransform x:Name="IconRotationTransform" Angle="0" CenterX="9" CenterY="9" />
                             </ui:FontIcon.RenderTransform>

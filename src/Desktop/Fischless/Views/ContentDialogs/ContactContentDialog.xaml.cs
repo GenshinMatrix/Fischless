@@ -49,7 +49,7 @@ public partial class ContactContentDialog : ContentDialog
     {
         if (string.IsNullOrWhiteSpace(ViewModel.AliasName))
         {
-            Toast.Warning("咱们还是先取个别名吧");
+            Toast.Warning("咱们还是先取个别名吧", ToastLocation.BottomCenter);
             e.Cancel = true;
             return;
         }

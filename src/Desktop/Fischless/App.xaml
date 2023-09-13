@@ -1,6 +1,7 @@
 ﻿<Application x:Class="Fischless.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
              xmlns:de="clr-namespace:Fischless.Designs;assembly=Fischless.Designs"
              xmlns:local="clr-namespace:Fischless"
              xmlns:mui="clr-namespace:Fischless.Globalization;assembly=Fischless.Globalization"
@@ -36,23 +37,30 @@
                     <ContextMenu MinWidth="160" Padding="0,5">
                         <MenuItem x:Name="PART_RestartMenuItem"
                                   Command="{Binding RestartCommand}"
+                                  FontFamily="{DynamicResource TextThemeFontFamily}"
                                   Header="{DynamicResource Restart}"
-                                  Tag="Restart"
-                                  Visibility="Collapsed">
+                                  Tag="Restart">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                           FontSize="12"
-                                           Text="&#xe777;" />
+                                <Grid>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="12"
+                                               Text="{x:Static controls:FontSymbols.RestartUpdate}" />
+                                    <TextBlock Margin="2,2,0,0"
+                                               FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="10"
+                                               Text="{x:Static controls:FontSymbols.UpdateStatusDot}" />
+                                </Grid>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem x:Name="PART_ExitMenuItem"
                                   Command="{Binding ExitCommand}"
+                                  FontFamily="{DynamicResource TextThemeFontFamily}"
                                   Header="{DynamicResource Exit}"
                                   Tag="Exit">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="12"
-                                           Text="&#xf367;" />
+                                           Text="{x:Static controls:FontSymbols.Cancel}" />
                             </MenuItem.Icon>
                         </MenuItem>
                     </ContextMenu>

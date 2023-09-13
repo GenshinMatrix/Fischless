@@ -43,6 +43,7 @@
         <ProjectReference Include="..\..\Common\Fischless.Globalization\Fischless.Globalization.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Hosting\Fischless.Hosting.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Mapper\Fischless.Mapper.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Mvvm\Fischless.Mvvm.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
         <ProjectReference Include="..\..\External\LottieSharp.WPF\LottieSharp.WPF.csproj" />

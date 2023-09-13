@@ -5,6 +5,7 @@
     <FontFamily x:Key="IcoMoon">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/IcoMoon/fonts/icomoon.ttf#icomoon</FontFamily>
 
     <FontFamily x:Key="TextThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/HarmonyOS_Sans_SC_Regular.ttf#HarmonyOS Sans SC</FontFamily>
-    <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
+    <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
+    <FontFamily x:Key="FluentSystemIconsRegular">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
 
 </ResourceDictionary>

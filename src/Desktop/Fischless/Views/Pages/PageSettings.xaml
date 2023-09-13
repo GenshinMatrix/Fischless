@@ -86,8 +86,8 @@
                                 ToolTip="{DynamicResource CopyVersionInfo}">
                             <Button.Content>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                           FontSize="18"
-                                           Text="&#xf32b;" />
+                                           FontSize="16"
+                                           Text="{x:Bind controls:FontSymbols.Copy}" />
                             </Button.Content>
                         </Button>
                         <StackPanel Grid.Column="3" Margin="0,3,0,0">

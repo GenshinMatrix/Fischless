@@ -74,6 +74,22 @@ public static class MapperProvider
         });
     }
 
+    public static TDestination MapCloneable<TSource, TDestination>(TSource source, TDestination destination)
+    {
+        return Map(source, destination, cfg =>
+        {
+            cfg.CreateMap<TSource, TDestination>().ForAllMembersCloneable();
+        });
+    }
+
+    public static TDestination MapCloneable<TSource, TDestination>(TSource source)
+    {
+        return Map<TSource, TDestination>(source, cfg =>
+        {
+            cfg.CreateMap<TSource, TDestination>().ForAllMembersCloneable();
+        });
+    }
+
     public static TDestination Map<TSource, TDestination>(TSource source, TDestination destination, Action<IMapperConfigurationExpression> configure = null!)
     {
         if (configure != null)

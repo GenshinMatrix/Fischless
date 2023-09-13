@@ -1,17 +1,18 @@
 ﻿<controls:WindowX x:Class="Fischless.Plugin.Demo.DemoPluginPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-        xmlns:local="clr-namespace:Fischless.Plugin.Demo"
-        xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
-        mc:Ignorable="d"
-        FontFamily="{DynamicResource SymbolThemeFontFamily}"
-        Style="{DynamicResource DefaultWindowXStyle}"
-        Background="#00FFFFFF"
-        WindowStartupLocation="CenterScreen"
-        Title="Fischless" Height="450" Width="800">
-    <Grid>
-    </Grid>
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:controls="clr-namespace:Fischless.Designs.Controls;assembly=Fischless.Designs"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:local="clr-namespace:Fischless.Plugin.Demo"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
+                  Title="Fischless"
+                  Width="800"
+                  Height="450"
+                  Background="#00FFFFFF"
+                  FontFamily="{DynamicResource TextThemeFontFamily}"
+                  Style="{DynamicResource DefaultWindowXStyle}"
+                  WindowStartupLocation="CenterScreen"
+                  mc:Ignorable="d">
+    <Grid />
 </controls:WindowX>

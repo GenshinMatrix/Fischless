@@ -7,6 +7,7 @@
          xmlns:dd="urn:gong-wpf-dragdrop"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
          xmlns:m="clr-namespace:Fischless.Models"
+         xmlns:markups="clr-namespace:Fischless.Designs.Markups;assembly=Fischless.Designs"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:ui="http://schemas.modernwpf.com/2019"
          d:DesignHeight="450"
@@ -28,7 +29,6 @@
                    Opacity="0.3"
                    Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png" />
         </Grid>
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -39,7 +39,9 @@
                     <Button BorderBrush="Transparent" Command="{Binding AddContactCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <ui:FontIcon FontSize="18" Glyph="{x:Bind controls:FontSymbols.AddFriend}" />
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Bind controls:FontSymbols.AddFriend}" />
                                 <TextBlock Margin="5,0,0,0" Text="添加" />
                             </StackPanel>
                         </Button.Content>
@@ -49,7 +51,9 @@
                             Command="{Binding RefreshCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <ui:FontIcon FontSize="18" Glyph="{x:Bind controls:FontSymbols.Refresh}" />
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Bind controls:FontSymbols.Refresh}" />
                                 <TextBlock Margin="5,0,0,0" Text="刷新" />
                             </StackPanel>
                         </Button.Content>
@@ -61,8 +65,12 @@
                                          Margin="6,3,6,3"
                                          PanningMode="None"
                                          VerticalScrollBarVisibility="Visible">
-                <ListView dd:DragDrop.IsDragSource="True"
+                <ListView dd:DragDrop.DropHandler="{Binding}"
+                          dd:DragDrop.IsDragSource="True"
                           dd:DragDrop.IsDropTarget="True"
+                          dd:DragDrop.UseDefaultDragAdorner="True"
+                          AllowDrop="True"
+                          ItemsSource="{Binding Contacts}"
                           ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -82,25 +90,74 @@
                     <ListView.ItemTemplate>
                         <DataTemplate DataType="m:Contact">
                             <Grid Height="45">
-                                <TextBlock Margin="0"
-                                           FontSize="16"
+                                <i:Interaction.Behaviors>
+                                    <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
+                                                                                         Transition="FadeIn"
+                                                                                         Duration="500" />
+                                </i:Interaction.Behaviors>
+                                <TextBlock FontSize="16"
                                            Foreground="#A0A0A0"
                                            Text="{Binding AliasName}" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                    <ListView.Items>
-                        <m:Contact AliasName="1" />
-                        <m:Contact AliasName="2" />
-                        <m:Contact AliasName="3" />
-                        <m:Contact AliasName="4" />
-                        <m:Contact AliasName="5" />
-                        <m:Contact AliasName="6" />
-                        <m:Contact AliasName="7" />
-                        <m:Contact AliasName="8" />
-                        <m:Contact AliasName="9" />
-                        <m:Contact AliasName="0" />
-                    </ListView.Items>
+                    <ListView.ContextMenu>
+                        <ContextMenu Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}" Opened="{x:Bind ViewModel.OnContextMenuOpened}">
+                            <MenuItem Command="{x:Bind ViewModel.LaunchGameFromListCommand}" Header="启动游戏">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Play}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{x:Bind ViewModel.LaunchGameFromListWithDelayCommand}"
+                                      Header="缓启动游戏"
+                                      ToolTip="3分钟后启动选中账号">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Play}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Command="{x:Bind ViewModel.RefreshContactCommand}" Header="刷新">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Refresh}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{x:Bind ViewModel.CopyUidCommand}" Header="复制 UID">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Copy}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{x:Bind ViewModel.CopyCookieCommand}" Header="复制 Cookie">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Copy}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Command="{x:Bind ViewModel.EditContactCommand}" Header="编辑">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Edit}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{x:Bind ViewModel.DeleteContactCommand}" Header="删除">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Delete}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
                 </ListView>
             </controls:SmoothScrollViewer>
         </Grid>

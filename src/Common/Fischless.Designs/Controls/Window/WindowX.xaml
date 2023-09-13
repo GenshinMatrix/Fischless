@@ -54,8 +54,6 @@
     <conv:NullToBoolConverter x:Key="NullToBoolConverter" />
     <conv:NullToBoolConverter x:Key="NullToBoolInvertedConverter" IsInverted="True" />
 
-    <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Designs;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
-
     <Style x:Key="DefaultWindowXStyle" TargetType="{x:Type local:WindowX}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderBrush" Value="#313A4C" />

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xaml.Behaviors;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -7,7 +6,7 @@ using System.Windows.Media.Animation;
 
 namespace Fischless.Designs.Animations;
 
-public class StackPanelChildrenTransitionsRightToLeftBehavior : Behavior<StackPanel>
+public sealed class StackPanelChildrenTransitionsDownToUpBehavior : Behavior<StackPanel>
 {
     public bool IsOnce { get; set; } = false;
     public double BeginTimeDelay { get; set; } = 0d;
@@ -38,7 +37,7 @@ public class StackPanelChildrenTransitionsRightToLeftBehavior : Behavior<StackPa
                 if (child is FrameworkElement element)
                 {
                     Storyboard sb = new();
-                    DoubleAnimation fromHorizontalOffsetAnimaiton = new()
+                    DoubleAnimation fromVerticalOffsetAnimaiton = new()
                     {
                         To = 0d,
                         BeginTime = TimeSpan.FromSeconds(i / 40d + BeginTimeDelay),
@@ -57,12 +56,12 @@ public class StackPanelChildrenTransitionsRightToLeftBehavior : Behavior<StackPa
                     i++;
 
                     child.Opacity = 0d;
-                    child.RenderTransform = new TranslateTransform() { X = 15d };
-                    Storyboard.SetTarget(fromHorizontalOffsetAnimaiton, element);
+                    child.RenderTransform = new TranslateTransform() { Y = 15d };
+                    Storyboard.SetTarget(fromVerticalOffsetAnimaiton, element);
                     Storyboard.SetTarget(fadeInAnimation, element);
-                    Storyboard.SetTargetProperty(fromHorizontalOffsetAnimaiton, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+                    Storyboard.SetTargetProperty(fromVerticalOffsetAnimaiton, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
                     Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath("Opacity"));
-                    sb.Children.Add(fromHorizontalOffsetAnimaiton);
+                    sb.Children.Add(fromVerticalOffsetAnimaiton);
                     sb.Children.Add(fadeInAnimation);
                     sb.Begin();
                 }

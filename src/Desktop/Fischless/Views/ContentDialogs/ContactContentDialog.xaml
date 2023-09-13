@@ -194,7 +194,7 @@
             </StackPanel>
             <wui:TextBox Margin="0,0,0,16"
                          IsEnabled="{Binding IsUseCookie}"
-                         PlaceholderText="可留空"
+                         PlaceholderText="此处可留空"
                          Text="{Binding Cookie, Mode=TwoWay}" />
         </StackPanel>
     </Grid>

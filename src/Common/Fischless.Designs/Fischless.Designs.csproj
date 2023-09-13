@@ -9,11 +9,6 @@
 		<UseWPF>true</UseWPF>
     </PropertyGroup>
 
-    <ItemGroup>
-		<None Remove="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
-		<None Remove="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
-    </ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="CompiledBindings.WPF" Version="1.0.17.3" />
@@ -43,8 +38,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
-	  <Resource Include="Assets\Fonts\HarmonyOS_Sans_SC_Regular.ttf" />
+		<None Remove="Assets\Fonts\*.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\Fonts\*.ttf" />
 	</ItemGroup>
 
 </Project>
