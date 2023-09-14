@@ -40,6 +40,22 @@ public partial class ContactContentDialog : ContentDialog
         return null!;
     }
 
+    public async Task<ContactMessage> EditContactAsync(Contact contact)
+    {
+        ViewModel.Reload(contact);
+        ContentDialogResult result = await ShowAsync();
+
+        if (result == ContentDialogResult.Secondary)
+        {
+            return new ContactMessage()
+            {
+                Type = ContactMessageType.Edited,
+                Contact = contact,
+            };
+        }
+        return null!;
+    }
+
     protected void OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs e)
     {
         ///

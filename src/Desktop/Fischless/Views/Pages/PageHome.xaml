@@ -3,6 +3,7 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:animations="clr-namespace:Fischless.Design.Animations;assembly=Fischless.Design"
          xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
+         xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          xmlns:dd="urn:gong-wpf-dragdrop"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
@@ -14,6 +15,16 @@
          d:DesignWidth="800"
          FontSize="14"
          mc:Ignorable="d">
+    <Page.Resources>
+        <conv:ValueConverterGroup x:Key="NullToVisibilityConverter">
+            <conv:NullToBoolConverter />
+            <conv:BoolToVisibilityConverter />
+        </conv:ValueConverterGroup>
+        <conv:ValueConverterGroup x:Key="NotNullToVisibilityConverter">
+            <conv:NullToBoolConverter />
+            <conv:BoolToVisibilityConverter IsInverted="True" />
+        </conv:ValueConverterGroup>
+    </Page.Resources>
     <Grid>
         <Grid Margin="0,0,0,0"
               HorizontalAlignment="Left"
@@ -71,9 +82,11 @@
                           dd:DragDrop.UseDefaultDragAdorner="True"
                           AllowDrop="True"
                           ItemsSource="{Binding Contacts}"
+                          MouseDoubleClick="{x:Bind ViewModel.OnContactMouseDoubleClick}"
                           ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                           VirtualizingPanel.IsVirtualizing="False">
                     <i:Interaction.Behaviors>
                         <controls:ListViewMouseWheelBubblingBehavior />
@@ -102,7 +115,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ContextMenu>
-                        <ContextMenu Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}" Opened="{x:Bind ViewModel.OnContextMenuOpened}">
+                        <ContextMenu Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}">
                             <MenuItem Command="{x:Bind ViewModel.LaunchGameFromListCommand}" Header="启动游戏">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -117,6 +130,15 @@
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
                                                  Glyph="{x:Bind controls:FontSymbols.Play}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{x:Bind ViewModel.CancelLaunchGameFromListWithDelayCommand}"
+                                      Header="取消缓启动游戏"
+                                      Visibility="{Binding CancelLaunchGameDelayTokenSource, Converter={StaticResource NotNullToVisibilityConverter}}">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Bind controls:FontSymbols.Cancel}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
