@@ -25,8 +25,8 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="textBlockIcon"
                        Grid.Column="0"
-                       Width="24"
-                       Height="24"
+                       Width="16"
+                       Height="16"
                        Margin="6,3,0,0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"

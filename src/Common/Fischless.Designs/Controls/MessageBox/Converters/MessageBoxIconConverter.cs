@@ -15,11 +15,11 @@ public sealed class MessageBoxIconConverter : IValueConverter
         {
             return icon switch
             {
-                MessageBoxIcon.Info => "\xf4a2",
-                MessageBoxIcon.Success => "\xf297",
-                MessageBoxIcon.Warning => "\xf868",
-                MessageBoxIcon.Error => "\xf368",
-                MessageBoxIcon.Question => "\xf63c",
+                MessageBoxIcon.Info => FontSymbols.Info,
+                MessageBoxIcon.Success => FontSymbols.Accept,
+                MessageBoxIcon.Warning => FontSymbols.Warning,
+                MessageBoxIcon.Error => FontSymbols.Cancel,
+                MessageBoxIcon.Question => FontSymbols.Unknown,
                 MessageBoxIcon.None or _ => string.Empty,
             };
         }
