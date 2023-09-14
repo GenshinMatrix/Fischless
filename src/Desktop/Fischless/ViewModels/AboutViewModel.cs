@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Fischless.Designs.Controls;
+using Fischless.Design.Controls;
 using Fischless.Helper;
 using System;
 using System.Reflection;

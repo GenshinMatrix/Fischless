@@ -1,4 +1,4 @@
-﻿using Fischless.Designs.Controls;
+﻿using Fischless.Design.Controls;
 using Fischless.ViewModels;
 
 namespace Fischless.Views;

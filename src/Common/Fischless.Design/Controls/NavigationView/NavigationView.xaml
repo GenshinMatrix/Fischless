@@ -1,0 +1,652 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fischless.Design.Controls"
+                    xmlns:primitives="clr-namespace:ModernWpf.Controls.Primitives;assembly=ModernWpf"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ui="http://schemas.modernwpf.com/2019">
+
+    <sys:Double x:Key="PaneToggleButtonHeight">35</sys:Double>
+    <sys:Double x:Key="PaneToggleButtonWidth">35</sys:Double>
+    <sys:Double x:Key="NavigationViewOpenPaneLength">172</sys:Double>
+    <sys:Double x:Key="NavigationViewCompactPaneLength">46</sys:Double>
+    <CornerRadius x:Key="NavigationViewPaneBorderCornerRadius">0,8,8,0</CornerRadius>
+    <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#10000000" />
+    <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#10000000" />
+
+    <Style x:Key="PaneToggleButtonStyle"
+           BasedOn="{StaticResource DefaultButtonStyle}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
+        <Setter Property="MinHeight" Value="{StaticResource PaneToggleButtonHeight}" />
+        <Setter Property="MinWidth" Value="{StaticResource PaneToggleButtonWidth}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource NavigationViewItemBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForeground}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewToggleBorderThickness}" />
+        <Setter Property="primitives:FocusVisualHelper.FocusVisualMargin" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="LayoutRoot"
+                          Height="{TemplateBinding MinHeight}"
+                          MinWidth="{TemplateBinding MinWidth}"
+                          Margin="{TemplateBinding Padding}"
+                          HorizontalAlignment="Stretch"
+                          Background="{TemplateBinding Background}"
+                          SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition primitives:ColumnDefinitionHelper.PixelWidth="{TemplateBinding MinWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition primitives:RowDefinitionHelper.PixelHeight="{DynamicResource PaneToggleButtonHeight}" />
+                        </Grid.RowDefinitions>
+
+                        <ui:FontIcon x:Name="Icon"
+                                     Width="16"
+                                     FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                     FontSize="14"
+                                     Glyph="{x:Static controls:FontSymbols.GlobalNavButton}">
+                            <ui:FontIcon.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="0" CenterX="8" CenterY="8" />
+                                    <ScaleTransform CenterX="8" CenterY="8" ScaleX="1" ScaleY="1" />
+                                </TransformGroup>
+                            </ui:FontIcon.RenderTransform>
+                        </ui:FontIcon>
+
+                        <ContentPresenter x:Name="ContentPresenter"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          TextElement.FontSize="{TemplateBinding FontSize}" />
+
+                        <Border x:Name="RevealBorder"
+                                Grid.ColumnSpan="2"
+                                Margin="2,0,2,0"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="RevealBorder" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundPointerOver}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource NavigationViewButtonForegroundPointerOver}" />
+                            <Setter TargetName="Icon" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="RevealBorder" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundPressed}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource NavigationViewButtonForegroundPressed}" />
+                            <Setter TargetName="Icon" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundDisabled}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource NavigationViewButtonForegroundDisabled}" />
+                        </Trigger>
+
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Icon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)">
+                                        <EasingDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                                        <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0.6">
+                                            <EasingDoubleKeyFrame.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut" />
+                                            </EasingDoubleKeyFrame.EasingFunction>
+                                        </EasingDoubleKeyFrame>
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonUp">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Icon" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)">
+                                        <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.6" />
+                                        <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1">
+                                            <EasingDoubleKeyFrame.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut" />
+                                            </EasingDoubleKeyFrame.EasingFunction>
+                                        </EasingDoubleKeyFrame>
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="DefaultNavigationViewTemplate" TargetType="ui:NavigationView">
+        <Grid x:Name="RootGrid"
+              Background="Transparent"
+              KeyboardNavigation.TabNavigation="Local">
+            <!--  Button grid  -->
+            <Grid x:Name="PaneToggleButtonGrid"
+                  Margin="0,0,0,8"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Canvas.ZIndex="100"
+                  KeyboardNavigation.TabIndex="0"
+                  KeyboardNavigation.TabNavigation="Local">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="TogglePaneTopPadding" Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPadding}" />
+
+                <Grid x:Name="ButtonHolderGrid" Grid.Row="1">
+                    <Button x:Name="NavigationViewBackButton"
+                            VerticalAlignment="Top"
+                            IsEnabled="{TemplateBinding IsBackEnabled}"
+                            Style="{DynamicResource NavigationBackButtonNormalStyle}"
+                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.BackButtonVisibility}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="NavigationViewBackButtonToolTip" />
+                        </ToolTipService.ToolTip>
+                    </Button>
+                    <Button x:Name="NavigationViewCloseButton"
+                            VerticalAlignment="Top"
+                            Style="{DynamicResource NavigationBackButtonNormalStyle}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="NavigationViewCloseButtonToolTip" />
+                        </ToolTipService.ToolTip>
+                    </Button>
+                    <Button x:Name="TogglePaneButton"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Style="{TemplateBinding PaneToggleButtonStyle}"
+                            ToolTipService.IsEnabled="False"
+                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneToggleButtonVisibility}">
+                        <TextBlock x:Name="PaneTitleTextBlock"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource NavigationViewItemHeaderTextStyle}"
+                                   Text="{TemplateBinding PaneTitle}" />
+                    </Button>
+                    <Grid x:Name="PaneTitleHolder" Visibility="Collapsed">
+                        <ContentControl x:Name="PaneTitlePresenter"
+                                        Margin="{DynamicResource NavigationViewPaneTitlePresenterMargin}"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        IsTabStop="False" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--  Content layouts  -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--  DisplayMode top  -->
+                <StackPanel x:Name="TopNavArea"
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Background="{DynamicResource NavigationViewTopPaneBackground}"
+                            Canvas.ZIndex="1">
+
+                    <Grid x:Name="TopNavTopPadding"
+                          Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPadding}"
+                          Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPaneVisibility}" />
+
+                    <Grid x:Name="TopNavGrid"
+                          Height="{DynamicResource NavigationViewTopPaneHeight}"
+                          Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPaneVisibility}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="BackButtonPlaceholderOnTopNav" ui:ColumnDefinitionHelper.PixelWidth="{DynamicResource NavigationBackButtonWidth}" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" MinWidth="{DynamicResource TopNavigationViewPaneCustomContentMinWidth}" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid x:Name="TopNavLeftPadding"
+                              Grid.Column="1"
+                              Width="0" />
+
+                        <ContentControl x:Name="PaneHeaderOnTopPane"
+                                        Grid.Column="2"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        IsTabStop="False" />
+
+                        <ContentControl x:Name="PaneTitleOnTopPane"
+                                        Grid.Column="2"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        IsTabStop="False" />
+
+                        <!--  Top nav ItemsRepeater  -->
+                        <ui:ItemsRepeaterScrollHost Grid.Column="3">
+                            <controls:SmoothScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                <ui:ItemsRepeater x:Name="TopNavMenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}">
+                                    <ui:ItemsRepeater.Layout>
+                                        <ui:StackLayout Orientation="Horizontal" />
+                                    </ui:ItemsRepeater.Layout>
+                                </ui:ItemsRepeater>
+                            </controls:SmoothScrollViewer>
+                        </ui:ItemsRepeaterScrollHost>
+
+                        <Button x:Name="TopNavOverflowButton"
+                                Grid.Column="4"
+                                Margin="{DynamicResource TopNavigationViewOverflowButtonMargin}"
+                                Content="More"
+                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.OverflowButtonVisibility}">
+                            <ui:FlyoutService.Flyout>
+                                <ui:Flyout Placement="BottomEdgeAlignedRight">
+                                    <ui:Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="ui:FlyoutPresenter">
+                                            <Setter Property="Padding" Value="{DynamicResource TopNavigationViewOverflowMenuPadding}" />
+                                            <!--  Set negative top margin to make the flyout align exactly with the button  -->
+                                            <!--<Setter Property="Margin" Value="0,-4,0,0" />-->
+                                        </Style>
+                                    </ui:Flyout.FlyoutPresenterStyle>
+                                    <ui:ItemsRepeaterScrollHost>
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                            <ui:ItemsRepeater x:Name="TopNavMenuItemsOverflowHost" />
+                                        </ScrollViewer>
+                                    </ui:ItemsRepeaterScrollHost>
+                                </ui:Flyout>
+                            </ui:FlyoutService.Flyout>
+                        </Button>
+
+                        <ContentControl x:Name="PaneCustomContentOnTopPane"
+                                        Grid.Column="5"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        IsTabStop="False" />
+
+                        <Grid x:Name="TopPaneAutoSuggestArea"
+                              Grid.Column="6"
+                              Height="{DynamicResource NavigationViewTopPaneHeight}">
+
+                            <ContentControl x:Name="TopPaneAutoSuggestBoxPresenter"
+                                            MinWidth="48"
+                                            Margin="{DynamicResource TopNavigationViewAutoSuggestBoxMargin}"
+                                            HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Center"
+                                            IsTabStop="False" />
+                        </Grid>
+
+                        <ContentControl x:Name="PaneFooterOnTopPane"
+                                        Grid.Column="7"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        IsTabStop="False" />
+                        <!--  Top footer menu ItemsRepeater  -->
+                        <ui:ItemsRepeater x:Name="TopFooterMenuItemsHost" Grid.Column="8">
+                            <ui:ItemsRepeater.Layout>
+                                <ui:StackLayout Orientation="Horizontal" />
+                            </ui:ItemsRepeater.Layout>
+                        </ui:ItemsRepeater>
+
+                    </Grid>
+                    <Border x:Name="TopNavContentOverlayAreaGrid" ui:BorderHelper.Child="{TemplateBinding ContentOverlay}" />
+                </StackPanel>
+
+                <!--  Displaymode (compact/minimal/normal) left  -->
+                <ui:SplitView x:Name="RootSplitView"
+                              Grid.Row="1"
+                              Background="Transparent"
+                              CompactPaneLength="{TemplateBinding CompactPaneLength}"
+                              DisplayMode="Inline"
+                              IsPaneOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPaneOpen, Mode=TwoWay}"
+                              IsTabStop="False"
+                              OpenPaneLength="{TemplateBinding OpenPaneLength}"
+                              PaneBackground="Transparent">
+
+                    <ui:SplitView.Pane>
+                        <Border x:Name="RootSplitViewBorder"
+                                Width="NaN"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource NavigationViewDefaultPaneBackground}"
+                                CornerRadius="{StaticResource NavigationViewPaneBorderCornerRadius}">
+
+                            <Grid x:Name="PaneContentGrid"
+                                  HorizontalAlignment="Left"
+                                  RenderOptions.BitmapScalingMode="Fant"
+                                  Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.LeftPaneVisibility}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="0" />
+                                    <!--  above button margin + back button space  -->
+                                    <RowDefinition x:Name="PaneContentGridToggleButtonRow"
+                                                   Height="Auto"
+                                                   MinHeight="{DynamicResource NavigationViewPaneHeaderRowMinHeight}" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="8" />
+                                    <!--  above list margin  -->
+                                    <RowDefinition x:Name="ItemsContainerRow" Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid x:Name="ContentPaneTopPadding" Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPadding}" />
+
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition x:Name="PaneHeaderContentBorderRow" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Name="PaneHeaderCloseButtonColumn" />
+                                        <ColumnDefinition x:Name="PaneHeaderToggleButtonColumn" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentControl x:Name="PaneHeaderContentBorder"
+                                                    Grid.Column="2"
+                                                    HorizontalContentAlignment="Stretch"
+                                                    VerticalContentAlignment="Stretch"
+                                                    IsTabStop="False" />
+                                </Grid>
+
+                                <Grid x:Name="AutoSuggestArea"
+                                      Grid.Row="3"
+                                      Height="{DynamicResource NavigationViewTopPaneHeight}"
+                                      VerticalAlignment="Center">
+
+                                    <ContentControl x:Name="PaneAutoSuggestBoxPresenter"
+                                                    Margin="{DynamicResource NavigationViewAutoSuggestBoxMargin}"
+                                                    HorizontalContentAlignment="Stretch"
+                                                    VerticalContentAlignment="Center"
+                                                    IsTabStop="False" />
+
+                                    <Button x:Name="PaneAutoSuggestButton"
+                                            Width="{TemplateBinding CompactPaneLength}"
+                                            Style="{DynamicResource NavigationViewPaneSearchButtonStyle}"
+                                            Visibility="Collapsed" />
+                                </Grid>
+
+                                <ContentControl x:Name="PaneCustomContentBorder"
+                                                Grid.Row="4"
+                                                HorizontalContentAlignment="Stretch"
+                                                VerticalContentAlignment="Stretch"
+                                                IsTabStop="False" />
+
+                                <!--  "Non header" content  -->
+                                <Grid x:Name="ItemsContainerGrid"
+                                      Grid.Row="6"
+                                      Margin="0,0,0,8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition x:Name="MenuItemsRow"
+                                                       Height="Auto"
+                                                       MinHeight="{DynamicResource NavigationViewItemOnLeftMinHeight}" />
+                                        <!--  MenuItems  -->
+                                        <RowDefinition Height="*" MinHeight="21" />
+                                        <!--  Fill spacing  -->
+                                        <RowDefinition Height="Auto" />
+                                        <!--  PaneFooter  -->
+                                        <RowDefinition x:Name="FooterItemsRow"
+                                                       Height="Auto"
+                                                       MinHeight="{DynamicResource NavigationViewItemOnLeftMinHeight}" />
+                                        <!--  FooterItems  -->
+                                    </Grid.RowDefinitions>
+
+                                    <!--  MenuItems  -->
+                                    <ui:ItemsRepeaterScrollHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <controls:SmoothScrollViewer x:Name="MenuItemsScrollViewer"
+                                                                     KeyboardNavigation.TabNavigation="Local"
+                                                                     VerticalScrollBarVisibility="Hidden">
+                                            <!--  Left nav ItemsRepeater  -->
+                                            <ui:ItemsRepeater x:Name="MenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}" />
+                                        </controls:SmoothScrollViewer>
+                                    </ui:ItemsRepeaterScrollHost>
+
+                                    <ui:NavigationViewItemSeparator x:Name="VisualItemsSeparator"
+                                                                    Grid.Row="1"
+                                                                    HorizontalAlignment="Stretch"
+                                                                    VerticalAlignment="Center"
+                                                                    Visibility="Collapsed" />
+
+                                    <!--  PaneFooter  -->
+                                    <ContentControl x:Name="FooterContentBorder"
+                                                    Grid.Row="2"
+                                                    HorizontalContentAlignment="Stretch"
+                                                    VerticalContentAlignment="Stretch"
+                                                    IsTabStop="False" />
+
+                                    <!--  FooterItems  -->
+                                    <ui:ItemsRepeaterScrollHost Grid.Row="3">
+                                        <controls:SmoothScrollViewer x:Name="FooterItemsScrollViewer">
+                                            <!--  contract7Present:VerticalAnchorRatio="1"  -->
+                                            <ui:ItemsRepeater x:Name="FooterMenuItemsHost" />
+                                        </controls:SmoothScrollViewer>
+                                    </ui:ItemsRepeaterScrollHost>
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </ui:SplitView.Pane>
+
+                    <ui:SplitView.Content>
+                        <Grid x:Name="ContentGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid x:Name="ContentTopPadding"
+                                  Grid.ColumnSpan="2"
+                                  Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.TopPadding}"
+                                  Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.LeftPaneVisibility}" />
+
+                            <Grid x:Name="ContentLeftPadding" Grid.Row="1" />
+
+                            <ContentControl x:Name="HeaderContent"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            MinHeight="{DynamicResource PaneToggleButtonHeight}"
+                                            HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch"
+                                            Content="{TemplateBinding Header}"
+                                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                            IsTabStop="False"
+                                            Style="{DynamicResource NavigationViewTitleHeaderContentControlTextStyle}" />
+
+                            <ContentPresenter Grid.Row="2"
+                                              Grid.ColumnSpan="2"
+                                              Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </ui:SplitView.Content>
+                </ui:SplitView>
+
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="DisplayModeGroup">
+                    <ui:VisualStateGroupListener.Listener>
+                        <ui:VisualStateGroupListener x:Name="DisplayModeGroupListener" />
+                    </ui:VisualStateGroupListener.Listener>
+                    <VisualState x:Name="Compact" />
+                    <VisualState x:Name="Expanded" />
+                    <VisualState x:Name="Minimal" />
+                    <VisualState x:Name="TopNavigationMinimal" />
+                    <VisualState x:Name="MinimalWithBackButton" />
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="TogglePaneGroup">
+                    <VisualState x:Name="TogglePaneButtonVisible" />
+                    <VisualState x:Name="TogglePaneButtonCollapsed" />
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="HeaderGroup">
+                    <VisualState x:Name="HeaderVisible" />
+                    <VisualState x:Name="HeaderCollapsed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="AutoSuggestGroup">
+                    <VisualState x:Name="AutoSuggestBoxVisible" />
+                    <VisualState x:Name="AutoSuggestBoxCollapsed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AutoSuggestArea" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TopPaneAutoSuggestArea" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="PaneStateGroup">
+                    <ui:VisualStateGroupListener.Listener>
+                        <ui:VisualStateGroupListener x:Name="PaneStateGroupListener" />
+                    </ui:VisualStateGroupListener.Listener>
+                    <VisualState x:Name="NotClosedCompact" />
+                    <VisualState x:Name="ClosedCompact">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PaneAutoSuggestBoxPresenter" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PaneAutoSuggestButton" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="PaneStateListSizeGroup">
+                    <ui:VisualStateGroupListener.Listener>
+                        <ui:VisualStateGroupListener x:Name="PaneStateListSizeGroupListener" />
+                    </ui:VisualStateGroupListener.Listener>
+                    <VisualState x:Name="ListSizeFull" />
+                    <VisualState x:Name="ListSizeCompact" />
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="TitleBarVisibilityGroup">
+                    <VisualState x:Name="TitleBarVisible" />
+                    <VisualState x:Name="TitleBarCollapsed">
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="PaneContentGrid" Storyboard.TargetProperty="Margin">
+                                <DiscreteThicknessKeyFrame KeyTime="0" Value="0,32,0,0" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="OverflowLabelGroup">
+                    <ui:VisualStateGroupListener.Listener>
+                        <ui:VisualStateGroupListener x:Name="OverflowLabelGroupListener" />
+                    </ui:VisualStateGroupListener.Listener>
+                    <VisualState x:Name="OverflowButtonWithLabel" />
+                    <VisualState x:Name="OverflowButtonNoLabel" />
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="BackButtonGroup">
+                    <VisualState x:Name="BackButtonVisible" />
+                    <VisualState x:Name="BackButtonCollapsed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackButtonPlaceholderOnTopNav" Storyboard.TargetProperty="Width">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <GridLength>0</GridLength>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="PaneVisibilityGroup">
+                    <VisualState x:Name="PaneVisible" />
+                    <VisualState x:Name="PaneCollapsed">
+                        <Storyboard>
+                            <!--  Note that RootSplitView.DisplayMode is set in code so we don't want to  -->
+                            <!--  write it here and interfere. But these values work together to hide  -->
+                            <!--  the left pane.  -->
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="RootSplitView" Storyboard.TargetProperty="CompactPaneLength">
+                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PaneToggleButtonGrid" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="DisplayModeGroupListener" Property="CurrentStateName" Value="Expanded">
+                <Setter TargetName="RootSplitViewBorder" Property="Background" Value="{DynamicResource NavigationViewExpandedPaneBackground}" />
+            </Trigger>
+            <Trigger SourceName="DisplayModeGroupListener" Property="CurrentStateName" Value="Minimal">
+                <Setter TargetName="HeaderContent" Property="Margin" Value="{DynamicResource NavigationViewMinimalHeaderMargin}" />
+                <Setter TargetName="RootSplitViewBorder" Property="Background" Value="{DynamicResource NavigationViewDefaultPaneBackground}" />
+            </Trigger>
+            <Trigger SourceName="DisplayModeGroupListener" Property="CurrentStateName" Value="Compact">
+                <Setter TargetName="RootSplitViewBorder" Property="Background" Value="{DynamicResource NavigationViewDefaultPaneBackground}" />
+            </Trigger>
+
+            <Trigger SourceName="PaneStateListSizeGroupListener" Property="CurrentStateName" Value="ListSizeCompact">
+                <Setter TargetName="PaneContentGrid" Property="Width" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CompactPaneLength}" />
+                <Setter TargetName="PaneTitleTextBlock" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PaneHeaderContentBorder" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PaneCustomContentBorder" Property="HorizontalAlignment" Value="Left" />
+                <Setter TargetName="FooterContentBorder" Property="HorizontalAlignment" Value="Left" />
+            </Trigger>
+
+            <Trigger SourceName="OverflowLabelGroupListener" Property="CurrentStateName" Value="OverflowButtonNoLabel">
+                <Setter TargetName="TopNavOverflowButton" Property="Style" Value="{DynamicResource NavigationViewOverflowButtonNoLabelStyleWhenPaneOnTop}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <DataTemplate x:Key="NavigationViewHeaderTemplate">
+        <TextBlock Margin="12,32,0,0" Text="{Binding}" />
+    </DataTemplate>
+
+    <Style x:Key="DefaultNavigationViewStyle" TargetType="{x:Type ui:NavigationView}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="IsPaneToggleButtonVisible" Value="True" />
+        <Setter Property="IsTitleBarAutoPaddingEnabled" Value="False" />
+        <Setter Property="AlwaysShowHeader" Value="True" />
+        <Setter Property="OpenPaneLength" Value="{StaticResource NavigationViewOpenPaneLength}" />
+        <Setter Property="CompactPaneLength" Value="{StaticResource NavigationViewCompactPaneLength}" />
+        <Setter Property="IsBackButtonVisible" Value="Collapsed" />
+        <Setter Property="PaneDisplayMode" Value="Left" />
+        <Setter Property="IsSettingsVisible" Value="False" />
+        <Setter Property="CompactModeThresholdWidth" Value="480" />
+        <Setter Property="ExpandedModeThresholdWidth" Value="480" />
+        <Setter Property="IsPaneOpen" Value="True" />
+        <Setter Property="Header" Value="{x:Null}" />
+        <Setter Property="HeaderTemplate" Value="{StaticResource NavigationViewHeaderTemplate}" />
+        <Setter Property="Template" Value="{StaticResource DefaultNavigationViewTemplate}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultNavigationViewStyle}" TargetType="{x:Type ui:NavigationView}" />
+
+</ResourceDictionary>

@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Configuration", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Globalization", "Common\Fischless.Globalization\Fischless.Globalization.csproj", "{DE0C7DE4-2D83-4DC7-A616-EB7B66ACEC22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Designs", "Common\Fischless.Designs\Fischless.Designs.csproj", "{A935D579-40BB-45D3-96E4-2B10A3AB6DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Design", "Common\Fischless.Design\Fischless.Design.csproj", "{A935D579-40BB-45D3-96E4-2B10A3AB6DBE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Fetch", "Desktop\Fischless.Fetch\Fischless.Fetch.csproj", "{57CD15FE-633C-42C8-B8E4-DC0D2176A029}"
 EndProject

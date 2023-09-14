@@ -1,4 +1,4 @@
-﻿using Fischless.Designs.Controls;
+﻿using Fischless.Design.Controls;
 using Fischless.Services.Attributes;
 using Fischless.Views;
 using Microsoft.Extensions.DependencyInjection;

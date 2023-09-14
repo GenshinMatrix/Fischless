@@ -1,4 +1,4 @@
-﻿using Fischless.Designs.Controls;
+﻿using Fischless.Design.Controls;
 using Fischless.Plugin.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel.Composition;

@@ -39,7 +39,7 @@
         <ProjectReference Include="..\..\Common\Fischless.AppCenter\Fischless.AppCenter.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Common\Fischless.Common.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Configuration\Fischless.Configuration.csproj" />
-        <ProjectReference Include="..\..\Common\Fischless.Designs\Fischless.Designs.csproj" />
+        <ProjectReference Include="..\..\Common\Fischless.Design\Fischless.Design.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Globalization\Fischless.Globalization.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Hosting\Fischless.Hosting.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Mapper\Fischless.Mapper.csproj" />

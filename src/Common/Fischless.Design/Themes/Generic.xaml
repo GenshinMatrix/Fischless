@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/Window/WindowX.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ScrollViewer/SmoothScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/NavigationView/NavigationView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/NavigationView/NavigationViewItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/MessageBox/MessageBoxX.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ListView/ListView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ListView/ListViewItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ContentDialog/ContentDialog.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ScrollBar/ScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ComboBox/ComboBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
