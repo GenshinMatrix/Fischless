@@ -19,7 +19,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using YamlDotNet.Serialization;
 using DragDrop = GongSolutions.Wpf.DragDrop.DragDrop;
 
 namespace Fischless.ViewModels;
@@ -42,6 +41,11 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             if (msg.Type == ContactMessageType.Added)
             {
                 Contacts.Add(msg.Contact);
+            }
+            else if (msg.Type == ContactMessageType.Edited
+                  || msg.Type == ContactMessageType.Removed)
+            {
+                Refresh();
             }
         });
         Refresh();
@@ -228,8 +232,8 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         }
 
         ContactContentDialog dialog = new();
-
         ContactMessage message = await dialog.EditContactAsync(SelectedItem);
+
         if (message != null)
         {
             await AddOrUpdateContactAsync(message);
@@ -255,45 +259,46 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         }
     }
 
-    private async Task AddOrUpdateContactAsync(ContactMessage msg)
+    private async Task AddOrUpdateContactAsync(ContactMessage message)
     {
-        await Task.CompletedTask;
-
         List<Contact> contacts = Configurations.Contacts.Get().ToList();
 
-        if (msg.Type == ContactMessageType.Added)
+        if (message.Type == ContactMessageType.Added)
         {
-            contacts.Add(msg.Contact);
-            Contacts.Add(msg.Contact);
-            Toast.Success($"添加 {msg.Contact.AliasName} 成功");
-            if (!string.IsNullOrWhiteSpace(msg.Contact.Cookie))
+            contacts.Add(message.Contact);
+            Contacts.Add(message.Contact);
+            Toast.Success($"添加 {message.Contact.AliasName} 成功");
+            if (!string.IsNullOrWhiteSpace(message.Contact.Cookie) && message.Contact.IsUseCookie)
             {
-                //await msg.Contact.FetchAllAsync();
+                await message.Contact.FetchAllAsync();
             }
         }
-        else if (msg.Type == ContactMessageType.Edited)
+        else if (message.Type == ContactMessageType.Edited)
         {
-            //if (contacts.ContainsKey(msg.Contact.Guid))
-            //{
-            //    contacts.Remove(msg.Contact.Guid);
-            //    contacts.Add(msg.Contact.Guid, msg.Contact);
-            //    if (!string.IsNullOrWhiteSpace(msg.Contact.Cookie))
-            //    {
-            //        await msg.Contact.ViewModel.FetchAllAsync();
-            //    }
-            //}
-            //else
-            //{
-            //    Log.Fatal($"[AddOrUpdateContact] Lag of {msg.Contact.Guid}");
-            //    Debugger.Break();
-            //    return;
-            //}
-        }
-        else if (msg.Type == ContactMessageType.Removed)
-        {
-            contacts.Remove(contacts.Where(c => c.Guid == msg.Contact.Guid).First());
+            if (contacts.Where(c => c.Guid == message.Contact.Guid).Any())
+            {
+                Contact contactToRemoved = contacts.Where(c => c.Guid == message.Contact.Guid).First();
+                int indexToInsert = contacts.IndexOf(contactToRemoved);
 
-            if (Contacts.Where(c => c.Guid == msg.Contact.Guid).FirstOrDefault() is Contact contactToRemove)
+                contacts.Remove(contactToRemoved);
+                contacts.Insert(indexToInsert, message.Contact);
+                if (!string.IsNullOrWhiteSpace(message.Contact.Cookie) && message.Contact.IsUseCookie)
+                {
+                    await message.Contact.FetchAllAsync();
+                }
+            }
+            else
+            {
+                Log.Fatal($"[AddOrUpdateContact] Lag of {message.Contact.Guid}");
+                Debugger.Break();
+                return;
+            }
+        }
+        else if (message.Type == ContactMessageType.Removed)
+        {
+            contacts.Remove(contacts.Where(c => c.Guid == message.Contact.Guid).First());
+
+            if (Contacts.Where(c => c.Guid == message.Contact.Guid).FirstOrDefault() is Contact contactToRemove)
             {
                 Contacts.Remove(contactToRemove);
             }
@@ -301,7 +306,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
 
         Configurations.Contacts.Set(contacts);
         ConfigurationManager.Save();
-        WeakReferenceMessenger.Default.Send(msg);
+        WeakReferenceMessenger.Default.Send(message);
     }
 
     public async void OnContactMouseDoubleClick(object sender, MouseButtonEventArgs e)

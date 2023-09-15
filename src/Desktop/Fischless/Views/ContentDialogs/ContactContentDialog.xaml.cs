@@ -50,7 +50,16 @@ public partial class ContactContentDialog : ContentDialog
             return new ContactMessage()
             {
                 Type = ContactMessageType.Edited,
-                Contact = contact,
+                Contact = new Contact()
+                {
+                    Guid = contact.Guid,
+                    AliasName = ViewModel.AliasName,
+                    LocalIconUri = ViewModel.LocalIconUri,
+                    Prod = ViewModel.Prod,
+                    Server = ViewModel.Server,
+                    Cookie = ViewModel.Cookie,
+                    IsUseCookie = ViewModel.IsUseCookie,
+                },
             };
         }
         return null!;
