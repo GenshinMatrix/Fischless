@@ -1,6 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:ui="http://schemas.modernwpf.com/2019">
+
+    <!--  Resources for ContentDialog  -->
+    <sys:Double x:Key="ContentDialogMinWidth">320</sys:Double>
+    <sys:Double x:Key="ContentDialogMaxWidth">548</sys:Double>
+    <sys:Double x:Key="ContentDialogMinHeight">184</sys:Double>
+    <sys:Double x:Key="ContentDialogMaxHeight">756</sys:Double>
+    <sys:Double x:Key="ContentDialogButtonMinWidth">130</sys:Double>
+    <sys:Double x:Key="ContentDialogButtonMaxWidth">202</sys:Double>
+    <sys:Double x:Key="ContentDialogButtonMinHeight">32</sys:Double>
+    <sys:Double x:Key="ContentDialogButtonHeight">32</sys:Double>
+    <sys:Double x:Key="ContentDialogTitleMaxHeight">56</sys:Double>
+    <Thickness x:Key="ContentDialogBorderWidth">1</Thickness>
+    <Thickness x:Key="ContentDialogButton1HostMargin">0,0,4,0</Thickness>
+    <Thickness x:Key="ContentDialogButton2HostMargin">0,0,0,0</Thickness>
+    <Thickness x:Key="ContentDialogContentMargin">0,0,0,0</Thickness>
+    <Thickness x:Key="ContentDialogContentScrollViewerMargin">0,0,0,0</Thickness>
+    <Thickness x:Key="ContentDialogCommandSpaceMargin">0,24,0,0</Thickness>
+    <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
+    <Thickness x:Key="ContentDialogPadding">24,18,24,24</Thickness>
 
     <Style x:Key="DefaultContentDialogStyle" TargetType="ui:ContentDialog">
         <Setter Property="FontFamily" Value="{DynamicResource TextThemeFontFamily}" />
