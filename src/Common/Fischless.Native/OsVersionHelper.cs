@@ -52,7 +52,7 @@ public static class OsVersionHelper
     {
         if (versionCache is null)
         {
-            if (NtDll.RtlGetVersion(out var osv) != 0)
+            if (NtDllEx.RtlGetVersion(out var osv) != 0)
             {
                 throw new PlatformNotSupportedException("Setup can only run on Windows.");
             }

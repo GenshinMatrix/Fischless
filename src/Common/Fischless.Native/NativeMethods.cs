@@ -5,6 +5,11 @@ namespace Fischless.Native;
 
 public static class NativeMethods
 {
+    public static string MB_GetString(DialogBoxCommand wBtn)
+    {
+        return Marshal.PtrToStringAuto(User32Ex.MB_GetString((uint)wBtn));
+    }
+
     public static void HideAllWindowButton(nint hwnd)
     {
         _ = User32.SetWindowLong(hwnd, User32.WindowLongFlags.GWL_STYLE, User32.GetWindowLong(hwnd, User32.WindowLongFlags.GWL_STYLE) & ~(int)User32.WindowStyles.WS_SYSMENU);

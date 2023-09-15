@@ -1,6 +1,6 @@
-﻿using ModernWpf.Controls;
+﻿using Fischless.Native;
+using ModernWpf.Controls;
 using System.Windows;
-using Vanara.PInvoke;
 using static Fischless.Design.Controls.LocalizedDialogCommands;
 
 namespace Fischless.Design.Controls;
@@ -37,7 +37,7 @@ public class MessageBoxTemplateSettings : DependencyObject
             nameof(OKButtonText),
             typeof(string),
             typeof(MessageBoxTemplateSettings),
-            new PropertyMetadata(GetString(User32.MB_RESULT.IDOK)));
+            new PropertyMetadata(GetString(DialogBoxCommand.IDOK)));
 
     public string OKButtonText
     {
@@ -54,7 +54,7 @@ public class MessageBoxTemplateSettings : DependencyObject
             nameof(YesButtonText),
             typeof(string),
             typeof(MessageBoxTemplateSettings),
-            new PropertyMetadata(GetString(User32.MB_RESULT.IDYES)));
+            new PropertyMetadata(GetString(DialogBoxCommand.IDYES)));
 
     public string YesButtonText
     {
@@ -71,7 +71,7 @@ public class MessageBoxTemplateSettings : DependencyObject
             nameof(NoButtonText),
             typeof(string),
             typeof(MessageBoxTemplateSettings),
-            new PropertyMetadata(GetString(User32.MB_RESULT.IDNO)));
+            new PropertyMetadata(GetString(DialogBoxCommand.IDNO)));
 
     public string NoButtonText
     {
@@ -88,7 +88,7 @@ public class MessageBoxTemplateSettings : DependencyObject
             nameof(CancelButtonText),
             typeof(string),
             typeof(MessageBoxTemplateSettings),
-            new PropertyMetadata(GetString(User32.MB_RESULT.IDCANCEL)));
+            new PropertyMetadata(GetString(DialogBoxCommand.IDCANCEL)));
 
     public string CancelButtonText
     {

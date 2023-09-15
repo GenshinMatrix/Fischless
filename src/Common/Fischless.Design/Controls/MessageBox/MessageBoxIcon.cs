@@ -1,4 +1,6 @@
-﻿namespace Fischless.Design.Controls;
+﻿using ModernWpf.Controls;
+
+namespace Fischless.Design.Controls;
 
 public enum MessageBoxIcon
 {
@@ -12,9 +14,9 @@ public enum MessageBoxIcon
 
 public enum MessageBoxSymbolGlyph
 {
-    Error = 0xE783,
-    Info = 0xE946,
-    Warning = 0xE7BA,
-    StatusCircleQuestionMark = 0xF142,
+    Info = 0xe946,
+    Error = 0xe783,
+    Warning = 0xe7ba,
+    Question = 0xe9ce,
     None = 0x2007,
 }

@@ -1,34 +1,29 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
+﻿using System.Diagnostics;
 
 namespace Fischless.Design.Controls;
 
-public sealed class MessageBoxClosingEventArgs : EventArgs
+public class MessageBoxButtonClickEventArgs : EventArgs
 {
-    private MessageBoxClosingDeferral _deferral;
+    private MessageBoxButtonClickDeferral _deferral;
     private int _deferralCount;
 
-    internal MessageBoxClosingEventArgs(MessageBoxResult result)
+    internal MessageBoxButtonClickEventArgs()
     {
-        Result = result;
     }
 
     public bool Cancel { get; set; }
 
-    public MessageBoxResult Result { get; }
-
-    public MessageBoxClosingDeferral GetDeferral()
+    public MessageBoxButtonClickDeferral GetDeferral()
     {
         _deferralCount++;
 
-        return new MessageBoxClosingDeferral(() =>
+        return new MessageBoxButtonClickDeferral(() =>
         {
             DecrementDeferralCount();
         });
     }
 
-    internal void SetDeferral(MessageBoxClosingDeferral deferral)
+    internal void SetDeferral(MessageBoxButtonClickDeferral deferral)
     {
         _deferral = deferral;
     }

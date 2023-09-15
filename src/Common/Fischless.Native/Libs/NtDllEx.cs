@@ -3,7 +3,7 @@ using System.Security;
 
 namespace Fischless.Native;
 
-public static class NtDll
+public static class NtDllEx
 {
     [SecurityCritical]
     [DllImport(Lib.NTdll, SetLastError = true, CharSet = CharSet.Unicode)]

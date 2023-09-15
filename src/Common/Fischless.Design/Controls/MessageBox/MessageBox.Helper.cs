@@ -1,26 +1,19 @@
 ﻿using ModernWpf.Controls;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Fischless.Design.Controls;
 
 public partial class MessageBoxX
 {
     public static MessageBoxResult Show(string messageBoxText) =>
-        Show(messageBoxText, null);
+        Show(messageBoxText, null!);
 
     public static MessageBoxResult Show(string messageBoxText, string caption) =>
         Show(GetActiveWindow(), messageBoxText, caption);
 
-    public static MessageBoxResult Show(Window owner, string messageBoxText) =>
-        Show(owner, messageBoxText, null);
-
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button) =>
         Show(GetActiveWindow(), messageBoxText, caption, button);
-
-    public static MessageBoxResult Show(Window owner, string messageBoxText, string caption) =>
-        Show(owner, messageBoxText, caption, MessageBoxButton.OK);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon) =>
         Show(messageBoxText, caption, button, icon, MessageBoxResult.None);
@@ -34,9 +27,6 @@ public partial class MessageBoxX
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, IconSource icon) =>
         Show(messageBoxText, caption, button, icon, MessageBoxResult.None);
 
-    public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
-        Show(owner, messageBoxText, caption, button, (IconSource)null);
-
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult) =>
         Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
 
@@ -48,6 +38,15 @@ public partial class MessageBoxX
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult) =>
         Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+
+    public static MessageBoxResult Show(Window owner, string messageBoxText) =>
+        Show(owner, messageBoxText, null);
+
+    public static MessageBoxResult Show(Window owner, string messageBoxText, string caption) =>
+        Show(owner, messageBoxText, caption, MessageBoxButton.OK);
+
+    public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
+        Show(owner, messageBoxText, caption, button, (IconSource)null);
 
     public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon) =>
         Show(owner, messageBoxText, caption, button, icon, MessageBoxResult.None);
@@ -68,13 +67,13 @@ public partial class MessageBoxX
         Show(owner, messageBoxText, caption, button, icon.ToGlyph(), defaultResult);
 
     public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button, string icon, MessageBoxResult defaultResult) =>
-        Show(owner, messageBoxText, caption, button, new FontIconSource { Glyph = icon, FontSize = 30 }, defaultResult);
+        Show(owner, messageBoxText, caption, button, new FontIconSource { Glyph = icon, FontSize = 30, FontFamily = Application.Current.FindResource("SymbolThemeFontFamily") as FontFamily }, defaultResult);
 
     public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult)
     {
         owner ??= GetActiveWindow();
 
-        MessageBoxX window = new MessageBoxX
+        MessageBoxX window = new()
         {
             Owner = owner,
             IconSource = icon,
@@ -85,7 +84,7 @@ public partial class MessageBoxX
             Caption = caption ?? string.Empty,
             Title = caption ?? string.Empty,
             ResizeMode = ResizeMode.NoResize,
-            WindowStyle = WindowStyle.None,
+            WindowStyle = WindowStyle.SingleBorderWindow,
             WindowStartupLocation = owner is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner
         };
 
@@ -153,7 +152,7 @@ public partial class MessageBoxX
         ShowAsync(owner, messageBoxText, caption, button, icon.ToGlyph(), defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button, string icon, MessageBoxResult defaultResult) =>
-        ShowAsync(owner, messageBoxText, caption, button, new FontIconSource { Glyph = icon, FontSize = 30 }, defaultResult);
+        ShowAsync(owner, messageBoxText, caption, button, new FontIconSource { Glyph = icon, FontSize = 30, FontFamily = Application.Current.FindResource("SymbolThemeFontFamily") as FontFamily }, defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult)
     {
@@ -168,7 +167,9 @@ public partial class MessageBoxX
         return taskSource.Task;
     }
 
-    private static Window GetActiveWindow() =>
-        Application.Current.Windows.Cast<Window>()
+    private static Window GetActiveWindow()
+    {
+        return Application.Current.Windows.Cast<Window>()
             .FirstOrDefault(window => window.IsActive && window.ShowActivated);
+    }
 }

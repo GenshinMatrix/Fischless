@@ -6,7 +6,6 @@ using System.Windows.Media;
 
 namespace Fischless.Design.Controls;
 
-
 [ValueConversion(typeof(MessageBoxIcon), typeof(SolidColorBrush))]
 public sealed class MessageBoxIconForegroundConverter : IValueConverter
 {

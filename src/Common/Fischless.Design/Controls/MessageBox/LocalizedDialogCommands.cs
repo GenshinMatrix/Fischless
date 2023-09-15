@@ -1,13 +1,13 @@
-﻿using System.Text.RegularExpressions;
-using Vanara.PInvoke;
+﻿using Fischless.Native;
+using System.Text.RegularExpressions;
 
 namespace Fischless.Design.Controls;
 
 internal static class LocalizedDialogCommands
 {
-    public static string GetString(User32.MB_RESULT command)
+    public static string GetString(DialogBoxCommand wBtn)
     {
-        string src = User32.MB_GetString((uint)command)?.TrimStart('&')!;
+        string src = NativeMethods.MB_GetString(wBtn)?.TrimStart('&')!;
         return Regex.Replace(src, @"\([^)]*\)", string.Empty).Replace("&", string.Empty);
     }
 }

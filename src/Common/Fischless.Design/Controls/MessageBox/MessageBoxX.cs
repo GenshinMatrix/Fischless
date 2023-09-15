@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using Vanara.PInvoke;
 using static Fischless.Design.Controls.LocalizedDialogCommands;
 
 namespace Fischless.Design.Controls;
@@ -35,9 +34,8 @@ public partial class MessageBoxX : Window
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
         var handler = new RoutedEventHandler((sender, e) => ApplyBackdrop());
         ThemeManager.AddActualThemeChangedHandler(this, handler);
-        Loaded += On_Loaded;
+        Loaded += OnLoaded;
     }
-
 
     #region MessageBoxIcon
 
@@ -638,10 +636,10 @@ public partial class MessageBoxX : Window
     private void UpdateButtonTextState()
     {
         var templateSettings = TemplateSettings;
-        templateSettings.OKButtonText = string.IsNullOrEmpty(OKButtonText) ? GetString(User32.MB_RESULT.IDOK) : OKButtonText;
-        templateSettings.YesButtonText = string.IsNullOrEmpty(YesButtonText) ? GetString(User32.MB_RESULT.IDYES) : YesButtonText;
-        templateSettings.NoButtonText = string.IsNullOrEmpty(NoButtonText) ? GetString(User32.MB_RESULT.IDNO) : NoButtonText;
-        templateSettings.CancelButtonText = string.IsNullOrEmpty(CancelButtonText) ? GetString(User32.MB_RESULT.IDCANCEL) : CancelButtonText;
+        templateSettings.OKButtonText = string.IsNullOrEmpty(OKButtonText) ? GetString(DialogBoxCommand.IDOK) : OKButtonText;
+        templateSettings.YesButtonText = string.IsNullOrEmpty(YesButtonText) ? GetString(DialogBoxCommand.IDYES) : YesButtonText;
+        templateSettings.NoButtonText = string.IsNullOrEmpty(NoButtonText) ? GetString(DialogBoxCommand.IDNO) : NoButtonText;
+        templateSettings.CancelButtonText = string.IsNullOrEmpty(CancelButtonText) ? GetString(DialogBoxCommand.IDCANCEL) : CancelButtonText;
     }
 
     private void UpdateMessageState()
@@ -666,19 +664,19 @@ public partial class MessageBoxX : Window
         {
             case MessageBoxButton.OK:
                 stateName = OKVisibleState;
-                if (OKButton != null) { OKButton.Focus(); }
+                OKButton?.Focus();
                 break;
             case MessageBoxButton.OKCancel:
                 stateName = OKCancelVisibleState;
-                if (OKButton != null) { OKButton.Focus(); }
+                OKButton?.Focus();
                 break;
             case MessageBoxButton.YesNoCancel:
                 stateName = YesNoCancelVisibleState;
-                if (YesButton != null) { YesButton.Focus(); }
+                YesButton?.Focus();
                 break;
             case MessageBoxButton.YesNo:
                 stateName = YesNoVisibleState;
-                if (YesButton != null) { YesButton.Focus(); }
+                YesButton?.Focus();
                 break;
             default:
                 stateName = OKVisibleState;
@@ -740,7 +738,7 @@ public partial class MessageBoxX : Window
         }
     }
 
-    private void On_Loaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object sender, RoutedEventArgs e)
     {
         UpdateMica();
         ApplyBackdrop();
@@ -817,7 +815,7 @@ file static class UIExtensions
         }
         else if (iconSource is SymbolIconSource symbolIconSource)
         {
-            SymbolIcon symbolIcon = new SymbolIcon
+            SymbolIcon symbolIcon = new()
             {
                 Symbol = symbolIconSource.Symbol,
             };

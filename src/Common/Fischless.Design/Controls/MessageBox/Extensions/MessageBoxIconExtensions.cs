@@ -22,7 +22,7 @@ public static class MessageBoxIconExtensions
             {
                 boxIcon = MessageBoxIcon.Warning;
             }
-            else if (ficon.Glyph == MessageBoxSymbolGlyph.StatusCircleQuestionMark.ToGlyph())
+            else if (ficon.Glyph == MessageBoxSymbolGlyph.Question.ToGlyph())
             {
                 boxIcon = MessageBoxIcon.Question;
             }
@@ -33,5 +33,4 @@ public static class MessageBoxIconExtensions
         }
         return boxIcon;
     }
-
 }

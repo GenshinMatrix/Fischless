@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fischless.Design.Controls;
+﻿namespace Fischless.Design.Controls;
 
 public sealed class MessageBoxButtonClickDeferral
 {
