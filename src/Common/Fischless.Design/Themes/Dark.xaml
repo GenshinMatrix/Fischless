@@ -145,6 +145,10 @@
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
 
+    <!--  ContentDialog colors  -->
+
+    <SolidColorBrush x:Key="ContentDialogBackground" Color="#2B2B2B" />
+
     <!--  Markdown colors  -->
 
     <Color x:Key="MarkdownParagraphDefaultColor">#D0D0D0</Color>

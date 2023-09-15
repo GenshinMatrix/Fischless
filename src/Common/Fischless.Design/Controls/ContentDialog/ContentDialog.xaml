@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:ModernWpf.Markup;assembly=ModernWpf"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:ui="http://schemas.modernwpf.com/2019">
 
-    <!--  Resources for ContentDialog  -->
     <sys:Double x:Key="ContentDialogMinWidth">320</sys:Double>
     <sys:Double x:Key="ContentDialogMaxWidth">548</sys:Double>
     <sys:Double x:Key="ContentDialogMinHeight">184</sys:Double>
@@ -21,6 +21,9 @@
     <Thickness x:Key="ContentDialogCommandSpaceMargin">0,24,0,0</Thickness>
     <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
     <Thickness x:Key="ContentDialogPadding">24,18,24,24</Thickness>
+    <m:StaticResource x:Key="ContentDialogForeground" ResourceKey="SystemControlPageTextBaseHighBrush" />
+    <m:StaticResource x:Key="ContentDialogBorderBrush" ResourceKey="SystemControlBackgroundBaseLowBrush" />
+    <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="#30000000" />
 
     <Style x:Key="DefaultContentDialogStyle" TargetType="ui:ContentDialog">
         <Setter Property="FontFamily" Value="{DynamicResource TextThemeFontFamily}" />
@@ -45,7 +48,7 @@
                             <ui:SimpleVisualStateManager />
                         </VisualStateManager.CustomVisualStateManager>
                         <Grid x:Name="LayoutRoot"
-                              Background="{DynamicResource SystemControlPageBackgroundMediumAltMediumBrush}"
+                              Background="{DynamicResource ContentDialogLightDismissOverlayBackground}"
                               SnapsToDevicePixels="True"
                               Visibility="Collapsed">
                             <Grid x:Name="BackgroundElement"
