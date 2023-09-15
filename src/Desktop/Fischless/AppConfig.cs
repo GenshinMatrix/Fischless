@@ -1,4 +1,5 @@
-﻿using Fischless.Native;
+﻿using Fischless.Hosting.Absraction;
+using Fischless.Native;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -49,21 +50,29 @@ internal static class AppConfig
 
     public static T GetService<T>() where T : class
     {
-        return (Application.Current as App)?.Services?.GetService<T>()!;
+        if (Application.Current is IHost app)
+        {
+            return app.Services?.GetService<T>()!;
+        }
+        return null!;
     }
 
     public static object? GetService(Type type)
     {
-        return (Application.Current as App)?.Services?.GetService(type)!;
+        if (Application.Current is IHost app)
+        {
+            return app.Services?.GetService(type)!;
+        }
+        return null!;
     }
 
     public static ILogger<T> GetLogger<T>() where T : class
     {
-        return (Application.Current as App)?.Services?.GetService<ILogger<T>>()!;
+        return GetService<ILogger<T>>()!;
     }
 
     public static Serilog.ILogger GetLogger()
     {
-        return (Application.Current as App)?.Services?.GetService<Serilog.ILogger>()!;
+        return GetService<Serilog.ILogger>()!;
     }
 }
