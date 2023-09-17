@@ -26,10 +26,10 @@ namespace Fischless.ViewModels;
 public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDropTarget
 {
     [ObservableProperty]
-    private Contact selectedItem = null!;
+    private ContactViewModel selectedItem = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<Contact> contacts = new();
+    private ObservableCollectionEx<ContactViewModel> contacts = new();
 
     [ObservableProperty]
     private CancellationTokenSource cancelLaunchGameDelayTokenSource = null!;
@@ -40,7 +40,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         {
             if (msg.Type == ContactMessageType.Added)
             {
-                Contacts.Add(msg.Contact);
+                Contacts.Add(new ContactViewModel(msg.Contact));
             }
             else if (msg.Type == ContactMessageType.Edited
                   || msg.Type == ContactMessageType.Removed)
@@ -70,14 +70,14 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             lv.SelectedItem = contact;
         }
 
-        Configurations.Contacts.Set(Contacts.ToArray());
+        Configurations.Contacts.Set(Contacts.Select(vm => vm.Contact).ToArray());
         ConfigurationManager.Save();
     }
 
     [RelayCommand]
     public async Task AddContactAsync()
     {
-        ContactContentDialog contentDialog = new();
+        EditContactContentDialog contentDialog = new();
         ContactMessage message = await contentDialog.AddContactAsync();
 
         if (message != null)
@@ -92,7 +92,12 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     public void Refresh()
     {
         Contacts.Clear();
-        Contacts.Reset(Configurations.Contacts.Get().ToArray());
+        Contacts.Reset(Configurations.Contacts.Get().Select(v => new ContactViewModel(v)).ToArray());
+
+        foreach (ContactViewModel contact in Contacts)
+        {
+            _ = contact.FetchAllAsync();
+        }
     }
 
     [RelayCommand]
@@ -104,7 +109,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             return;
         }
         CancelLaunchGameFromListWithDelay();
-        await LaunchGameAsync(SelectedItem);
+        await LaunchGameAsync(SelectedItem.Contact);
     }
 
     [RelayCommand]
@@ -142,24 +147,24 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     }
 
     [RelayCommand]
-    public void RefreshContact()
+    public async Task RefreshContact()
     {
         if (SelectedItem == null)
         {
             Toast.Warning($"请选择要刷新的账号");
             return;
         }
-        if (string.IsNullOrWhiteSpace(SelectedItem.Cookie))
+        if (string.IsNullOrWhiteSpace(SelectedItem.Contact.Cookie))
         {
             Toast.Warning($"选中账号无 Cookie 信息");
             return;
         }
-        if (!SelectedItem.IsUseCookie)
+        if (!SelectedItem.Contact.IsUseCookie)
         {
             Toast.Warning($"选中账号未启用 Cookie 使用");
             return;
         }
-        //await SelectedItem.FetchAllAsync();
+        await SelectedItem.FetchAllAsync();
     }
 
     [RelayCommand]
@@ -171,7 +176,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             return;
         }
 
-        string uid = SelectedItem.Uid?.ToString();
+        string uid = SelectedItem.Contact.Uid?.ToString();
 
         if (!string.IsNullOrWhiteSpace(uid))
         {
@@ -201,7 +206,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             return;
         }
 
-        string cookie = SelectedItem?.Cookie;
+        string cookie = SelectedItem?.Contact.Cookie;
 
         if (!string.IsNullOrWhiteSpace(cookie))
         {
@@ -231,8 +236,8 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             return;
         }
 
-        ContactContentDialog dialog = new();
-        ContactMessage message = await dialog.EditContactAsync(SelectedItem);
+        EditContactContentDialog dialog = new();
+        ContactMessage message = await dialog.EditContactAsync(SelectedItem.Contact);
 
         if (message != null)
         {
@@ -249,12 +254,12 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             return;
         }
 
-        if (MessageBoxX.Question($"是否确定要删除账号“{SelectedItem.AliasName}”？", "删除账号") == MessageBoxResult.Yes)
+        if (MessageBoxX.Question($"是否确定要删除账号“{SelectedItem.Contact.AliasName}”？", "删除账号") == MessageBoxResult.Yes)
         {
             await AddOrUpdateContactAsync(new ContactMessage()
             {
                 Type = ContactMessageType.Removed,
-                Contact = SelectedItem,
+                Contact = SelectedItem.Contact,
             });
         }
     }
@@ -265,12 +270,13 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
 
         if (message.Type == ContactMessageType.Added)
         {
+            ContactViewModel vm = new(message.Contact);
             contacts.Add(message.Contact);
-            Contacts.Add(message.Contact);
+            Contacts.Add(vm);
             Toast.Success($"添加 {message.Contact.AliasName} 成功");
             if (!string.IsNullOrWhiteSpace(message.Contact.Cookie) && message.Contact.IsUseCookie)
             {
-                await message.Contact.FetchAllAsync();
+                await vm.FetchAllAsync();
             }
         }
         else if (message.Type == ContactMessageType.Edited)
@@ -282,10 +288,6 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
 
                 contacts.Remove(contactToRemoved);
                 contacts.Insert(indexToInsert, message.Contact);
-                if (!string.IsNullOrWhiteSpace(message.Contact.Cookie) && message.Contact.IsUseCookie)
-                {
-                    await message.Contact.FetchAllAsync();
-                }
             }
             else
             {
@@ -298,7 +300,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         {
             contacts.Remove(contacts.Where(c => c.Guid == message.Contact.Guid).First());
 
-            if (Contacts.Where(c => c.Guid == message.Contact.Guid).FirstOrDefault() is Contact contactToRemove)
+            if (Contacts.Where(c => c.Contact.Guid == message.Contact.Guid).FirstOrDefault() is ContactViewModel contactToRemove)
             {
                 Contacts.Remove(contactToRemove);
             }
@@ -307,10 +309,5 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         Configurations.Contacts.Set(contacts);
         ConfigurationManager.Save();
         WeakReferenceMessenger.Default.Send(message);
-    }
-
-    public async void OnContactMouseDoubleClick(object sender, MouseButtonEventArgs e)
-    {
-        await LaunchGameFromListAsync();
     }
 }

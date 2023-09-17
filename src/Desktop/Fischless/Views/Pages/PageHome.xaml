@@ -4,6 +4,7 @@
          xmlns:animations="clr-namespace:Fischless.Design.Animations;assembly=Fischless.Design"
          xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
          xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
+         xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          xmlns:dd="urn:gong-wpf-dragdrop"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
@@ -11,11 +12,13 @@
          xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:ui="http://schemas.modernwpf.com/2019"
+         xmlns:vm="clr-namespace:Fischless.ViewModels"
          d:DesignHeight="450"
          d:DesignWidth="800"
          FontSize="14"
          mc:Ignorable="d">
     <Page.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <conv:ValueConverterGroup x:Key="NullToVisibilityConverter">
             <conv:NullToBoolConverter />
             <conv:BoolToVisibilityConverter />
@@ -52,7 +55,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Bind controls:FontSymbols.AddFriend}" />
+                                             Glyph="{x:Static controls:FontSymbols.AddFriend}" />
                                 <TextBlock Margin="5,0,0,0" Text="添加" />
                             </StackPanel>
                         </Button.Content>
@@ -64,7 +67,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Bind controls:FontSymbols.Refresh}" />
+                                             Glyph="{x:Static controls:FontSymbols.Refresh}" />
                                 <TextBlock Margin="5,0,0,0" Text="刷新" />
                             </StackPanel>
                         </Button.Content>
@@ -82,7 +85,7 @@
                           dd:DragDrop.UseDefaultDragAdorner="True"
                           AllowDrop="True"
                           ItemsSource="{Binding Contacts}"
-                          MouseDoubleClick="{x:Bind ViewModel.OnContactMouseDoubleClick}"
+                          MouseDoubleClick="OnContactMouseDoubleClick"
                           ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -101,81 +104,157 @@
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
-                        <DataTemplate DataType="m:Contact">
-                            <Grid Height="45">
+                        <DataTemplate DataType="vm:ContactViewModel">
+                            <Grid Height="50">
                                 <i:Interaction.Behaviors>
                                     <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
                                                                                          Transition="FadeIn"
                                                                                          Duration="500" />
                                 </i:Interaction.Behaviors>
-                                <TextBlock FontSize="16"
-                                           Foreground="#A0A0A0"
-                                           Text="{Binding AliasName}" />
+                                <Grid Margin="10,0,0,0"
+                                      VerticalAlignment="Center"
+                                      Tag="{Binding Contact.Guid}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0"
+                                                Margin="0,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                        <Grid>
+                                            <Image Width="45"
+                                                   Height="45"
+                                                   HorizontalAlignment="Left"
+                                                   RenderOptions.BitmapScalingMode="Fant"
+                                                   Source="{Binding Contact.LocalIconUri, Converter={x:Static converters:UriToImageSourceConverter.Instance}, ConverterParameter=45, Mode=OneWay}" />
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1"
+                                                Margin="15,0,0,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                            <TextBlock Margin="0"
+                                                       FontSize="18"
+                                                       Text="{Binding Contact.AliasName}" />
+                                            <Border Margin="3,0,0,0"
+                                                    Background="#EA1D953F"
+                                                    BorderBrush="AliceBlue"
+                                                    BorderThickness="0"
+                                                    CornerRadius="3"
+                                                    Visibility="{Binding IsRunning, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                <TextBlock Margin="3,0,3,0"
+                                                           FontSize="16"
+                                                           Foreground="#FFFFFF"
+                                                           Opacity="1"
+                                                           Text="正在游戏" />
+                                            </Border>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="0"
+                                                    Orientation="Horizontal"
+                                                    ToolTipService.Placement="Top"
+                                                    Visibility="{Binding IsFetched, Converter={StaticResource BoolToVisibilityConverter}}">
+                                            <ToolTipService.ToolTip>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock FontFamily="{DynamicResource TextThemeFontFamily}" Text="{Binding Contact.Uid, StringFormat='UID:{0}'}" />
+                                                </StackPanel>
+                                            </ToolTipService.ToolTip>
+                                            <TextBlock Margin="0"
+                                                       FontSize="16"
+                                                       Foreground="#A0A0A0"
+                                                       Text="{Binding Contact.NickName}" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="12"
+                                                       Foreground="#A0A0A0"
+                                                       Text="|" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       FontSize="16"
+                                                       Foreground="#A0A0A0"
+                                                       Text="{Binding Contact.RegionName}" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="12"
+                                                       Foreground="#A0A0A0"
+                                                       Text="|" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       FontSize="16"
+                                                       Foreground="#A0A0A0"
+                                                       Text="Lv." />
+                                            <TextBlock FontSize="16"
+                                                       Foreground="#A0A0A0"
+                                                       Text="{Binding Contact.Level}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ContextMenu>
                         <ContextMenu Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}">
-                            <MenuItem Command="{x:Bind ViewModel.LaunchGameFromListCommand}" Header="启动游戏">
+                            <MenuItem Command="{Binding LaunchGameFromListCommand}" Header="启动游戏">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Play}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{x:Bind ViewModel.LaunchGameFromListWithDelayCommand}"
+                            <MenuItem Command="{Binding LaunchGameFromListWithDelayCommand}"
                                       Header="缓启动游戏"
                                       ToolTip="3分钟后启动选中账号">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Play}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{x:Bind ViewModel.CancelLaunchGameFromListWithDelayCommand}"
+                            <MenuItem Command="{Binding CancelLaunchGameFromListWithDelayCommand}"
                                       Header="取消缓启动游戏"
                                       Visibility="{Binding CancelLaunchGameDelayTokenSource, Converter={StaticResource NotNullToVisibilityConverter}}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Cancel}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Cancel}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
-                            <MenuItem Command="{x:Bind ViewModel.RefreshContactCommand}" Header="刷新">
+                            <MenuItem Command="{Binding RefreshContactCommand}" Header="刷新">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Refresh}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Refresh}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{x:Bind ViewModel.CopyUidCommand}" Header="复制 UID">
+                            <MenuItem Command="{Binding CopyUidCommand}" Header="复制 UID">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Copy}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Copy}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{x:Bind ViewModel.CopyCookieCommand}" Header="复制 Cookie">
+                            <MenuItem Command="{Binding CopyCookieCommand}" Header="复制 Cookie">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Copy}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Copy}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
-                            <MenuItem Command="{x:Bind ViewModel.EditContactCommand}" Header="编辑">
+                            <MenuItem Command="{Binding EditContactCommand}" Header="编辑">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Edit}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Edit}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{x:Bind ViewModel.DeleteContactCommand}" Header="删除">
+                            <MenuItem Command="{Binding DeleteContactCommand}" Header="删除">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Bind controls:FontSymbols.Delete}" />
+                                                 Glyph="{x:Static controls:FontSymbols.Delete}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                         </ContextMenu>

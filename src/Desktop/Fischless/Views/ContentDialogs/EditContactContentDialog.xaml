@@ -1,4 +1,4 @@
-﻿<ui:ContentDialog x:Class="Fischless.Views.ContactContentDialog"
+﻿<ui:ContentDialog x:Class="Fischless.Views.EditContactContentDialog"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"

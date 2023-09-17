@@ -1,191 +1,126 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Fischless.Fetch.Launch;
-using Fischless.Fetch.Regedit;
+using Fischless.Hoyolab;
+using Fischless.Hoyolab.Account;
 using Fischless.Models;
+using Serilog;
 using System;
-using System.Collections.ObjectModel;
-using System.Security.Cryptography;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Fischless.ViewModels;
 
-public partial class ContactViewModel : ObservableObject
+public sealed partial class ContactViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string? aliasName = null!;
+    public HoyolabClient Client { get; private set; } = new();
 
     [ObservableProperty]
-    private string? localIconUri = LocalAvatars.Default;
-
-    public ObservableCollection<ContactSelectionViewModel> LocalIconSelectionUris { get; } = new();
+    private Contact contact = null!;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ProdMD5))]
-    private string? prod = null!;
-    partial void OnProdChanged(string? value)
+    private bool isRunning = false;
+
+    [ObservableProperty]
+    private bool isFetched = false;
+
+    [ObservableProperty]
+    private HoyolabUserInfo? userInfoFetched = new();
+
+    [ObservableProperty]
+    private GenshinRoleInfo? roleFetched = new();
+
+    public ContactViewModel(Contact contact)
     {
-        Prod = value?.Replace("\n", string.Empty) ?? string.Empty;
+        Contact = contact;
     }
-    public string? ProdMD5
-    {
-        get
-        {
-            byte[] hashBytes = MD5.HashData(Encoding.UTF8.GetBytes(Prod));
-            StringBuilder sb = new();
 
-            sb.Append("MD5: ");
-            if (string.IsNullOrEmpty(Prod))
+    public async Task FetchAllAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(Contact.Cookie) && Contact.IsUseCookie)
+        {
+            try
             {
-                sb.Append("NULL");
-                return sb.ToString();
+                _ = FetchLazyInfoAsync();
+                await FetchHoyolabUserInfoAsync();
+                await FetchGenshinRoleInfosAsync();
+
+                IsFetched = true;
             }
-            for (int i = 0; i < hashBytes.Length; i++)
+            catch (Exception e)
             {
-                sb.Append(hashBytes[i].ToString("X2"));
+                Log.Error(e.ToString());
             }
-            return sb.ToString();
         }
     }
 
-    [ObservableProperty]
-    private string? server = null!;
-
-    [ObservableProperty]
-    private int selectedServerIndex = (int)ContactServer.Auto;
-    partial void OnSelectedServerIndexChanged(int value)
+    public async Task FetchHoyolabUserInfoAsync()
     {
-        RegetProd();
-    }
-
-    [ObservableProperty]
-    private string? cookie = null!;
-
-    [ObservableProperty]
-    private bool isUseCookie = true;
-
-    public ContactViewModel()
-    {
-        foreach (var kv in LocalAvatars.Stocks)
+        if (!string.IsNullOrEmpty(Contact.Cookie))
         {
-            LocalIconSelectionUris.Add(new()
+            try
             {
-                Parent = this,
-                LocalIconUri = kv.Value,
-            });
-        }
-        Reload();
-    }
-
-    public void Reload(Contact contact = null!)
-    {
-        if (contact is null)
-        {
-            RegetProd();
-            LocalIconUri = LocalAvatars.Default;
-        }
-        else
-        {
-            AliasName = contact.AliasName;
-            LocalIconUri = contact.LocalIconUri;
-            Server = contact.Server;
-            Prod = contact.Prod;
-            Cookie = contact.Cookie;
-        }
-    }
-
-    [RelayCommand]
-    public void ChangeIconButton(string uriString)
-    {
-        LocalIconUri = uriString;
-    }
-
-    [RelayCommand]
-    public void GenerateAliasName()
-    {
-        AliasName = RandomChineseWords.Generate();
-    }
-
-    [RelayCommand]
-    private void RegetProd()
-    {
-        switch ((ContactServer)SelectedServerIndex)
-        {
-            case ContactServer.Auto:
-                if (!string.IsNullOrEmpty(Prod = GIRegedit.ProdCN))
-                {
-                    Server = GILauncher.RegionCN;
-                }
-                else
-                {
-                    Prod = GIRegedit.ProdOVERSEA;
-                    Server = GILauncher.RegionOVERSEA;
-                }
-                break;
-            case ContactServer.CN:
-                Prod = GIRegedit.ProdCN;
-                Server = GILauncher.RegionCN;
-                break;
-            case ContactServer.OVERSEA:
-                Prod = GIRegedit.ProdOVERSEA;
-                Server = GILauncher.RegionOVERSEA;
-                break;
-        }
-    }
-}
-
-public partial class ContactSelectionViewModel : ObservableObject
-{
-    public ContactViewModel? Parent { get; set; }
-
-    [ObservableProperty]
-    private string? localIconUri = null!;
-}
-
-public enum ContactServer
-{
-    Auto,
-    CN,
-    OVERSEA,
-}
-
-file static class RandomChineseWords
-{
-    static RandomChineseWords()
-    {
-        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-    }
-
-    public static string Generate(int? countRequest = null!)
-    {
-        int count = countRequest ?? new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-        string chineseWords = string.Empty;
-        Random rm = new();
-
-        for (int i = 0; i < count; i++)
-        {
-            int regionCode = rm.Next(16, 56);
-            int positionCode;
-
-            if (regionCode == 55)
-            {
-                positionCode = rm.Next(1, 90);
+                UserInfoFetched = await Client.GetHoyolabUserInfoAsync(Contact.Server.ToHoyolabRegion(), Contact.Cookie);
+                Log.Information($"[HoyolabUserInfo] Uid=\"{UserInfoFetched.Uid}\" NickName=\"{UserInfoFetched.Nickname}\" AvatarUrl=\"{UserInfoFetched.AvatarUrl}\"");
             }
-            else
+            catch (Exception e)
             {
-                positionCode = rm.Next(1, 95);
+                Log.Error(e.ToString());
             }
-
-            int regionCode_Machine = regionCode + 160;
-            int positionCode_Machine = positionCode + 160;
-            byte[] bytes = new byte[]
-            {
-                (byte)regionCode_Machine,
-                (byte)positionCode_Machine,
-            };
-
-            chineseWords += Encoding.GetEncoding("gb2312").GetString(bytes);
         }
-        return chineseWords;
+    }
+
+    public async Task FetchGenshinRoleInfosAsync()
+    {
+        if (!string.IsNullOrEmpty(Contact.Cookie))
+        {
+            try
+            {
+                RoleFetched = (await Client.GetGenshinRoleInfosAsync(Contact.Server.ToHoyolabRegion(), Contact.Cookie)).FirstOrDefault();
+
+                Log.Information($"[GenshinRoleInfo] Uid=\"{RoleFetched!.Uid}\" NickName=\"{RoleFetched!.Nickname}\"");
+                Contact.NickName = RoleFetched!.Nickname;
+                Contact.Uid = RoleFetched!.Uid;
+                Contact.Level = RoleFetched!.Level;
+                Contact.RegionName = RoleFetched!.RegionName;
+            }
+            catch (Exception e)
+            {
+                Log.Error(e.ToString());
+            }
+        }
+    }
+
+    public async Task FetchLazyInfoAsync()
+    {
+        //try
+        //{
+        //    LazyInfoViewModel!.IsUnlocked = await LazyVerification.VerifyAssembly(Settings.ComponentLazyPath.Get());
+
+        //    if (!LazyInfoViewModel.IsUnlocked)
+        //    {
+        //        LazyInfoViewModel.IsUnlocked = await LazyProtocol.IsVaildProtocolAsync();
+        //    }
+
+        //    if (Contact.Uid == null)
+        //    {
+        //        await FetchGenshinRoleInfosAsync();
+        //    }
+
+        //    bool hasLazyToday = await LazyOutputHelper.Check(Contact.Uid?.ToString()!);
+
+        //    LazyInfo.SetGreen(hasLazyToday, Settings.HintQuestRandomProceRed);
+
+        //    LazyInfoViewModel!.IsFinished = hasLazyToday;
+        //    LazyInfoViewModel!.IsFetched = true;
+        //    OnPropertyChanged(nameof(LazyInfoViewModel));
+        //}
+        //catch (Exception e)
+        //{
+        //    Logger.Error(e);
+        //    LazyInfo.SetYellow(true, Settings.HintQuestRandomProceRed);
+        //    LazyInfoViewModel!.IsFinished = false;
+        //    LazyInfoViewModel!.IsFetched = false;
+        //    OnPropertyChanged(nameof(LazyInfoViewModel));
+        //}
     }
 }

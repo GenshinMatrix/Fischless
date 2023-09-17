@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Fischless.Views;
 
-public partial class ContactContentDialog : ContentDialog
+public partial class EditContactContentDialog : ContentDialog
 {
-    public ContactViewModel ViewModel { get; }
+    public EditContactViewModel ViewModel { get; }
 
-    public ContactContentDialog()
+    public EditContactContentDialog()
     {
         DataContext = ViewModel = new();
         InitializeComponent();

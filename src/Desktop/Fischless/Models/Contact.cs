@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Threading.Tasks;
 
 namespace Fischless.Models;
 
@@ -37,12 +36,4 @@ public partial class Contact : ObservableObject
 
     [ObservableProperty]
     private int? level = null!;
-}
-
-public static class ContactExtension
-{
-    public static async Task FetchAllAsync(this Contact contact)
-    {
-        await Task.CompletedTask;
-    }
 }

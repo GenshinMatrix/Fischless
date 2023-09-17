@@ -12,7 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Management" Version="8.0.0-preview.7.23375.6" />
+        <PackageReference Include="System.Management" Version="8.0.0-rc.1.23419.4" />
         <PackageReference Include="Vanara.PInvoke.DwmApi" Version="3.4.16" />
         <PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.16" />
         <PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.16" />

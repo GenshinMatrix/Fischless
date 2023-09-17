@@ -1,6 +1,7 @@
 ﻿using ModernWpf.Controls;
 using Fischless.ViewModels;
 using System;
+using System.Windows.Input;
 
 namespace Fischless.Views;
 
@@ -16,5 +17,10 @@ public partial class PageHome : Page, IDisposable
 
     public void Dispose()
     {
+    }
+
+    public async void OnContactMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        await ViewModel.LaunchGameFromListAsync();
     }
 }
