@@ -21,7 +21,7 @@ public class BitBltCapture : IWindowCapture
             return null;
         }
 
-        User32.GetWindowRect(_hWnd, out var windowRect);
+        _ = User32.GetWindowRect(_hWnd, out var windowRect);
         var width = windowRect.right - windowRect.left;
         var height = windowRect.bottom - windowRect.top;
 
@@ -29,13 +29,13 @@ public class BitBltCapture : IWindowCapture
         var hdcDest = Gdi32.CreateCompatibleDC(hdcSrc);
         var hBitmap = Gdi32.CreateCompatibleBitmap(hdcSrc, width, height);
         var hOld = Gdi32.SelectObject(hdcDest, hBitmap);
-        Gdi32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, Gdi32.RasterOperationMode.SRCCOPY);
-        Gdi32.SelectObject(hdcDest, hOld);
-        Gdi32.DeleteDC(hdcDest);
-        User32.ReleaseDC(_hWnd, hdcSrc);
+        _ = Gdi32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, Gdi32.RasterOperationMode.SRCCOPY);
+        _ = Gdi32.SelectObject(hdcDest, hOld);
+        _ = Gdi32.DeleteDC(hdcDest);
+        _ = User32.ReleaseDC(_hWnd, hdcSrc);
 
         var bitmap = hBitmap.ToBitmap();
-        Gdi32.DeleteObject(hBitmap);
+        _ = Gdi32.DeleteObject(hBitmap);
         return bitmap;
     }
 
