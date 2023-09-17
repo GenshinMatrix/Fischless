@@ -19,8 +19,11 @@ public partial class PageHome : Page, IDisposable
     {
     }
 
-    public async void OnContactMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    public async void OnContactMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        await ViewModel.LaunchGameFromListAsync();
+        if (e.ClickCount == 2)
+        {
+            await ViewModel.LaunchGameFromListAsync();
+        }
     }
 }

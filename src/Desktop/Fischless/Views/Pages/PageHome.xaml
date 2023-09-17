@@ -85,7 +85,6 @@
                           dd:DragDrop.UseDefaultDragAdorner="True"
                           AllowDrop="True"
                           ItemsSource="{Binding Contacts}"
-                          MouseDoubleClick="OnContactMouseDoubleClick"
                           ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -105,7 +104,9 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate DataType="vm:ContactViewModel">
-                            <Grid Height="50">
+                            <Grid Height="50"
+                                  Background="#01000000"
+                                  MouseLeftButtonDown="OnContactMouseLeftButtonDown">
                                 <i:Interaction.Behaviors>
                                     <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
                                                                                          Transition="FadeIn"

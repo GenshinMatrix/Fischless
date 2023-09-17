@@ -6,7 +6,7 @@ namespace Fischless.Design.Markups;
 public sealed class StringExtension : MarkupExtension
 {
     [ConstructorArgument("text")]
-    public string Text { get; set; } = null;
+    public string Text { get; set; } = null!;
 
     public StringExtension(string text)
     {

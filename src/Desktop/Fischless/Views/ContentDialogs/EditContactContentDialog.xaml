@@ -120,7 +120,9 @@
                                 Style="{StaticResource DateTimePickerFlyoutButtonStyle}"
                                 ToolTipService.ToolTip="随机生成">
                             <Button.Content>
-                                <ui:FontIcon FontSize="16" Glyph="&#xe8b1;" />
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Shuffle}" />
                             </Button.Content>
                         </Button>
                     </StackPanel>

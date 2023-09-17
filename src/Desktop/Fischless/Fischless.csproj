@@ -49,8 +49,11 @@
         <ProjectReference Include="..\..\External\LottieSharp.WPF\LottieSharp.WPF.csproj" />
         <ProjectReference Include="..\..\External\Markdig.Wpf\Markdig.Wpf.csproj" />
         <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
+        <ProjectReference Include="..\Fischless.Fetch.Lazy\Fischless.Fetch.Lazy.csproj" />
         <ProjectReference Include="..\Fischless.Fetch\Fischless.Fetch.csproj" />
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
+        <ProjectReference Include="..\Fischless.ReShade\Fischless.ReShade.csproj" />
+        <ProjectReference Include="..\Fischless.WindowCapture\Fischless.WindowCapture.csproj" />
     </ItemGroup>
 
     <ItemGroup>
