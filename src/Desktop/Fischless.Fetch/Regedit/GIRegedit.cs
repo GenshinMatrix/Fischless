@@ -38,14 +38,14 @@ public static class GIRegedit
         set => SetStringToRegedit(GIRegeditKeys.PROD_OVERSEA, value, GameType.OVERSEA);
     }
 
-    [Obsolete]
+    [Obsolete("Unusable")]
     public static string DataCN
     {
         get => GetStringFromRegedit(GIRegeditKeys.DATA, GameType.CN);
         set => SetStringToRegedit(GIRegeditKeys.DATA, value, GameType.CN);
     }
 
-    [Obsolete]
+    [Obsolete("Unusable")]
     public static string DataOVERSEA
     {
         get => GetStringFromRegedit(GIRegeditKeys.DATA, GameType.OVERSEA);
@@ -86,15 +86,11 @@ public static class GIRegedit
 
     internal static string GetStringFromRegedit(string key, GameType type = GameType.CN)
     {
-#if DISPSREG
-        object? value = Registry.GetValue(type.GetRegKeyName(), key, string.Empty);
-
-        if (value is byte[] bytes)
+        if (RuntimeHelper.IsElevated)
         {
-            return Encoding.UTF8.GetString(bytes);
+            return GetStringFromRegeditDirect(key, type);
         }
-        return null!;
-#else
+
         try
         {
             using MemoryStream stream = new();
@@ -127,14 +123,27 @@ public static class GIRegedit
             Log.Warning(e.ToString());
         }
         return null!;
-#endif
+    }
+
+    internal static string GetStringFromRegeditDirect(string key, GameType type = GameType.CN)
+    {
+        object? value = Registry.GetValue(type.GetRegKeyName(), key, string.Empty);
+
+        if (value is byte[] bytes)
+        {
+            return Encoding.UTF8.GetString(bytes);
+        }
+        return null!;
     }
 
     internal static void SetStringToRegedit(string key, string value, GameType type = GameType.CN)
     {
-#if DISPSREG
-        Registry.SetValue(GetRegKeyName(type), key, Encoding.UTF8.GetBytes(value));
-#else
+        if (RuntimeHelper.IsElevated)
+        {
+            SetStringToRegeditDirect(key, value, type);
+            return;
+        }
+
         try
         {
             string base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(value));
@@ -154,7 +163,11 @@ public static class GIRegedit
         {
             Log.Warning(e.ToString());
         }
-#endif
+    }
+
+    internal static void SetStringToRegeditDirect(string key, string value, GameType type = GameType.CN)
+    {
+        Registry.SetValue(GetRegKeyName(type), key, Encoding.UTF8.GetBytes(value));
     }
 
     internal static string GetRegKey(this GameType type)
