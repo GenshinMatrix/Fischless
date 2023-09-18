@@ -7,6 +7,8 @@ using Fischless.Models;
 using Fischless.Services;
 using Serilog;
 using System;
+using System.Threading.Tasks;
+using Windows.System;
 
 namespace Fischless.ViewModels;
 
@@ -24,7 +26,7 @@ public partial class PageSettingsViewModel : ObservableRecipient
     }
 
     [RelayCommand]
-    public void RestartAsElevated()
+    public static void RestartAsElevated()
     {
         RuntimeHelper.EnsureElevated();
     }
@@ -57,5 +59,33 @@ public partial class PageSettingsViewModel : ObservableRecipient
         {
             LnkHelper.RemoveShortcutOnDesktop(AppConfig.AppName);
         }
+    }
+
+    [ObservableProperty]
+    private bool closeToTray = Configurations.CloseToTray.Get();
+    partial void OnCloseToTrayChanged(bool value)
+    {
+        Configurations.CloseToTray.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [ObservableProperty]
+    private bool autoMute = Configurations.AutoMute.Get();
+    partial void OnAutoMuteChanged(bool value)
+    {
+        Configurations.AutoMute.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [RelayCommand]
+    public static async Task LaunchWindowsSettingsAppsVolume()
+    {
+        _ = await Launcher.LaunchUriAsync(new Uri("ms-settings:apps-volume"));
+    }
+
+    [RelayCommand]
+    public static async Task OpenSpecialFolder()
+    {
+        _ = await Launcher.LaunchUriAsync(new Uri($"file://{SpecialPathHelper.GetPath()}/"));
     }
 }

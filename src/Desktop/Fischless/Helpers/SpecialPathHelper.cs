@@ -13,9 +13,9 @@ internal static class SpecialPathHelper
         return Path.Combine(_localApplicationData, optionFolder ?? AppConfig.AppName);
     }
 
-    public static string GetPath(string baseName)
+    public static string GetPath(string? baseName = null)
     {
-        string configPath = Path.Combine(GetFolder(), baseName);
+        string configPath = Path.Combine(GetFolder(), baseName ?? string.Empty);
 
         if (!Directory.Exists(new FileInfo(configPath).DirectoryName))
         {

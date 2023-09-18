@@ -324,6 +324,7 @@
                                     <ui:ToggleSwitch Width="100"
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding CloseToTray, Mode=TwoWay}"
                                                      OffContent="关"
                                                      OnContent="开" />
                                 </StackPanel>
@@ -357,7 +358,7 @@
                                 <StackPanel Grid.Column="1"
                                             Margin="0,0,45,0"
                                             Orientation="Horizontal">
-                                    <Button Command="{Binding LaunchAtWindowsSoundLinkCommand}" ToolTip="前往设置">
+                                    <Button Command="{Binding LaunchWindowsSettingsAppsVolumeCommand}" ToolTip="前往设置">
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
@@ -367,6 +368,7 @@
                                     <ui:ToggleSwitch Width="100"
                                                      Margin="16,0,0,0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding AutoMute, Mode=TwoWay}"
                                                      OffContent="关"
                                                      OnContent="开" />
                                 </StackPanel>
@@ -374,6 +376,25 @@
                         </StackPanel>
                     </wui:CardExpander.Content>
                 </wui:CardExpander>
+                <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenSpecialFolderCommand}">
+                    <wui:CardAction.Icon>
+                        <wui:FontIcon Margin="6,0,0,0"
+                                      FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                      FontSize="24"
+                                      Glyph="{x:Static controls:FontSymbols.OpenFolderHorizontal}" />
+                    </wui:CardAction.Icon>
+                    <wui:CardAction.Content>
+                        <StackPanel Margin="6,0,0,0">
+                            <TextBlock FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                       Text="用户数据" />
+                            <TextBlock FontSize="13"
+                                       Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                       Text="本地记录的用户数据" />
+                        </StackPanel>
+                    </wui:CardAction.Content>
+                </wui:CardAction>
             </StackPanel>
         </controls:SmoothScrollViewer>
     </Grid>
