@@ -16,7 +16,7 @@
          FontSize="14"
          mc:Ignorable="d">
     <Page.Resources>
-        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True" />
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Page.Resources>
     <Grid>
         <Grid Margin="0,0,0,0"
@@ -249,6 +249,7 @@
                                     <ui:ToggleSwitch Width="100"
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding AutoStart, Mode=TwoWay}"
                                                      OffContent="关"
                                                      OnContent="开" />
                                 </StackPanel>

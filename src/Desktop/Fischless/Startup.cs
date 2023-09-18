@@ -22,7 +22,8 @@ public class Startup
                 .AddPlugins(app)
                 .AddSingleton<INavigationService, NavigationService>()
                 .AddSingleton<PageHome>()
-                .AddTransient<PageSettings>();
+                .AddTransient<PageSettings>()
+                .AddTransient<IAutoStartService, AutoStartRegistyService>();
     }
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)

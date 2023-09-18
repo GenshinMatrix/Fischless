@@ -3,7 +3,7 @@
 public enum CaptureMode
 {
     BitBlt,
-    WindowsGraphicsCapture
+    WindowsGraphicsCapture,
 }
 
 public static class CaptureModeExtensions
