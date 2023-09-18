@@ -2,6 +2,7 @@
 using Fischless.Helpers;
 using Fischless.Hosting.Absraction;
 using Fischless.Mapper;
+using Fischless.Models;
 using Fischless.Native;
 using Microsoft.AppCenter;
 using Serilog;
@@ -13,6 +14,15 @@ namespace Fischless.Extensions;
 
 public static class ApplicationBuilderExtension
 {
+    public static IApplicationBuilder UseElevated(this IApplicationBuilder app)
+    {
+        if (Configurations.EnsureElevated.Get())
+        {
+            RuntimeHelper.EnsureElevated();
+        }
+        return app;
+    }
+
     public static IApplicationBuilder UseSingleInstance(this IApplicationBuilder app, string instanceName, Action<bool> callback = null!)
     {
         RuntimeHelper.CheckSingleInstance(instanceName, callback);

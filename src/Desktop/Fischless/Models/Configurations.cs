@@ -9,5 +9,6 @@ namespace Fischless.Models;
 public static class Configurations
 {
     public static ConfigurationDefinition<string> Language { get; } = new(nameof(Language), string.Empty);
+    public static ConfigurationDefinition<bool> EnsureElevated { get; } = new(nameof(EnsureElevated), false);
     public static ConfigurationDefinition<IEnumerable<Contact>> Contacts { get; } = new(nameof(Contacts), Array.Empty<Contact>());
 }

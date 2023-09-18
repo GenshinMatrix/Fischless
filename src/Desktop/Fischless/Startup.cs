@@ -5,9 +5,11 @@ using Fischless.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Fischless;
 
+[SuppressMessage("Performance", "CA1822:")]
 public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
@@ -30,6 +32,7 @@ public class Startup
     {
         app.UseLogger()
            .UseConfiguration()
+           .UseElevated()
            .UseSingleInstance("Fischless")
            .UseMapper()
            .UseAppCenter()

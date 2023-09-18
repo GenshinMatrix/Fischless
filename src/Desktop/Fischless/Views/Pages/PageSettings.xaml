@@ -199,7 +199,7 @@
                                 <StackPanel Grid.Column="1"
                                             Margin="0,0,45,0"
                                             Orientation="Horizontal">
-                                    <Button Command="{Binding RestartAsElevatedCommand}" ToolTip="以管理员方式重启">
+                                    <Button Command="{Binding RestartAsElevatedCommand}" ToolTip="确认以管理员方式重启">
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
@@ -209,6 +209,7 @@
                                     <ui:ToggleSwitch Width="100"
                                                      Margin="16,0,0,0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding EnsureElevated, Mode=TwoWay}"
                                                      OffContent="关"
                                                      OnContent="开" />
                                 </StackPanel>
@@ -286,6 +287,7 @@
                                     <ui:ToggleSwitch Width="100"
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding DesktopShortcut, Mode=TwoWay}"
                                                      OffContent="关"
                                                      OnContent="开" />
                                 </StackPanel>

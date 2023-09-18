@@ -38,11 +38,13 @@ public static class RuntimeHelper
 
     public static void EnsureElevated()
     {
+#if FALSE
         if (IsDebuggerAttached)
         {
-            AppConfig.GetLogger().Warning("[RuntimeHelper] IsDebuggerAttached causes skip EnsureElevated");
+            Debug.WriteLine("[RuntimeHelper] IsDebuggerAttached causes skip EnsureElevated");
             return;
         }
+#endif
         if (!IsElevated)
         {
             RestartAsElevated();
