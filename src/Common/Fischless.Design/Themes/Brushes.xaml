@@ -158,6 +158,8 @@
     <SolidColorBrush x:Key="MarkdownLinkBrush" Color="{DynamicResource MarkdownParagraphAccentColor}" />
 
     <!--  Fischless brushes  -->
+
+    <SolidColorBrush x:Key="WindowTitleForeground" Color="#B1B4B1" />
     <SolidColorBrush x:Key="AccentForeground" Color="#FE009F" />
     <SolidColorBrush x:Key="IndicatorForeground" Color="#4CC2FF" />
 

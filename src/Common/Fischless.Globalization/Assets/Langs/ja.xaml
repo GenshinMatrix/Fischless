@@ -11,6 +11,7 @@
     <s:String x:Key="MessageBoxCaptionWarn">警告</s:String>
     <s:String x:Key="MessageBoxCaptionQuestion">質問</s:String>
     <s:String x:Key="MessageBoxCaptionError">エラー</s:String>
+    <s:String x:Key="AutoMute">自動ミュート</s:String>
     <s:String x:Key="Exit">終了</s:String>
     <s:String x:Key="Restart">再起動</s:String>
     <s:String x:Key="Language">言語</s:String>
@@ -23,5 +24,5 @@
     <s:String x:Key="Home">ホームページ</s:String>
     <s:String x:Key="GlobalSettings">グローバル設定</s:String>
     <s:String x:Key="CopyVersionInfo">バージョン情報をコピー</s:String>
-    
+
 </ResourceDictionary>

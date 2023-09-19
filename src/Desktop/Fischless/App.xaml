@@ -34,35 +34,62 @@
                     <vm:NotifyIconViewModel />
                 </tb:TaskbarIcon.DataContext>
                 <tb:TaskbarIcon.ContextMenu>
-                    <ContextMenu MinWidth="160" Padding="0,5">
-                        <MenuItem x:Name="PART_RestartMenuItem"
-                                  Command="{Binding RestartCommand}"
-                                  FontFamily="{DynamicResource TextThemeFontFamily}"
-                                  Header="{DynamicResource Restart}"
-                                  Tag="Restart">
+                    <ContextMenu Padding="0,5">
+                        <wui:MenuItem FontFamily="{DynamicResource TextThemeFontFamily}"
+                                      IsCheckable="True"
+                                      IsChecked="{Binding AutoMute, Mode=TwoWay}"
+                                      Tag="AutoMute">
                             <MenuItem.Icon>
-                                <Grid>
-                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                               FontSize="12"
-                                               Text="{x:Static controls:FontSymbols.RestartUpdate}" />
-                                    <TextBlock Margin="2,2,0,0"
-                                               FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                               FontSize="10"
-                                               Text="{x:Static controls:FontSymbols.UpdateStatusDot}" />
+                                <ui:FontIcon Margin="8,0,0,0"
+                                             FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Mute}"
+                                             Visibility="Collapsed" />
+                            </MenuItem.Icon>
+                            <MenuItem.Header>
+                                <TextBlock Margin="8,0,0,0"
+                                           FontFamily="{StaticResource TextThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{DynamicResource AutoMute}" />
+                            </MenuItem.Header>
+                        </wui:MenuItem>
+                        <wui:MenuItem Command="{Binding RestartCommand}"
+                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                      Tag="Restart">
+                            <MenuItem.Icon>
+                                <Grid Margin="3,0,0,0">
+                                    <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                 FontSize="14"
+                                                 Glyph="{x:Static controls:FontSymbols.RestartUpdate}" />
+                                    <ui:FontIcon Margin="4,4,0,0"
+                                                 FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                 FontSize="10"
+                                                 Glyph="{x:Static controls:FontSymbols.UpdateStatusDot}" />
                                 </Grid>
                             </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem x:Name="PART_ExitMenuItem"
-                                  Command="{Binding ExitCommand}"
-                                  FontFamily="{DynamicResource TextThemeFontFamily}"
-                                  Header="{DynamicResource Exit}"
-                                  Tag="Exit">
+                            <MenuItem.Header>
+                                <TextBlock Margin="18,0,0,0"
+                                           FontFamily="{StaticResource TextThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{DynamicResource Restart}" />
+                            </MenuItem.Header>
+                        </wui:MenuItem>
+                        <wui:MenuItem Command="{Binding ExitCommand}"
+                                      FontFamily="{DynamicResource TextThemeFontFamily}"
+                                      Tag="Exit">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                           FontSize="12"
-                                           Text="{x:Static controls:FontSymbols.Cancel}" />
+                                <ui:FontIcon Margin="3,0,0,0"
+                                             FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                             FontSize="14"
+                                             Glyph="{x:Static controls:FontSymbols.Cancel}" />
                             </MenuItem.Icon>
-                        </MenuItem>
+                            <MenuItem.Header>
+                                <TextBlock Margin="18,0,0,0"
+                                           FontFamily="{StaticResource TextThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{DynamicResource Exit}" />
+                            </MenuItem.Header>
+                        </wui:MenuItem>
                     </ContextMenu>
                 </tb:TaskbarIcon.ContextMenu>
             </tb:TaskbarIcon>

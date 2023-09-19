@@ -1,8 +1,6 @@
-﻿using Fischless.ViewModels;
+﻿namespace Fischless.Models.Message;
 
-namespace Fischless.Models.Message;
-
-public class ContactMessage
+public sealed class ContactMessage
 {
     public ContactMessageType Type { get; set; } = ContactMessageType.Added;
     public Contact Contact { get; set; } = null!;

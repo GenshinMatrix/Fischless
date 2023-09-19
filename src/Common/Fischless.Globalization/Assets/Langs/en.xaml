@@ -11,6 +11,7 @@
     <s:String x:Key="MessageBoxCaptionWarn">Warn</s:String>
     <s:String x:Key="MessageBoxCaptionQuestion">Question</s:String>
     <s:String x:Key="MessageBoxCaptionError">Error</s:String>
+    <s:String x:Key="AutoMute">Auto Mute</s:String>
     <s:String x:Key="Exit">Exit</s:String>
     <s:String x:Key="Restart">Restart</s:String>
     <s:String x:Key="Language">Language</s:String>

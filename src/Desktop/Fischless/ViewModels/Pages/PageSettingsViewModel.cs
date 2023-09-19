@@ -1,12 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Configuration;
 using Fischless.Design.Controls;
+using Fischless.Fetch.Muter;
 using Fischless.Helpers;
 using Fischless.Models;
+using Fischless.Models.Message;
 using Fischless.Services;
 using Serilog;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Windows.System;
 
@@ -73,8 +77,17 @@ public partial class PageSettingsViewModel : ObservableRecipient
     private bool autoMute = Configurations.AutoMute.Get();
     partial void OnAutoMuteChanged(bool value)
     {
+        MuteManager.AutoMute = value;
         Configurations.AutoMute.Set(value);
         ConfigurationManager.Save();
+        WeakReferenceMessenger.Default.Send(new AutoMuteChangedMessage());
+    }
+
+    [SuppressMessage("CommunityToolkit.Mvvm.SourceGenerators.ObservablePropertyGenerator", "MVVMTK0034:")]
+    private void OnAutoMuteChangedReceived()
+    {
+        autoMute = Configurations.AutoMute;
+        OnPropertyChanged(nameof(AutoMute));
     }
 
     [RelayCommand]
