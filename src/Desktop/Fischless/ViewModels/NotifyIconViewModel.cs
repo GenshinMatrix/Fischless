@@ -13,11 +13,16 @@ using System.Windows;
 
 namespace Fischless.ViewModels;
 
-public partial class NotifyIconViewModel : ObservableObject
+public partial class NotifyIconViewModel : ObservableRecipient, IDisposable
 {
     public NotifyIconViewModel()
     {
         WeakReferenceMessenger.Default.Register<AutoMuteChangedMessage>(this, (_, _) => OnAutoMuteChangedReceived());
+    }
+
+    public void Dispose()
+    {
+        WeakReferenceMessenger.Default.UnregisterAll(this);
     }
 
     [RelayCommand]

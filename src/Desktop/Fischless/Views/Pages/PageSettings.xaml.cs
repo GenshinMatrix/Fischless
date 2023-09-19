@@ -8,9 +8,9 @@ public partial class PageSettings : Page, IDisposable
 {
     public PageSettingsViewModel ViewModel { get; } = null!;
 
-    public PageSettings()
+    public PageSettings(PageSettingsViewModel viewModel)
     {
-        DataContext = ViewModel = new();
+        DataContext = ViewModel = viewModel;
         InitializeComponent();
     }
 

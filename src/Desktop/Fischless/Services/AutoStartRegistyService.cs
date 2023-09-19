@@ -16,7 +16,7 @@ public class AutoStartRegistyService : IAutoStartService
         launchCommand = $"\"{Environment.ProcessPath!}\" {GetLaunchCommand()}";
     }
 
-    public string? GetAppName() => AppConfig.AppName;
+    public string? GetAppName() => AppConfig.PackName;
     public string? GetLaunchCommand() => AppConfig.AutoStartCommand;
 
     public void Enable()

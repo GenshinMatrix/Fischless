@@ -5,7 +5,6 @@
     <s:String x:Key="__LeftParenthesis__">（</s:String>
     <s:String x:Key="__RightParenthesis__">）</s:String>
     <s:String x:Key="__Colon__">：</s:String>
-    <s:String x:Key="__Yajirushi__">⇒</s:String>
     <s:String x:Key="Loading">载入中</s:String>
     <s:String x:Key="MessageBoxCaptionInfo">提示</s:String>
     <s:String x:Key="MessageBoxCaptionWarn">警告</s:String>
@@ -24,5 +23,8 @@
     <s:String x:Key="Home">主页</s:String>
     <s:String x:Key="GlobalSettings">全局设定</s:String>
     <s:String x:Key="CopyVersionInfo">复制版本信息</s:String>
+    <s:String x:Key="Contact">角色账号</s:String>
+    <s:String x:Key="ReShade">幽夜净土</s:String>
+    <s:String x:Key="Fischless">极夜真梦</s:String>
 
 </ResourceDictionary>

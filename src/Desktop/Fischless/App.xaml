@@ -28,7 +28,7 @@
             </ResourceDictionary.MergedDictionaries>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
                             DoubleClickCommand="{Binding ShowOrHideCommand}"
-                            IconSource="/Assets/Icons/SummerTime_Ball.ico"
+                            IconSource="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"
                             ToolTipText="Fischless">
                 <tb:TaskbarIcon.DataContext>
                     <vm:NotifyIconViewModel />

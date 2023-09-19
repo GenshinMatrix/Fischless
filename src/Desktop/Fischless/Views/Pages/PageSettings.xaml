@@ -81,7 +81,7 @@
                                            FontSize="14"
                                            FontWeight="Bold"
                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                           Text="Fischless" />
+                                           Text="{x:Static app:AppConfig.AppName}" />
                                 <Border Margin="4,0,0,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"

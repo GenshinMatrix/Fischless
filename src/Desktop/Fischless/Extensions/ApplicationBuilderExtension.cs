@@ -95,7 +95,7 @@ public static class ApplicationBuilderExtension
         Directory.CreateDirectory(logFolder);
         AppConfig.LogFile = Path.Combine(logFolder, $"Fischless_{DateTime.Now:yyMMdd_HHmmss}.log");
         Log.Logger = new LoggerConfiguration()
-            .WriteTo.File(path: AppConfig.LogFile, outputTemplate: "{Timestamp:HH:mm:ss.fff}|{Level:u4}|{SourceContext}|{Message}{NewLine}{Exception}{NewLine}")
+            .WriteTo.File(path: AppConfig.LogFile, outputTemplate: "{Timestamp:HH:mm:ss.fff}|{Level:u4}|{SourceContext}|{Message}{NewLine}{Exception}")
             .Enrich.FromLogContext()
             .CreateLogger();
         return app;

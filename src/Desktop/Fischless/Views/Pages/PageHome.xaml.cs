@@ -9,9 +9,9 @@ public partial class PageHome : Page, IDisposable
 {
     public PageHomeViewModel ViewModel { get; } = null!;
 
-    public PageHome()
+    public PageHome(PageHomeViewModel viewModel)
     {
-        DataContext = ViewModel = new();
+        DataContext = ViewModel = viewModel;
         InitializeComponent();
     }
 

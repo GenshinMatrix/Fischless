@@ -1,6 +1,7 @@
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
 using Fischless.Services;
+using Fischless.ViewModels;
 using Fischless.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -23,12 +24,16 @@ public class Startup
                 .AddLogging(c => c.AddSerilog(Log.Logger))
                 .AddPlugins(app)
                 .AddSingleton<INavigationService, NavigationService>()
+                .AddTransient<PageHomeViewModel>()
                 .AddSingleton<PageHome>()
+                .AddTransient<PageSettingsViewModel>()
                 .AddTransient<PageSettings>()
+                .AddTransient<PageReShadeViewModel>()
+                .AddTransient<PageReShade>()
                 .AddTransient<IAutoStartService, AutoStartRegistyService>();
     }
 
-    public void Configure(IApplicationBuilder app, IWpfHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWpfHostEnvironment env, IServiceCollection services)
     {
         app.UseLogger()
            .UseConfiguration()

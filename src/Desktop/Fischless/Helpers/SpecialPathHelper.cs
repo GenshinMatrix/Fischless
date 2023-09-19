@@ -10,7 +10,7 @@ internal static class SpecialPathHelper
 
     public static string GetFolder(string optionFolder = null!)
     {
-        return Path.Combine(_localApplicationData, optionFolder ?? AppConfig.AppName);
+        return Path.Combine(_localApplicationData, optionFolder ?? AppConfig.PackName);
     }
 
     public static string GetPath(string? baseName = null)
@@ -26,6 +26,6 @@ internal static class SpecialPathHelper
 
     public static string GetTempPath(string baseName)
     {
-        return Path.Combine(TempPath + AppConfig.AppName, baseName);
+        return Path.Combine(TempPath + AppConfig.PackName, baseName);
     }
 }

@@ -10,8 +10,9 @@ namespace Fischless;
 
 internal static class AppConfig
 {
-    public static string? AppName => "Fischless";
-    public static string? AutoStartCommand = "-autostart";
+    public static string? AppName => Mui(PackName) ?? PackName;
+    public static string? PackName => "Fischless";
+    public static string? AutoStartCommand => "-autostart";
     public static bool Preview => true;
     public static string? AppVersion { get; private set; }
     public static string LogFile { get; internal set; }

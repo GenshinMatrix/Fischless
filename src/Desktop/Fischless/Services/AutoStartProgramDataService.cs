@@ -16,7 +16,7 @@ public class AutoStartProgramDataService : IAutoStartService
     {
     }
 
-    public string? GetAppName() => AppConfig.AppName;
+    public string? GetAppName() => AppConfig.PackName;
     public string? GetLaunchCommand() => AppConfig.AutoStartCommand;
 
     public void Enable()

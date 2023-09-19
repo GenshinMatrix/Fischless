@@ -12,7 +12,7 @@
                   xmlns:services="clr-namespace:Fischless.Services"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="Fischless"
+                  Title="{x:Static app:AppConfig.AppName}"
                   Width="1100"
                   Height="700"
                   controls:WindowXCaption.Height="36"
@@ -20,7 +20,7 @@
                   Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
                   FontFamily="{StaticResource TextThemeFontFamily}"
                   FontSize="14"
-                  Icon="/Assets/Icons/SummerTime_Ball.ico"
+                  Icon="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"
                   Style="{StaticResource DefaultWindowXStyle}"
                   WindowStartupLocation="CenterScreen"
                   mc:Ignorable="d">
@@ -107,13 +107,24 @@
 
                 <ui:NavigationViewItem x:Name="HomeNavigationViewItem"
                                        controls:NavigationHelper.NavigateTo="{x:Type local:PageHome}"
-                                       Content="{DynamicResource Home}"
+                                       Content="{DynamicResource Contact}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                      FontSize="18"
-                                     Glyph="{x:Static controls:FontSymbols.Home}" />
+                                     Glyph="{x:Static controls:FontSymbols.Contact}" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem controls:NavigationHelper.NavigateTo="{x:Type local:PageReShade}"
+                                       Content="{DynamicResource ReShade}"
+                                       CornerRadius="4"
+                                       FontFamily="{DynamicResource TextThemeFontFamily}">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                     FontSize="18"
+                                     Glyph="{x:Static controls:FontSymbols.Shuffle}" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 

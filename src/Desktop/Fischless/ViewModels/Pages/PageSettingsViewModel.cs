@@ -16,7 +16,7 @@ using Windows.System;
 
 namespace Fischless.ViewModels;
 
-public partial class PageSettingsViewModel : ObservableRecipient
+public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 {
     [ObservableProperty]
     private AboutViewModel about = new();
@@ -43,14 +43,14 @@ public partial class PageSettingsViewModel : ObservableRecipient
     }
 
     [ObservableProperty]
-    private bool desktopShortcut = LnkHelper.HasShortcutOnDesktop(AppConfig.AppName);
+    private bool desktopShortcut = LnkHelper.HasShortcutOnDesktop(AppConfig.PackName);
     partial void OnDesktopShortcutChanged(bool value)
     {
         if (value)
         {
             try
             {
-                LnkHelper.CreateShortcutOnDesktop(AppConfig.AppName, Environment.ProcessPath!);
+                LnkHelper.CreateShortcutOnDesktop(AppConfig.PackName, Environment.ProcessPath!);
                 Notification.AddNotice("创建桌面快捷方式", "操作成功");
             }
             catch (Exception e)
@@ -61,7 +61,7 @@ public partial class PageSettingsViewModel : ObservableRecipient
         }
         else
         {
-            LnkHelper.RemoveShortcutOnDesktop(AppConfig.AppName);
+            LnkHelper.RemoveShortcutOnDesktop(AppConfig.PackName);
         }
     }
 
@@ -88,6 +88,16 @@ public partial class PageSettingsViewModel : ObservableRecipient
     {
         autoMute = Configurations.AutoMute;
         OnPropertyChanged(nameof(AutoMute));
+    }
+
+    public PageSettingsViewModel()
+    {
+        WeakReferenceMessenger.Default.Register<AutoMuteChangedMessage>(this, (_, _) => OnAutoMuteChangedReceived());
+    }
+
+    public void Dispose()
+    {
+        WeakReferenceMessenger.Default.UnregisterAll(this);
     }
 
     [RelayCommand]
