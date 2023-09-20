@@ -1,6 +1,6 @@
 ﻿using Fischless.Fetch.Regedit;
+using Fischless.Fetch.Unlocker;
 using System.Diagnostics;
-using System.Security.Principal;
 
 namespace Fischless.Fetch.Launch;
 
@@ -142,7 +142,7 @@ public class GILauncher
                 }
             }
 
-            _ = Process.Start(new ProcessStartInfo()
+            Process gameProcess = Process.Start(new ProcessStartInfo()
             {
                 UseShellExecute = true,
                 FileName = fileName,
@@ -150,6 +150,17 @@ public class GILauncher
                 WorkingDirectory = new FileInfo(fileName).DirectoryName,
                 Verb = "runas",
             });
+
+            if (launchParameter.Fps != null && launchParameter.Fps >= 60)
+            {
+                try
+                {
+                    await new GameFpsUnlocker(gameProcess).UnlockAsync(new UnlockTimingOptions(100, 20000, 3000));
+                }
+                catch
+                {
+                }
+            }
         }
     }
 
@@ -197,12 +208,5 @@ public class GILauncher
             p?.Kill();
             return Task.CompletedTask;
         });
-    }
-
-    public static bool GetElevated()
-    {
-        using WindowsIdentity identity = WindowsIdentity.GetCurrent();
-        WindowsPrincipal principal = new(identity);
-        return principal.IsInRole(WindowsBuiltInRole.Administrator);
     }
 }

@@ -60,7 +60,19 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    <Button Margin="5,0,0,0"
+                    <Button Margin="8,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding SettingsCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Settings}" />
+                                <TextBlock Margin="5,0,0,0" Text="设定" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="8,0,0,0"
                             BorderBrush="Transparent"
                             Command="{Binding RefreshCommand}">
                         <Button.Content>

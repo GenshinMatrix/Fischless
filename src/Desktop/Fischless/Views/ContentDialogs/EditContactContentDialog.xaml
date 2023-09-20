@@ -21,12 +21,12 @@
         <Grid Margin="0,-40,0,0"
               HorizontalAlignment="Right"
               VerticalAlignment="Top"
-              Panel.ZIndex="999">
+              Panel.ZIndex="-999">
             <Image Width="84"
                    Opacity="0.5"
                    Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png" />
         </Grid>
-        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="0,0,0,0" VerticalAlignment="Top">
                     <TextBlock.Inlines>

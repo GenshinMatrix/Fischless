@@ -111,7 +111,7 @@ internal static class LocalAvatars
     public const string UI_MusicV3_Album_14_Small_Round = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_MusicV3_Album_14_Small_Round.png";
 
     public static readonly Dictionary<string, string> Stocks = new();
-    public static string Default => UI_MusicV3SelectPage_Album_Pic05;
+    public static string Default => UI_Gcg_Char_AvatarIcon_Fischl;
 
     static LocalAvatars()
     {

@@ -1,0 +1,141 @@
+﻿<ui:ContentDialog x:Class="Fischless.Views.ContactSettingsContentDialog"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
+                  xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
+                  xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:ui="http://schemas.modernwpf.com/2019"
+                  xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
+                  Title="功能配置"
+                  FontFamily="{DynamicResource TextThemeFontFamily}"
+                  PrimaryButtonClick="OnPrimaryButtonClick"
+                  PrimaryButtonText="关闭"
+                  Style="{DynamicResource DefaultContentDialogStyle}"
+                  mc:Ignorable="d">
+    <ui:ContentDialog.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </ui:ContentDialog.Resources>
+    <Grid Width="450">
+        <Grid Margin="0,-40,0,0"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              Panel.ZIndex="-999">
+            <Image Width="84"
+                   Opacity="0.5"
+                   Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png" />
+        </Grid>
+        <Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <CheckBox Grid.Row="0"
+                          Grid.Column="0"
+                          MinWidth="0"
+                          Margin="0,8,0,0"
+                          VerticalAlignment="Center"
+                          Content="分辨率"
+                          Cursor="{x:Null}"
+                          IsChecked="{Binding IsUseResolution, Mode=TwoWay}" />
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      Margin="16,8,0,0"
+                      VerticalAlignment="Center"
+                      IsEnabled="{Binding IsUseResolution}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <wui:NumberBox Grid.Column="0"
+                                   Maximum="999999"
+                                   Minimum="0"
+                                   SpinButtonPlacementMode="Hidden"
+                                   Value="{Binding ResolutionWidth, Mode=TwoWay}" />
+                    <ui:FontIcon Grid.Column="1"
+                                 Margin="8,0,8,0"
+                                 VerticalAlignment="Center"
+                                 FontSize="10"
+                                 FontWeight="Bold"
+                                 Glyph="{x:Static controls:FontSymbols.CalculatorMultiply}" />
+                    <wui:NumberBox Grid.Column="2"
+                                   Maximum="999999"
+                                   Minimum="0"
+                                   SpinButtonPlacementMode="Hidden"
+                                   Value="{Binding ResolutionHeight, Mode=TwoWay}" />
+                    <CheckBox Grid.Column="3"
+                              Margin="16,0,0,0"
+                              VerticalAlignment="Center"
+                              Content="独占全屏"
+                              Cursor="{x:Null}"
+                              IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
+                </Grid>
+                <CheckBox Grid.Row="1"
+                          Grid.Column="0"
+                          MinWidth="0"
+                          Margin="0,16,0,0"
+                          VerticalAlignment="Center"
+                          Content="FPS"
+                          Cursor="{x:Null}"
+                          IsChecked="{Binding IsUseFps, Mode=TwoWay}" />
+                <Grid Grid.Row="1"
+                      Grid.Column="1"
+                      Margin="16,16,0,0"
+                      IsEnabled="{Binding IsUseFps}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <wui:NumberBox Grid.Column="0"
+                                   VerticalAlignment="Center"
+                                   Maximum="144"
+                                   Minimum="60"
+                                   SpinButtonPlacementMode="Hidden"
+                                   Value="{Binding Fps, Mode=TwoWay}" />
+                    <Border Grid.Column="1"
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource AccentForeground}"
+                            CornerRadius="4"
+                            Opacity="0.8">
+                        <TextBlock Padding="5,3,5,3"
+                                   VerticalAlignment="Center"
+                                   Text="潜在风险" />
+                    </Border>
+                </Grid>
+                <CheckBox Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="999"
+                          MinWidth="0"
+                          Margin="0,16,0,0"
+                          VerticalAlignment="Center"
+                          Cursor="{x:Null}"
+                          IsChecked="{Binding IsUseLazy, Mode=TwoWay}"
+                          Visibility="Collapsed">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="启用世界任务组件" />
+                            <ui:FontIcon Margin="8,0,8,0"
+                                         VerticalAlignment="Center"
+                                         FontSize="12"
+                                         Glyph="{x:Static controls:FontSymbols.Lock}"
+                                         ToolTip="私有组件" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</ui:ContentDialog>

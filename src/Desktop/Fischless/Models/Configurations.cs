@@ -13,4 +13,11 @@ public static class Configurations
     public static ConfigurationDefinition<bool> CloseToTray { get; } = new(nameof(CloseToTray), false);
     public static ConfigurationDefinition<bool> AutoMute { get; } = new(nameof(AutoMute), false);
     public static ConfigurationDefinition<IEnumerable<Contact>> Contacts { get; } = new(nameof(Contacts), Array.Empty<Contact>());
+    public static ConfigurationDefinition<bool> IsUseFps { get; } = new(nameof(IsUseFps), false);
+    public static ConfigurationDefinition<uint> Fps { get; } = new(nameof(Fps), 60);
+    public static ConfigurationDefinition<bool> IsUseResolution { get; } = new(nameof(IsUseResolution), false);
+    public static ConfigurationDefinition<uint> ResolutionWidth { get; } = new(nameof(ResolutionWidth), 1920);
+    public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);
+    public static ConfigurationDefinition<bool> IsUseFullScreen { get; } = new(nameof(IsUseFullScreen), false);
+    public static ConfigurationDefinition<bool> IsUseLazy { get; } = new(nameof(IsUseLazy), false);
 }

@@ -56,7 +56,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
             catch (Exception e)
             {
                 Log.Error(e.ToString());
-                Notification.AddNotice("Create ShortCut error", "See detail following", e.ToString());
+                Notification.AddNotice("创建失败", "详见", e.ToString());
             }
         }
         else

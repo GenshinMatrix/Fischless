@@ -101,6 +101,12 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     }
 
     [RelayCommand]
+    public async Task SettingsAsync()
+    {
+        await new ContactSettingsContentDialog().ShowAsync();
+    }
+
+    [RelayCommand]
     public async Task LaunchGameFromListAsync()
     {
         if (SelectedItem == null)
@@ -138,6 +144,10 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             {
                 Server = contact.Server,
                 Prod = contact.Prod,
+                IsFullScreen = Configurations.IsUseResolution.Get() ? Configurations.IsUseFullScreen.Get() : null,
+                ScreenWidth = Configurations.IsUseResolution.Get() ? Configurations.ResolutionWidth.Get() : null,
+                ScreenHeight = Configurations.IsUseResolution.Get() ? Configurations.ResolutionHeight.Get() : null,
+                Fps = Configurations.IsUseFps.Get() ? Configurations.Fps.Get() : null,
             });
         }
         catch (Exception e)
