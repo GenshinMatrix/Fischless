@@ -108,6 +108,16 @@ public static class WindowBackdrop
         if (!User32.IsWindow(hWnd))
             return false;
 
+        var windowSource = HwndSource.FromHwnd(hWnd);
+
+        if (windowSource?.RootVisual is Window window)
+        {
+            window.Background = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
+        }
+
+#if !DARKONLY
+        ApplyWindowDarkMode(hWnd);
+#else
         if (ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark)
         {
             ApplyWindowDarkMode(hWnd);
@@ -116,6 +126,7 @@ public static class WindowBackdrop
         {
             RemoveWindowDarkMode(hWnd);
         }
+#endif
 
         RemoveWindowCaption(hWnd);
 

@@ -18,7 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using DragDrop = GongSolutions.Wpf.DragDrop.DragDrop;
 
 namespace Fischless.ViewModels;
