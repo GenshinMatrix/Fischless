@@ -56,6 +56,7 @@
         <ProjectReference Include="..\Fischless.Fetch.Lazy\Fischless.Fetch.Lazy.csproj" />
         <ProjectReference Include="..\Fischless.Fetch\Fischless.Fetch.csproj" />
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
+        <ProjectReference Include="..\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj" />
         <ProjectReference Include="..\Fischless.ReShade\Fischless.ReShade.csproj" />
         <ProjectReference Include="..\Fischless.WindowCapture\Fischless.WindowCapture.csproj" />
     </ItemGroup>

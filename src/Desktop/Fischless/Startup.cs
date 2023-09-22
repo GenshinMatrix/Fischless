@@ -1,5 +1,6 @@
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
+using Fischless.KeyboardCapture;
 using Fischless.Services;
 using Fischless.ViewModels;
 using Fischless.Views;
@@ -22,6 +23,7 @@ public class Startup
         services.AddSingleton(app)
                 .AddSingleton(Log.Logger)
                 .AddLogging(c => c.AddSerilog(Log.Logger))
+                .AddSingleton(KeyboardReader.Default)
                 .AddPlugins(app)
                 .AddSingleton<INavigationService, NavigationService>()
                 .AddTransient<PageHomeViewModel>()

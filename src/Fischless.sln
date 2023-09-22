@@ -56,6 +56,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.ReShade", "Deskto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Fetch.Lazy", "Desktop\Fischless.Fetch.Lazy\Fischless.Fetch.Lazy.csproj", "{DCF457D6-872D-44AE-B52D-065D52BC7559}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.KeyboardCapture", "Desktop\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj", "{E8BDFFDD-205B-4246-B46C-55DB01899EB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -142,6 +144,10 @@ Global
 		{DCF457D6-872D-44AE-B52D-065D52BC7559}.Debug|x64.Build.0 = Debug|x64
 		{DCF457D6-872D-44AE-B52D-065D52BC7559}.Release|x64.ActiveCfg = Release|x64
 		{DCF457D6-872D-44AE-B52D-065D52BC7559}.Release|x64.Build.0 = Release|x64
+		{E8BDFFDD-205B-4246-B46C-55DB01899EB1}.Debug|x64.ActiveCfg = Debug|x64
+		{E8BDFFDD-205B-4246-B46C-55DB01899EB1}.Debug|x64.Build.0 = Debug|x64
+		{E8BDFFDD-205B-4246-B46C-55DB01899EB1}.Release|x64.ActiveCfg = Release|x64
+		{E8BDFFDD-205B-4246-B46C-55DB01899EB1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +173,7 @@ Global
 		{21565194-34A2-4B43-A36A-D48F71943325} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{F87861EB-EDCB-4D7D-8DCB-357F0A760035} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{DCF457D6-872D-44AE-B52D-065D52BC7559} = {2944494E-EB09-4387-9677-BB38A224A624}
+		{E8BDFFDD-205B-4246-B46C-55DB01899EB1} = {2944494E-EB09-4387-9677-BB38A224A624}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
