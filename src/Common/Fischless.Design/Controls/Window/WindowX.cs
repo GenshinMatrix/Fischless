@@ -42,9 +42,9 @@ public partial class WindowX : Window
         };
     }
 
-    protected private virtual nint WndProc(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
+    protected private virtual nint WndProc(nint hWnd, int msg, nint wParam, nint lParam, ref bool handled)
     {
-        return SnapLayout.WndProc(hwnd, msg, wParam, lParam, ref handled);
+        return SnapLayout.WndProc(hWnd, msg, wParam, lParam, ref handled);
     }
 
     protected override void OnActivated(EventArgs e)

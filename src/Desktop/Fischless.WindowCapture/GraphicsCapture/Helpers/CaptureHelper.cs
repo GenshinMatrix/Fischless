@@ -15,7 +15,7 @@ public static class CaptureHelper
     interface IInitializeWithWindow
     {
         void Initialize(
-            nint hwnd);
+            nint hWnd);
     }
 
     [ComImport]
@@ -33,17 +33,17 @@ public static class CaptureHelper
             [In] ref Guid iid);
     }
 
-    public static void SetWindow(this GraphicsCapturePicker picker, nint hwnd)
+    public static void SetWindow(this GraphicsCapturePicker picker, nint hWnd)
     {
         var interop = picker.As<IInitializeWithWindow>();
-        interop.Initialize(hwnd);
+        interop.Initialize(hWnd);
     }
 
-    public static GraphicsCaptureItem CreateItemForWindow(nint hwnd)
+    public static GraphicsCaptureItem CreateItemForWindow(nint hWnd)
     {
         var factory = WinrtModule.GetActivationFactory("Windows.Graphics.Capture.GraphicsCaptureItem");
         var interop = factory.AsInterface<IGraphicsCaptureItemInterop>();
-        var itemPointer = interop.CreateForWindow(hwnd, GraphicsCaptureItemGuid);
+        var itemPointer = interop.CreateForWindow(hWnd, GraphicsCaptureItemGuid);
         return GraphicsCaptureItem.FromAbi(itemPointer);
     }
 }

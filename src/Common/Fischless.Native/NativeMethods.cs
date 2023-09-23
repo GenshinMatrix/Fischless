@@ -10,9 +10,9 @@ public static class NativeMethods
         return Marshal.PtrToStringAuto(User32Ex.MB_GetString((uint)wBtn));
     }
 
-    public static void HideAllWindowButton(nint hwnd)
+    public static void HideAllWindowButton(nint hWnd)
     {
-        _ = User32.SetWindowLong(hwnd, User32.WindowLongFlags.GWL_STYLE, User32.GetWindowLong(hwnd, User32.WindowLongFlags.GWL_STYLE) & ~(int)User32.WindowStyles.WS_SYSMENU);
+        _ = User32.SetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE, User32.GetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE) & ~(int)User32.WindowStyles.WS_SYSMENU);
     }
 
     public static bool ApplyWindowCornerPreference(nint handle, DwmApi.DWM_WINDOW_CORNER_PREFERENCE cornerPreference)

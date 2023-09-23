@@ -14,8 +14,8 @@ public static class DpiHelper
     {
         if (OsVersionHelper.IsWindows81_OrGreater && Application.Current?.MainWindow != null)
         {
-            HWND hwnd = new WindowInteropHelper(Application.Current?.MainWindow).Handle;
-            HMONITOR hMonitor = User32.MonitorFromWindow(hwnd, User32.MonitorFlags.MONITOR_DEFAULTTONEAREST);
+            HWND hWnd = new WindowInteropHelper(Application.Current?.MainWindow).Handle;
+            HMONITOR hMonitor = User32.MonitorFromWindow(hWnd, User32.MonitorFlags.MONITOR_DEFAULTTONEAREST);
             SHCore.GetDpiForMonitor(hMonitor, SHCore.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out uint dpiX, out uint dpiY);
             return new DpiScaleF(dpiX / 96f, dpiY / 96f);
         }

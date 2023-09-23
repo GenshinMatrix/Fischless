@@ -62,11 +62,11 @@ public static class ForegroundWindowHelper
         }
     }
 
-    private static void EventProc(User32.HWINEVENTHOOK hWinEventHook, uint winEvent, HWND hwnd, int idObject, int idChild, uint idEventThread, uint dwmsEventTime)
+    private static void EventProc(User32.HWINEVENTHOOK hWinEventHook, uint winEvent, HWND hWnd, int idObject, int idChild, uint idEventThread, uint dwmsEventTime)
     {
         try
         {
-            ForegroundWindowChanged?.Invoke(new ForegroundWindowHelperEventArgs(hwnd.DangerousGetHandle()));
+            ForegroundWindowChanged?.Invoke(new ForegroundWindowHelperEventArgs(hWnd.DangerousGetHandle()));
         }
         catch
         {
@@ -86,23 +86,23 @@ public struct ForegroundWindowHelperEventArgs
     private string? windowTitle;
     private string? windowClassName;
 
-    internal ForegroundWindowHelperEventArgs(nint hwnd)
+    internal ForegroundWindowHelperEventArgs(nint hWnd)
     {
         windowTitleFlag = false;
         windowClassFlag = false;
         windowTitle = null;
         windowClassName = null;
 
-        Hwnd = hwnd;
+        HWnd = hWnd;
     }
 
-    public nint Hwnd { get; }
+    public nint HWnd { get; }
 
     public string WindowTitle
     {
         get
         {
-            if (Hwnd == IntPtr.Zero)
+            if (HWnd == IntPtr.Zero)
             {
                 return string.Empty;
             }
@@ -110,7 +110,7 @@ public struct ForegroundWindowHelperEventArgs
             if (!windowTitleFlag)
             {
                 var sb = new StringBuilder(256);
-                _ = User32.GetWindowText(Hwnd, sb, sb.Capacity);
+                _ = User32.GetWindowText(HWnd, sb, sb.Capacity);
                 windowTitle = sb.ToString();
                 windowTitleFlag = true;
             }
@@ -123,7 +123,7 @@ public struct ForegroundWindowHelperEventArgs
     {
         get
         {
-            if (Hwnd == IntPtr.Zero)
+            if (HWnd == IntPtr.Zero)
             {
                 return string.Empty;
             }
@@ -131,7 +131,7 @@ public struct ForegroundWindowHelperEventArgs
             if (!windowClassFlag)
             {
                 var sb = new StringBuilder(256);
-                _ = User32.GetClassName(Hwnd, sb, sb.Capacity);
+                _ = User32.GetClassName(HWnd, sb, sb.Capacity);
                 windowClassName = sb.ToString();
                 windowClassFlag = true;
             }
@@ -150,21 +150,21 @@ public struct ForegroundWindowHelperEventArgs
     {
         get
         {
-            static bool IsWindowOfProcessElevated(IntPtr hwnd)
+            static bool IsWindowOfProcessElevated(nint hWnd)
             {
-                if (hwnd == IntPtr.Zero)
+                if (hWnd == IntPtr.Zero)
                 {
                     return false;
                 }
 
                 lock (isWindowOfProcessElevatedCache)
                 {
-                    if (isWindowOfProcessElevatedCache.TryGetValue(hwnd, out var v))
+                    if (isWindowOfProcessElevatedCache.TryGetValue(hWnd, out var v))
                     {
                         return v;
                     }
 
-                    if (User32.GetWindowThreadProcessId(hwnd, out var pid) > 0 && pid > 0)
+                    if (User32.GetWindowThreadProcessId(hWnd, out var pid) > 0 && pid > 0)
                     {
                         const uint PROCESS_QUERY_LIMITED_INFORMATION = 0x1000;
 
@@ -174,7 +174,7 @@ public struct ForegroundWindowHelperEventArgs
                             using (tokenHandle)
                             {
                                 var elevated = tokenHandle.GetInfo<AdvApi32.TOKEN_ELEVATION>(AdvApi32.TOKEN_INFORMATION_CLASS.TokenElevation).TokenIsElevated;
-                                isWindowOfProcessElevatedCache[hwnd] = elevated;
+                                isWindowOfProcessElevatedCache[hWnd] = elevated;
 
                                 return elevated;
                             }
@@ -186,7 +186,7 @@ public struct ForegroundWindowHelperEventArgs
 
             try
             {
-                return IsWindowOfProcessElevated(Hwnd);
+                return IsWindowOfProcessElevated(HWnd);
             }
             catch
             {

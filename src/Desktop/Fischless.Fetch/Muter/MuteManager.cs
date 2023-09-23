@@ -49,7 +49,7 @@ public class MuteManager
         }
 
         bool matchProcess = false;
-        if (e.Hwnd != IntPtr.Zero)
+        if (e.HWnd != IntPtr.Zero)
         {
             if (e.WindowTitle == GIRegeditKeys.CN || e.WindowTitle == GIRegeditKeys.OVERSEA)
             {
