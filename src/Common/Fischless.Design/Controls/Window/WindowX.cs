@@ -50,7 +50,7 @@ public partial class WindowX : Window
     protected override void OnActivated(EventArgs e)
     {
         IsActivated = true;
-        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, ApplicationTheme.Dark);
         base.OnActivated(e);
     }
 

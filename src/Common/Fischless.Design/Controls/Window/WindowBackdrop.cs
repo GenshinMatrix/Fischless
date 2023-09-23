@@ -1,5 +1,4 @@
 ﻿using Fischless.Native;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -10,7 +9,7 @@ namespace Fischless.Design.Controls;
 
 public static class WindowBackdrop
 {
-    public static bool IsSupported(WindowBackdropType backdropType)
+    private static bool IsSupported(WindowBackdropType backdropType)
     {
         return backdropType switch
         {
@@ -23,66 +22,78 @@ public static class WindowBackdrop
         };
     }
 
-    private static bool ApplyWindowDarkMode(nint hWnd)
+    public static bool ApplyBackdrop(Window window, WindowBackdropType backdropType = WindowBackdropType.Mica, ApplicationTheme theme = ApplicationTheme.Unknown)
     {
-        if (hWnd == 0x00)
+        if (!IsSupported(backdropType))
+        {
             return false;
+        }
 
-        if (!User32.IsWindow(hWnd))
+        if (window is null)
+        {
             return false;
+        }
 
-        nint pvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(pvAttribute, 0x1); // Enable
-        var dwAttribute = DwmApi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE;
+        if (window.IsLoaded)
+        {
+            nint windowHandle = new WindowInteropHelper(window).Handle;
 
-        if (!OsVersionHelper.IsWindows11_22523_OrGreater)
-            dwAttribute = (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE_OLD;
+            if (windowHandle == 0x00)
+            {
+                return false;
+            }
 
-        _ = DwmApi.DwmSetWindowAttribute(
-            hWnd,
-            dwAttribute,
-            pvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(pvAttribute);
+            return ApplyBackdrop(windowHandle, backdropType, theme);
+        }
 
-        return ApplyBackground(hWnd);
-    }
+        window.Loaded += (sender, _) =>
+        {
+            nint windowHandle =
+                new WindowInteropHelper(sender as Window ?? null)?.Handle
+                ?? IntPtr.Zero;
 
-    [SuppressMessage("CodeQuality", "IDE0051:")]
-    private static bool RemoveWindowDarkMode(nint handle)
-    {
-        if (handle == 0x00)
-            return false;
+            if (windowHandle == 0x00)
+                return;
 
-        if (!User32.IsWindow(handle))
-            return false;
-
-        nint pvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(pvAttribute, 0x0); // Disable
-        var dwAttribute = DwmApi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE;
-
-        if (!OsVersionHelper.IsWindows11_22523_OrGreater)
-            dwAttribute = (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE_OLD;
-
-        _ = DwmApi.DwmSetWindowAttribute(
-            handle,
-            dwAttribute,
-            pvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(pvAttribute);
+            ApplyBackdrop(windowHandle, backdropType, theme);
+        };
 
         return true;
     }
 
-    private static bool RemoveWindowCaption(nint hWnd)
+    public static bool ApplyBackdrop(nint hWnd, WindowBackdropType backdropType = WindowBackdropType.Mica, ApplicationTheme theme = ApplicationTheme.Unknown)
     {
-        if (hWnd == 0x00)
+        if (!IsSupported(backdropType))
+        {
             return false;
+        }
 
-        if (!User32.IsWindow(hWnd))
+        if (hWnd == 0x00 || !User32.IsWindow(hWnd))
+        {
             return false;
+        }
+
+        if (backdropType != WindowBackdropType.Auto)
+        {
+            WindowDarkMode.RemoveBackground(hWnd);
+        }
+
+        switch (theme)
+        {
+            case ApplicationTheme.Unknown:
+                if (ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark)
+                {
+                    WindowDarkMode.ApplyWindowDarkMode(hWnd);
+                }
+                break;
+            case ApplicationTheme.Dark:
+                WindowDarkMode.ApplyWindowDarkMode(hWnd);
+                break;
+            case ApplicationTheme.Light:
+            case ApplicationTheme.HighContrast:
+                WindowDarkMode.RemoveWindowDarkMode(hWnd);
+                break;
+        }
 
         var wtaOptions = new UxTheme.WTA_OPTIONS()
         {
@@ -97,248 +108,77 @@ public static class WindowBackdrop
             (uint)Marshal.SizeOf(typeof(UxTheme.WTA_OPTIONS))
         );
 
-        return true;
-    }
-
-    public static bool ApplyBackdrop(nint hWnd, WindowBackdropType backdropType)
-    {
-        if (hWnd == 0x00)
-            return false;
-
-        if (!User32.IsWindow(hWnd))
-            return false;
-
-#if !DARKONLY
-        ApplyWindowDarkMode(hWnd);
-#else
-        if (ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark)
-        {
-            ApplyWindowDarkMode(hWnd);
-        }
-        else
-        {
-            RemoveWindowDarkMode(hWnd);
-        }
-#endif
-
-        RemoveWindowCaption(hWnd);
-
-        // 22H1
-        if (!OsVersionHelper.IsWindows11_22523_OrGreater)
-        {
-            if (backdropType == WindowBackdropType.Mica || backdropType == WindowBackdropType.Auto)
-                return ApplyLegacyMicaBackdrop(hWnd);
-
-            if (backdropType == WindowBackdropType.Acrylic)
-                return ApplyLegacyAcrylicBackdrop(hWnd);
-
-            return false;
-        }
-
-        return backdropType switch
-        {
-            WindowBackdropType.Auto => ApplyDwmwWindowAttrubute(hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_AUTO),
-            WindowBackdropType.Mica => ApplyDwmwWindowAttrubute(hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_MAINWINDOW),
-            WindowBackdropType.Acrylic => ApplyDwmwWindowAttrubute(hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_TRANSIENTWINDOW),
-            WindowBackdropType.Tabbed => ApplyDwmwWindowAttrubute(hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_TABBEDWINDOW),
-            _ => ApplyDwmwWindowAttrubute(hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_NONE),
-        };
-    }
-
-    [SuppressMessage("CodeQuality", "IDE0051:")]
-    private static bool RemoveBackdrop(Window window)
-    {
-        if (window == null)
-            return false;
-
-        nint windowHandle = new WindowInteropHelper(window).Handle;
-
-        return RemoveBackdrop(windowHandle);
-    }
-
-    private static bool RemoveBackdrop(nint hWnd)
-    {
-        if (hWnd == 0x00)
-            return false;
-
-        RestoreContentBackground(hWnd);
-
-        if (hWnd == 0x00)
-            return false;
-
-        if (!User32.IsWindow(hWnd))
-            return false;
-
-        nint pvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(pvAttribute, 0x0); // Disable
-
-        _ = DwmApi.DwmSetWindowAttribute(
+        var dwmApiResult = DwmApiEx.DwmSetWindowAttribute(
             hWnd,
-            (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT,
-            pvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(pvAttribute);
-
-        nint backdropPvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(backdropPvAttribute, (int)DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_NONE);
-
-        _ = DwmApi.DwmSetWindowAttribute(
-            hWnd,
-            (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE,
-            backdropPvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(backdropPvAttribute);
-
-        return true;
-    }
-
-    public static bool ApplyBackdrop(Window window, WindowBackdropType backdropType)
-    {
-        if (window is null)
-            return false;
-
-        if (window.IsLoaded)
-        {
-            nint windowHandle = new WindowInteropHelper(window).Handle;
-
-            if (windowHandle == 0x00)
-                return false;
-
-            return ApplyBackdrop(windowHandle, backdropType);
-        }
-
-        window.Loaded += (sender, _) =>
-        {
-            nint windowHandle =
-                new WindowInteropHelper(sender as Window ?? null)?.Handle
-                ?? IntPtr.Zero;
-
-            if (windowHandle == 0x00)
-                return;
-
-            ApplyBackdrop(windowHandle, backdropType);
-        };
-
-        return true;
-    }
-
-    public static bool ApplyBackground(nint hWnd)
-    {
-        if (!User32.IsWindow(hWnd))
-            return false;
-
-        if (OsVersionHelper.IsWindows11_22523_OrGreater)
-        {
-            var windowSource = HwndSource.FromHwnd(hWnd);
-
-            if (windowSource?.RootVisual is Window window)
+            DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE,
+            (int)(backdropType switch
             {
-                window.Background = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
-                return true;
-            }
-        }
-        return false;
+                WindowBackdropType.Auto => DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_AUTO,
+                WindowBackdropType.Mica => DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_MAINWINDOW,
+                WindowBackdropType.Acrylic => DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_TRANSIENTWINDOW,
+                WindowBackdropType.Tabbed => DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_TABBEDWINDOW,
+                _ => DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_NONE,
+            }),
+            Marshal.SizeOf(typeof(int))
+        );
+
+        return dwmApiResult == HRESULT.S_OK;
     }
 
-    public static bool RemoveBackground(Window window)
+    public static bool RemoveBackdrop(Window window)
     {
         if (window == null)
+        {
             return false;
+        }
 
-        // Remove background from visual root
-        window.Background = Brushes.Transparent;
+        nint hWnd = new WindowInteropHelper(window).Handle;
 
-        nint windowHandle = new WindowInteropHelper(window).Handle;
-
-        if (windowHandle == 0x00)
-            return false;
-
-        var windowSource = HwndSource.FromHwnd(windowHandle);
-
-        // Remove background from client area
-        if (windowSource?.Handle.ToInt32() != 0x00 && windowSource?.CompositionTarget != null)
-            windowSource.CompositionTarget.BackgroundColor = Colors.Transparent;
-
-        return true;
+        return RemoveBackdrop(hWnd);
     }
 
-    private static bool ApplyDwmwWindowAttrubute(nint hWnd, DwmApi.DWM_SYSTEMBACKDROP_TYPE dwmSbt)
+    public static bool RemoveBackdrop(nint hWnd)
     {
-        if (hWnd == 0x00)
+        if (hWnd == 0x00 || !User32.IsWindow(hWnd))
+        {
             return false;
-
-        if (!User32.IsWindow(hWnd))
-            return false;
-
-        nint backdropPvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(backdropPvAttribute, (int)dwmSbt);
-
-        var dwmApiResult = DwmApi.DwmSetWindowAttribute(
-            hWnd,
-            (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE,
-            backdropPvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(backdropPvAttribute);
-
-        return dwmApiResult == HRESULT.S_OK;
-    }
-
-    private static bool ApplyLegacyMicaBackdrop(nint hWnd)
-    {
-        nint backdropPvAttribute = Marshal.AllocHGlobal(sizeof(int));
-        Marshal.WriteInt32(backdropPvAttribute, 1); // Enable
-
-        var dwmApiResult = DwmApi.DwmSetWindowAttribute(
-            hWnd,
-            (DwmApi.DWMWINDOWATTRIBUTE)DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT,
-            backdropPvAttribute,
-            Marshal.SizeOf(typeof(int))
-        );
-        Marshal.FreeHGlobal(backdropPvAttribute);
-
-        return dwmApiResult == HRESULT.S_OK;
-    }
-
-    private static bool ApplyLegacyAcrylicBackdrop(nint hWnd)
-    {
-        throw new NotImplementedException();
-    }
-
-    private static bool RestoreContentBackground(nint hWnd)
-    {
-        if (hWnd == 0x00)
-            return false;
-
-        if (!User32.IsWindow(hWnd))
-            return false;
+        }
 
         var windowSource = HwndSource.FromHwnd(hWnd);
 
-        // Restore client area background
         if (windowSource?.Handle.ToInt32() != 0x00 && windowSource?.CompositionTarget != null)
+        {
             windowSource.CompositionTarget.BackgroundColor = SystemColors.WindowColor;
+        }
 
-        if (windowSource?.RootVisual is System.Windows.Window window)
+        if (windowSource?.RootVisual is Window window)
         {
             var backgroundBrush = window.Resources["ApplicationBackgroundBrush"];
 
-            // Manual fallback
             if (backgroundBrush is not SolidColorBrush)
-                backgroundBrush = GetFallbackBackgroundBrush();
+            {
+                backgroundBrush = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark
+                                    ? new SolidColorBrush(Color.FromArgb(0xFF, 0x20, 0x20, 0x20))
+                                    : new SolidColorBrush(Color.FromArgb(0xFF, 0xFA, 0xFA, 0xFA));
+            }
 
             window.Background = (SolidColorBrush)backgroundBrush;
         }
 
-        return true;
-    }
+        _ = DwmApiEx.DwmSetWindowAttribute(
+            hWnd,
+            DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT,
+            0x0,
+            Marshal.SizeOf(typeof(int))
+        );
 
-    private static Brush GetFallbackBackgroundBrush()
-    {
-        return ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark
-            ? new SolidColorBrush(Color.FromArgb(0xFF, 0x20, 0x20, 0x20))
-            : new SolidColorBrush(Color.FromArgb(0xFF, 0xFA, 0xFA, 0xFA));
+        _ = DwmApiEx.DwmSetWindowAttribute(
+            hWnd,
+            DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE,
+            (int)DwmApi.DWM_SYSTEMBACKDROP_TYPE.DWMSBT_NONE,
+            Marshal.SizeOf(typeof(int))
+        );
+
+        return true;
     }
 }

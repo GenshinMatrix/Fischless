@@ -32,7 +32,8 @@ public partial class MessageBoxX : Window
     public MessageBoxX()
     {
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
-        var handler = new RoutedEventHandler((sender, e) => ApplyBackdrop());
+        var handler = new RoutedEventHandler((sender, e) =>
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica));
         ThemeManager.AddActualThemeChangedHandler(this, handler);
         Loaded += OnLoaded;
     }
@@ -741,7 +742,7 @@ public partial class MessageBoxX : Window
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         UpdateMica();
-        ApplyBackdrop();
+        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
         NativeMethods.HideAllWindowButton(new WindowInteropHelper(this).Handle);
         Opened?.Invoke(this, new MessageBoxOpenedEventArgs());
     }
@@ -758,17 +759,12 @@ public partial class MessageBoxX : Window
     {
         if (UseMica)
         {
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, Native.ApplicationTheme.Dark);
         }
         else
         {
-            WindowBackdrop.RemoveBackground(this);
+            WindowDarkMode.RemoveBackground(this);
         }
-    }
-
-    private void ApplyBackdrop()
-    {
-        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
     }
 
     private const string OKVisibleState = "OKVisible";
