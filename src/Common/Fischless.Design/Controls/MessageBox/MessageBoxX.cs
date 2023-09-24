@@ -1,4 +1,5 @@
-﻿using Fischless.Native;
+﻿using Fischless.Design.Helpers;
+using Fischless.Native;
 using ModernWpf;
 using ModernWpf.Controls;
 using System.Diagnostics.CodeAnalysis;
@@ -32,8 +33,8 @@ public partial class MessageBoxX : Window
     public MessageBoxX()
     {
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
-        var handler = new RoutedEventHandler((sender, e) =>
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica));
+        Background = "#272727".ToColor().ToBrush();
+        var handler = new RoutedEventHandler((_, _) => UpdateMica());
         ThemeManager.AddActualThemeChangedHandler(this, handler);
         Loaded += OnLoaded;
     }
@@ -47,23 +48,6 @@ public partial class MessageBoxX : Window
     }
 
     public static readonly DependencyProperty MessageBoxIconProperty = DependencyProperty.Register("MessageBoxIcon", typeof(MessageBoxIcon), typeof(MessageBoxX), new(MessageBoxIcon.Info));
-
-    #endregion
-
-    #region UseMica
-
-    public static readonly DependencyProperty UseMicaProperty =
-        DependencyProperty.Register(
-            nameof(UseMica),
-            typeof(bool),
-            typeof(MessageBoxX),
-            new PropertyMetadata(true, OnUseMicaPropertyChanged));
-
-    public bool UseMica
-    {
-        get => (bool)GetValue(UseMicaProperty);
-        set => SetValue(UseMicaProperty, value);
-    }
 
     #endregion
 
@@ -742,7 +726,6 @@ public partial class MessageBoxX : Window
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         UpdateMica();
-        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
         NativeMethods.HideAllWindowButton(new WindowInteropHelper(this).Handle);
         Opened?.Invoke(this, new MessageBoxOpenedEventArgs());
     }
@@ -757,14 +740,7 @@ public partial class MessageBoxX : Window
 
     private void UpdateMica()
     {
-        if (UseMica)
-        {
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, Native.ApplicationTheme.Dark);
-        }
-        else
-        {
-            WindowDarkMode.RemoveBackground(this);
-        }
+        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, Native.ApplicationTheme.Dark);
     }
 
     private const string OKVisibleState = "OKVisible";

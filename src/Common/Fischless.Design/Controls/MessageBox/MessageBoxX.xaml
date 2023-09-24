@@ -24,7 +24,7 @@
     <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
     <Thickness x:Key="ContentDialogPadding">24</Thickness>
     <m:StaticResource x:Key="ContentDialogForeground" ResourceKey="SystemControlPageTextBaseHighBrush" />
-    <m:StaticResource x:Key="ContentDialogBackground" ResourceKey="SystemControlPageBackgroundAltHighBrush" />
+    <SolidColorBrush x:Key="ContentDialogBackground" Color="#272727" />
     <m:StaticResource x:Key="ContentDialogBorderBrush" ResourceKey="SystemControlBackgroundBaseLowBrush" />
     <m:StaticResource x:Key="ContentDialogLightDismissOverlayBackground" ResourceKey="SystemControlPageBackgroundMediumAltMediumBrush" />
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="Transparent" />
@@ -59,7 +59,6 @@
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="WindowStyle" Value="SingleBorderWindow" />
         <Setter Property="ResizeMode" Value="NoResize" />
-        <Setter Property="UseMica" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:MessageBoxX}">
@@ -81,7 +80,8 @@
                                         Background="{TemplateBinding Background}"
                                         CornerRadius="{TemplateBinding CornerRadius}"
                                         Opacity="0" />
-                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         ClipToBounds="True"
                                         CornerRadius="{TemplateBinding CornerRadius}">
