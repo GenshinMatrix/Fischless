@@ -1,4 +1,5 @@
-﻿using Fischless.Native;
+﻿using Fischless.Design.Helpers;
+using Fischless.Native;
 using ModernWpf;
 using ModernWpf.Controls;
 using System.Diagnostics.CodeAnalysis;
@@ -32,8 +33,9 @@ public partial class MessageBoxX : Window
     public MessageBoxX()
     {
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
+        Background = "#272727".ToColor().ToBrush();
         var handler = new RoutedEventHandler((sender, e) =>
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica));
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, Native.ApplicationTheme.Dark));
         ThemeManager.AddActualThemeChangedHandler(this, handler);
         Loaded += OnLoaded;
     }
@@ -742,7 +744,7 @@ public partial class MessageBoxX : Window
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         UpdateMica();
-        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica, Native.ApplicationTheme.Dark);
         NativeMethods.HideAllWindowButton(new WindowInteropHelper(this).Handle);
         Opened?.Invoke(this, new MessageBoxOpenedEventArgs());
     }
