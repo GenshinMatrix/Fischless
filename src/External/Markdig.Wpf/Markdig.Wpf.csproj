@@ -13,11 +13,7 @@
         <Platforms>x64</Platforms>
     </PropertyGroup>
     
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|x64'">
-        <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
-    </PropertyGroup>
-    
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|x64'">
+    <PropertyGroup>
         <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
     </PropertyGroup>
     
