@@ -329,7 +329,7 @@
                                                    VerticalAlignment="Center"
                                                    FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                    FontSize="12"
-                                                   Text="&#xe740;">
+                                                   Text="{x:Static local:FontSymbols.FullScreen}">
                                             <i:Interaction.Behaviors>
                                                 <local:WindowFullScreenRestorePathBehavior />
                                             </i:Interaction.Behaviors>
