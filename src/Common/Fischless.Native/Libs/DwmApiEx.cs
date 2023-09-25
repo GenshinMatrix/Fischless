@@ -21,7 +21,7 @@ public static class DwmApiEx
         }
         finally
         {
-            Marshal.FreeHGlobal(pvAttribute);
+            Marshal.FreeHGlobal(pvAttributePtr);
         }
     }
 }
