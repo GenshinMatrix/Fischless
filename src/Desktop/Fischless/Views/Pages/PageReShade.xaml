@@ -29,19 +29,18 @@
         </conv:ValueConverterGroup>
     </Page.Resources>
     <Grid>
-        <Grid Margin="0,0,0,0"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Bottom">
-            <Image Width="418"
-                   Opacity="0.3"
-                   Source="/Assets/Images/UI_SummerTime_ImgDecorate_01.png" />
-        </Grid>
-        <Grid Margin="0,-2,5,0"
-              HorizontalAlignment="Right"
-              VerticalAlignment="Top">
+        <Grid Margin="0,0,0,0">
             <Image Width="84"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   Opacity="0.5"
+                   Source="/Assets/Images/UI_ItemIcon_101542.png" />
+            <Image Width="380"
+                   Margin="0,0,16,-40"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
                    Opacity="0.3"
-                   Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png" />
+                   Source="/Assets/Images/a84fa9b2-82ba-42c9-8246-9dc4243acc63.png" />
         </Grid>
         <Grid>
             <Grid.RowDefinitions>
