@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <Platforms>x64</Platforms>
 		<UseWindowsForms>True</UseWindowsForms>
+		<UseWPF>True</UseWPF>
 		<LangVersion>11.0</LangVersion>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
@@ -15,8 +16,8 @@
 		<PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.1.23419.5" />
 		<PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.16" />
+		<PackageReference Include="Vanara.PInvoke.SHCore" Version="3.4.16" />
 		<PackageReference Include="Vanara.Windows.Extensions" Version="3.4.16" />
-	  <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
 	</ItemGroup>
 
 </Project>

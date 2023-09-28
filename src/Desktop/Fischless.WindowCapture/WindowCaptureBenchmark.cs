@@ -1,5 +1,4 @@
-﻿using Fischless.Native;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Fischless.WindowCapture;
 
