@@ -2,7 +2,7 @@
 using Windows.Graphics.Capture;
 using WinRT;
 
-namespace Fischless.WindowCapture.GraphicsCapture.Helpers;
+namespace Fischless.WindowCapture;
 
 public static class CaptureHelper
 {

@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using WinRT;
 
-namespace Fischless.WindowCapture.GraphicsCapture.Helpers;
+namespace Fischless.WindowCapture;
 
 [ComImport]
 [Guid("3628E81B-3CAC-4C60-B7F4-23CE0E0C3356")]

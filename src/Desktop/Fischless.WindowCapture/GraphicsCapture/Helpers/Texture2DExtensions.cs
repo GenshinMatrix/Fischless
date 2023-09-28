@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using Windows.Graphics.Capture;
 
-namespace Fischless.WindowCapture.GraphicsCapture.Helpers;
+namespace Fischless.WindowCapture;
 
 public static class Texture2DExtensions
 {

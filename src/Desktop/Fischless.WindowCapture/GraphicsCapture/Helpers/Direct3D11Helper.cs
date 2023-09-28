@@ -3,16 +3,16 @@ using System.Runtime.InteropServices;
 using Windows.Graphics.DirectX.Direct3D11;
 using WinRT;
 
-namespace Fischless.WindowCapture.GraphicsCapture.Helpers;
+namespace Fischless.WindowCapture;
 
 [SuppressMessage("CodeQuality", "IDE0052:")]
 public static class Direct3D11Helper
 {
-    static Guid IInspectable = new("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90");
-    static Guid ID3D11Resource = new("dc8e63f3-d12b-4952-b47b-5e45026a862d");
-    static Guid IDXGIAdapter3 = new("645967A4-1392-4310-A798-8053CE3E93FD");
-    static Guid ID3D11Device = new("db6f6ddb-ac77-4e88-8253-819df9bbf140");
-    static Guid ID3D11Texture2D = new("6f15aaf2-d208-4e89-9ab4-489535d34f9c");
+    internal static Guid IInspectable = new("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90");
+    internal static Guid ID3D11Resource = new("dc8e63f3-d12b-4952-b47b-5e45026a862d");
+    internal static Guid IDXGIAdapter3 = new("645967A4-1392-4310-A798-8053CE3E93FD");
+    internal static Guid ID3D11Device = new("db6f6ddb-ac77-4e88-8253-819df9bbf140");
+    internal static Guid ID3D11Texture2D = new("6f15aaf2-d208-4e89-9ab4-489535d34f9c");
 
     [ComImport]
     [Guid("A9B3D012-3DF2-4EE3-B8D1-8695F457D3C1")]

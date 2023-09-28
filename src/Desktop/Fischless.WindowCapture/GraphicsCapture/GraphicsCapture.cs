@@ -1,19 +1,26 @@
-﻿using Fischless.WindowCapture.GraphicsCapture.Helpers;
-using System.Drawing;
+﻿using System.Diagnostics;
+using System.Windows;
+using Vanara.PInvoke;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX;
 
-namespace Fischless.WindowCapture.GraphicsCapture;
+namespace Fischless.WindowCapture;
 
 public class GraphicsCapture : IWindowCapture
 {
     private nint _hWnd;
 
-    private Direct3D11CaptureFramePool _captureFramePool;
-    private GraphicsCaptureItem _captureItem;
-    private GraphicsCaptureSession _captureSession;
+    private Direct3D11CaptureFramePool _captureFramePool = null!;
+    private GraphicsCaptureItem _captureItem = null!;
+    private GraphicsCaptureSession _captureSession = null!;
 
     public bool IsCapturing { get; private set; }
+    public bool IsClientEnabled { get; set; } = false;
+
+    public void Dispose()
+    {
+        Stop();
+    }
 
     public void Start(nint hWnd)
     {
@@ -34,23 +41,94 @@ public class GraphicsCapture : IWindowCapture
         _captureFramePool = Direct3D11CaptureFramePool.Create(device, DirectXPixelFormat.B8G8R8A8UIntNormalized, 2,
             _captureItem.Size);
         _captureSession = _captureFramePool.CreateCaptureSession(_captureItem);
+        _captureSession.IsCursorCaptureEnabled = false;
+        _captureSession.IsBorderRequired = false;
         _captureSession.StartCapture();
         IsCapturing = true;
     }
 
     public Bitmap? Capture()
     {
-        using var frame = _captureFramePool?.TryGetNextFrame();
-        return frame?.ToBitmap();
+        if (_hWnd == IntPtr.Zero)
+        {
+            return null;
+        }
+
+        try
+        {
+            using var frame = _captureFramePool?.TryGetNextFrame();
+            Bitmap bitmap = frame?.ToBitmap();
+
+            if (IsClientEnabled)
+            {
+                return bitmap;
+            }
+            else
+            {
+                _ = User32.GetClientRect(_hWnd, out var windowRect);
+                int border = Math.Max(SystemParameters.Border, 1);
+                int captionHeight = CaptionHelper.IsFullScreenMode(_hWnd)
+                    ? default
+                    : Math.Max(CaptionHelper.GetSystemCaptionHeight(), frame.ContentSize.Height - windowRect.Height - border * 2);
+
+                using (bitmap)
+                {
+                    return bitmap.Crop(
+                        border,
+                        border + captionHeight,
+                        frame.ContentSize.Width - border * 2,
+                        frame.ContentSize.Height - border * 2 - captionHeight
+                    );
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine(e);
+        }
+        return null;
+    }
+
+    public Bitmap? Capture(int x, int y, int width, int height)
+    {
+        if (_hWnd == IntPtr.Zero)
+        {
+            return null;
+        }
+
+        try
+        {
+            using var frame = _captureFramePool?.TryGetNextFrame();
+            using Bitmap bitmap = frame?.ToBitmap();
+            _ = User32.GetClientRect(_hWnd, out var windowRect);
+            int border = Math.Max(SystemParameters.Border, 1);
+            int captionHeight = CaptionHelper.IsFullScreenMode(_hWnd)
+                ? default
+                : Math.Max(CaptionHelper.GetSystemCaptionHeight()
+                    , frame.ContentSize.Height - windowRect.Height - border * 2
+            );
+
+            return bitmap.Crop(
+                border + x,
+                border + y + captionHeight,
+                width - border * 2,
+                height - border * 2 - captionHeight
+            );
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine(e);
+        }
+        return null;
     }
 
     public void Stop()
     {
         _captureSession?.Dispose();
         _captureFramePool?.Dispose();
-        _captureSession = null;
-        _captureFramePool = null;
-        _captureItem = null;
+        _captureSession = null!;
+        _captureFramePool = null!;
+        _captureItem = null!;
 
         _hWnd = IntPtr.Zero;
         IsCapturing = false;

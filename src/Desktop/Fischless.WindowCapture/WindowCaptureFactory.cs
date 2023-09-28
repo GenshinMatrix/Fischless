@@ -3,7 +3,6 @@
 public enum CaptureMode
 {
     BitBlt,
-    StretchBlt,
     WindowsGraphicsCapture,
 }
 
@@ -26,9 +25,8 @@ public class WindowCaptureFactory
     {
         return mode switch
         {
-            CaptureMode.BitBlt => new BitBlt.BitBltCapture(),
-            CaptureMode.StretchBlt => new StretchBlt.StretchBltCapture(),
-            CaptureMode.WindowsGraphicsCapture => new GraphicsCapture.GraphicsCapture(),
+            CaptureMode.BitBlt => new BitBltCapture(),
+            CaptureMode.WindowsGraphicsCapture => new GraphicsCapture(),
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null),
         };
     }
