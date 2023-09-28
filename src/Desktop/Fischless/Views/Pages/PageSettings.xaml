@@ -396,7 +396,8 @@
                 </wui:CardExpander>
                 <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenSpecialFolderCommand}">
                     <wui:CardAction.Icon>
-                        <wui:FontIcon Margin="6,0,0,0"
+                        <wui:FontIcon Height="40"
+                                      Margin="6,0,0,0"
                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                       FontSize="24"
                                       Glyph="{x:Static controls:FontSymbols.OpenFolderHorizontal}" />

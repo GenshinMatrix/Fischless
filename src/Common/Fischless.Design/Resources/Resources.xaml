@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
 
-    <FontFamily x:Key="IcoMoon">pack://application:,,,/Fischless.Design;component/Assets/Fonts/IcoMoon/fonts/icomoon.ttf#icomoon</FontFamily>
-
     <FontFamily x:Key="TextThemeFontFamily">pack://application:,,,/Fischless.Design;component/Assets/Fonts/HarmonyOS_Sans_SC_Regular.ttf#HarmonyOS Sans SC</FontFamily>
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Fischless.Design;component/Assets/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
+
+    <FontFamily x:Key="IcoMoon">pack://application:,,,/Fischless.Design;component/Assets/Fonts/IcoMoon/fonts/icomoon.ttf#icomoon</FontFamily>
     <FontFamily x:Key="FluentSystemIconsRegular">pack://application:,,,/Fischless.Design;component/Assets/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
 
 </ResourceDictionary>
