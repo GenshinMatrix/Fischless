@@ -5,6 +5,7 @@
                   xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
                   xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:fetchlaunch="clr-namespace:Fischless.Fetch.Launch;assembly=Fischless.Fetch"
                   xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
@@ -39,8 +40,44 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <CheckBox Grid.Row="0"
+                          Grid.Column="0"
+                          MinWidth="0"
+                          Margin="0,0,0,0"
+                          VerticalAlignment="Center"
+                          Content="游戏路径"
+                          Cursor="{x:Null}"
+                          IsChecked="{Binding IsUseGamePath, Mode=TwoWay}" />
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      Margin="16,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <wui:TextBox Grid.Column="0"
+                                 IsReadOnly="True"
+                                 Text="{Binding GamePath, Mode=TwoWay}">
+                        <wui:TextBox.PlaceholderText>
+                            <MultiBinding StringFormat="{}选择 {0} 或 {1}">
+                                <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameCN}" />
+                                <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameOVERSEA}" />
+                            </MultiBinding>
+                        </wui:TextBox.PlaceholderText>
+                    </wui:TextBox>
+                    <Button Grid.Column="1"
+                            Margin="8,0,0,0"
+                            Command="{Binding SelectGamePathCommand}">
+                        <Button.Content>
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="16"
+                                         Glyph="{x:Static controls:FontSymbols.Folder}" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+                <CheckBox Grid.Row="1"
                           Grid.Column="0"
                           MinWidth="0"
                           Margin="0,8,0,0"
@@ -48,9 +85,9 @@
                           Content="分辨率"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseResolution, Mode=TwoWay}" />
-                <Grid Grid.Row="0"
+                <Grid Grid.Row="1"
                       Grid.Column="1"
-                      Margin="16,8,0,0"
+                      Margin="16,16,0,0"
                       VerticalAlignment="Center"
                       IsEnabled="{Binding IsUseResolution}">
                     <Grid.ColumnDefinitions>
@@ -82,7 +119,7 @@
                               Cursor="{x:Null}"
                               IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
                 </Grid>
-                <CheckBox Grid.Row="1"
+                <CheckBox Grid.Row="2"
                           Grid.Column="0"
                           MinWidth="0"
                           Margin="0,16,0,0"
@@ -90,7 +127,7 @@
                           Content="FPS"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseFps, Mode=TwoWay}" />
-                <Grid Grid.Row="1"
+                <Grid Grid.Row="2"
                       Grid.Column="1"
                       Margin="16,16,0,0"
                       IsEnabled="{Binding IsUseFps}">
@@ -115,7 +152,7 @@
                                    Text="潜在风险" />
                     </Border>
                 </Grid>
-                <CheckBox Grid.Row="2"
+                <CheckBox Grid.Row="3"
                           Grid.Column="0"
                           Grid.ColumnSpan="999"
                           MinWidth="0"

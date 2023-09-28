@@ -15,6 +15,8 @@ public static class Configurations
     public static ConfigurationDefinition<IEnumerable<Contact>> Contacts { get; } = new(nameof(Contacts), Array.Empty<Contact>());
     public static ConfigurationDefinition<bool> IsUseFps { get; } = new(nameof(IsUseFps), false);
     public static ConfigurationDefinition<uint> Fps { get; } = new(nameof(Fps), 60);
+    public static ConfigurationDefinition<bool> IsUseGamePath { get; } = new(nameof(IsUseGamePath), false);
+    public static ConfigurationDefinition<string> GamePath { get; } = new(nameof(GamePath), null!);
     public static ConfigurationDefinition<bool> IsUseResolution { get; } = new(nameof(IsUseResolution), false);
     public static ConfigurationDefinition<uint> ResolutionWidth { get; } = new(nameof(ResolutionWidth), 1920);
     public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);

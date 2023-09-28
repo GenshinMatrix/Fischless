@@ -4,6 +4,9 @@ namespace Fischless.Fetch.Launch;
 
 public class GILaunchParameter
 {
+    public string? GamePath { get; set; } = null;
+    public string? WorkingDirectory { get; set; } = null;
+
     public string? Server { get; set; } = null;
     public string? Prod { get; set; } = null;
 

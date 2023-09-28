@@ -85,6 +85,17 @@ public class GILauncher
         return got && p != null;
     }
 
+    public static bool TryGetGamePath(out string gamePath)
+    {
+        string fileName = Path.Combine(GIRegedit.InstallPathCN ?? string.Empty, FolderName, FileNameCN);
+
+        if (!File.Exists(fileName))
+        {
+            fileName = Path.Combine(GIRegedit.InstallPathOVERSEA ?? string.Empty, FolderName, FileNameOVERSEA);
+        }
+        return string.IsNullOrEmpty(gamePath = fileName);
+    }
+
     public static async Task LaunchAsync(int? delayMs = null, GIRelaunchMethod relaunchMethod = GIRelaunchMethod.None, GILaunchParameter launchParameter = null!)
     {
         try
@@ -118,14 +129,29 @@ public class GILauncher
                 await Task.Delay((int)delayMs);
             }
 
-            string fileName = Path.Combine(GIRegedit.InstallPathCN ?? string.Empty, FolderName, FileNameCN);
-
-            if (!File.Exists(fileName))
-            {
-                fileName = Path.Combine(GIRegedit.InstallPathOVERSEA ?? string.Empty, FolderName, FileNameOVERSEA);
-            }
-
             launchParameter ??= new();
+
+            string fileName = null!;
+
+            if (string.IsNullOrWhiteSpace(launchParameter.GamePath))
+            {
+                _ = TryGetGamePath(out fileName);
+            }
+            else
+            {
+                FileInfo fileInfo = new(launchParameter.GamePath);
+
+                if (fileInfo.Name.Equals(FileNameCN, StringComparison.OrdinalIgnoreCase)
+                 || fileInfo.Name.Equals(FileNameOVERSEA, StringComparison.OrdinalIgnoreCase))
+                {
+                    fileName = launchParameter.GamePath;
+                }
+
+                if (!File.Exists(fileName))
+                {
+                    _ = TryGetGamePath(out fileName);
+                }
+            }
 
             if (string.IsNullOrEmpty(launchParameter.Server) || launchParameter.Server == RegionCN)
             {
@@ -147,11 +173,11 @@ public class GILauncher
                 UseShellExecute = true,
                 FileName = fileName,
                 Arguments = launchParameter.ToString(),
-                WorkingDirectory = new FileInfo(fileName).DirectoryName,
+                WorkingDirectory = launchParameter.WorkingDirectory ?? new FileInfo(fileName).DirectoryName,
                 Verb = "runas",
             });
 
-            if (launchParameter.Fps != null && launchParameter.Fps >= 60)
+            if (launchParameter.Fps != null && launchParameter.Fps > 60)
             {
                 try
                 {
