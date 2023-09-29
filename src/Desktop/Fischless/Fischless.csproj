@@ -85,10 +85,4 @@
 		</COMReference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Compile Update="Views\ContentDialogs\ContactSettingsContentDialog.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	</ItemGroup>
-
 </Project>

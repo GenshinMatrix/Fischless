@@ -17,6 +17,7 @@ internal static class LocalAvatars
     public const string UI_Gcg_Char_AvatarIcon_Chongyun = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Chongyun.png";
     public const string UI_Gcg_Char_AvatarIcon_Collei = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Collei.png";
     public const string UI_Gcg_Char_AvatarIcon_Cyno = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Cyno.png";
+    public const string UI_Gcg_Char_AvatarIcon_Dehya = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Dehya.png";
     public const string UI_Gcg_Char_AvatarIcon_Diluc = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Diluc.png";
     public const string UI_Gcg_Char_AvatarIcon_Diona = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Diona.png";
     public const string UI_Gcg_Char_AvatarIcon_Eula = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Eula.png";
@@ -45,10 +46,12 @@ internal static class LocalAvatars
     public const string UI_Gcg_Char_AvatarIcon_Tartaglia = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Tartaglia.png";
     public const string UI_Gcg_Char_AvatarIcon_Tighnari = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Tighnari.png";
     public const string UI_Gcg_Char_AvatarIcon_Venti = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Venti.png";
+    public const string UI_Gcg_Char_AvatarIcon_Wanderer = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Wanderer.png";
     public const string UI_Gcg_Char_AvatarIcon_Xiangling = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Xiangling.png";
     public const string UI_Gcg_Char_AvatarIcon_Xiao = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Xiao.png";
     public const string UI_Gcg_Char_AvatarIcon_Xingqiu = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Xingqiu.png";
     public const string UI_Gcg_Char_AvatarIcon_Yae = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Yae.png";
+    public const string UI_Gcg_Char_AvatarIcon_Yaoyao = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Yaoyao.png";
     public const string UI_Gcg_Char_AvatarIcon_Yoimiya = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Yoimiya.png";
     public const string UI_Gcg_Char_AvatarIcon_Zhongli = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_AvatarIcon_Zhongli.png";
     public const string UI_Gcg_Char_EnemyIcon_AbyssEle = "pack://application:,,,/Fischless;component/Assets/Images/LocalAvatars/UI_Gcg_Char_EnemyIcon_AbyssEle.png";
