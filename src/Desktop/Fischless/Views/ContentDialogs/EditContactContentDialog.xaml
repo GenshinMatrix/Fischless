@@ -179,6 +179,7 @@
                          MaxHeight="80"
                          AcceptsReturn="False"
                          PlaceholderText="请勿随意修改"
+                         Style="{StaticResource MonoUiTextBoxStyle}"
                          Text="{Binding Prod, Mode=TwoWay}"
                          TextWrapping="Wrap" />
             <TextBlock Foreground="#61666D" Text="{Binding ProdMD5}" />
@@ -197,6 +198,7 @@
             <wui:TextBox Margin="0,0,0,16"
                          IsEnabled="{Binding IsUseCookie}"
                          PlaceholderText="此处可留空"
+                         Style="{StaticResource MonoUiTextBoxStyle}"
                          Text="{Binding Cookie, Mode=TwoWay}" />
         </StackPanel>
     </Grid>
