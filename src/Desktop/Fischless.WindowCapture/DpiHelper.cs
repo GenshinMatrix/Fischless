@@ -10,13 +10,12 @@ internal static class DpiHelper
 
     private static float GetScaleY()
     {
-        if (Environment.OSVersion.Version.Major >= 6
-         && Environment.OSVersion.Version.Minor >= 3
+        if (Environment.OSVersion.Version >= new Version(6, 3)
          && Application.Current?.MainWindow != null)
         {
             HWND hWnd = new WindowInteropHelper(Application.Current?.MainWindow).Handle;
             HMONITOR hMonitor = User32.MonitorFromWindow(hWnd, User32.MonitorFlags.MONITOR_DEFAULTTONEAREST);
-            SHCore.GetDpiForMonitor(hMonitor, SHCore.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out uint dpiX, out uint dpiY);
+            SHCore.GetDpiForMonitor(hMonitor, SHCore.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out _, out uint dpiY);
             return dpiY / 96f;
         }
 

@@ -57,7 +57,18 @@ public class GraphicsCapture : IWindowCapture
         try
         {
             using var frame = _captureFramePool?.TryGetNextFrame();
-            Bitmap bitmap = frame?.ToBitmap();
+
+            if (frame == null)
+            {
+                return null;
+            }
+
+            Bitmap? bitmap = frame.ToBitmap();
+
+            if (bitmap == null)
+            {
+                return null;
+            }
 
             if (IsClientEnabled)
             {

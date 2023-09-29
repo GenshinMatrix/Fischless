@@ -13,7 +13,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
-		<PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.1.23419.5" />
 		<PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.SHCore" Version="3.4.16" />
