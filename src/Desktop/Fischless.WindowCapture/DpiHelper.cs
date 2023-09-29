@@ -15,13 +15,13 @@ internal static class DpiHelper
         {
             HWND hWnd = new WindowInteropHelper(Application.Current?.MainWindow).Handle;
             HMONITOR hMonitor = User32.MonitorFromWindow(hWnd, User32.MonitorFlags.MONITOR_DEFAULTTONEAREST);
-            SHCore.GetDpiForMonitor(hMonitor, SHCore.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out _, out uint dpiY);
+            _ = SHCore.GetDpiForMonitor(hMonitor, SHCore.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out _, out uint dpiY);
             return dpiY / 96f;
         }
 
         HDC hdc = User32.GetDC(HWND.NULL);
         float scaleY = Gdi32.GetDeviceCaps(hdc, Gdi32.DeviceCap.LOGPIXELSY);
-        _ = User32.ReleaseDC(0, hdc);
+        _ = User32.ReleaseDC(HWND.NULL, hdc);
         return scaleY / 96f;
     }
 }
