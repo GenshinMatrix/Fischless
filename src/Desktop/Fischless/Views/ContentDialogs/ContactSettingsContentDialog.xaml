@@ -174,7 +174,7 @@
                           IsChecked="{Binding IsUseGameRunningHint, Mode=TwoWay}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="自动识别账号是否" />
+                            <TextBlock Text="启用识别账号是否" />
                             <Border Margin="3,0,0,0"
                                     Background="#EA1D953F"
                                     BorderBrush="AliceBlue"
