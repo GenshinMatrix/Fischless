@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Fischless.Configuration;
 using Fischless.Design.Controls;
 using Fischless.Fetch.Launch;
+using Fischless.Fetch.Lazy;
 using Fischless.Models;
 using Microsoft.Win32;
 using System;
@@ -115,10 +116,21 @@ public partial class ContactSettingsViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool isUseGameRunningHint = Configurations.IsUseGameRunningHint.Get();
+    partial void OnIsUseGameRunningHintChanged(bool value)
+    {
+        Configurations.IsUseGameRunningHint.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [ObservableProperty]
     private bool isUseLazy = Configurations.IsUseLazy.Get();
     partial void OnIsUseLazyChanged(bool value)
     {
         Configurations.IsUseLazy.Set(value);
         ConfigurationManager.Save();
     }
+
+    [ObservableProperty]
+    private bool isInstallLazy = LazyProtocol.AnyRegistered();
 }

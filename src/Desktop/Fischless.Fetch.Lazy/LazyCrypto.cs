@@ -1,11 +1,9 @@
-﻿using System.Runtime.InteropServices;
-using System.Security;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace Fischless.Fetch.Lazy;
 
-public class LazyCrypto
+public sealed class LazyCrypto
 {
     public static string Encrypt(string data)
     {
@@ -79,35 +77,5 @@ file class RSACrypto
 
         rsa.FromXmlString(publicKey);
         return rsa.VerifyData(Encoding.UTF8.GetBytes(signature), "SHA1", Convert.FromBase64String(data));
-    }
-}
-
-[Obsolete]
-file static class SecureStringExtension
-{
-    public static string ToString(this SecureString value)
-    {
-        IntPtr bstr = Marshal.SecureStringToBSTR(value);
-
-        try
-        {
-            return Marshal.PtrToStringBSTR(bstr);
-        }
-        finally
-        {
-            Marshal.FreeBSTR(bstr);
-        }
-    }
-
-    public static SecureString ToSecureString(this string value)
-    {
-        SecureString sstr = new SecureString();
-        char[] chs = value.ToCharArray();
-
-        for (int i = default; i < chs.Length; i++)
-        {
-            sstr.AppendChar(chs[i]);
-        }
-        return sstr;
     }
 }

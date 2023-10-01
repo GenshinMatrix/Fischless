@@ -7,12 +7,14 @@ using Fischless.Fetch.Launch;
 using Fischless.Models;
 using Fischless.Models.Message;
 using Fischless.Mvvm;
+using Fischless.Threading;
 using Fischless.Views;
 using GongSolutions.Wpf.DragDrop;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,6 +47,40 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                   || msg.Type == ContactMessageType.Removed)
             {
                 Refresh();
+            }
+        });
+        WeakReferenceMessenger.Default.Register<ForeverTickServiceMessage>(this, (sender, msg) =>
+        {
+            if (msg.Method == ForeverTickMethod.CheckLaunch)
+            {
+                if (msg.Params is (string region, string runningProd))
+                {
+                    UIDispatcherHelper.Invoke(() =>
+                    {
+                        foreach (ContactViewModel contact in Contacts)
+                        {
+                            if (contact.Contact.Prod != null && runningProd != null &&
+                                contact.Contact.Prod.Replace("\0", string.Empty) == runningProd.Replace("\0", string.Empty))
+                            {
+                                contact.IsRunning = true;
+                            }
+                            else
+                            {
+                                contact.IsRunning = false;
+                            }
+                        }
+                    });
+                }
+                else
+                {
+                    UIDispatcherHelper.Invoke(() =>
+                    {
+                        foreach (ContactViewModel contact in Contacts)
+                        {
+                            contact.IsRunning = false;
+                        }
+                    });
+                }
             }
         });
         Refresh();

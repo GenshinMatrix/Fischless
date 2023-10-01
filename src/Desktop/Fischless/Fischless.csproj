@@ -65,12 +65,16 @@
         <None Remove="Assets\Icons\*.ico" />
         <None Remove="Assets\Images\*.png" />
 		<None Remove="Assets\Images\LocalAvatars\*.png" />
+		<None Remove="Assets\Fonts\*.ttf" />
+		<None Remove="Assets\Fonts\*.otf" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Assets\Icons\*.ico" />
         <Resource Include="Assets\Images\*.png" />
 		<Resource Include="Assets\Images\LocalAvatars\*.png" />
+		<Resource Include="Assets\Fonts\*.ttf" />
+		<Resource Include="Assets\Fonts\*.otf" />
     </ItemGroup>
 
 	<ItemGroup>

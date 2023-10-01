@@ -2,7 +2,7 @@
 
 namespace Fischless.Fetch.Lazy;
 
-internal class LazyOutputSerializer
+internal sealed class LazyOutputSerializer
 {
     public static string SerializeObject<T>(T obj)
     {

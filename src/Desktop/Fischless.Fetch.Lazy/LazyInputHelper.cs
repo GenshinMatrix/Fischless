@@ -2,7 +2,7 @@
 
 namespace Fischless.Fetch.Lazy;
 
-public class LazyInputHelper
+public static class LazyInputHelper
 {
     public static LazyInput[] AnalysisFile(string fileIn)
     {

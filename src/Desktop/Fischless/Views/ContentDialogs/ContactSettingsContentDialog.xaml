@@ -12,6 +12,7 @@
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
                   Title="功能配置"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
+                  FontSize="14"
                   PrimaryButtonClick="OnPrimaryButtonClick"
                   PrimaryButtonText="关闭"
                   Style="{DynamicResource DefaultContentDialogStyle}"
@@ -41,6 +42,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <CheckBox Grid.Row="0"
                           Grid.Column="0"
@@ -52,7 +54,8 @@
                           IsChecked="{Binding IsUseGamePath, Mode=TwoWay}" />
                 <Grid Grid.Row="0"
                       Grid.Column="1"
-                      Margin="16,0,0,0">
+                      Margin="16,0,0,0"
+                      IsEnabled="{Binding IsUseGamePath}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
@@ -80,7 +83,7 @@
                 <CheckBox Grid.Row="1"
                           Grid.Column="0"
                           MinWidth="0"
-                          Margin="0,8,0,0"
+                          Margin="0,16,0,0"
                           VerticalAlignment="Center"
                           Content="分辨率"
                           Cursor="{x:Null}"
@@ -104,6 +107,7 @@
                     <ui:FontIcon Grid.Column="1"
                                  Margin="8,0,8,0"
                                  VerticalAlignment="Center"
+                                 FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                  FontSize="10"
                                  FontWeight="Bold"
                                  Glyph="{x:Static controls:FontSymbols.CalculatorMultiply}" />
@@ -124,7 +128,7 @@
                           MinWidth="0"
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
-                          Content="FPS"
+                          Content="解锁帧率"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseFps, Mode=TwoWay}" />
                 <Grid Grid.Row="2"
@@ -137,19 +141,27 @@
                     </Grid.ColumnDefinitions>
                     <wui:NumberBox Grid.Column="0"
                                    VerticalAlignment="Center"
-                                   Maximum="144"
+                                   Maximum="300"
                                    Minimum="60"
                                    SpinButtonPlacementMode="Hidden"
                                    Value="{Binding Fps, Mode=TwoWay}" />
                     <Border Grid.Column="1"
                             Margin="16,0,0,0"
+                            Padding="5,3,5,3"
                             VerticalAlignment="Center"
                             Background="{DynamicResource AccentForeground}"
                             CornerRadius="4"
-                            Opacity="0.8">
-                        <TextBlock Padding="5,3,5,3"
-                                   VerticalAlignment="Center"
-                                   Text="潜在风险" />
+                            Opacity="0.8"
+                            ToolTip="以注入渲染引擎方式调整帧率">
+                        <StackPanel Orientation="Horizontal">
+                            <ui:FontIcon VerticalAlignment="Center"
+                                         FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="14"
+                                         Glyph="{x:Static controls:FontSymbols.Warning}" />
+                            <TextBlock Margin="4,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="潜在风险" />
+                        </StackPanel>
                     </Border>
                 </Grid>
                 <CheckBox Grid.Row="3"
@@ -159,13 +171,41 @@
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
                           Cursor="{x:Null}"
+                          IsChecked="{Binding IsUseGameRunningHint, Mode=TwoWay}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="自动识别账号是否" />
+                            <Border Margin="3,0,0,0"
+                                    Background="#EA1D953F"
+                                    BorderBrush="AliceBlue"
+                                    BorderThickness="0"
+                                    CornerRadius="3"
+                                    ToolTip="很智能但消耗少量资源轮询检测">
+                                <TextBlock Margin="3,0,3,0"
+                                           Foreground="#FFFFFF"
+                                           Opacity="1"
+                                           Text="正在游戏"
+                                           ToolTip="很智能但消耗少量资源轮询检测" />
+                            </Border>
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+                <CheckBox Grid.Row="4"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="999"
+                          MinWidth="0"
+                          Margin="0,16,0,0"
+                          VerticalAlignment="Center"
+                          d:Visibility="Collapsed"
+                          Cursor="{x:Null}"
                           IsChecked="{Binding IsUseLazy, Mode=TwoWay}"
-                          Visibility="Collapsed">
+                          Visibility="{Binding IsInstallLazy, Converter={StaticResource BoolToVisibilityConverter}}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="启用世界任务组件" />
                             <ui:FontIcon Margin="8,0,8,0"
                                          VerticalAlignment="Center"
+                                         FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="12"
                                          Glyph="{x:Static controls:FontSymbols.Lock}"
                                          ToolTip="私有组件" />

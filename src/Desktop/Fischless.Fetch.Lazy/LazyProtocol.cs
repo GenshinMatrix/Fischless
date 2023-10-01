@@ -73,6 +73,12 @@ public static class LazyProtocol
         return false;
     }
 
+    public static bool AnyRegistered()
+    {
+        using RegistryKey? keyScheme = OpenSchemeKey();
+        return keyScheme != null;
+    }
+
     public static bool IsRegistered()
     {
         using RegistryKey? keyScheme = OpenSchemeKey();

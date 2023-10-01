@@ -26,13 +26,14 @@ public class Startup
                 .AddSingleton(KeyboardReader.Default)
                 .AddPlugins(app)
                 .AddSingleton<INavigationService, NavigationService>()
+                .AddTransient<IAutoStartService, AutoStartRegistyService>()
+                .AddSingleton<IForeverTickService, ForeverTickService>()
                 .AddTransient<PageHomeViewModel>()
                 .AddSingleton<PageHome>()
                 .AddTransient<PageSettingsViewModel>()
                 .AddTransient<PageSettings>()
                 .AddTransient<PageReShadeViewModel>()
-                .AddTransient<PageReShade>()
-                .AddTransient<IAutoStartService, AutoStartRegistyService>();
+                .AddTransient<PageReShade>();
     }
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env, IServiceCollection services)

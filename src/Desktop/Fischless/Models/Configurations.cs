@@ -22,4 +22,5 @@ public static class Configurations
     public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);
     public static ConfigurationDefinition<bool> IsUseFullScreen { get; } = new(nameof(IsUseFullScreen), false);
     public static ConfigurationDefinition<bool> IsUseLazy { get; } = new(nameof(IsUseLazy), false);
+    public static ConfigurationDefinition<bool> IsUseGameRunningHint { get; } = new(nameof(IsUseGameRunningHint), false);
 }
