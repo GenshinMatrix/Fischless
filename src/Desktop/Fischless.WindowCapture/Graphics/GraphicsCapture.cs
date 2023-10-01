@@ -4,7 +4,7 @@ using Vanara.PInvoke;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX;
 
-namespace Fischless.WindowCapture;
+namespace Fischless.WindowCapture.Graphics;
 
 public class GraphicsCapture : IWindowCapture
 {

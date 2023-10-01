@@ -1,11 +1,10 @@
 ﻿using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
-using System.Drawing;
 using System.Drawing.Imaging;
 using Windows.Graphics.Capture;
 
-namespace Fischless.WindowCapture;
+namespace Fischless.WindowCapture.Graphics;
 
 public static class Texture2DExtensions
 {

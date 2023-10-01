@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Windows.Graphics.DirectX.Direct3D11;
 using WinRT;
 
-namespace Fischless.WindowCapture;
+namespace Fischless.WindowCapture.Graphics;
 
 [SuppressMessage("CodeQuality", "IDE0052:")]
 public static class Direct3D11Helper

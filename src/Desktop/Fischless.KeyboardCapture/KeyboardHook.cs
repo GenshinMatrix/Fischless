@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 using Vanara.PInvoke;
 
 namespace Fischless.KeyboardCapture;

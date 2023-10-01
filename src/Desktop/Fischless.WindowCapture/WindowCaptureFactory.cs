@@ -11,8 +11,8 @@ public class WindowCaptureFactory
     {
         return mode switch
         {
-            CaptureMode.BitBlt => new BitBltCapture(),
-            CaptureMode.WindowsGraphicsCapture => new GraphicsCapture(),
+            CaptureMode.BitBlt => new BitBlt.BitBltCapture(),
+            CaptureMode.WindowsGraphicsCapture => new Graphics.GraphicsCapture(),
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null),
         };
     }

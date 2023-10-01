@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Fischless.KeyboardCapture;
+﻿namespace Fischless.KeyboardCapture;
 
 public record struct KeyboardItem
 {

@@ -7,7 +7,7 @@ internal static class BitmapExtensions
         Rectangle cropRect = new(x, y, width, height);
         Bitmap target = new(cropRect.Width, cropRect.Height);
 
-        using Graphics g = Graphics.FromImage(target);
+        using System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(target);
         g.DrawImage(src, new Rectangle(0, 0, target.Width, target.Height), cropRect, GraphicsUnit.Pixel);
         return target;
     }

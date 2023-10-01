@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
-using System.Drawing;
 using Vanara.PInvoke;
 
-namespace Fischless.WindowCapture;
+namespace Fischless.WindowCapture.BitBlt;
 
 public class BitBltCapture : IWindowCapture
 {
@@ -58,7 +57,7 @@ public class BitBltCapture : IWindowCapture
                 int height = windowRect.bottom - windowRect.top;
 
                 Bitmap bitmap = new(width, height);
-                using Graphics g = Graphics.FromImage(bitmap);
+                using System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap);
                 nint hdcDest = g.GetHdc();
                 Gdi32.SafeHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
                 _ = Gdi32.StretchBlt(hdcDest, 0, 0, width, height, hdcSrc, x, y, width, height, Gdi32.RasterOperationMode.SRCCOPY);
@@ -90,7 +89,7 @@ public class BitBltCapture : IWindowCapture
         try
         {
             Bitmap copied = new(width, height);
-            using Graphics g = Graphics.FromImage(copied);
+            using System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(copied);
             nint hdcDest = g.GetHdc();
             Gdi32.SafeHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
             _ = Gdi32.StretchBlt(hdcDest, 0, 0, width, height, hdcSrc, x, y, width, height, Gdi32.RasterOperationMode.SRCCOPY);
