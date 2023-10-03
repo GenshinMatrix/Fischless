@@ -19,6 +19,7 @@
          mc:Ignorable="d">
     <Page.Resources>
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityReversedConverter" IsInverted="True" />
         <conv:ValueConverterGroup x:Key="NullToVisibilityConverter">
             <conv:NullToBoolConverter />
             <conv:BoolToVisibilityConverter />
@@ -27,6 +28,7 @@
             <conv:NullToBoolConverter />
             <conv:BoolToVisibilityConverter IsInverted="True" />
         </conv:ValueConverterGroup>
+
     </Page.Resources>
     <Grid>
         <Grid Margin="0,0,0,0"
@@ -124,7 +126,13 @@
                                                                                          Transition="FadeIn"
                                                                                          Duration="500" />
                                 </i:Interaction.Behaviors>
-                                <Grid Margin="10,0,0,0"
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0"
+                                      MinWidth="300"
+                                      Margin="10,0,0,0"
                                       VerticalAlignment="Center"
                                       Tag="{Binding Contact.Guid}">
                                     <Grid.ColumnDefinitions>
@@ -201,6 +209,124 @@
                                                        Foreground="#A0A0A0"
                                                        Text="{Binding Contact.Level}" />
                                         </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1"
+                                      Margin="36,0,0,0"
+                                      VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Margin="0"
+                                                Padding="0"
+                                                BorderThickness="0"
+                                                Command="{Binding LazyInfo.CancelRedCommand}"
+                                                CommandParameter="Lazy"
+                                                Style="{StaticResource TransparentButtonStyle}"
+                                                Visibility="{Binding LazyInfoFetched.IsUnlocked, Converter={StaticResource BoolToVisibilityConverter}}">
+                                            <Button.Content>
+                                                <Grid Width="30"
+                                                      Height="30"
+                                                      VerticalAlignment="Center"
+                                                      Visibility="{Binding LazyInfo.IsShown, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                    <Grid>
+                                                        <Image Width="30"
+                                                               Height="30"
+                                                               HorizontalAlignment="Left"
+                                                               Source="/Assets/Images/UI_MarkQuest_Random_Proce.png"
+                                                               Stretch="Uniform" />
+                                                    </Grid>
+                                                    <Image Width="15"
+                                                           Margin="0,-3,-3,0"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Top"
+                                                           Opacity="1"
+                                                           Source="/Assets/Images/UI_Img_Red.png"
+                                                           Visibility="{Binding LazyInfo.IsRed, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" />
+                                                    <Image Width="15"
+                                                           Margin="0"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Bottom"
+                                                           Opacity="1"
+                                                           Source="/Assets/Images/UI_Tips_Item_Complete.png"
+                                                           Visibility="{Binding LazyInfo.IsGreen, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" />
+                                                    <Image Width="15"
+                                                           Margin="0"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Bottom"
+                                                           Opacity="1"
+                                                           Source="/Assets/Images/UI_Tips_Item_Warning.png"
+                                                           Visibility="{Binding LazyInfo.IsYellow, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" />
+                                                </Grid>
+                                            </Button.Content>
+                                            <ui:FlyoutService.Flyout>
+                                                <ui:Flyout>
+                                                    <StackPanel TextBlock.FontFamily="{DynamicResource TextThemeFontFamily}">
+                                                        <StackPanel Margin="4,0,0,0" Orientation="Horizontal">
+                                                            <Grid>
+                                                                <Image Width="30"
+                                                                       Height="30"
+                                                                       HorizontalAlignment="Left"
+                                                                       Source="/Assets/Images/UI_MarkQuest_Random_Proce.png"
+                                                                       Stretch="Uniform" />
+                                                            </Grid>
+                                                            <StackPanel Margin="12,0,0,0">
+                                                                <TextBlock Text="每日世界任务" />
+                                                                <ContentControl FontFamily="{DynamicResource TextThemeFontFamily}" FontSize="12">
+                                                                    <ContentControl.Style>
+                                                                        <Style TargetType="ContentControl">
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding LazyInfoFetched.IsFinished}" Value="False">
+                                                                                    <Setter Property="Content">
+                                                                                        <Setter.Value>
+                                                                                            <TextBlock Foreground="{DynamicResource AccentForeground}" Text="任务未完成" />
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding LazyInfoFetched.IsFinished}" Value="True">
+                                                                                    <Setter Property="Content">
+                                                                                        <Setter.Value>
+                                                                                            <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="任务已完成" />
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </ContentControl.Style>
+                                                                </ContentControl>
+                                                            </StackPanel>
+                                                            <Button Margin="10,0,0,0"
+                                                                    Padding="0"
+                                                                    Command="{Binding LaunchLazyCommand}"
+                                                                    ToolTipService.ToolTip="启动组件">
+                                                                <Grid Width="30"
+                                                                      Height="30"
+                                                                      VerticalAlignment="Center">
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
+                                                                </Grid>
+                                                            </Button>
+                                                        </StackPanel>
+                                                        <Grid>
+                                                            <Grid Visibility="{Binding LazyInfoFetched.IsFetched, Converter={StaticResource BoolToVisibilityReversedConverter}}">
+                                                                <Image Width="150"
+                                                                       Height="150"
+                                                                       Source="/Assets/Images/e_tiangou.cbec2da1..png"
+                                                                       Stretch="Uniform" />
+                                                            </Grid>
+                                                            <Grid Visibility="{Binding LazyInfoFetched.IsFetched, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                                <Image Width="150"
+                                                                       Height="150"
+                                                                       Source="/Assets/Images/stage_3_icon.02bbe66b..png"
+                                                                       Stretch="Uniform" />
+                                                            </Grid>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </ui:Flyout>
+                                            </ui:FlyoutService.Flyout>
+                                            <i:Interaction.Behaviors>
+                                                <controls:ButtonFlyoutCursorBehavior Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
+                                            </i:Interaction.Behaviors>
+                                        </Button>
                                     </StackPanel>
                                 </Grid>
                             </Grid>

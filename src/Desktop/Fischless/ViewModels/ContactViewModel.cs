@@ -1,8 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Fischless.Fetch.Launch;
+using Fischless.Fetch.Lazy;
 using Fischless.Hoyolab;
 using Fischless.Hoyolab.Account;
 using Fischless.Models;
+using Fischless.Mvvm;
+using Fischless.Threading;
 using Serilog;
 using System;
 using System.Linq;
@@ -29,6 +33,12 @@ public sealed partial class ContactViewModel : ObservableObject
     [ObservableProperty]
     private GenshinRoleInfo? roleFetched = new();
 
+    [ObservableProperty]
+    private LazyInfo? lazyInfoFetched = new();
+
+    [ObservableProperty]
+    private ContactProgress lazyInfo = new();
+
     public ContactViewModel(Contact contact)
     {
         Contact = contact;
@@ -40,7 +50,7 @@ public sealed partial class ContactViewModel : ObservableObject
         {
             try
             {
-                _ = FetchLazyInfoAsync();
+                FetchLazyInfoAsync().Forget();
                 await FetchHoyolabUserInfoAsync();
                 await FetchGenshinRoleInfosAsync();
 
@@ -92,35 +102,120 @@ public sealed partial class ContactViewModel : ObservableObject
 
     public async Task FetchLazyInfoAsync()
     {
-        //try
-        //{
-        //    LazyInfoViewModel!.IsUnlocked = await LazyVerification.VerifyAssembly(Settings.ComponentLazyPath.Get());
+        if (!Configurations.IsUseLazy.Get())
+        {
+            return;
+        }
 
-        //    if (!LazyInfoViewModel.IsUnlocked)
-        //    {
-        //        LazyInfoViewModel.IsUnlocked = await LazyProtocol.IsVaildProtocolAsync();
-        //    }
+        try
+        {
+            if (!LazyInfoFetched.IsUnlocked)
+            {
+                LazyInfoFetched.IsUnlocked = await LazyProtocol.IsVaildProtocolAsync();
+            }
 
-        //    if (Contact.Uid == null)
-        //    {
-        //        await FetchGenshinRoleInfosAsync();
-        //    }
+            if (Contact.Uid == null)
+            {
+                await FetchGenshinRoleInfosAsync();
+            }
 
-        //    bool hasLazyToday = await LazyOutputHelper.Check(Contact.Uid?.ToString()!);
+            bool hasLazyToday = await LazyOutputHelper.Check(Contact.Uid?.ToString()!);
 
-        //    LazyInfo.SetGreen(hasLazyToday, Settings.HintQuestRandomProceRed);
+            LazyInfo.SetGreen(hasLazyToday);
 
-        //    LazyInfoViewModel!.IsFinished = hasLazyToday;
-        //    LazyInfoViewModel!.IsFetched = true;
-        //    OnPropertyChanged(nameof(LazyInfoViewModel));
-        //}
-        //catch (Exception e)
-        //{
-        //    Logger.Error(e);
-        //    LazyInfo.SetYellow(true, Settings.HintQuestRandomProceRed);
-        //    LazyInfoViewModel!.IsFinished = false;
-        //    LazyInfoViewModel!.IsFetched = false;
-        //    OnPropertyChanged(nameof(LazyInfoViewModel));
-        //}
+            LazyInfoFetched!.IsFinished = hasLazyToday;
+            LazyInfoFetched!.IsFetched = true;
+            OnPropertyChanged(nameof(LazyInfoFetched));
+        }
+        catch (Exception e)
+        {
+            Log.Error(e.ToString());
+            LazyInfo.SetYellow(true);
+            LazyInfoFetched!.IsFinished = false;
+            LazyInfoFetched!.IsFetched = false;
+            OnPropertyChanged(nameof(LazyInfoFetched));
+        }
     }
+
+    [RelayCommand]
+    public static async Task LaunchLazyAsync()
+    {
+        if (await LazyProtocol.IsVaildProtocolAsync())
+        {
+            await LazyProtocol.LaunchAsync();
+        }
+    }
+}
+
+public partial class ContactProgress : ObservableRecipient
+{
+    [ObservableProperty]
+    private bool isShown = true;
+
+    [ObservableProperty]
+    private ObservableBox<double> value = 0d;
+
+    [ObservableProperty]
+    private ObservableBox<double> valueMin = 0d;
+
+    [ObservableProperty]
+    private ObservableBox<double> valueMax = 100d;
+
+    [ObservableProperty]
+    private double opacity = 1d;
+
+    [ObservableProperty]
+    private bool isNotified = false;
+
+    [ObservableProperty]
+    private bool isRed = false;
+
+    [ObservableProperty]
+    private bool isYellow = false;
+
+    [ObservableProperty]
+    private bool isGreen = false;
+
+    [ObservableProperty]
+    private bool isRedCanceled = false;
+
+    [RelayCommand]
+    public void CancelRed()
+    {
+        IsRedCanceled = true;
+        IsRed = false;
+    }
+
+    public void SetGreen(bool value, bool isRedable = false)
+    {
+        IsGreen = value;
+        IsRed = !IsRedCanceled && isRedable && !value;
+        IsYellow = false;
+    }
+
+    public void SetYellow(bool value, bool isRedable = false)
+    {
+        IsYellow = value;
+        IsRed = !IsRedCanceled && isRedable && !value;
+        IsGreen = !value;
+    }
+
+    public void SetRed(bool value, bool isRedable = false)
+    {
+        IsRed = !IsRedCanceled && isRedable && value;
+        IsGreen = !value;
+        IsYellow = false;
+    }
+}
+
+public partial class LazyInfo : ObservableObject
+{
+    [ObservableProperty]
+    private bool isUnlocked = false;
+
+    [ObservableProperty]
+    private bool isFetched = false;
+
+    [ObservableProperty]
+    private bool isFinished = false;
 }

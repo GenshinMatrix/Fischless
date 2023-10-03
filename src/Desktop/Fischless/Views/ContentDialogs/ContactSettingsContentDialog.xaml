@@ -190,28 +190,49 @@
                         </StackPanel>
                     </CheckBox.Content>
                 </CheckBox>
-                <CheckBox Grid.Row="4"
-                          Grid.Column="0"
-                          Grid.ColumnSpan="999"
-                          MinWidth="0"
-                          Margin="0,16,0,0"
-                          VerticalAlignment="Center"
-                          d:Visibility="Collapsed"
-                          Cursor="{x:Null}"
-                          IsChecked="{Binding IsUseLazy, Mode=TwoWay}"
-                          Visibility="{Binding IsInstallLazy, Converter={StaticResource BoolToVisibilityConverter}}">
-                    <CheckBox.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="启用世界任务组件" />
-                            <ui:FontIcon Margin="8,0,8,0"
-                                         VerticalAlignment="Center"
-                                         FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                         FontSize="12"
-                                         Glyph="{x:Static controls:FontSymbols.Lock}"
-                                         ToolTip="私有组件" />
-                        </StackPanel>
-                    </CheckBox.Content>
-                </CheckBox>
+                <StackPanel Grid.Row="4"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="999"
+                            Margin="0,16,0,0"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsInstallLazy, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <CheckBox MinWidth="0"
+                              VerticalAlignment="Center"
+                              d:Visibility="Collapsed"
+                              Cursor="{x:Null}"
+                              IsChecked="{Binding IsUseLazy, Mode=TwoWay}">
+                        <CheckBox.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="启用世界任务组件" />
+                                <ui:FontIcon Margin="8,0,8,0"
+                                             FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="12"
+                                             Glyph="{x:Static controls:FontSymbols.Lock}"
+                                             ToolTip="私有组件" />
+                            </StackPanel>
+                        </CheckBox.Content>
+                    </CheckBox>
+                    <Button Command="{Binding ShowLazyServerCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="18"
+                                             Glyph="{x:Static controls:FontSymbols.CloudSearch}" />
+                                <TextBlock Margin="5,0,0,0" Text="查看记录" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="8,0,0,0" Command="{Binding SetLazyTokenCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="18"
+                                             Glyph="{x:Static controls:FontSymbols.KeyboardDismiss}" />
+                                <TextBlock Margin="5,0,0,0" Text="设定令牌" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

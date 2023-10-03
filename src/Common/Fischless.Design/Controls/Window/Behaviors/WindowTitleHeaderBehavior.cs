@@ -1,6 +1,5 @@
 ﻿using Fischless.Native;
 using Microsoft.Xaml.Behaviors;
-using System;
 using System.Windows;
 using System.Windows.Input;
 using POINT = Vanara.PInvoke.POINT;
@@ -65,6 +64,10 @@ file static class RegisterAsTitleHeaderBehaviorExtension
         {
             if (s is UIElement titleHeader && Window.GetWindow(titleHeader) is Window window)
             {
+                if (window.Cursor.ToString() == Cursors.None.ToString())
+                {
+                    return;
+                }
                 if (e.RightButton == MouseButtonState.Pressed)
                 {
                     if (User32.GetCursorPos(out POINT pt))

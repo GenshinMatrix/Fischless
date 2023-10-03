@@ -5,9 +5,14 @@ using Fischless.Design.Controls;
 using Fischless.Fetch.Launch;
 using Fischless.Fetch.Lazy;
 using Fischless.Models;
+using Fischless.Views;
 using Microsoft.Win32;
+using ModernWpf.Controls;
+using Serilog;
 using System;
 using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace Fischless.ViewModels;
 
@@ -133,4 +138,45 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isInstallLazy = LazyProtocol.AnyRegistered();
+
+    [RelayCommand]
+    public static void SetLazyToken()
+    {
+        _ = new SetLazyTokenDialog()
+        {
+            Owner = Application.Current.MainWindow,
+        }.ShowDialog();
+    }
+
+    [RelayCommand]
+    public static async Task ShowLazyServerAsync()
+    {
+        try
+        {
+            if (await LazyRepository.SetupToken())
+            {
+                string file = await LazyRepository.GetFile();
+
+                if (!string.IsNullOrEmpty(file))
+                {
+                    _ = new ShowLazyDialog(file)
+                    {
+                        Owner = Application.Current.MainWindow,
+                    }.ShowDialog();
+                }
+                else
+                {
+                    Notification.AddNotice("查看记录失败", "请保证服务器令牌路径正确后重试");
+                }
+            }
+            else
+            {
+                Notification.AddNotice("未探测到接入服务器令牌", "请查阅组件使用说明设定好令牌后重试");
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error(e.ToString());
+        }
+    }
 }

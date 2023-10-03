@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -9,6 +7,22 @@ namespace Fischless.Design.Helpers;
 
 public static class ElementHelper
 {
+    public static Window? FindActivedWindow()
+    {
+        if (Application.Current != null)
+        {
+            foreach (Window win in Application.Current?.Windows)
+            {
+                if (win.IsActive)
+                {
+                    return win;
+                }
+            }
+            return Application.Current.MainWindow;
+        }
+        return null;
+    }
+
     public static FrameworkElement GetTemplateChild(this FrameworkElement d, string childName)
     {
         MethodInfo getTemplateChild = typeof(FrameworkElement).GetMethod("GetTemplateChild", BindingFlags.NonPublic | BindingFlags.Instance);
