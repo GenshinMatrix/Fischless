@@ -23,7 +23,7 @@ public static class Configurations
     public static ConfigurationDefinition<bool> IsUseFullScreen { get; } = new(nameof(IsUseFullScreen), false);
     public static ConfigurationDefinition<bool> IsUseLazy { get; } = new(nameof(IsUseLazy), false);
     public static ConfigurationDefinition<bool> IsUseGameRunningHint { get; } = new(nameof(IsUseGameRunningHint), false);
-    public static ConfigurationDefinition<int> ThemeTextFontFamily { get; } = new(nameof(ThemeTextFontFamily), 1);
+    public static ConfigurationDefinition<int> ThemeTextFontFamily { get; } = new(nameof(ThemeTextFontFamily), 0);
     public static ConfigurationDefinition<bool> IsUseThemeCursor { get; } = new(nameof(IsUseThemeCursor), true);
     public static ConfigurationDefinition<bool> IsUseSmallerSize { get; } = new(nameof(IsUseSmallerSize), false);
 }
