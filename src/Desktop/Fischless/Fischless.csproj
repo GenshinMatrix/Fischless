@@ -50,11 +50,11 @@
         <ProjectReference Include="..\..\Common\Fischless.Mvvm\Fischless.Mvvm.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
-        <ProjectReference Include="..\..\External\LottieSharp.WPF\LottieSharp.WPF.csproj" />
         <ProjectReference Include="..\..\External\Markdig.Wpf\Markdig.Wpf.csproj" />
         <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
         <ProjectReference Include="..\Fischless.Fetch\Fischless.Fetch.csproj" />
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
+        <ProjectReference Include="..\Fischless.InputSimulator\Fischless.InputSimulator.csproj" />
         <ProjectReference Include="..\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj" />
         <ProjectReference Include="..\Fischless.ReShade\Fischless.ReShade.csproj" />
         <ProjectReference Include="..\Fischless.WindowCapture\Fischless.WindowCapture.csproj" />
