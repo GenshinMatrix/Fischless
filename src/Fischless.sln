@@ -56,6 +56,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.KeyboardCapture",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.InputSimulator", "Desktop\Fischless.InputSimulator\Fischless.InputSimulator.csproj", "{DD218209-DDAC-4ED7-A14B-A8AEC7037406}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.HotkeyCapture", "Desktop\Fischless.HotkeyCapture\Fischless.HotkeyCapture.csproj", "{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -142,6 +144,10 @@ Global
 		{DD218209-DDAC-4ED7-A14B-A8AEC7037406}.Debug|x64.Build.0 = Debug|x64
 		{DD218209-DDAC-4ED7-A14B-A8AEC7037406}.Release|x64.ActiveCfg = Release|x64
 		{DD218209-DDAC-4ED7-A14B-A8AEC7037406}.Release|x64.Build.0 = Release|x64
+		{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}.Debug|x64.ActiveCfg = Debug|x64
+		{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}.Debug|x64.Build.0 = Debug|x64
+		{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}.Release|x64.ActiveCfg = Release|x64
+		{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +173,7 @@ Global
 		{F87861EB-EDCB-4D7D-8DCB-357F0A760035} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{E8BDFFDD-205B-4246-B46C-55DB01899EB1} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{DD218209-DDAC-4ED7-A14B-A8AEC7037406} = {2944494E-EB09-4387-9677-BB38A224A624}
+		{4EEE47AA-A34C-46CF-AA88-F90B4B752E40} = {2944494E-EB09-4387-9677-BB38A224A624}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
