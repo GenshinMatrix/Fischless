@@ -1,3 +1,4 @@
+using Fischless.Design.Themes;
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
 using Fischless.KeyboardCapture;
@@ -47,6 +48,7 @@ public class Startup
            .UseDpiAware()
            .UseDomainUnhandledExceptionCatched()
            .UseUnobservedTaskExceptionCatched()
+           .UseTheme()
            .Forget();
 
         Log.Information($"Welcome to Fischless v{AppConfig.AppVersion}|System: {Environment.OSVersion}|Command Line: {Environment.CommandLine}");

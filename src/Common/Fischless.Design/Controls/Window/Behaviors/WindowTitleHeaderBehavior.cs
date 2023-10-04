@@ -64,7 +64,7 @@ file static class RegisterAsTitleHeaderBehaviorExtension
         {
             if (s is UIElement titleHeader && Window.GetWindow(titleHeader) is Window window)
             {
-                if (window.Cursor.ToString() == Cursors.None.ToString())
+                if (window.Cursor != null && window.Cursor.ToString() == Cursors.None.ToString())
                 {
                     return;
                 }
@@ -72,6 +72,7 @@ file static class RegisterAsTitleHeaderBehaviorExtension
                 {
                     if (User32.GetCursorPos(out POINT pt))
                     {
+                        e.Handled = true;
                         SystemCommands.ShowSystemMenu(window, new Point(DpiHelper.CalcDPiX(pt.X), DpiHelper.CalcDPiY(pt.Y)));
                     }
                 }

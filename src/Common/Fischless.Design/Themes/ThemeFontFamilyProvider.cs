@@ -21,7 +21,7 @@ public static class ThemeFontFamilyProvider
             else if (fontFamily == ThemeTextFontFamily.MiSans_Regular)
             {
                 Application.Current.Resources[TextThemeFontFamilyKey]
-                    = new FontFamily(new Uri(uriPrefix + "MiSans-Regular.ttf.ttf"), "MiSans");
+                    = new FontFamily(new Uri(uriPrefix + "MiSans-Regular.ttf"), "MiSans");
             }
             else
             {
@@ -31,9 +31,9 @@ public static class ThemeFontFamilyProvider
     }
 }
 
-public enum ThemeTextFontFamily
+public enum ThemeTextFontFamily : int
 {
-    Default,
-    HarmonyOS_Sans_SC_Regular,
-    MiSans_Regular,
+    Default = -1,
+    HarmonyOS_Sans_SC_Regular = 0,
+    MiSans_Regular = 1,
 }

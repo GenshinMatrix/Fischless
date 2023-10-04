@@ -18,7 +18,7 @@
                   controls:WindowXCaption.Height="36"
                   d:Background="#00FFFFFF"
                   Background="#272727"
-                  Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
+                  Cursor="{DynamicResource ThemeCursor}"
                   FontFamily="{StaticResource TextThemeFontFamily}"
                   FontSize="14"
                   Icon="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"

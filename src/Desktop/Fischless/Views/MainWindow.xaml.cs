@@ -13,6 +13,11 @@ public partial class MainWindow : WindowX
     {
         DataContext = ViewModel = new();
         InitializeComponent();
+        if (Configurations.IsUseSmallerSize.Get())
+        {
+            Width = 640d;
+            Height = 560d;
+        }
         Loaded += (_, _) =>
         {
             AppConfig.GetService<IForeverTickService>()?.Start();

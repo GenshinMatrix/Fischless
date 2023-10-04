@@ -38,7 +38,7 @@
                   UseAeroCaptionButtons="False" />
 
     <Style TargetType="{x:Type local:MessageBoxX}">
-        <Setter Property="Cursor" Value="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}" />
+        <Setter Property="Cursor" Value="{DynamicResource ThemeCursor}" />
         <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
         <Setter Property="Background" Value="{DynamicResource ContentDialogBackground}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ContentDialogBorderWidth}" />

@@ -1,4 +1,5 @@
 ﻿using Fischless.Configuration;
+using Fischless.Design.Themes;
 using Fischless.Helpers;
 using Fischless.Hosting.Absraction;
 using Fischless.Mapper;
@@ -104,6 +105,20 @@ public static class ApplicationBuilderExtension
     public static IApplicationBuilder UseConfiguration(this IApplicationBuilder app)
     {
         ConfigurationManager.Setup(SpecialPathHelper.GetPath("config.yaml"));
+        return app;
+    }
+
+    public static IApplicationBuilder UseTheme(this IApplicationBuilder app)
+    {
+        if (Configurations.ThemeTextFontFamily.Get() > 0)
+        {
+            ThemeFontFamilyProvider.ChangeFontFamily((ThemeTextFontFamily)Configurations.ThemeTextFontFamily.Get());
+        }
+
+        if (Configurations.IsUseThemeCursor)
+        {
+            ThemeCursorProvider.ChangeCursor(new Uri("pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png"));
+        }
         return app;
     }
 

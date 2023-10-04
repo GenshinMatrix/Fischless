@@ -13,7 +13,7 @@
                   Title="查看记录"
                   Width="450"
                   Height="260"
-                  Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}"
+                  Cursor="{DynamicResource ThemeCursor}"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   FontSize="13"
                   Icon="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"

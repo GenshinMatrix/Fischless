@@ -394,6 +394,226 @@
                         </StackPanel>
                     </wui:CardExpander.Content>
                 </wui:CardExpander>
+                <wui:CardExpander Margin="3,8,0,0" FontFamily="{DynamicResource TextThemeFontFamily}">
+                    <wui:CardExpander.Icon>
+                        <wui:FontIcon Height="40"
+                                      Margin="6,0,0,0"
+                                      HorizontalAlignment="Center"
+                                      FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                      FontSize="24"
+                                      Glyph="{x:Static controls:FontSymbols.Color}" />
+                    </wui:CardExpander.Icon>
+                    <wui:CardExpander.Header>
+                        <StackPanel Margin="6,0,0,0">
+                            <TextBlock FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                       Text="外观与表现" />
+                            <TextBlock FontSize="13"
+                                       Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                       Text="自定义外观与表现" />
+                        </StackPanel>
+                    </wui:CardExpander.Header>
+                    <wui:CardExpander.Content>
+                        <StackPanel Margin="0,8,0,8">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Orientation="Horizontal">
+                                    <Grid Margin="6,0,0,0">
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                     FontSize="24"
+                                                     Glyph="{x:Static controls:FontSymbols.BlueLight}" />
+                                    </Grid>
+                                    <TextBlock Margin="20,0,0,0">
+                                        <TextBlock.Inlines>
+                                            <Run FontSize="14"
+                                                 FontWeight="Bold"
+                                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                 Text="主题颜色" />
+                                            <LineBreak />
+                                            <Run FontSize="13"
+                                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                 Text="更改应用中显示的颜色" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0,0,45,0"
+                                            Orientation="Horizontal">
+                                    <ComboBox MinWidth="130"
+                                              Margin="0,0,0,0"
+                                              Cursor="{x:Null}"
+                                              SelectedIndex="0">
+                                        <ComboBoxItem Content="深色" />
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="0,24,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Orientation="Horizontal">
+                                    <Grid Margin="6,0,0,0">
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                     FontSize="24"
+                                                     Glyph="{x:Static controls:FontSymbols.Picture}" />
+                                    </Grid>
+                                    <TextBlock Margin="20,0,0,0">
+                                        <TextBlock.Inlines>
+                                            <Run FontSize="14"
+                                                 FontWeight="Bold"
+                                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                 Text="个性背景" />
+                                            <LineBreak />
+                                            <Run FontSize="13"
+                                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                 Text="更改应用中显示的背景" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0,0,45,0"
+                                            Orientation="Horizontal">
+                                    <ComboBox MinWidth="130"
+                                              Margin="0,0,0,0"
+                                              Cursor="{x:Null}"
+                                              SelectedIndex="0">
+                                        <ComboBoxItem Content="默认" />
+                                        <ComboBoxItem Content="幻灯片" IsEnabled="False" />
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="0,24,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Orientation="Horizontal">
+                                    <Grid Margin="6,0,4,0">
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                     FontSize="20"
+                                                     Glyph="{x:Static controls:FontSymbols.Click}" />
+                                    </Grid>
+                                    <TextBlock Margin="20,0,0,0">
+                                        <TextBlock.Inlines>
+                                            <Run FontSize="14"
+                                                 FontWeight="Bold"
+                                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                 Text="主题光标" />
+                                            <LineBreak />
+                                            <Run FontSize="13"
+                                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                 Text="启用应用主题光标" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0,0,45,0"
+                                            Orientation="Horizontal">
+                                    <ui:ToggleSwitch Width="100"
+                                                     MinWidth="0"
+                                                     FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding IsUseThemeCursor, Mode=TwoWay}"
+                                                     OffContent="关"
+                                                     OnContent="开" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="0,24,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Orientation="Horizontal">
+                                    <Grid Margin="6,0,0,0">
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                     FontSize="24"
+                                                     Glyph="{x:Static controls:FontSymbols.FontColor}" />
+                                    </Grid>
+                                    <TextBlock Margin="20,0,0,0">
+                                        <TextBlock.Inlines>
+                                            <Run FontSize="14"
+                                                 FontWeight="Bold"
+                                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                 Text="主题字体" />
+                                            <LineBreak />
+                                            <Run FontSize="13"
+                                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                 Text="启用应用主题字体家族" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0,0,45,0"
+                                            Orientation="Horizontal">
+                                    <ComboBox MinWidth="130"
+                                              Margin="0,0,0,0"
+                                              Cursor="{x:Null}"
+                                              SelectedIndex="{Binding ThemeTextFontFamily, Mode=TwoWay}">
+                                        <ComboBoxItem Content="HarmonyOS Sans">
+                                            <ComboBoxItem.FontFamily>
+                                                <FontFamily>pack://application:,,,/Fischless.Design;component/Assets/Fonts/HarmonyOS_Sans_SC_Regular.ttf#HarmonyOS Sans SC</FontFamily>
+                                            </ComboBoxItem.FontFamily>
+                                        </ComboBoxItem>
+                                        <ComboBoxItem Content="MiSans">
+                                            <ComboBoxItem.FontFamily>
+                                                <FontFamily>pack://application:,,,/Fischless.Design;component/Assets/Fonts/MiSans-Regular.ttf#MiSans</FontFamily>
+                                            </ComboBoxItem.FontFamily>
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="0,24,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Orientation="Horizontal">
+                                    <Grid Margin="6,0,0,0">
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                     FontSize="24"
+                                                     Glyph="{x:Static controls:FontSymbols.AspectRatio}" />
+                                    </Grid>
+                                    <TextBlock Margin="20,0,0,0">
+                                        <TextBlock.Inlines>
+                                            <Run FontSize="14"
+                                                 FontWeight="Bold"
+                                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                                 Text="细小尺寸" />
+                                            <LineBreak />
+                                            <Run FontSize="13"
+                                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                                 Text="启用主窗口细小默认尺寸" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0,0,45,0"
+                                            Orientation="Horizontal">
+                                    <ui:ToggleSwitch Width="100"
+                                                     MinWidth="0"
+                                                     FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                     IsOn="{Binding IsUseSmallerSize, Mode=TwoWay}"
+                                                     OffContent="关"
+                                                     OnContent="开" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </wui:CardExpander.Content>
+                </wui:CardExpander>
                 <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenSpecialFolderCommand}">
                     <wui:CardAction.Icon>
                         <wui:FontIcon Height="40"

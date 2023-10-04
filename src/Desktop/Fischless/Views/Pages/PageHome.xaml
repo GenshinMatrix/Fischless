@@ -333,7 +333,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ContextMenu>
-                        <ContextMenu Cursor="{markups:Cursor CursorUri='pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png'}">
+                        <ContextMenu Cursor="{DynamicResource ThemeCursor}">
                             <MenuItem Command="{Binding LaunchGameFromListCommand}" Header="启动游戏">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Configuration;
 using Fischless.Design.Controls;
+using Fischless.Design.Themes;
 using Fischless.Fetch.Muter;
 using Fischless.Helpers;
 using Fischless.Models;
@@ -88,6 +89,41 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
     {
         autoMute = Configurations.AutoMute;
         OnPropertyChanged(nameof(AutoMute));
+    }
+
+    [ObservableProperty]
+    private bool isUseThemeCursor = Configurations.IsUseThemeCursor.Get();
+    partial void OnIsUseThemeCursorChanged(bool value)
+    {
+        Configurations.IsUseThemeCursor.Set(value);
+        ConfigurationManager.Save();
+
+        if (Configurations.IsUseThemeCursor)
+        {
+            ThemeCursorProvider.ChangeCursor(new Uri("pack://application:,,,/Fischless;component/Assets/Images/UI_Img_Cursor_PC.png"));
+        }
+        else
+        {
+            ThemeCursorProvider.ChangeCursor(null!);
+        }
+    }
+
+    [ObservableProperty]
+    private int themeTextFontFamily = Configurations.ThemeTextFontFamily.Get();
+    partial void OnThemeTextFontFamilyChanged(int value)
+    {
+        Configurations.ThemeTextFontFamily.Set(value);
+        ConfigurationManager.Save();
+
+        ThemeFontFamilyProvider.ChangeFontFamily((ThemeTextFontFamily)value);
+    }
+
+    [ObservableProperty]
+    private bool isUseSmallerSize = Configurations.IsUseSmallerSize.Get();
+    partial void OnIsUseSmallerSizeChanged(bool value)
+    {
+        Configurations.IsUseSmallerSize.Set(value);
+        ConfigurationManager.Save();
     }
 
     public PageSettingsViewModel()

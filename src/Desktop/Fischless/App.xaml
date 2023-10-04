@@ -25,6 +25,7 @@
                 <de:XamlControlsResources />
                 <th:ThemeStyleResources />
                 <th:ThemeResource RequestedTheme="Dark" />
+
             </ResourceDictionary.MergedDictionaries>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
                             DoubleClickCommand="{Binding ShowOrHideCommand}"
