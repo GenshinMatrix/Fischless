@@ -15,11 +15,13 @@ public static class ThemeFontFamilyProvider
 
             if (fontFamily == ThemeTextFontFamily.HarmonyOS_Sans_SC_Regular)
             {
+                Application.Current.Resources[TextThemeFontFamilyKey] = null;
                 Application.Current.Resources[TextThemeFontFamilyKey]
                     = new FontFamily(new Uri(uriPrefix + "HarmonyOS_Sans_SC_Regular.ttf"), "HarmonyOS Sans SC");
             }
             else if (fontFamily == ThemeTextFontFamily.MiSans_Regular)
             {
+                Application.Current.Resources[TextThemeFontFamilyKey] = null;
                 Application.Current.Resources[TextThemeFontFamilyKey]
                     = new FontFamily(new Uri(uriPrefix + "MiSans-Regular.ttf"), "MiSans");
             }

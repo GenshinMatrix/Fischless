@@ -614,6 +614,10 @@
                         </StackPanel>
                     </wui:CardExpander.Content>
                 </wui:CardExpander>
+                <TextBlock Margin="3,8,0,0"
+                           FontSize="14"
+                           Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                           Text="数据存储" />
                 <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenSpecialFolderCommand}">
                     <wui:CardAction.Icon>
                         <wui:FontIcon Height="40"
