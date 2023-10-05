@@ -49,6 +49,7 @@ public class Startup
            .UseDomainUnhandledExceptionCatched()
            .UseUnobservedTaskExceptionCatched()
            .UseTheme()
+           .UseProtocol()
            .Forget();
 
         Log.Information($"Welcome to Fischless v{AppConfig.AppVersion}|System: {Environment.OSVersion}|Command Line: {Environment.CommandLine}");

@@ -122,6 +122,12 @@ public static class ApplicationBuilderExtension
         return app;
     }
 
+    public static IApplicationBuilder UseProtocol(this IApplicationBuilder app)
+    {
+        UrlProtocolHelper.Register();
+        return app;
+    }
+
     public static void Forget(this IApplicationBuilder builder)
     {
     }
