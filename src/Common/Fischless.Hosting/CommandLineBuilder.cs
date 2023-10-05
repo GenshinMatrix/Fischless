@@ -6,9 +6,9 @@ namespace Fischless.Hosting;
 
 public class CommandLineBuilder : ICommandLineBuilder
 {
-    public StringDictionary Parameters { get; set; }
+    public StringDictionary Parameters { get; set; } = new();
 
-    public CommandLineBuilder(string[]? args)
+    public CommandLineBuilder(string[]? args, bool skip1 = false)
     {
 #pragma warning disable SYSLIB1045
         Regex spliter = new(@"^-{1,2}|^/|=|:", RegexOptions.IgnoreCase | RegexOptions.Compiled);
@@ -20,7 +20,7 @@ public class CommandLineBuilder : ICommandLineBuilder
 
         args ??= Array.Empty<string>();
 
-        foreach (string txt in args.Skip(1))
+        foreach (string txt in (skip1 ? args.Skip(1) : args))
         {
             parts = spliter.Split(txt, 3);
 

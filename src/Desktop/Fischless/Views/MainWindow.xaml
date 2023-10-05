@@ -35,7 +35,7 @@
                            Margin="8,0,0,0"
                            VerticalAlignment="Center"
                            RenderOptions.BitmapScalingMode="HighQuality"
-                           Source="{Binding Path=Icon, RelativeSource={RelativeSource AncestorType=Window}}">
+                           Source="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico">
                         <i:Interaction.Behaviors>
                             <controls:WindowTitleIconBehavior />
                         </i:Interaction.Behaviors>
@@ -61,7 +61,7 @@
                                VerticalAlignment="Center"
                                FontSize="14"
                                Foreground="{DynamicResource WindowTitleForeground}"
-                               Text="{Binding Path=Title, RelativeSource={RelativeSource AncestorType=Window}}" />
+                               Text="{x:Static app:AppConfig.AppName}" />
                     <Border Margin="4,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"

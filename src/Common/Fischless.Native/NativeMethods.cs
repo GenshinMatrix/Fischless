@@ -5,6 +5,20 @@ namespace Fischless.Native;
 
 public static class NativeMethods
 {
+    public static void Focus(nint hWnd)
+    {
+        if (!User32.IsZoomed(hWnd))
+        {
+            _ = User32.SendMessage(hWnd, User32.WindowMessage.WM_SYSCOMMAND, User32.SysCommand.SC_RESTORE, IntPtr.Zero);
+        }
+        _ = User32.SetForegroundWindow(hWnd);
+        while (User32.IsIconic(hWnd))
+        {
+            continue;
+        }
+        _ = User32.BringWindowToTop(hWnd);
+    }
+
     public static string MB_GetString(DialogBoxCommand wBtn)
     {
         return Marshal.PtrToStringAuto(User32Ex.MB_GetString((uint)wBtn));

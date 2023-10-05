@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Configuration;
+using Fischless.Design.Controls;
 using Fischless.Fetch.Muter;
 using Fischless.Models;
 using Fischless.Models.Message;
@@ -37,6 +38,7 @@ public partial class NotifyIconViewModel : ObservableRecipient, IDisposable
             Application.Current.MainWindow.Activate();
             Application.Current.MainWindow.Focus();
             Application.Current.MainWindow.Show();
+            WindowBacktray.Show(Application.Current.MainWindow);
         }
     }
 

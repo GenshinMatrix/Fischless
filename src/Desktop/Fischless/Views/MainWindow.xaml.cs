@@ -1,4 +1,5 @@
 ﻿using Fischless.Design.Controls;
+using Fischless.Hosting.Absraction;
 using Fischless.Models;
 using Fischless.Services;
 using Fischless.ViewModels;
@@ -17,6 +18,13 @@ public partial class MainWindow : WindowX
         {
             Width = 640d;
             Height = 560d;
+        }
+        if (AppConfig.GetService<ICommandLineBuilder>() is ICommandLineBuilder cli)
+        {
+            if (cli.Parameters.ContainsKey(AppConfig.AutoStartCommand.TrimStart('-')))
+            {
+                WindowBacktray.Hide(this);
+            }
         }
         Loaded += (_, _) =>
         {
