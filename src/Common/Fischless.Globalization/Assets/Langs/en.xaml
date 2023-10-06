@@ -27,4 +27,6 @@
     <s:String x:Key="ReShade">ReShade</s:String>
     <s:String x:Key="Fischless">Fischless</s:String>
 
+    <s:String x:Key="AvatarNameOfWriothesley">极夜真梦</s:String>
+
 </ResourceDictionary>

@@ -27,4 +27,6 @@
     <s:String x:Key="ReShade">幽夜浄土</s:String>
     <s:String x:Key="Fischless">極夜の真夢</s:String>
 
+    <s:String x:Key="AvatarNameOfWriothesley">极夜真梦</s:String>
+
 </ResourceDictionary>

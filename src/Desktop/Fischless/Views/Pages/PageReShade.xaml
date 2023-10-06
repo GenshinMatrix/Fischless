@@ -18,6 +18,7 @@
          FontSize="14"
          mc:Ignorable="d">
     <Page.Resources>
+        <converters:UriToImageSourceConverter x:Key="UriToImageSourceConverter" />
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <conv:ValueConverterGroup x:Key="NullToVisibilityConverter">
             <conv:NullToBoolConverter />
@@ -49,13 +50,13 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="6,3,3,0">
                 <StackPanel Orientation="Horizontal">
-                    <Button BorderBrush="Transparent" Command="{Binding AddContactCommand}">
+                    <Button BorderBrush="Transparent" Command="{Binding SettingsCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Static controls:FontSymbols.AddFriend}" />
-                                <TextBlock Margin="5,0,0,0" Text="添加" />
+                                             Glyph="{x:Static controls:FontSymbols.Settings}" />
+                                <TextBlock Margin="5,0,0,0" Text="设定" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -76,7 +77,50 @@
             <controls:SmoothScrollViewer Grid.Row="1"
                                          Margin="6,3,6,3"
                                          PanningMode="None"
-                                         VerticalScrollBarVisibility="Visible" />
+                                         VerticalScrollBarVisibility="Visible">
+                <ItemsControl Width="400" ItemsSource="{Binding Avatars}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="x:Type vm:ReShadeAvatar">
+                            <ToggleButton Width="80"
+                                          Margin="2"
+                                          Style="{StaticResource ImageToggleButtonStyle}">
+                                <ToggleButton.Content>
+                                    <Grid>
+                                        <controls:CachedImage Width="78"
+                                                              CornerRadius="4"
+                                                              RenderOptions.BitmapScalingMode="HighQuality"
+                                                              Source="{Binding RarityBackground, Converter={StaticResource UriToImageSourceConverter}}" />
+                                        <controls:CachedImage MinWidth="79"
+                                                              MinHeight="79"
+                                                              MaxWidth="78.5"
+                                                              MaxHeight="78.5"
+                                                              VerticalAlignment="Top"
+                                                              CornerRadius="0,0,20,0"
+                                                              RenderOptions.BitmapScalingMode="HighQuality"
+                                                              Source="{Binding AvatarIcon, Converter={StaticResource UriToImageSourceConverter}}" />
+                                        <TextBlock MaxWidth="79"
+                                                   Margin="0,80,0,0"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#84603D"
+                                                   Text="{markups:DynamicResourceEx ResourceKey={Binding NameKey}}">
+                                            <i:Interaction.Behaviors>
+                                                <controls:TextBlockWidthAutoFontSizeBehavior Max="12" Min="7" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBlock>
+                                    </Grid>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </controls:SmoothScrollViewer>
         </Grid>
     </Grid>
 </ui:Page>

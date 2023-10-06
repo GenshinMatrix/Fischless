@@ -7,7 +7,6 @@ using Fischless.Fetch.Lazy;
 using Fischless.Models;
 using Fischless.Views;
 using Microsoft.Win32;
-using ModernWpf.Controls;
 using Serilog;
 using System;
 using System.IO;
