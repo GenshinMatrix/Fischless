@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Vanara.PInvoke;
+﻿using Vanara.PInvoke;
 
 namespace Fischless.WindowCapture;
 
@@ -16,13 +15,8 @@ internal static class CaptionHelper
 
         if ((exStyle & (int)User32.WindowStylesEx.WS_EX_TOPMOST) != 0)
         {
-            return  true;
+            return true;
         }
         return false;
-    }
-
-    public static int GetSystemCaptionHeight()
-    {
-        return (int)Math.Round(SystemParameters.CaptionHeight * DpiHelper.ScaleY);
     }
 }

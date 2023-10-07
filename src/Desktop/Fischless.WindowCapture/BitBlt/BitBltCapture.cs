@@ -8,7 +8,6 @@ public class BitBltCapture : IWindowCapture
     private nint _hWnd;
     public bool IsCapturing { get; private set; }
     public bool IsClientEnabled { get; set; } = false;
-    public bool IsCursorCaptureEnabled { get; set; } = false;
 
     public void Dispose()
     {

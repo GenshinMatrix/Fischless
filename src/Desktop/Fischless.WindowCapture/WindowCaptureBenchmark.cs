@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
+using Vanara.PInvoke;
 
 namespace Fischless.WindowCapture;
 
-public class WindowCaptureBenchmark
+public sealed class WindowCaptureBenchmark
 {
     public static void Action()
     {
@@ -12,10 +13,22 @@ public class WindowCaptureBenchmark
             {
                 IWindowCapture capture = WindowCaptureFactory.Create(mode);
 
+                _ = User32.ShowWindow(GetHwnd(), ShowWindowCommand.SW_RESTORE);
                 capture.Start(GetHwnd());
                 await Task.Delay(1234);
-                using Bitmap frame = capture.Capture();
-                frame?.Save($"Benchmark_{mode}_{frame.Width}x{frame.Height}_DPI{DpiHelper.ScaleY * 100f:F0}.jpg");
+                using Bitmap frameFull = capture.Capture();
+
+                if (frameFull != null)
+                {
+                    frameFull.Save($"Benchmark_{mode}_{frameFull.Width}x{frameFull.Height}.jpg");
+
+                    using Bitmap frameCrop = capture.Capture(10, 10, 200, 400);
+                    frameCrop?.Save($"Benchmark_{mode}_{frameFull.Width}x{frameFull.Height}_crop200x400.jpg");
+                }
+                else
+                {
+                    Debugger.Break();
+                }
             });
         }
     }

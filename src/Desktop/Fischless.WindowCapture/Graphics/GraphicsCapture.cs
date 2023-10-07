@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using System.Windows;
+﻿using SharpDX.Direct3D11;
+using System.Diagnostics;
 using Vanara.PInvoke;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX;
@@ -13,6 +13,7 @@ public class GraphicsCapture : IWindowCapture
     private Direct3D11CaptureFramePool _captureFramePool = null!;
     private GraphicsCaptureItem _captureItem = null!;
     private GraphicsCaptureSession _captureSession = null!;
+    private ResourceRegion? _region = null;
 
     public bool IsCapturing { get; private set; }
     public bool IsClientEnabled { get; set; } = false;
@@ -25,6 +26,9 @@ public class GraphicsCapture : IWindowCapture
     public void Start(nint hWnd)
     {
         _hWnd = hWnd;
+
+        _region = GetGameScreenRegion(hWnd);
+
         IsCapturing = true;
 
         _captureItem = CaptureHelper.CreateItemForWindow(_hWnd);
@@ -58,39 +62,13 @@ public class GraphicsCapture : IWindowCapture
         {
             using var frame = _captureFramePool?.TryGetNextFrame();
 
-            if (frame == null)
-            {
-                return null;
-            }
-
-            Bitmap? bitmap = frame.ToBitmap();
-
-            if (bitmap == null)
-            {
-                return null;
-            }
-
             if (IsClientEnabled)
             {
-                return bitmap;
+                return frame?.ToBitmap();
             }
             else
             {
-                _ = User32.GetClientRect(_hWnd, out var windowRect);
-                int border = Math.Max(SystemParameters.Border, 1);
-                int captionHeight = CaptionHelper.IsFullScreenMode(_hWnd)
-                    ? default
-                    : Math.Max(CaptionHelper.GetSystemCaptionHeight(), frame.ContentSize.Height - windowRect.Height - border * 2);
-
-                using (bitmap)
-                {
-                    return bitmap.Crop(
-                        border,
-                        border + captionHeight,
-                        frame.ContentSize.Width - border * 2,
-                        frame.ContentSize.Height - border * 2 - captionHeight
-                    );
-                }
+                return frame?.ToBitmap(_region);
             }
         }
         catch (Exception e)
@@ -110,21 +88,24 @@ public class GraphicsCapture : IWindowCapture
         try
         {
             using var frame = _captureFramePool?.TryGetNextFrame();
-            using Bitmap bitmap = frame?.ToBitmap();
-            _ = User32.GetClientRect(_hWnd, out var windowRect);
-            int border = Math.Max(SystemParameters.Border, 1);
-            int captionHeight = CaptionHelper.IsFullScreenMode(_hWnd)
-                ? default
-                : Math.Max(CaptionHelper.GetSystemCaptionHeight()
-                    , frame.ContentSize.Height - windowRect.Height - border * 2
-            );
 
-            return bitmap.Crop(
-                border + x,
-                border + y + captionHeight,
-                width - border * 2,
-                height - border * 2 - captionHeight
-            );
+            if (frame == null)
+            {
+                return null!;
+            }
+
+            ResourceRegion regionBase = _region ?? default;
+            ResourceRegion region = new()
+            {
+                Left = regionBase.Left + x,
+                Top = regionBase.Top + y,
+                Right = regionBase.Left + x + width,
+                Bottom = regionBase.Top + x + height,
+                Front = regionBase.Front,
+                Back = regionBase.Back,
+            };
+
+            return frame.ToBitmap(region);
         }
         catch (Exception e)
         {
@@ -140,6 +121,7 @@ public class GraphicsCapture : IWindowCapture
         _captureSession = null!;
         _captureFramePool = null!;
         _captureItem = null!;
+        _region = default;
 
         _hWnd = IntPtr.Zero;
         IsCapturing = false;
@@ -148,5 +130,26 @@ public class GraphicsCapture : IWindowCapture
     private void CaptureItemOnClosed(GraphicsCaptureItem sender, object args)
     {
         Stop();
+    }
+
+    private ResourceRegion? GetGameScreenRegion(nint hWnd)
+    {
+        if (CaptionHelper.IsFullScreenMode(hWnd))
+        {
+            return null!;
+        }
+
+        ResourceRegion region = new();
+        DwmApi.DwmGetWindowAttribute<RECT>(hWnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_EXTENDED_FRAME_BOUNDS, out var windowRect);
+        User32.GetClientRect(_hWnd, out RECT clientRect);
+
+        region.Left = 0;
+        region.Top = windowRect.Height - clientRect.Height;
+        region.Right = clientRect.Width;
+        region.Bottom = windowRect.Height;
+        region.Front = 0;
+        region.Back = 1;
+
+        return region;
     }
 }
