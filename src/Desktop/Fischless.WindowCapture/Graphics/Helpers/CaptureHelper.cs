@@ -4,7 +4,7 @@ using WinRT;
 
 namespace Fischless.WindowCapture.Graphics;
 
-public static class CaptureHelper
+internal static class CaptureHelper
 {
     static readonly Guid GraphicsCaptureItemGuid = new("79C3F95B-31F7-4EC2-A464-632EF5D30760");
 

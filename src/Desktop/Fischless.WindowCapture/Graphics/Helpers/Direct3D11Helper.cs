@@ -1,12 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using Windows.Graphics.DirectX.Direct3D11;
 using WinRT;
 
 namespace Fischless.WindowCapture.Graphics;
 
-[SuppressMessage("CodeQuality", "IDE0052:")]
-public static class Direct3D11Helper
+internal static class Direct3D11Helper
 {
     internal static Guid IInspectable = new("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90");
     internal static Guid ID3D11Resource = new("dc8e63f3-d12b-4952-b47b-5e45026a862d");

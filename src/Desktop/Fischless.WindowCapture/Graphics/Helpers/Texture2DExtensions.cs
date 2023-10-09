@@ -7,7 +7,7 @@ using Windows.Graphics.Capture;
 
 namespace Fischless.WindowCapture.Graphics;
 
-public static class Texture2DExtensions
+internal static class Texture2DExtensions
 {
     public static Bitmap? ToBitmap(this Direct3D11CaptureFrame frame, ResourceRegion? region = null)
     {

@@ -20,9 +20,4 @@ internal class LazySpecialPathProvider
         }
         return configPath;
     }
-
-    public static string GetTempPath(string baseName)
-    {
-        return Path.Combine(TempPath + "genshin-lazy", baseName);
-    }
 }
