@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using Serilog;
 using System.Diagnostics;
+using System.Security.Principal;
 using System.Text;
 
 namespace Fischless.Fetch.Regedit;
@@ -206,4 +207,16 @@ internal enum GameType
     CN,
     OVERSEA,
     CNCloud,
+}
+
+file static class RuntimeHelper
+{
+    public static bool IsElevated { get; } = GetElevated();
+
+    private static bool GetElevated()
+    {
+        using WindowsIdentity identity = WindowsIdentity.GetCurrent();
+        WindowsPrincipal principal = new(identity);
+        return principal.IsInRole(WindowsBuiltInRole.Administrator);
+    }
 }

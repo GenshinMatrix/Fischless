@@ -34,7 +34,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_AyakaCostumeFruhling.png",
                     SideIcon = "UI_AvatarIcon_Side_AyakaCostumeFruhling.png",
                     GachaSplash = "UI_Costume_AyakaCostumeFruhling.png",
-                    SkinHash = "",
+                    SkinHash = "04f21fa3",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -46,7 +46,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "9d2c1c5d",
                 },
             },
         };
@@ -78,7 +78,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_QinCostumeSea.png",
                     SideIcon = "UI_AvatarIcon_Side_QinCostumeSea.png",
                     GachaSplash = "UI_Costume_QinCostumeSea.png",
-                    SkinHash = "",
+                    SkinHash = "1ec879c9",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -90,7 +90,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_QinCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_QinCostumeWic.png",
                     GachaSplash = "UI_Costume_QinCostumeWic.png",
-                    SkinHash = "",
+                    SkinHash = "a3cccc14",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -102,7 +102,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "6fe07e12",
                 },
             },
         };
@@ -166,7 +166,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_LisaCostumeStudentin.png",
                     SideIcon = "UI_AvatarIcon_Side_LisaCostumeStudentin.png",
                     GachaSplash = "UI_Costume_LisaCostumeStudentin.png",
-                    SkinHash = "",
+                    SkinHash = "bfca9d94",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -178,7 +178,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "e6af2c6d",
                 },
             },
         };
@@ -210,7 +210,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "846ff19c",
                 },
             },
         };
@@ -242,7 +242,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_BarbaraCostumeSummertime.png",
                     SideIcon = "UI_AvatarIcon_Side_BarbaraCostumeSummertime.png",
                     GachaSplash = "UI_Costume_BarbaraCostumeSummertime.png",
-                    SkinHash = "",
+                    SkinHash = "e9199599",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -254,7 +254,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "7df968e8",
                 },
             },
         };
@@ -286,7 +286,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KaeyaCostumeDancer.png",
                     SideIcon = "UI_AvatarIcon_Side_KaeyaCostumeDancer.png",
                     GachaSplash = "UI_Costume_KaeyaCostumeDancer.png",
-                    SkinHash = "",
+                    SkinHash = "bdb6e3b7",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -298,7 +298,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "c2ef8845",
                 },
             },
         };
@@ -330,7 +330,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_DilucCostumeFlamme.png",
                     SideIcon = "UI_AvatarIcon_Side_DilucCostumeFlamme.png",
                     GachaSplash = "UI_Costume_DilucCostumeFlamme.png",
-                    SkinHash = "",
+                    SkinHash = "274e5c1a",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -342,7 +342,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "dff0b253",
                 },
             },
         };
@@ -374,7 +374,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "bce61819",
                 },
             },
         };
@@ -406,7 +406,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_AmborCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_AmborCostumeWic.png",
                     GachaSplash = "UI_Costume_AmborCostumeWic.png",
-                    SkinHash = "",
+                    SkinHash = "53eff008",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -418,7 +418,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "0eef5bbe",
                 },
             },
         };
@@ -450,7 +450,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "d56e66b4",
                 },
             },
         };
@@ -482,7 +482,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "1db7148c",
                 },
             },
         };
@@ -514,7 +514,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "1b9869ed",
                 },
             },
         };
@@ -546,7 +546,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "702fc085",
                 },
             },
         };
@@ -578,7 +578,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "6f16afa7",
                 },
             },
         };
@@ -610,7 +610,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_NingguangCostumeFloral.png",
                     SideIcon = "UI_AvatarIcon_Side_NingguangCostumeFloral.png",
                     GachaSplash = "UI_Costume_NingguangCostumeFloral.png",
-                    SkinHash = "",
+                    SkinHash = "993bb35f",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -622,7 +622,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "6d197625",
                 },
             },
         };
@@ -654,7 +654,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KleeCostumeWitch.png",
                     SideIcon = "UI_AvatarIcon_Side_KleeCostumeWitch.png",
                     GachaSplash = "UI_Costume_KleeCostumeWitch.png",
-                    SkinHash = "",
+                    SkinHash = "ebd18105",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -666,7 +666,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "dba3b111",
                 },
             },
         };
@@ -698,7 +698,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "6fa3d7f4",
                 },
             },
         };
@@ -730,7 +730,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_FischlCostumeHighness.png",
                     SideIcon = "UI_AvatarIcon_Side_FischlCostumeHighness.png",
                     GachaSplash = "UI_Costume_FischlCostumeHighness.png",
-                    SkinHash = "",
+                    SkinHash = "b52dd70c",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -742,7 +742,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "e5ac321c",
                 },
             },
         };
@@ -774,7 +774,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "02cf3aa5",
                 },
             },
         };
@@ -806,7 +806,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "f08f1c85",
                 },
             },
         };
@@ -838,7 +838,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "def7af36",
                 },
             },
         };
@@ -870,7 +870,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "956d98ae",
                 },
             },
         };
@@ -902,7 +902,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "2ceb44ef",
                 },
             },
         };
@@ -934,7 +934,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "fbf98643",
                 },
             },
         };
@@ -966,7 +966,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "0ea2c585",
                 },
             },
         };
@@ -998,7 +998,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "b4dfe1dd",
                 },
             },
         };
@@ -1030,7 +1030,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_MonaCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_MonaCostumeWic.png",
                     GachaSplash = "UI_Costume_MonaCostumeWic.png",
-                    SkinHash = "",
+                    SkinHash = "c814ad67",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1042,7 +1042,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "8991360f",
                 },
             },
         };
@@ -1074,7 +1074,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KeqingCostumeFeather.png",
                     SideIcon = "UI_AvatarIcon_Side_KeqingCostumeFeather.png",
                     GachaSplash = "UI_Costume_KeqingCostumeFeather.png",
-                    SkinHash = "",
+                    SkinHash = "6629a84e",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1086,7 +1086,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "ccc33b79",
                 },
             },
         };
@@ -1118,7 +1118,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "75e2c70c",
                 },
             },
         };
@@ -1150,7 +1150,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "93d428f4",
                 },
             },
         };
@@ -1182,7 +1182,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_RosariaCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_RosariaCostumeWic.png",
                     GachaSplash = "UI_Costume_RosariaCostumeWic.png",
-                    SkinHash = "",
+                    SkinHash = "7a318f3d",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1194,7 +1194,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "567d31dd",
                 },
             },
         };
@@ -1226,7 +1226,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "e9d17db6",
                 },
             },
         };
@@ -1258,7 +1258,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "58b0e678",
                 },
             },
         };
@@ -1290,7 +1290,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "2bd5728f",
                 },
             },
         };
@@ -1322,7 +1322,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "ac1b8a26",
                 },
             },
         };
@@ -1354,7 +1354,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "ba27d574",
                 },
             },
         };
@@ -1386,7 +1386,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "1235ad3c",
                 },
             },
         };
@@ -1418,7 +1418,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "29bb54cb",
                 },
             },
         };
@@ -1450,7 +1450,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "7a5baa6d",
                 },
             },
         };
@@ -1482,7 +1482,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "66c6fb0a",
                 },
             },
         };
@@ -1514,7 +1514,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "955b7007",
                 },
             },
         };
@@ -1546,7 +1546,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "cac5caae",
                 },
             },
         };
@@ -1610,7 +1610,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "f7574bda",
                 },
             },
         };
@@ -1642,7 +1642,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "9e1de486",
                 },
             },
         };
@@ -1674,7 +1674,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "d17ac213",
                 },
             },
         };
@@ -1706,7 +1706,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "6fb396da",
                 },
             },
         };
@@ -1738,7 +1738,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "4062dbe7",
                 },
             },
         };
@@ -1770,7 +1770,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "7404bef0",
                 },
             },
         };
@@ -1802,7 +1802,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "cbdb553a",
                 },
             },
         };
@@ -1834,7 +1834,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "71cebcdf",
                 },
             },
         };
@@ -1866,7 +1866,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "36fca030",
                 },
             },
         };
@@ -1898,7 +1898,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "d90dae49",
                 },
             },
         };
@@ -1930,7 +1930,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "86e25bac",
                 },
             },
         };
@@ -1962,7 +1962,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "de6c5e75",
                 },
             },
         };
@@ -1994,7 +1994,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "a67084d1",
                 },
             },
         };
@@ -2026,7 +2026,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "75b1de60",
                 },
             },
         };
@@ -2058,7 +2058,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "593cbad4",
                 },
             },
         };
@@ -2090,7 +2090,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "ee37e2d7",
                 },
             },
         };
@@ -2122,7 +2122,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "24cdd934",
                 },
             },
         };
@@ -2154,7 +2154,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "8487a77e",
                 },
             },
         };
@@ -2186,7 +2186,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "d35b6325",
                 },
             },
         };
@@ -2218,7 +2218,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "468d9f9a",
                 },
             },
         };
@@ -2250,7 +2250,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "f9152211",
                 },
             },
         };
@@ -2282,7 +2282,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "96cfb1a1",
                 },
             },
         };
@@ -2314,7 +2314,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "9d5bb5ff",
                 },
             },
         };
@@ -2346,7 +2346,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "608a60e4",
                 },
             },
         };
@@ -2378,7 +2378,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "3897b4e9",
                 },
             },
         };
@@ -2410,7 +2410,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "329f5c91",
                 },
             },
         };
@@ -2442,7 +2442,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "7a9447e4",
                 },
             },
         };
@@ -2474,7 +2474,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "7bf55145",
                 },
             },
         };
@@ -2538,7 +2538,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    SkinHash = "53b834fc",
                 },
             },
         };
