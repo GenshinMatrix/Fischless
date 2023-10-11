@@ -168,36 +168,4 @@ internal static class ReShadeAvatars
     public const string UI_AvatarIcon_Yunjin_Card = "pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/UI_AvatarIcon_Yunjin_Card.png";
     public const string UI_AvatarIcon_Zhongli = "pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/UI_AvatarIcon_Zhongli.png";
     public const string UI_AvatarIcon_Zhongli_Card = "pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/UI_AvatarIcon_Zhongli_Card.png";
-    
-    public static readonly Dictionary<string, string> Stocks = new();
-    public static readonly List<ReShadeAvatar> Avatars = new();
-
-    static ReShadeAvatars()
-    {
-        FieldInfo[] fields = typeof(ReShadeAvatars).GetFields();
-
-        foreach (FieldInfo field in fields)
-        {
-            if (field.Name.EndsWith("_Card") || field.Name.Contains("Costume"))
-            {
-                continue;
-            }
-            if (field.IsStatic && field.FieldType == typeof(string))
-            {
-                Stocks.Add(field.Name, field.GetValue(null) as string ?? throw new Exception());
-            }
-        }
-
-        foreach (var stock in Stocks.Values)
-        {
-            string avatarIconName = stock.Split('/')[^1].Replace(".png", string.Empty);
-
-            Avatars.Add(new ReShadeAvatar()
-            {
-                AvatarIcon = stock,
-                RarityBackground = $"pack://application:,,,/Fischless;component/Assets/Images/Rarity_{UnuselessDataProvider.GetAvatarRarity(avatarIconName)}_Background.png",
-                NameKey = $"AvatarNameOf{avatarIconName.Replace("UI_AvatarIcon_", string.Empty)}",
-            });
-        }
-    }
 }

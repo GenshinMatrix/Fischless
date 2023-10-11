@@ -69,7 +69,7 @@ public sealed class NavigationService : INavigationService
         Log.Information($"Navigate to {navigateTo}:{(result ? "succeed" : "failed")}");
     }
 
-    public void Navigate(NavigationViewItemInvokedEventArgs e)
+    public void Navigate(NavigationViewItemInvokedEventArgs args)
     {
         if (NavigationView is null)
         {
@@ -78,7 +78,7 @@ public sealed class NavigationService : INavigationService
 
         if (NavigationView.SelectedItem is NavigationViewItem selected)
         {
-            Type? navigateTo = e.IsSettingsInvoked ? typeof(PageSettings) : NavigationHelper.GetNavigateTo(selected);
+            Type? navigateTo = args.IsSettingsInvoked ? typeof(PageSettings) : NavigationHelper.GetNavigateTo(selected);
             object? extraData = NavigationHelper.GetExtraData(selected);
             bool result = false;
 
@@ -108,8 +108,9 @@ public sealed class NavigationService : INavigationService
                 }
                 frame?.RemoveBackEntry();
             }
-            catch
+            catch (Exception e)
             {
+                Log.Error(e);
             }
             Log.Information($"Navigate to {navigateTo}:{(result ? "succeed" : "failed")}");
         }
