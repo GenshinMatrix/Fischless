@@ -53,6 +53,7 @@
                 <StackPanel Orientation="Horizontal">
                     <ToggleButton Margin="4,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsPyro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -63,6 +64,7 @@
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsHydro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -73,16 +75,18 @@
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsAnemo, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
                                              Height="34"
                                              Margin="5,5,5,5"
-                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_amemo.svg" />
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_anemo.svg" />
                         </ToggleButton.Content>
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsElectro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -93,6 +97,7 @@
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsDendro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -103,6 +108,7 @@
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsIce, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -113,6 +119,7 @@
                     </ToggleButton>
                     <ToggleButton Margin="6,0,0,0"
                                   Padding="5,2,5,2"
+                                  IsChecked="{Binding IsGeo, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="34"
@@ -173,7 +180,8 @@
                                               Margin="2"
                                               controls:ToggleButtonGroup.Group="{StaticResource ToggleButtonGroup}"
                                               IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                                              Style="{StaticResource ImageToggleButtonStyle}">
+                                              Style="{StaticResource ImageToggleButtonStyle}"
+                                              Visibility="{Binding IsVisible, Converter={StaticResource BoolToVisibilityConverter}}">
                                     <ToggleButton.Content>
                                         <Grid>
                                             <Grid Width="80">
