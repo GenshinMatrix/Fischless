@@ -41,6 +41,9 @@ public partial class ReShadeAvatar : ObservableObject
     private bool isVisible = true;
 
     [ObservableProperty]
+    private bool isSelected = false;
+
+    [ObservableProperty]
     private IEnumerable<ReShadeAvatarOutfit> outfits = Array.Empty<ReShadeAvatarOutfit>();
 }
 

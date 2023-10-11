@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.Datas.Snap;
 using Fischless.Models;
 using Fischless.Mvvm;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Fischless.ViewModels;
@@ -12,12 +12,16 @@ namespace Fischless.ViewModels;
 public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 {
     [ObservableProperty]
+    private IEnumerable<ReShadeAvatar> avatarStocks = null!;
+
+    [ObservableProperty]
     private ObservableCollectionEx<ReShadeAvatar> avatars = new();
 
     public PageReShadeViewModel()
     {
-        avatars.Reset(SnapCharacterProvider.GetSnapCharacters()
-            .Select(c => new ReShadeAvatar()
+        AvatarStocks = SnapCharacterProvider.GetSnapCharacters()
+            .OrderByDescending(c => c.SortId)
+            .Select((c, i) => new ReShadeAvatar()
             {
                 Card = $"pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/{c.Card}",
                 FaceIcon = $"pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/{c.FaceIcon}",
@@ -39,9 +43,9 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                     FaceIcon = $"pack://application:,,,/Fischless;component/Assets/Images/AvatarIcons/{o.FaceIcon}",
                     SkinHash = o.SkinHash,
                 }),
-            })
-            .OrderByDescending(c => c.SortId)
-        );
+                IsSelected = i == 0,
+            });
+        avatars.Reset(AvatarStocks);
     }
 
     public void Dispose()

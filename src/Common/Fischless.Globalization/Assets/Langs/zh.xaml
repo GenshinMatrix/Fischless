@@ -66,8 +66,8 @@
     <s:String x:Key="AvatarNameOfSayu">早柚</s:String>
     <s:String x:Key="AvatarNameOfYoimiya">宵宫</s:String>
     <s:String x:Key="AvatarNameOfAloy">埃洛伊</s:String>
-    <s:String x:Key="AvatarNameOfSara">极夜真梦</s:String>
-    <s:String x:Key="AvatarNameOfShougun">九条裟罗</s:String>
+    <s:String x:Key="AvatarNameOfSara">九条裟罗</s:String>
+    <s:String x:Key="AvatarNameOfShougun">雷电将军</s:String>
     <s:String x:Key="AvatarNameOfKokomi">珊瑚宫心海</s:String>
     <s:String x:Key="AvatarNameOfTohma">托马</s:String>
     <s:String x:Key="AvatarNameOfGorou">戎犬锵锵</s:String>
@@ -100,5 +100,9 @@
     <s:String x:Key="AvatarNameOfLiney">林尼</s:String>
     <s:String x:Key="AvatarNameOfFreminet">菲米尼</s:String>
     <s:String x:Key="AvatarNameOfNeuvillette">那维莱特</s:String>
+    <s:String x:Key="AvatarNameOfAozi">奥兹</s:String>
+    <s:String x:Key="AvatarNameOfUI_FlycloakIcon_Psalmus">降临之翼</s:String>
+    <s:String x:Key="AvatarNameOfPaimon">派蒙</s:String>
+    <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">幽夜华尔兹</s:String>
 
 </ResourceDictionary>

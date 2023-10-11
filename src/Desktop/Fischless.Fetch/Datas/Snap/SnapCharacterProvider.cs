@@ -2542,5 +2542,109 @@ public static class SnapCharacterProvider
                 },
             },
         };
+        yield return new SnapCharacterInfo()
+        {
+            Id = -1,
+            Name = "奧兹",
+            Rarity = 4,
+            Gender = 2,
+            Element = ElementType.None,
+            WeaponType = WeaponType.None,
+            FaceIcon = "UI_AvatarIcon_Aozi.png",
+            SortId = -1,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 0,
+                    CharacterId = -1,
+                    Name = "",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "UI_AvatarIcon_Aozi.png",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    SkinHash = "",
+                },
+            },
+        };
+        yield return new SnapCharacterInfo()
+        {
+            Id = -2,
+            Name = "派蒙",
+            Rarity = 1,
+            Gender = 2,
+            Element = ElementType.None,
+            WeaponType = WeaponType.None,
+            FaceIcon = "UI_AvatarIcon_Paimon.png",
+            SortId = -2,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 0,
+                    CharacterId = -2,
+                    Name = "",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "UI_AvatarIcon_Paimon.png",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    SkinHash = "",
+                },
+            },
+        };
+        yield return new SnapCharacterInfo()
+        {
+            Id = -3,
+            Name = "降临之翼",
+            Rarity = 4,
+            Gender = 2,
+            Element = ElementType.None,
+            WeaponType = WeaponType.None,
+            FaceIcon = "UI_FlycloakIcon_Psalmus.png",
+            SortId = -3,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 0,
+                    CharacterId = -3,
+                    Name = "",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "UI_FlycloakIcon_Psalmus.png",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    SkinHash = "",
+                },
+            },
+        };
+        yield return new SnapCharacterInfo()
+        {
+            Id = -4,
+            Name = "幽夜华尔兹",
+            Rarity = 4,
+            Gender = 2,
+            Element = ElementType.None,
+            WeaponType = WeaponType.None,
+            FaceIcon = "UI_EquipIcon_Bow_Nachtblind_Awaken.png",
+            SortId = -4,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 0,
+                    CharacterId = -4,
+                    Name = "",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "UI_EquipIcon_Bow_Nachtblind_Awaken.png",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    SkinHash = "",
+                },
+            },
+        };
     }
 }

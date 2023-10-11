@@ -11,6 +11,7 @@
          xmlns:m="clr-namespace:Fischless.Models"
          xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
          xmlns:ui="http://schemas.modernwpf.com/2019"
          xmlns:vm="clr-namespace:Fischless.ViewModels"
          d:DesignHeight="450"
@@ -50,7 +51,79 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="6,3,3,0">
                 <StackPanel Orientation="Horizontal">
-                    <Button BorderBrush="Transparent" Command="{Binding SettingsCommand}">
+                    <ToggleButton Margin="4,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_pyro.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_hydro.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_amemo.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_electro.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_dendro.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_ice.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="34"
+                                             Height="34"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_geo.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <Button Margin="6,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding SettingsCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -74,53 +147,69 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <controls:SmoothScrollViewer Grid.Row="1"
-                                         Margin="6,3,6,3"
-                                         PanningMode="None"
-                                         VerticalScrollBarVisibility="Visible">
-                <ItemsControl Width="400" ItemsSource="{Binding Avatars}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="x:Type vm:ReShadeAvatar">
-                            <ToggleButton Width="80"
-                                          Margin="2"
-                                          Style="{StaticResource ImageToggleButtonStyle}">
-                                <ToggleButton.Content>
-                                    <Grid>
-                                        <controls:CachedImage Width="78"
-                                                              CornerRadius="4"
-                                                              RenderOptions.BitmapScalingMode="HighQuality"
-                                                              Source="{Binding RarityBackground, Converter={StaticResource UriToImageSourceConverter}}" />
-                                        <controls:CachedImage MinWidth="79"
-                                                              MinHeight="79"
-                                                              MaxWidth="78.5"
-                                                              MaxHeight="78.5"
-                                                              VerticalAlignment="Top"
-                                                              CornerRadius="0,0,20,0"
-                                                              RenderOptions.BitmapScalingMode="HighQuality"
-                                                              Source="{Binding FaceIcon, Converter={StaticResource UriToImageSourceConverter}}" />
-                                        <TextBlock MaxWidth="79"
-                                                   Margin="0,80,0,0"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   FontWeight="SemiBold"
-                                                   Foreground="#84603D"
-                                                   Text="{markups:DynamicResourceEx ResourceKey={Binding NameKey}}">
-                                            <i:Interaction.Behaviors>
-                                                <controls:TextBlockWidthAutoFontSizeBehavior Max="12" Min="7" />
-                                            </i:Interaction.Behaviors>
-                                        </TextBlock>
-                                    </Grid>
-                                </ToggleButton.Content>
-                            </ToggleButton>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </controls:SmoothScrollViewer>
+            <Grid Grid.Row="1" Margin="6,8,6,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <controls:SmoothScrollViewer Grid.Column="0"
+                                             HorizontalAlignment="Left"
+                                             PanningMode="None"
+                                             VerticalScrollBarVisibility="Visible">
+                    <ItemsControl ItemsSource="{Binding Avatars}">
+                        <ItemsControl.Resources>
+                            <controls:ToggleButtonGroup x:Key="ToggleButtonGroup" />
+                        </ItemsControl.Resources>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Margin="0,0,8,0"
+                                           ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                           ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="x:Type vm:ReShadeAvatar">
+                                <ToggleButton Width="80"
+                                              Margin="2"
+                                              controls:ToggleButtonGroup.Group="{StaticResource ToggleButtonGroup}"
+                                              IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                              Style="{StaticResource ImageToggleButtonStyle}">
+                                    <ToggleButton.Content>
+                                        <Grid>
+                                            <Grid Width="80">
+                                                <controls:CachedImage Width="78"
+                                                                      CornerRadius="4"
+                                                                      RenderOptions.BitmapScalingMode="HighQuality"
+                                                                      Source="{Binding RarityBackground, Converter={StaticResource UriToImageSourceConverter}}" />
+                                            </Grid>
+                                            <Grid Width="78"
+                                                  Height="79"
+                                                  VerticalAlignment="Top">
+                                                <controls:CachedImage VerticalAlignment="Bottom"
+                                                                      CornerRadius="0,0,20,0"
+                                                                      RenderOptions.BitmapScalingMode="HighQuality"
+                                                                      Source="{Binding FaceIcon, Converter={StaticResource UriToImageSourceConverter}}" />
+                                            </Grid>
+                                            <Grid Height="16"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Bottom">
+                                                <TextBlock MaxWidth="79"
+                                                           FontWeight="DemiBold"
+                                                           Foreground="#84603D"
+                                                           Text="{markups:DynamicResourceEx ResourceKey={Binding NameKey}}">
+                                                    <i:Interaction.Behaviors>
+                                                        <controls:TextBlockWidthAutoFontSizeBehavior Max="12" Min="7" />
+                                                    </i:Interaction.Behaviors>
+                                                </TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </controls:SmoothScrollViewer>
+            </Grid>
         </Grid>
     </Grid>
 </ui:Page>
