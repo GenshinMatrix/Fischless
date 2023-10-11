@@ -1,7 +1,6 @@
-﻿using Microsoft.Xaml.Behaviors;
+﻿using Fischless.Logging;
+using Microsoft.Xaml.Behaviors;
 using ModernWpf.Controls;
-using Serilog;
-using System;
 using System.Reflection;
 
 namespace Fischless.Design.Controls;

@@ -1,6 +1,5 @@
-﻿using ModernWpf.Controls;
-using Serilog;
-using System;
+﻿using Fischless.Logging;
+using ModernWpf.Controls;
 using System.Diagnostics;
 using System.Windows;
 

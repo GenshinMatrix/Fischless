@@ -9,8 +9,8 @@
 		<UseWPF>true</UseWPF>
     </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
-	</ItemGroup>
-	
+    <ItemGroup>
+      <ProjectReference Include="..\Fischless.Logging\Fischless.Logging.csproj" />
+    </ItemGroup>
+
 </Project>

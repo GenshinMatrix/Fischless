@@ -1,7 +1,7 @@
 ﻿using Fischless.Fetch.Launch;
 using Fischless.Fetch.Regedit;
+using Fischless.Logging;
 using NAudio.CoreAudioApi;
-using Serilog;
 using System.Diagnostics;
 using MMDevices = NAudio.CoreAudioApi.MMDeviceEnumerator;
 

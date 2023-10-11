@@ -1,6 +1,6 @@
-﻿using Fischless.Threading;
+﻿using Fischless.Logging;
+using Fischless.Threading;
 using Microsoft.Win32;
-using Serilog;
 using System.Diagnostics;
 using System.Security.Principal;
 using System.Text;

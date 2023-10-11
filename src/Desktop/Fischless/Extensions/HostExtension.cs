@@ -1,9 +1,9 @@
 ﻿using Fischless.Globalization;
 using Fischless.Hosting.Absraction;
+using Fischless.Logging;
 using Fischless.Models;
 using Fischless.Plugin.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
@@ -46,7 +46,7 @@ public static class HostExtension
                 {
                     appX.DispatcherUnhandledException += (object s, DispatcherUnhandledExceptionEventArgs e) =>
                     {
-                        Log.Fatal("Application.DispatcherUnhandledException " + e?.Exception?.ToString() ?? string.Empty);
+                        Log.Critical("Application.DispatcherUnhandledException " + e?.Exception?.ToString() ?? string.Empty);
                         AppCenterProvider.TrackError(e?.Exception);
                         e!.Handled = true;
                     };

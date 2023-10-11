@@ -1,4 +1,4 @@
-﻿using Serilog;
+﻿using Fischless.Logging;
 using Windows.System;
 
 namespace Fischless.Fetch.Launch;

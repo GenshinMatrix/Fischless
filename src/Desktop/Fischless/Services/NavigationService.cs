@@ -1,10 +1,10 @@
 ﻿using Fischless.Design.Controls;
+using Fischless.Logging;
 using Fischless.Services.Attributes;
 using Fischless.Views;
 using Microsoft.Extensions.DependencyInjection;
 using ModernWpf;
 using ModernWpf.Controls;
-using Serilog;
 using System;
 using System.Linq;
 using System.Reflection;

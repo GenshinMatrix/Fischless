@@ -1,7 +1,7 @@
 ﻿using Fischless.Design.Controls;
 using Fischless.Helpers;
+using Fischless.Logging;
 using Lnk;
-using Serilog;
 using System;
 using System.IO;
 using File = System.IO.File;

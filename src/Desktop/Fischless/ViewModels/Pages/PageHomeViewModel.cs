@@ -4,13 +4,13 @@ using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Configuration;
 using Fischless.Design.Controls;
 using Fischless.Fetch.Launch;
+using Fischless.Logging;
 using Fischless.Models;
 using Fischless.Models.Message;
 using Fischless.Mvvm;
 using Fischless.Threading;
 using Fischless.Views;
 using GongSolutions.Wpf.DragDrop;
-using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -336,7 +336,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             }
             else
             {
-                Log.Fatal($"[AddOrUpdateContact] Lag of {message.Contact.Guid}");
+                Log.Critical($"[AddOrUpdateContact] Lag of {message.Contact.Guid}");
                 Debugger.Break();
                 return;
             }

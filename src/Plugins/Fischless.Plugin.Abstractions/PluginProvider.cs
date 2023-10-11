@@ -1,4 +1,4 @@
-﻿using Serilog;
+﻿using Fischless.Logging;
 using System.ComponentModel.Composition.Hosting;
 
 namespace Fischless.Plugin.Abstractions;

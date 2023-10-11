@@ -1,5 +1,5 @@
 ﻿using Fischless.Globalization.Helpers;
-using Serilog;
+using Fischless.Logging;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
