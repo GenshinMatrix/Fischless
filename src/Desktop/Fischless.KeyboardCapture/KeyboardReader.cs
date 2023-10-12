@@ -78,7 +78,9 @@ public class KeyboardReader : IDisposable
 
         var now = DateTime.Now;
 
+#if FALSE
         Debug.WriteLine(e.KeyCode);
+#endif
 
         KeyboardItem item;
 
@@ -109,7 +111,9 @@ public class KeyboardReader : IDisposable
         };
 
         Received?.Invoke(this, result);
+#if FALSE
         Debug.WriteLine(result.ToString());
+#endif
     }
 
     private void OnKeyUp(object? sender, KeyEventArgs e)
