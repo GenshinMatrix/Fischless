@@ -1,4 +1,5 @@
 using Fischless.Fetch.Datas.Core;
+using Fischless.Fetch.ReShade;
 
 namespace Fischless.Fetch.Datas.Snap;
 
@@ -34,7 +35,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_AyakaCostumeFruhling.png",
                     SideIcon = "UI_AvatarIcon_Side_AyakaCostumeFruhling.png",
                     GachaSplash = "UI_Costume_AyakaCostumeFruhling.png",
-                    SkinHash = "04f21fa3",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -46,9 +47,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "9d2c1c5d",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000002),
         };
         yield return new SnapCharacterInfo()
         {
@@ -78,7 +80,6 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_QinCostumeSea.png",
                     SideIcon = "UI_AvatarIcon_Side_QinCostumeSea.png",
                     GachaSplash = "UI_Costume_QinCostumeSea.png",
-                    SkinHash = "1ec879c9",
                 },
                 new SnapCharacterOutfit()
                 {
@@ -90,7 +91,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_QinCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_QinCostumeWic.png",
                     GachaSplash = "UI_Costume_QinCostumeWic.png",
-                    SkinHash = "a3cccc14",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -102,9 +103,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "6fe07e12",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000003),
         };
         yield return new SnapCharacterInfo()
         {
@@ -134,9 +136,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000005),
         };
         yield return new SnapCharacterInfo()
         {
@@ -166,7 +169,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_LisaCostumeStudentin.png",
                     SideIcon = "UI_AvatarIcon_Side_LisaCostumeStudentin.png",
                     GachaSplash = "UI_Costume_LisaCostumeStudentin.png",
-                    SkinHash = "bfca9d94",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -178,9 +181,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "e6af2c6d",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000006),
         };
         yield return new SnapCharacterInfo()
         {
@@ -210,9 +214,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "846ff19c",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000007),
         };
         yield return new SnapCharacterInfo()
         {
@@ -242,7 +247,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_BarbaraCostumeSummertime.png",
                     SideIcon = "UI_AvatarIcon_Side_BarbaraCostumeSummertime.png",
                     GachaSplash = "UI_Costume_BarbaraCostumeSummertime.png",
-                    SkinHash = "e9199599",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -254,9 +259,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "7df968e8",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000014),
         };
         yield return new SnapCharacterInfo()
         {
@@ -286,7 +292,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KaeyaCostumeDancer.png",
                     SideIcon = "UI_AvatarIcon_Side_KaeyaCostumeDancer.png",
                     GachaSplash = "UI_Costume_KaeyaCostumeDancer.png",
-                    SkinHash = "bdb6e3b7",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -298,9 +304,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "c2ef8845",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000015),
         };
         yield return new SnapCharacterInfo()
         {
@@ -330,7 +337,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_DilucCostumeFlamme.png",
                     SideIcon = "UI_AvatarIcon_Side_DilucCostumeFlamme.png",
                     GachaSplash = "UI_Costume_DilucCostumeFlamme.png",
-                    SkinHash = "274e5c1a",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -342,9 +349,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "dff0b253",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000016),
         };
         yield return new SnapCharacterInfo()
         {
@@ -374,9 +382,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "bce61819",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000020),
         };
         yield return new SnapCharacterInfo()
         {
@@ -406,7 +415,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_AmborCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_AmborCostumeWic.png",
                     GachaSplash = "UI_Costume_AmborCostumeWic.png",
-                    SkinHash = "53eff008",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -418,9 +427,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "0eef5bbe",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000021),
         };
         yield return new SnapCharacterInfo()
         {
@@ -450,9 +460,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "d56e66b4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000022),
         };
         yield return new SnapCharacterInfo()
         {
@@ -482,9 +493,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "1db7148c",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000023),
         };
         yield return new SnapCharacterInfo()
         {
@@ -514,9 +526,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "1b9869ed",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000024),
         };
         yield return new SnapCharacterInfo()
         {
@@ -546,9 +559,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "702fc085",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000025),
         };
         yield return new SnapCharacterInfo()
         {
@@ -578,9 +592,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "6f16afa7",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000026),
         };
         yield return new SnapCharacterInfo()
         {
@@ -610,7 +625,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_NingguangCostumeFloral.png",
                     SideIcon = "UI_AvatarIcon_Side_NingguangCostumeFloral.png",
                     GachaSplash = "UI_Costume_NingguangCostumeFloral.png",
-                    SkinHash = "993bb35f",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -622,9 +637,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "6d197625",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000027),
         };
         yield return new SnapCharacterInfo()
         {
@@ -654,7 +670,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KleeCostumeWitch.png",
                     SideIcon = "UI_AvatarIcon_Side_KleeCostumeWitch.png",
                     GachaSplash = "UI_Costume_KleeCostumeWitch.png",
-                    SkinHash = "ebd18105",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -666,9 +682,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "dba3b111",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000029),
         };
         yield return new SnapCharacterInfo()
         {
@@ -698,9 +715,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "6fa3d7f4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000030),
         };
         yield return new SnapCharacterInfo()
         {
@@ -730,7 +748,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_FischlCostumeHighness.png",
                     SideIcon = "UI_AvatarIcon_Side_FischlCostumeHighness.png",
                     GachaSplash = "UI_Costume_FischlCostumeHighness.png",
-                    SkinHash = "b52dd70c",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -742,9 +760,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "e5ac321c",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000031),
         };
         yield return new SnapCharacterInfo()
         {
@@ -774,9 +793,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "02cf3aa5",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000032),
         };
         yield return new SnapCharacterInfo()
         {
@@ -806,9 +826,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "f08f1c85",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000033),
         };
         yield return new SnapCharacterInfo()
         {
@@ -838,9 +859,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "def7af36",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000034),
         };
         yield return new SnapCharacterInfo()
         {
@@ -870,9 +892,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "956d98ae",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000035),
         };
         yield return new SnapCharacterInfo()
         {
@@ -902,9 +925,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "2ceb44ef",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000036),
         };
         yield return new SnapCharacterInfo()
         {
@@ -934,9 +958,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "fbf98643",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000037),
         };
         yield return new SnapCharacterInfo()
         {
@@ -966,9 +991,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "0ea2c585",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000038),
         };
         yield return new SnapCharacterInfo()
         {
@@ -998,9 +1024,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "b4dfe1dd",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000039),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1030,7 +1057,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_MonaCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_MonaCostumeWic.png",
                     GachaSplash = "UI_Costume_MonaCostumeWic.png",
-                    SkinHash = "c814ad67",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1042,9 +1069,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "8991360f",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000041),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1074,7 +1102,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_KeqingCostumeFeather.png",
                     SideIcon = "UI_AvatarIcon_Side_KeqingCostumeFeather.png",
                     GachaSplash = "UI_Costume_KeqingCostumeFeather.png",
-                    SkinHash = "6629a84e",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1086,9 +1114,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "ccc33b79",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000042),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1118,9 +1147,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "75e2c70c",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000043),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1150,9 +1180,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "93d428f4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000044),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1182,7 +1213,7 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_RosariaCostumeWic.png",
                     SideIcon = "UI_AvatarIcon_Side_RosariaCostumeWic.png",
                     GachaSplash = "UI_Costume_RosariaCostumeWic.png",
-                    SkinHash = "7a318f3d",
+                    TextureOverride = null,
                 },
                 new SnapCharacterOutfit()
                 {
@@ -1194,9 +1225,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "567d31dd",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000045),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1226,9 +1258,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "e9d17db6",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000046),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1258,9 +1291,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "58b0e678",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000047),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1290,9 +1324,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "2bd5728f",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000048),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1322,9 +1357,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "ac1b8a26",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000049),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1354,9 +1390,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "ba27d574",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000050),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1386,9 +1423,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "1235ad3c",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000051),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1418,9 +1456,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "29bb54cb",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000052),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1450,9 +1489,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "7a5baa6d",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000053),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1482,9 +1522,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "66c6fb0a",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000054),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1514,9 +1555,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "955b7007",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000055),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1546,9 +1588,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "cac5caae",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000056),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1578,9 +1621,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000057),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1610,9 +1654,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "f7574bda",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000058),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1642,9 +1687,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "9e1de486",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000059),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1674,9 +1720,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "d17ac213",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000060),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1706,9 +1753,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "6fb396da",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000061),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1738,9 +1786,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "4062dbe7",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000062),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1770,9 +1819,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "7404bef0",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000063),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1802,9 +1852,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "cbdb553a",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000064),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1834,9 +1885,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "71cebcdf",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000065),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1866,9 +1918,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "36fca030",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000066),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1898,9 +1951,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "d90dae49",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000067),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1930,9 +1984,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "86e25bac",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000068),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1962,9 +2017,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "de6c5e75",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000069),
         };
         yield return new SnapCharacterInfo()
         {
@@ -1994,9 +2050,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "a67084d1",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000070),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2026,9 +2083,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "75b1de60",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000071),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2058,9 +2116,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "593cbad4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000072),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2090,9 +2149,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "ee37e2d7",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000073),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2122,9 +2182,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "24cdd934",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000074),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2154,9 +2215,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "8487a77e",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000075),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2186,9 +2248,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "d35b6325",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000076),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2218,9 +2281,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "468d9f9a",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000077),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2250,9 +2314,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "f9152211",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000078),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2282,9 +2347,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "96cfb1a1",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000079),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2314,9 +2380,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "9d5bb5ff",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000080),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2346,9 +2413,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "608a60e4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000081),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2378,9 +2446,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "3897b4e9",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000082),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2410,9 +2479,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "329f5c91",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000083),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2442,9 +2512,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "7a9447e4",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000084),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2474,9 +2545,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "7bf55145",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000085),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2506,9 +2578,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000086),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2538,9 +2611,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "53b834fc",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(10000087),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2551,7 +2625,7 @@ public static class SnapCharacterProvider
             Element = ElementType.None,
             WeaponType = WeaponType.None,
             FaceIcon = "UI_AvatarIcon_Aozi.png",
-            SortId = -1,
+            SortId = int.MaxValue,
             Outfits = new List<SnapCharacterOutfit>
             {
                 new SnapCharacterOutfit()
@@ -2564,9 +2638,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_Aozi.png",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(-1),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2590,10 +2665,12 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_AvatarIcon_Paimon.png",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(-2),
         };
+#if false // Not Supported for RS Scaner
         yield return new SnapCharacterInfo()
         {
             Id = -3,
@@ -2616,9 +2693,10 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_FlycloakIcon_Psalmus.png",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(-3),
         };
         yield return new SnapCharacterInfo()
         {
@@ -2642,9 +2720,11 @@ public static class SnapCharacterProvider
                     FaceIcon = "UI_EquipIcon_Bow_Nachtblind_Awaken.png",
                     SideIcon = "",
                     GachaSplash = "",
-                    SkinHash = "",
+                    TextureOverride = null,
                 },
             },
+            TextureOverride = ReShadeIniMapper.Map(-4),
         };
+#endif
     }
 }

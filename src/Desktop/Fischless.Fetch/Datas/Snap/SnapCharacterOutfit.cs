@@ -21,5 +21,5 @@ public partial class SnapCharacterOutfit
 
     public string? GachaSplash { get; set; }
 
-    public string? SkinHash { get; set; }
+    public string? TextureOverride { get; set; }
 }

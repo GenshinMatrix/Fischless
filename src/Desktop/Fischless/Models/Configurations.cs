@@ -26,4 +26,5 @@ public static class Configurations
     public static ConfigurationDefinition<int> ThemeTextFontFamily { get; } = new(nameof(ThemeTextFontFamily), 0);
     public static ConfigurationDefinition<bool> IsUseThemeCursor { get; } = new(nameof(IsUseThemeCursor), true);
     public static ConfigurationDefinition<bool> IsUseSmallerSize { get; } = new(nameof(IsUseSmallerSize), false);
+    public static ConfigurationDefinition<string> ReShadePath { get; } = new(nameof(ReShadePath), null!);
 }

@@ -50,14 +50,19 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="6,3,3,0">
-                <StackPanel Orientation="Horizontal">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
                     <ToggleButton Margin="4,0,0,0"
                                   Padding="5,2,5,2"
                                   IsChecked="{Binding IsPyro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_pyro.svg" />
                         </ToggleButton.Content>
@@ -67,8 +72,8 @@
                                   IsChecked="{Binding IsHydro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_hydro.svg" />
                         </ToggleButton.Content>
@@ -78,8 +83,8 @@
                                   IsChecked="{Binding IsAnemo, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_anemo.svg" />
                         </ToggleButton.Content>
@@ -89,8 +94,8 @@
                                   IsChecked="{Binding IsElectro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_electro.svg" />
                         </ToggleButton.Content>
@@ -100,8 +105,8 @@
                                   IsChecked="{Binding IsDendro, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_dendro.svg" />
                         </ToggleButton.Content>
@@ -111,8 +116,8 @@
                                   IsChecked="{Binding IsIce, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_ice.svg" />
                         </ToggleButton.Content>
@@ -122,12 +127,50 @@
                                   IsChecked="{Binding IsGeo, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}">
                         <ToggleButton.Content>
-                            <svgc:SvgViewbox Width="34"
-                                             Height="34"
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
                                              Margin="5,5,5,5"
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/ic_genshin_geo.svg" />
                         </ToggleButton.Content>
                     </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  IsChecked="{Binding IsFemale, Mode=TwoWay}"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/female.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  IsChecked="{Binding IsMale, Mode=TwoWay}"
+                                  Style="{StaticResource ImageToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/male.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  IsChecked="{Binding IsMaleFemale, Mode=TwoWay}"
+                                  Style="{StaticResource ImageToggleButtonStyle}"
+                                  Visibility="Collapsed">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/male-female.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
                     <Button Margin="6,0,0,0"
                             BorderBrush="Transparent"
                             Command="{Binding SettingsCommand}">
@@ -149,6 +192,30 @@
                                              FontSize="16"
                                              Glyph="{x:Static controls:FontSymbols.Refresh}" />
                                 <TextBlock Margin="5,0,0,0" Text="刷新" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="5,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding RefreshCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Play}" />
+                                <TextBlock Margin="5,0,0,0" Text="启动游戏" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="5,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding RefreshCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Play}" />
+                                <TextBlock Margin="5,0,0,0" Text="启动3DMigoto" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -216,6 +283,54 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                </controls:SmoothScrollViewer>
+                <controls:SmoothScrollViewer Grid.Column="1">
+                    <Grid>
+                        <ListView AllowDrop="True"
+                                  ItemsSource="{Binding AvatarList}"
+                                  ScrollViewer.CanContentScroll="False"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                  VirtualizingPanel.IsVirtualizing="False">
+                            <i:Interaction.Behaviors>
+                                <controls:ListViewMouseWheelBubblingBehavior />
+                            </i:Interaction.Behaviors>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel VerticalAlignment="Top">
+                                        <i:Interaction.Behaviors>
+                                            <animations:StackPanelChildrenTransitionsDownToUpBehavior />
+                                        </i:Interaction.Behaviors>
+                                    </StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate DataType="m:ReShadeAvatarList">
+                                    <Grid Height="50" Background="#01000000">
+                                        <i:Interaction.Behaviors>
+                                            <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
+                                                                                                 Transition="FadeIn"
+                                                                                                 Duration="50" />
+                                        </i:Interaction.Behaviors>
+                                        <Grid Margin="8,0,8,0" VerticalAlignment="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <CheckBox IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="{Binding FolderName}" />
+                                                <TextBlock Text="{Binding FolderPath}" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
                 </controls:SmoothScrollViewer>
             </Grid>
         </Grid>
