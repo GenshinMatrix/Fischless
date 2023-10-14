@@ -16,7 +16,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-rc.2.23479.6" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.2.23479.6" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0-rc.2.23479.6" />
-		<PackageReference Include="WPF-UI" Version="3.0.0-preview.6" />
+		<PackageReference Include="WPF-UI" Version="3.0.0-preview.7" />
 		<PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
 		<PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
 		<PackageReference Include="WpfAnalyzers" Version="4.1.1">
