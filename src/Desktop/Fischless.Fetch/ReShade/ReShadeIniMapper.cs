@@ -8,9 +8,9 @@ public static class ReShadeIniMapper
         {
             10000002 => "Ayaka;Linghua;KamisatoAyaka;AyakaKamisato",
             10000003 => "Jean;Qin",
-            10000005 => "TravelerBoy;Nanzhu",
+            10000005 => "TravelerBoy;TravelerMale;Nanzhu",
             10000006 => "Lisa;Lisha",
-            10000007 => "TravelerGirl;Nvzhu",
+            10000007 => "TravelerGirl;TravelerFemale;Nvzhu",
             10000014 => "Barbara;Babara;Babala",
             10000015 => "Kaeya;Kaiya",
             10000016 => "Diluc;Diluke",
