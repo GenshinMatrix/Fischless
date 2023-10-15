@@ -196,7 +196,7 @@
                     </Button>
                     <Button Margin="5,0,0,0"
                             BorderBrush="Transparent"
-                            Command="{Binding RefreshCommand}">
+                            Command="{Binding LaunchGameCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -208,7 +208,7 @@
                     </Button>
                     <Button Margin="5,0,0,0"
                             BorderBrush="Transparent"
-                            Command="{Binding RefreshCommand}">
+                            Command="{Binding LaunchProcessCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -356,7 +356,7 @@
                                                 <controls:CachedImage MaxWidth="200"
                                                                       MaxHeight="200"
                                                                       CornerRadius="8"
-                                                                      Source="{Binding ImageFileProtocol}"
+                                                                      Path="{Binding ImageFileProtocol}"
                                                                       ToolTip="{Binding ImagePath}" />
                                             </Button.Content>
                                             <ui:FlyoutService.Flyout>
@@ -364,7 +364,7 @@
                                                     <controls:CachedImage Margin="-8"
                                                                           CornerRadius="8"
                                                                           Cursor="{DynamicResource ThemeCursor}"
-                                                                          Source="{Binding ImageFileProtocol}"
+                                                                          Path="{Binding ImageFileProtocol}"
                                                                           ToolTip="{Binding ImagePath}" />
                                                 </ui:Flyout>
                                             </ui:FlyoutService.Flyout>

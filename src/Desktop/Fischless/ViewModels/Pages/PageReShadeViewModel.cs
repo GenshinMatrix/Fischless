@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Design.Helpers;
 using Fischless.Fetch.Datas.Core;
@@ -9,9 +10,7 @@ using Fischless.Mvvm;
 using MethodTimer;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using static Fischless.Fetch.ReShade.ReShadeSentimentalString;
 
 namespace Fischless.ViewModels;
 
@@ -152,6 +151,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
         }
 
         Folder = ReShadeFolderWalker.EnumerateFolder(Configurations.ReShadePath.Get());
+        AvatarListDict.Clear();
         await foreach (ReShadeFolder folder in Folder)
         {
             var avatars = AvatarStocks.Where(avatar =>
@@ -203,6 +203,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             }
         }
 
+        AvatarList.Clear();
         SyncAvatar();
     }
 
@@ -300,5 +301,29 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                            || (avtar.Gender == 0) && IsMale
                            || (avtar.Gender != 0) && (avtar.Gender != 1);
         }
+    }
+
+    [RelayCommand]
+    private void Settings()
+    {
+
+    }
+
+    [RelayCommand]
+    private void Refresh()
+    {
+        SyncFolderAsync();
+    }
+
+    [RelayCommand]
+    private void LaunchGame()
+    {
+
+    }
+
+    [RelayCommand]
+    private void LaunchProcess()
+    {
+
     }
 }
