@@ -208,7 +208,7 @@
                     </Button>
                     <Button Margin="5,0,0,0"
                             BorderBrush="Transparent"
-                            Command="{Binding LaunchProcessCommand}">
+                            Command="{Binding LaunchLoaderCommand}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"

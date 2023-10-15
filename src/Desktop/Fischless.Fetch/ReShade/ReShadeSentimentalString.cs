@@ -15,4 +15,12 @@ public sealed class ReShadeSentimentalString
     public const string MERGED_COMMENT = "; Merged Mod:";
 
     public const string TextureOverridePattern = @"\[TextureOverride(.+?)\]";
+
+    public const string LoaderFolderMods = "Mods";
+    public const string LoaderFolderShaderCache = "ShaderCache";
+    public const string LoaderFolderShaderFixes = "ShaderFixes";
+    public const string LoaderExe = "3DMigoto Loader.exe";
+    public const string LoaderD3dxIni = "d3dx.ini";
+
+    public const string LoaderD3dxIniGameExePrefix = "target = ";
 }

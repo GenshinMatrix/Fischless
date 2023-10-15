@@ -1,16 +1,24 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Fischless.Configuration;
+using Fischless.Design.Controls;
 using Fischless.Design.Helpers;
 using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.Datas.Snap;
+using Fischless.Fetch.Launch;
 using Fischless.Fetch.ReShade;
 using Fischless.Models;
 using Fischless.Mvvm;
 using MethodTimer;
+using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using static Fischless.Fetch.ReShade.ReShadeSentimentalString;
 
 namespace Fischless.ViewModels;
 
@@ -150,7 +158,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             return;
         }
 
-        Folder = ReShadeFolderWalker.EnumerateFolder(Configurations.ReShadePath.Get());
+        Folder = ReShadeFolderWalker.EnumerateFolder($"{Configurations.ReShadePath.Get()}/Mods");
         AvatarListDict.Clear();
         await foreach (ReShadeFolder folder in Folder)
         {
@@ -306,7 +314,50 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     [RelayCommand]
     private void Settings()
     {
+        CommonOpenFileDialog dialog = new()
+        {
+            IsFolderPicker = true,
+            RestoreDirectory = true,
+            InitialDirectory = Configurations.ReShadePath.Get(),
+            DefaultDirectory = Configurations.ReShadePath.Get(),
+            Title = "选择 3DMigoto 目录"
+        };
 
+        if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+        {
+            string selectedDirectory = dialog.FileName;
+
+            if (!File.Exists(Path.Combine(selectedDirectory, LoaderExe)))
+            {
+                Toast.Warning($"{LoaderExe} 不存在");
+                MessageBoxX.Error("请选择 3DMigoto 目录");
+                return;
+            }
+            
+            ReShadeLoader.SetD3dxIniGameExe(Configurations.ReShadePath.Get(), () =>
+            {
+                OpenFileDialog dialog = new()
+                {
+                    Title = $"选择 {GILauncher.FileNameCN} 或 {GILauncher.FileNameOVERSEA}",
+                    RestoreDirectory = true,
+                    InitialDirectory = new FileInfo(Configurations.GamePath.Get()).DirectoryName,
+                    FileName = Configurations.GamePath.Get(),
+                    DefaultExt = "*.exe",
+                    Filter = "*.exe|*.exe",
+                };
+
+                if (dialog.ShowDialog() ?? false)
+                {
+                    return dialog.FileName;
+                }
+                return null!;
+            });
+
+            Configurations.ReShadePath.Set(selectedDirectory);
+            ConfigurationManager.Save();
+            Toast.Success("设定成功");
+            Refresh();
+        }
     }
 
     [RelayCommand]
@@ -316,14 +367,40 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     }
 
     [RelayCommand]
-    private void LaunchGame()
+    private async Task LaunchGameAsync()
     {
-
+        try
+        {
+            await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill);
+        }
+        catch (Exception e)
+        {
+            Notification.AddNotice(string.Empty, e.Message);
+        }
     }
 
     [RelayCommand]
-    private void LaunchProcess()
+    private void LaunchLoader()
     {
+        try
+        {
+            if (Directory.Exists(Configurations.ReShadePath.Get()))
+            {
+                ReShadeLoader.Launch(Configurations.ReShadePath.Get());
+            }
+            else
+            {
+                Settings();
 
+                if (Directory.Exists(Configurations.ReShadePath.Get()))
+                {
+                    ReShadeLoader.Launch(Configurations.ReShadePath.Get());
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Notification.AddNotice(string.Empty, e.Message);
+        }
     }
 }
