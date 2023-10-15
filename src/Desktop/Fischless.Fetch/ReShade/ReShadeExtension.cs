@@ -1,6 +1,6 @@
 ﻿namespace Fischless.Fetch.ReShade;
 
-public static class StringExtension
+public static class ReShadeExtension
 {
     public static bool IsEnabledFolderPath(this string folderPath)
     {
