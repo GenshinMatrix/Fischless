@@ -6,6 +6,8 @@ namespace Fischless.Fetch.ReShade;
 
 public static partial class ReShadeFolderWalker
 {
+    public static bool IsUseTextureImage { get; set; } = false;
+
     public static async IAsyncEnumerable<ReShadeFolder> EnumerateFolder(string entryFolder)
     {
         if (!Directory.Exists(entryFolder))
@@ -46,18 +48,10 @@ public static partial class ReShadeFolderWalker
                     Inis = ini.ToArray(),
                 };
 
-                IEnumerable<string> imageFiles = Directory.EnumerateFiles(subfolder)
-                    .Where(file => Path.GetExtension(file).ToLower() switch
-                    {
-                        EXT_PNG or EXT_JPG or EXT_JPEG or EXT_BMP or EXT_DDS => true,
-                        _ => false,
-                    })
-                    .OrderBy(file => Path.GetExtension(file).ToLower() switch
-                    {
-                        EXT_PNG => 1, EXT_JPG or EXT_JPEG => 2, EXT_BMP => 3, EXT_DDS => 4, _ => int.MaxValue,
-                    });
-
+#if DEBUG
+                IEnumerable<string> imageFiles = EnumerateFolderImage(subfolder);
                 folder.Images = imageFiles.ToArray();
+#endif
 
                 yield return folder;
 
@@ -75,6 +69,45 @@ public static partial class ReShadeFolderWalker
                     yield return folder;
                 }
             }
+        }
+    }
+
+    public static IEnumerable<string> EnumerateFolderImage(string folderPath)
+    {
+        if (IsUseTextureImage)
+        {
+            IEnumerable<string> imageFiles = Directory.EnumerateFiles(folderPath)
+                .Where(file => Path.GetExtension(file).ToLower() switch
+                {
+                    EXT_PNG or EXT_JPG or EXT_JPEG or EXT_BMP or EXT_DDS => true,
+                    _ => false,
+                })
+                .OrderBy(file => Path.GetExtension(file).ToLower() switch
+                {
+                    EXT_PNG => 1,
+                    EXT_JPG or EXT_JPEG => 2,
+                    EXT_BMP => 3,
+                    EXT_DDS => 4,
+                    _ => int.MaxValue,
+                });
+            return imageFiles;
+        }
+        else
+        {
+            IEnumerable<string> imageFiles = Directory.EnumerateFiles(folderPath)
+                .Where(file => Path.GetExtension(file).ToLower() switch
+                {
+                EXT_PNG or EXT_JPG or EXT_JPEG or EXT_BMP => true,
+                    _ => false,
+                })
+                .OrderBy(file => Path.GetExtension(file).ToLower() switch
+                {
+                    EXT_PNG => 1,
+                    EXT_JPG or EXT_JPEG => 2,
+                    EXT_BMP => 3,
+                    _ => int.MaxValue,
+                });
+            return imageFiles;
         }
     }
 
@@ -109,7 +142,7 @@ public static partial class ReShadeFolderWalker
                 {
                     if (!string.IsNullOrWhiteSpace(avatar.TextureOverride))
                     {
-                        foreach (string tex in avatar.TextureOverride.Split(';', ',', '|'))
+                        foreach (string tex in avatar.TextureOverride.SplitTextureOverride())
                         {
                             if (result?.StartsWith(tex, StringComparison.OrdinalIgnoreCase) ?? false)
                             {

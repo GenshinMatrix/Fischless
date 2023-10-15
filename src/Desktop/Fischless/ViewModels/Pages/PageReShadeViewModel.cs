@@ -9,7 +9,9 @@ using Fischless.Mvvm;
 using MethodTimer;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using static Fischless.Fetch.ReShade.ReShadeSentimentalString;
 
 namespace Fischless.ViewModels;
 
@@ -25,10 +27,30 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     private IAsyncEnumerable<ReShadeFolder> folder = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<ReShadeAvatarList> avatarList = new();
+    private ObservableCollectionEx<ReShadeFolderList> avatarList = new();
 
     [ObservableProperty]
-    private Dictionary<string, List<ReShadeAvatarList>> avatarListDict = new();
+    private Dictionary<string, List<ReShadeFolderList>> avatarListDict = new();
+
+    [ObservableProperty]
+    private ReShadeFolderList selectedAvatarList = null!;
+    partial void OnSelectedAvatarListChanged(ReShadeFolderList value)
+    {
+        if (value == null)
+        {
+            // Empty avatar
+            return;
+        }
+
+        IEnumerable<ReShadeFolderListDetailImage> imageDetails = 
+            ReShadeFolderWalker.EnumerateFolderImage(value.FolderPath)
+                               .Select(imagePath => new ReShadeFolderListDetailImage(imagePath));
+
+        SelectedAvatarListDetail.Images.Reset(imageDetails);
+    }
+
+    [ObservableProperty]
+    private ReShadeFolderListDetail selectedAvatarListDetail = new();
 
     [ObservableProperty]
     private bool isPyro = false;
@@ -136,7 +158,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             {
                 if (!string.IsNullOrWhiteSpace(avatar.TextureOverride))
                 {
-                    foreach (string tex in avatar.TextureOverride.Split(';', ',', '|'))
+                    foreach (string tex in avatar.TextureOverride.SplitTextureOverride())
                     {
                         if (folder.Inis.Any(ini => ini.TextureOverride?.StartsWith(tex, StringComparison.OrdinalIgnoreCase) ?? false))
                         {
@@ -155,11 +177,12 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 {
                     AvatarListDict.Add(avatar.NameKey, new());
                 }
-                AvatarListDict[avatar.NameKey].Add(new ReShadeAvatarList()
+                AvatarListDict[avatar.NameKey].Add(new ReShadeFolderList()
                 {
                     NameKey = avatar.NameKey,
                     FolderName = folder.FolderName,
                     FolderPath = folder.FolderPath,
+                    IsEnabled = folder.FolderPath.IsEnabledFolderPath(),
                 });
             }
             else
@@ -170,11 +193,12 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 {
                     AvatarListDict.Add(nameKey, new());
                 }
-                AvatarListDict[nameKey].Add(new ReShadeAvatarList()
+                AvatarListDict[nameKey].Add(new ReShadeFolderList()
                 {
                     NameKey = nameKey,
                     FolderName = folder.FolderName,
                     FolderPath = folder.FolderPath,
+                    IsEnabled = folder.FolderPath.IsEnabledFolderPath(),
                 });
             }
         }
@@ -199,6 +223,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
         {
             AvatarList.Clear();
         }
+        SelectedAvatarListDetail.Images.Clear();
     }
 
     private void SyncSearch()

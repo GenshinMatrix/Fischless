@@ -6,7 +6,6 @@
          xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
          xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-         xmlns:dd="urn:gong-wpf-dragdrop"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
          xmlns:m="clr-namespace:Fischless.Models"
          xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
@@ -171,19 +170,7 @@
                 <StackPanel Grid.Column="1"
                             HorizontalAlignment="Right"
                             Orientation="Horizontal">
-                    <Button Margin="6,0,0,0"
-                            BorderBrush="Transparent"
-                            Command="{Binding SettingsCommand}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                             FontSize="16"
-                                             Glyph="{x:Static controls:FontSymbols.Settings}" />
-                                <TextBlock Margin="5,0,0,0" Text="设定" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Button Margin="5,0,0,0"
+                    <Button Margin="0,0,0,0"
                             BorderBrush="Transparent"
                             Command="{Binding RefreshCommand}">
                         <Button.Content>
@@ -192,6 +179,18 @@
                                              FontSize="16"
                                              Glyph="{x:Static controls:FontSymbols.Refresh}" />
                                 <TextBlock Margin="5,0,0,0" Text="刷新" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="5,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding SettingsCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static controls:FontSymbols.Settings}" />
+                                <TextBlock Margin="5,0,0,0" Text="设定" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -284,31 +283,32 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </controls:SmoothScrollViewer>
-                <controls:SmoothScrollViewer Grid.Column="1">
-                    <Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <controls:SmoothScrollViewer Grid.Row="0">
                         <ListView AllowDrop="True"
                                   ItemsSource="{Binding AvatarList}"
                                   ScrollViewer.CanContentScroll="False"
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                  SelectedItem="{Binding SelectedAvatarList, Mode=TwoWay}"
                                   VirtualizingPanel.IsVirtualizing="False">
                             <i:Interaction.Behaviors>
                                 <controls:ListViewMouseWheelBubblingBehavior />
                             </i:Interaction.Behaviors>
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel VerticalAlignment="Top">
-                                        <i:Interaction.Behaviors>
-                                            <animations:StackPanelChildrenTransitionsDownToUpBehavior />
-                                        </i:Interaction.Behaviors>
-                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Top" />
                                 </ItemsPanelTemplate>
                             </ListView.ItemsPanel>
                             <ListView.ItemTemplate>
-                                <DataTemplate DataType="m:ReShadeAvatarList">
+                                <DataTemplate DataType="m:ReShadeFolderList">
                                     <Grid Height="50" Background="#01000000">
                                         <i:Interaction.Behaviors>
-                                            <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
+                                            <animations:FrameworkElementLoadedTransitionBehavior IsOnce="False"
                                                                                                  Transition="FadeIn"
                                                                                                  Duration="50" />
                                         </i:Interaction.Behaviors>
@@ -319,7 +319,7 @@
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Grid.Column="0">
-                                                <CheckBox IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
+                                                <CheckBox Cursor="{x:Null}" IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
                                             </StackPanel>
                                             <StackPanel Grid.Column="1">
                                                 <TextBlock Text="{Binding FolderName}" />
@@ -330,8 +330,51 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                    </controls:SmoothScrollViewer>
+                    <Grid Grid.Row="1"
+                          MaxHeight="200"
+                          Margin="0,8,0,8">
+                        <ItemsControl ItemsSource="{Binding SelectedAvatarListDetail.Images}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel HorizontalAlignment="Center"
+                                                CanHorizontallyScroll="True"
+                                                Orientation="Horizontal"
+                                                ScrollViewer.HorizontalScrollBarVisibility="Visible" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="x:Type m:ReShadeFolderListDetail">
+                                    <Border Margin="6,0,6,0"
+                                            BorderBrush="DarkGoldenrod"
+                                            BorderThickness="0">
+                                        <Button Padding="0"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"
+                                                FocusVisualStyle="{x:Null}">
+                                            <Button.Content>
+                                                <controls:CachedImage MaxWidth="200"
+                                                                      MaxHeight="200"
+                                                                      CornerRadius="8"
+                                                                      Source="{Binding ImageFileProtocol}"
+                                                                      ToolTip="{Binding ImagePath}" />
+                                            </Button.Content>
+                                            <ui:FlyoutService.Flyout>
+                                                <ui:Flyout>
+                                                    <controls:CachedImage Margin="-8"
+                                                                          CornerRadius="8"
+                                                                          Cursor="{DynamicResource ThemeCursor}"
+                                                                          Source="{Binding ImageFileProtocol}"
+                                                                          ToolTip="{Binding ImagePath}" />
+                                                </ui:Flyout>
+                                            </ui:FlyoutService.Flyout>
+                                        </Button>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </Grid>
-                </controls:SmoothScrollViewer>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

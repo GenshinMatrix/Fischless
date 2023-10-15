@@ -26,6 +26,7 @@
 		<PackageReference Include="ValueConverters" Version="3.0.26" />
 		<PackageReference Include="XAMLMarkupExtensions" Version="2.1.3" />
 		<PackageReference Include="IndexRange" Version="1.0.3" />
+		<PackageReference Include="Pfim" Version="0.11.2" />
 	</ItemGroup>
 
 	<ItemGroup>

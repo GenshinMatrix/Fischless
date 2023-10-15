@@ -1,13 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Fetch.Datas.Core;
+using Fischless.Fetch.ReShade;
+using Fischless.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace Fischless.Models;
 
-[DebuggerDisplay("{card}")]
+[DebuggerDisplay("{Card}")]
 public partial class ReShadeAvatar : ObservableObject
 {
     public event EventHandler<bool> IsSelectedChanged = null!;
@@ -82,7 +85,7 @@ public partial class ReShadeAvatarOutfit : ObservableObject
 }
 
 [DebuggerDisplay("{FolderName}")]
-public partial class ReShadeAvatarList : ObservableObject
+public partial class ReShadeFolderList : ObservableObject
 {
     [ObservableProperty]
     private string nameKey;
@@ -95,10 +98,89 @@ public partial class ReShadeAvatarList : ObservableObject
 
     [ObservableProperty]
     private bool isEnabled = false;
+    partial void OnIsEnabledChanged(bool value)
+    {
+        if (value && !FolderPath.IsEnabledFolderPath())
+        {
+            Enable();
+        }
+        else if (!value && FolderPath.IsEnabledFolderPath())
+        {
+            Disable();
+        }
+    }
+
+    [RelayCommand]
+    public void Enable()
+    {
+        DirectoryInfo directoryInfo = new(FolderPath);
+
+        if (directoryInfo.Exists)
+        {
+            string newFolderName = directoryInfo.Name.RemoveDisabledPrefix();
+            string newFolderPath = Path.Combine(directoryInfo.Parent.FullName, newFolderName);
+
+            if (newFolderPath.Equals(directoryInfo.FullName, StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+            directoryInfo.MoveTo(newFolderPath);
+            FolderPath = newFolderPath;
+            FolderName = newFolderName;
+        }
+    }
+
+    [RelayCommand]
+    public void Disable()
+    {
+        DirectoryInfo directoryInfo = new(FolderPath);
+
+        if (directoryInfo.Exists)
+        {
+            if (!directoryInfo.Name.IsDisabledFolderPath())
+            {
+                string newFolderName = $"{ReShadeSentimentalString.DISABLED}{directoryInfo.Name}";
+                string newFolderPath = Path.Combine(directoryInfo.Parent.FullName, newFolderName);
+
+                if (newFolderPath.Equals(directoryInfo.FullName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return;
+                }
+                directoryInfo.MoveTo(newFolderPath);
+                FolderPath = newFolderPath;
+                FolderName = newFolderName;
+            }
+        }
+    }
 
     [RelayCommand]
     public void Remove()
     {
         // TODO
+    }
+}
+
+[DebuggerDisplay("{Images?.Count}")]
+public partial class ReShadeFolderListDetail : ObservableObject
+{
+    [ObservableProperty]
+    private ObservableCollectionEx<ReShadeFolderListDetailImage> images = new();
+}
+
+[DebuggerDisplay("{ImagePath}")]
+public partial class ReShadeFolderListDetailImage : ObservableObject
+{
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ImageFileProtocol))]
+    private string imagePath = null!;
+    public string ImageFileProtocol => $"file:///{ImagePath.Replace(@"\", "/")}";
+
+    public ReShadeFolderListDetailImage()
+    {
+    }
+
+    public ReShadeFolderListDetailImage(string imagePath)
+    {
+        ImagePath = imagePath;
     }
 }

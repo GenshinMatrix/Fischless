@@ -6,7 +6,7 @@ public static class ReShadeIniMapper
     {
         return id switch
         {
-            10000002 => "Ayaka;Linghua",
+            10000002 => "Ayaka;Linghua;KamisatoAyaka;AyakaKamisato",
             10000003 => "Jean;Qin",
             10000005 => "TravelerBoy;Nanzhu",
             10000006 => "Lisa;Lisha",
@@ -39,7 +39,7 @@ public static class ReShadeIniMapper
             10000044 => "Xinyan",
             10000045 => "Rosaria;Luoshaliya",
             10000046 => "Hutao",
-            10000047 => "Kazuha;Yiye",
+            10000047 => "Kazuha;Yiye;KaedeharaKazuha;KazuhaKaedehara",
             10000048 => "Feiyan;Yanfei",
             10000049 => "Yoimiya",
             10000050 => "Tohma;Thoma",
@@ -49,7 +49,7 @@ public static class ReShadeIniMapper
             10000054 => "Kokomi;Xinhai",
             10000055 => "Gorou;Wulang",
             10000056 => "Sara;KujouSara;Sala",
-            10000057 => "Itto;Yidou",
+            10000057 => "Itto;Yidou;AratakiItto;IttoArataki",
             10000058 => "Yae;Bachong;Shenzi",
             10000059 => "Heizo;Pingzang",
             10000060 => "Yelan",
@@ -57,8 +57,8 @@ public static class ReShadeIniMapper
             10000062 => "Aloy",
             10000063 => "Shenhe",
             10000064 => "Yunjin",
-            10000065 => "Shinobu",
-            10000066 => "Ayato;Linren",
+            10000065 => "Shinobu;KukiShinobu",
+            10000066 => "Ayato;Linren;KamisatoAyato;AyatoKamisato",
             10000067 => "Collei",
             10000068 => "Dori;Duoli",
             10000069 => "Tighnari;Tinali",
