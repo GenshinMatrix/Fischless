@@ -36,7 +36,7 @@ internal class ForeverTickService : IForeverTickService
         {
             Dispatcher.CurrentDispatcher.Thread.Name = nameof(ForeverTickService);
         }
-        while (!tokenSource.Token.IsCancellationRequested)
+        while (!(tokenSource?.Token.IsCancellationRequested ?? true))
         {
             await ForeverCheckLaunchAsync();
             await Task.Delay(3000);
