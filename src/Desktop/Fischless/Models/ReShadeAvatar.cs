@@ -3,10 +3,13 @@ using CommunityToolkit.Mvvm.Input;
 using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.ReShade;
 using Fischless.Mvvm;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
+using Windows.System;
 
 namespace Fischless.Models;
 
@@ -87,6 +90,8 @@ public partial class ReShadeAvatarOutfit : ObservableObject
 [DebuggerDisplay("{FolderName}")]
 public partial class ReShadeFolderList : ObservableObject
 {
+    public event EventHandler<bool> Removed = null!;
+
     [ObservableProperty]
     private string nameKey;
 
@@ -154,9 +159,25 @@ public partial class ReShadeFolderList : ObservableObject
     }
 
     [RelayCommand]
-    public void Remove()
+    public async Task OpenFolderAsync()
     {
-        // TODO
+        if (Directory.Exists(FolderPath))
+        {
+            await Launcher.LaunchUriAsync(new Uri($"file://{FolderPath.Replace(Path.DirectorySeparatorChar, '/')}"));
+        }
+    }
+
+    [ObservableProperty]
+    private bool isRemoved = false;
+
+    [RelayCommand]
+    public void RemoveFolder()
+    {
+        if (Directory.Exists(FolderPath))
+        {
+            FileSystem.DeleteDirectory(FolderPath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+            Removed?.Invoke(this, IsRemoved = true);
+        }
     }
 }
 
@@ -173,7 +194,7 @@ public partial class ReShadeFolderListDetailImage : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ImageFileProtocol))]
     private string imagePath = null!;
-    public string ImageFileProtocol => $"file:///{ImagePath.Replace(@"\", "/")}";
+    public string ImageFileProtocol => $"file://{ImagePath.Replace(Path.DirectorySeparatorChar, '/')}";
 
     public ReShadeFolderListDetailImage()
     {

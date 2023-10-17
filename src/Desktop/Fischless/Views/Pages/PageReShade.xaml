@@ -234,7 +234,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Play}" />
-                                <TextBlock Margin="5,0,0,0" Text="启动3DMigoto" />
+                                <TextBlock Margin="5,0,0,0" Text="启动幽夜净土" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -344,6 +344,38 @@
                                             <StackPanel Grid.Column="1">
                                                 <TextBlock Text="{Binding FolderName}" />
                                                 <TextBlock Foreground="{DynamicResource WindowTitleForeground}" Text="{Binding FolderPath}" />
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2"
+                                                        HorizontalAlignment="Right"
+                                                        Orientation="Horizontal">
+                                                <Button>
+                                                    <Button.Content>
+                                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                     FontSize="12"
+                                                                     Glyph="{x:Static fui:FontSymbols.More}" />
+                                                    </Button.Content>
+                                                    <Button.ContextMenu>
+                                                        <ContextMenu Cursor="{DynamicResource ThemeCursor}">
+                                                            <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
+                                                                <MenuItem.Icon>
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static fui:FontSymbols.Folder}" />
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
+                                                                <MenuItem.Icon>
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static fui:FontSymbols.Delete}" />
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                        </ContextMenu>
+                                                    </Button.ContextMenu>
+                                                    <i:Interaction.Behaviors>
+                                                        <fui:LeftContextMenuBehavior />
+                                                    </i:Interaction.Behaviors>
+                                                </Button>
                                             </StackPanel>
                                         </Grid>
                                     </Grid>

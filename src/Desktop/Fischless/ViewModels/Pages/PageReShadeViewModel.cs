@@ -196,42 +196,49 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 return false;
             });
 
-            if (avatars.Any())
-            {
-                var avatar = avatars.First();
+            string nameKey = avatars.Any() ? avatars.First().NameKey : "AvatarNameOfAozi";
 
-                if (!AvatarListDict.ContainsKey(avatar.NameKey))
-                {
-                    AvatarListDict.Add(avatar.NameKey, new());
-                }
-                AvatarListDict[avatar.NameKey].Add(new ReShadeFolderList()
-                {
-                    NameKey = avatar.NameKey,
-                    FolderName = folder.FolderName,
-                    FolderPath = folder.FolderPath,
-                    IsEnabled = folder.FolderPath.IsEnabledFolderPath(),
-                });
-            }
-            else
+            if (!AvatarListDict.ContainsKey(nameKey))
             {
-                const string nameKey = "AvatarNameOfAozi";
-
-                if (!AvatarListDict.ContainsKey(nameKey))
-                {
-                    AvatarListDict.Add(nameKey, new());
-                }
-                AvatarListDict[nameKey].Add(new ReShadeFolderList()
-                {
-                    NameKey = nameKey,
-                    FolderName = folder.FolderName,
-                    FolderPath = folder.FolderPath,
-                    IsEnabled = folder.FolderPath.IsEnabledFolderPath(),
-                });
+                AvatarListDict.Add(nameKey, new());
             }
+            ReShadeFolderList list = new()
+            {
+                NameKey = nameKey,
+                FolderName = folder.FolderName,
+                FolderPath = folder.FolderPath,
+                IsEnabled = folder.FolderPath.IsEnabledFolderPath(),
+            };
+            list.Removed -= OnReShadeFolderListRemoved;
+            list.Removed += OnReShadeFolderListRemoved;
+            AvatarListDict[nameKey].Add(list);
         }
 
         AvatarList.Clear();
         SyncAvatar();
+    }
+
+    private void OnReShadeFolderListRemoved(object? sender, bool isRemoved)
+    {
+        if (sender is ReShadeFolderList list && isRemoved)
+        {
+            AvatarList.Remove(list);
+            SelectedAvatarListDetail.Images.Clear();
+
+            foreach (List<ReShadeFolderList> value in AvatarListDict.Values)
+            {
+                for (int i = default; i < value.Count; i++)
+                {
+                    if (value[i].IsRemoved)
+                    {
+                        value.Remove(value[i]);
+                        break;
+                    }
+                }
+            }
+
+            Toast.Success("已删除至回收站");
+        }
     }
 
     private void SyncAvatar(string? nameKey = null)
@@ -427,6 +434,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     {
         try
         {
+            await GILauncher.KillAsync(GIRelaunchMethod.Kill);
             await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill);
         }
         catch (Exception e)
@@ -436,12 +444,13 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     }
 
     [RelayCommand]
-    private void LaunchLoader()
+    private async Task LaunchLoaderAsync()
     {
         try
         {
             if (Directory.Exists(Configurations.ReShadePath.Get()))
             {
+                await GILauncher.KillAsync(GIRelaunchMethod.Kill);
                 ReShadeLoader.Launch(Configurations.ReShadePath.Get());
             }
             else
@@ -450,6 +459,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
                 if (Directory.Exists(Configurations.ReShadePath.Get()))
                 {
+                    await GILauncher.KillAsync(GIRelaunchMethod.Kill);
                     ReShadeLoader.Launch(Configurations.ReShadePath.Get());
                 }
             }
