@@ -8,6 +8,7 @@ using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.Datas.Snap;
 using Fischless.Fetch.Launch;
 using Fischless.Fetch.ReShade;
+using Fischless.Logging;
 using Fischless.Models;
 using Fischless.Mvvm;
 using MethodTimer;
@@ -406,6 +407,10 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             Toast.Success("无需操作");
             return;
         }
+
+#if DEBUG
+        Log.Debug(string.Join(Environment.NewLine, AvatarList.Where(list => list.IsEnabled).Select(list => list.FolderName)));
+#endif
 
         if (MessageBoxX.Question($"是否取消当前列表中 {count} 个选中项？") == MessageBoxResult.Yes)
         {

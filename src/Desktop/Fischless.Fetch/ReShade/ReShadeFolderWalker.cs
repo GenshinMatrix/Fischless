@@ -43,7 +43,7 @@ public static partial class ReShadeFolderWalker
                 ReShadeFolder folder = new()
                 {
                     FolderName = folderName,
-                    FolderPath = subfolder,
+                    FolderPath = subfolder.Replace('/', Path.DirectorySeparatorChar),
                     IsEnabled = !folderName.StartsWith(DISABLED),
                     Inis = ini.ToArray(),
                 };

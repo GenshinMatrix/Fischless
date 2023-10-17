@@ -343,7 +343,7 @@
                                             </StackPanel>
                                             <StackPanel Grid.Column="1">
                                                 <TextBlock Text="{Binding FolderName}" />
-                                                <TextBlock Text="{Binding FolderPath}" />
+                                                <TextBlock Foreground="{DynamicResource WindowTitleForeground}" Text="{Binding FolderPath}" />
                                             </StackPanel>
                                         </Grid>
                                     </Grid>
