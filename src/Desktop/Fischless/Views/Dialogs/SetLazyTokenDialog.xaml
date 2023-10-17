@@ -1,25 +1,19 @@
-﻿<controls:WindowX x:Class="Fischless.Views.SetLazyTokenDialog"
-                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
-                  xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
-                  xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
-                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                  xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-                  xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
-                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:ui="http://schemas.modernwpf.com/2019"
-                  xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="设定令牌"
-                  Width="450"
-                  Height="260"
-                  Cursor="{DynamicResource ThemeCursor}"
-                  FontFamily="{DynamicResource TextThemeFontFamily}"
-                  FontSize="13"
-                  Icon="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"
-                  ResizeMode="NoResize"
-                  Style="{StaticResource DefaultWindowXStyle}"
-                  WindowStartupLocation="CenterOwner">
+﻿<fui:WindowX x:Class="Fischless.Views.SetLazyTokenDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fui="urn:fischless.design"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
+             Title="设定令牌"
+             Width="450"
+             Height="260"
+             Cursor="{DynamicResource ThemeCursor}"
+             FontFamily="{DynamicResource TextThemeFontFamily}"
+             FontSize="13"
+             Icon="/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico"
+             ResizeMode="NoResize"
+             Style="{StaticResource DefaultWindowXStyle}"
+             WindowStartupLocation="CenterOwner">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"
                       CornerRadius="8"
@@ -49,7 +43,7 @@
                             ToolTipService.ToolTip="打开令牌文件">
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="20"
-                                     Glyph="{x:Static controls:FontSymbols.OpenFolderHorizontal}" />
+                                     Glyph="{x:Static fui:FontSymbols.OpenFolderHorizontal}" />
                     </Button>
                 </Grid>
             </StackPanel>
@@ -73,7 +67,7 @@
                             ToolTipService.ToolTip="测试服务器">
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="20"
-                                     Glyph="{x:Static controls:FontSymbols.WifiHotspot}" />
+                                     Glyph="{x:Static fui:FontSymbols.WifiHotspot}" />
                     </Button>
                 </Grid>
             </StackPanel>
@@ -88,7 +82,7 @@
                         <StackPanel Orientation="Horizontal">
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="14"
-                                         Glyph="{x:Static controls:FontSymbols.Cancel}" />
+                                         Glyph="{x:Static fui:FontSymbols.Cancel}" />
                             <TextBlock Margin="8,0,0,0" Text="取消" />
                         </StackPanel>
                     </Button.Content>
@@ -101,7 +95,7 @@
                         <StackPanel Orientation="Horizontal">
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="14"
-                                         Glyph="{x:Static controls:FontSymbols.Accept}" />
+                                         Glyph="{x:Static fui:FontSymbols.Accept}" />
                             <TextBlock Margin="8,0,0,0" Text="保存" />
                         </StackPanel>
                     </Button.Content>
@@ -109,4 +103,4 @@
             </StackPanel>
         </StackPanel>
     </Grid>
-</controls:WindowX>
+</fui:WindowX>

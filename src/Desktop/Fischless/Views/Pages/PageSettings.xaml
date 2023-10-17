@@ -1,14 +1,12 @@
 ﻿<ui:Page x:Class="Fischless.Views.PageSettings"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:animations="clr-namespace:Fischless.Design.Animations;assembly=Fischless.Design"
          xmlns:app="clr-namespace:Fischless"
-         xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
          xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:fui="urn:fischless.design"
          xmlns:helpers="clr-namespace:Fischless.Helpers"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-         xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:ui="http://schemas.modernwpf.com/2019"
          xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -27,12 +25,12 @@
                    Opacity="0.3"
                    Source="/Assets/Images/UI_SummerTime_ImgCharacter_01.png" />
         </Grid>
-        <controls:SmoothScrollViewer x:Name="ScrollViewer"
-                                     PanningMode="None"
-                                     VerticalScrollBarVisibility="Visible">
+        <fui:SmoothScrollViewer x:Name="ScrollViewer"
+                                PanningMode="None"
+                                VerticalScrollBarVisibility="Visible">
             <StackPanel Margin="0,0,16,8">
                 <i:Interaction.Behaviors>
-                    <animations:StackPanelChildrenTransitionsDownToUpBehavior />
+                    <fui:StackPanelChildrenTransitionsDownToUpBehavior />
                 </i:Interaction.Behaviors>
                 <TextBlock Margin="3,0,0,0"
                            FontSize="14"
@@ -88,14 +86,14 @@
                                         Background="#30FFFFFF"
                                         CornerRadius="4">
                                     <Border.Visibility>
-                                        <markups:Converter>
-                                            <markups:Converter.Converter>
+                                        <fui:Converter>
+                                            <fui:Converter.Converter>
                                                 <conv:BoolToVisibilityConverter />
-                                            </markups:Converter.Converter>
-                                            <markups:Converter.Value>
+                                            </fui:Converter.Converter>
+                                            <fui:Converter.Value>
                                                 <x:Static Member="app:AppConfig.Preview" />
-                                            </markups:Converter.Value>
-                                        </markups:Converter>
+                                            </fui:Converter.Value>
+                                        </fui:Converter>
                                     </Border.Visibility>
                                     <TextBlock Padding="4,2,4,2"
                                                VerticalAlignment="Center"
@@ -107,10 +105,10 @@
                                            VerticalAlignment="Center"
                                            FontSize="14"
                                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
-                                           Visibility="{markups:Converter Value={x:Static helpers:RuntimeHelper.IsElevated},
-                                                                          Converter={StaticResource BoolToVisibilityConverter}}">
+                                           Visibility="{fui:Converter Value={x:Static helpers:RuntimeHelper.IsElevated},
+                                                                      Converter={StaticResource BoolToVisibilityConverter}}">
                                     <TextBlock.Inlines>
-                                        <Run Text="{markups:StringFormat Format='[{0}]', Arg0='管理员'}" />
+                                        <Run Text="{fui:StringFormat Format='[{0}]', Arg0='管理员'}" />
                                     </TextBlock.Inlines>
                                 </TextBlock>
                             </StackPanel>
@@ -127,7 +125,7 @@
                             <Button.Content>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="16"
-                                           Text="{x:Static controls:FontSymbols.Copy}" />
+                                           Text="{x:Static fui:FontSymbols.Copy}" />
                             </Button.Content>
                         </Button>
                         <StackPanel Grid.Column="3" Margin="0,3,0,0">
@@ -173,7 +171,7 @@
                                       HorizontalAlignment="Center"
                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                       FontSize="24"
-                                      Glyph="{x:Static controls:FontSymbols.Ringer}" />
+                                      Glyph="{x:Static fui:FontSymbols.Ringer}" />
                     </wui:CardExpander.Icon>
                     <wui:CardExpander.Header>
                         <StackPanel Margin="6,0,0,0">
@@ -199,7 +197,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.LaptopSecure}" />
+                                                     Glyph="{x:Static fui:FontSymbols.LaptopSecure}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -221,7 +219,7 @@
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
-                                                         Glyph="{x:Static controls:FontSymbols.UpdateRestore}" />
+                                                         Glyph="{x:Static fui:FontSymbols.UpdateRestore}" />
                                         </Button.Content>
                                     </Button>
                                     <ui:ToggleSwitch Width="100"
@@ -243,11 +241,11 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.PowerButtonUpdate}" />
+                                                     Glyph="{x:Static fui:FontSymbols.PowerButtonUpdate}" />
                                         <wui:FontIcon Margin="6,6,0,0"
                                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                       FontSize="16"
-                                                      Glyph="{x:Static controls:FontSymbols.UpdateStatusDot}" />
+                                                      Glyph="{x:Static fui:FontSymbols.UpdateStatusDot}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -284,7 +282,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.GiftboxOpen}" />
+                                                     Glyph="{x:Static fui:FontSymbols.GiftboxOpen}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -321,7 +319,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.Clear}" />
+                                                     Glyph="{x:Static fui:FontSymbols.Clear}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -358,7 +356,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.Mute}" />
+                                                     Glyph="{x:Static fui:FontSymbols.Mute}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -380,7 +378,7 @@
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
-                                                         Glyph="{x:Static controls:FontSymbols.Settings}" />
+                                                         Glyph="{x:Static fui:FontSymbols.Settings}" />
                                         </Button.Content>
                                     </Button>
                                     <ui:ToggleSwitch Width="100"
@@ -401,7 +399,7 @@
                                       HorizontalAlignment="Center"
                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                       FontSize="24"
-                                      Glyph="{x:Static controls:FontSymbols.Color}" />
+                                      Glyph="{x:Static fui:FontSymbols.Color}" />
                     </wui:CardExpander.Icon>
                     <wui:CardExpander.Header>
                         <StackPanel Margin="6,0,0,0">
@@ -427,7 +425,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.BlueLight}" />
+                                                     Glyph="{x:Static fui:FontSymbols.BlueLight}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -464,7 +462,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.Picture}" />
+                                                     Glyph="{x:Static fui:FontSymbols.Picture}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -502,7 +500,7 @@
                                     <Grid Margin="6,0,4,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="20"
-                                                     Glyph="{x:Static controls:FontSymbols.Click}" />
+                                                     Glyph="{x:Static fui:FontSymbols.Click}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -539,7 +537,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.FontColor}" />
+                                                     Glyph="{x:Static fui:FontSymbols.FontColor}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -585,7 +583,7 @@
                                     <Grid Margin="6,0,0,0">
                                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                      FontSize="24"
-                                                     Glyph="{x:Static controls:FontSymbols.AspectRatio}" />
+                                                     Glyph="{x:Static fui:FontSymbols.AspectRatio}" />
                                     </Grid>
                                     <TextBlock Margin="20,0,0,0">
                                         <TextBlock.Inlines>
@@ -624,7 +622,7 @@
                                       Margin="6,0,0,0"
                                       FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                       FontSize="24"
-                                      Glyph="{x:Static controls:FontSymbols.OpenFolderHorizontal}" />
+                                      Glyph="{x:Static fui:FontSymbols.OpenFolderHorizontal}" />
                     </wui:CardAction.Icon>
                     <wui:CardAction.Content>
                         <StackPanel Margin="6,0,0,0">
@@ -639,6 +637,6 @@
                     </wui:CardAction.Content>
                 </wui:CardAction>
             </StackPanel>
-        </controls:SmoothScrollViewer>
+        </fui:SmoothScrollViewer>
     </Grid>
 </ui:Page>

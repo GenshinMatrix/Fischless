@@ -1,15 +1,11 @@
 ﻿<ui:Page x:Class="Fischless.Views.PageHome"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:animations="clr-namespace:Fischless.Design.Animations;assembly=Fischless.Design"
-         xmlns:controls="clr-namespace:Fischless.Design.Controls;assembly=Fischless.Design"
          xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
-         xmlns:converters="clr-namespace:Fischless.Design.Converters;assembly=Fischless.Design"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          xmlns:dd="urn:gong-wpf-dragdrop"
+         xmlns:fui="urn:fischless.design"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-         xmlns:m="clr-namespace:Fischless.Models"
-         xmlns:markups="clr-namespace:Fischless.Design.Markups;assembly=Fischless.Design"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:ui="http://schemas.modernwpf.com/2019"
          xmlns:vm="clr-namespace:Fischless.ViewModels"
@@ -56,7 +52,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Static controls:FontSymbols.AddFriend}" />
+                                             Glyph="{x:Static fui:FontSymbols.AddFriend}" />
                                 <TextBlock Margin="5,0,0,0" Text="添加" />
                             </StackPanel>
                         </Button.Content>
@@ -68,7 +64,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Static controls:FontSymbols.Settings}" />
+                                             Glyph="{x:Static fui:FontSymbols.Settings}" />
                                 <TextBlock Margin="5,0,0,0" Text="设定" />
                             </StackPanel>
                         </Button.Content>
@@ -80,7 +76,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Static controls:FontSymbols.Refresh}" />
+                                             Glyph="{x:Static fui:FontSymbols.Refresh}" />
                                 <TextBlock Margin="5,0,0,0" Text="刷新" />
                             </StackPanel>
                         </Button.Content>
@@ -88,10 +84,10 @@
                 </StackPanel>
             </Grid>
 
-            <controls:SmoothScrollViewer Grid.Row="1"
-                                         Margin="6,3,6,3"
-                                         PanningMode="None"
-                                         VerticalScrollBarVisibility="Visible">
+            <fui:SmoothScrollViewer Grid.Row="1"
+                                    Margin="6,3,6,3"
+                                    PanningMode="None"
+                                    VerticalScrollBarVisibility="Visible">
                 <ListView dd:DragDrop.DropHandler="{Binding}"
                           dd:DragDrop.IsDragSource="True"
                           dd:DragDrop.IsDropTarget="True"
@@ -104,13 +100,13 @@
                           SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                           VirtualizingPanel.IsVirtualizing="False">
                     <i:Interaction.Behaviors>
-                        <controls:ListViewMouseWheelBubblingBehavior />
+                        <fui:ListViewMouseWheelBubblingBehavior />
                     </i:Interaction.Behaviors>
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel VerticalAlignment="Top">
                                 <i:Interaction.Behaviors>
-                                    <animations:StackPanelChildrenTransitionsDownToUpBehavior />
+                                    <fui:StackPanelChildrenTransitionsDownToUpBehavior />
                                 </i:Interaction.Behaviors>
                             </StackPanel>
                         </ItemsPanelTemplate>
@@ -121,9 +117,9 @@
                                   Background="#01000000"
                                   MouseLeftButtonDown="OnContactMouseLeftButtonDown">
                                 <i:Interaction.Behaviors>
-                                    <animations:FrameworkElementLoadedTransitionBehavior IsOnce="True"
-                                                                                         Transition="FadeIn"
-                                                                                         Duration="500" />
+                                    <fui:FrameworkElementLoadedTransitionBehavior IsOnce="True"
+                                                                                  Transition="FadeIn"
+                                                                                  Duration="500" />
                                 </i:Interaction.Behaviors>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto" />
@@ -149,7 +145,7 @@
                                                    Height="45"
                                                    HorizontalAlignment="Left"
                                                    RenderOptions.BitmapScalingMode="Fant"
-                                                   Source="{Binding Contact.LocalIconUri, Converter={x:Static converters:UriToImageSourceConverter.Instance}, ConverterParameter=45, Mode=OneWay}" />
+                                                   Source="{Binding Contact.LocalIconUri, Converter={x:Static fui:UriToImageSourceConverter.Instance}, ConverterParameter=45, Mode=OneWay}" />
                                         </Grid>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1"
@@ -301,7 +297,7 @@
                                                                       VerticalAlignment="Center">
                                                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                                                  FontSize="16"
-                                                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
+                                                                                 Glyph="{x:Static fui:FontSymbols.Play}" />
                                                                 </Grid>
                                                             </Button>
                                                         </StackPanel>
@@ -323,7 +319,7 @@
                                                 </ui:Flyout>
                                             </ui:FlyoutService.Flyout>
                                             <i:Interaction.Behaviors>
-                                                <controls:ButtonFlyoutCursorBehavior Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
+                                                <fui:ButtonFlyoutCursorBehavior Cursor="{Binding Cursor, RelativeSource={RelativeSource AncestorType=Window}}" />
                                             </i:Interaction.Behaviors>
                                         </Button>
                                     </StackPanel>
@@ -337,7 +333,7 @@
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Play}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding LaunchGameFromListWithDelayCommand}"
@@ -346,7 +342,7 @@
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Play}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Play}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding CancelLaunchGameFromListWithDelayCommand}"
@@ -355,7 +351,7 @@
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Cancel}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Cancel}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
@@ -363,21 +359,21 @@
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Refresh}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Refresh}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding CopyUidCommand}" Header="复制 UID">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Copy}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Copy}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding CopyCookieCommand}" Header="复制 Cookie">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Copy}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Copy}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
@@ -385,20 +381,20 @@
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Edit}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Edit}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding DeleteContactCommand}" Header="删除">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
-                                                 Glyph="{x:Static controls:FontSymbols.Delete}" />
+                                                 Glyph="{x:Static fui:FontSymbols.Delete}" />
                                 </MenuItem.Icon>
                             </MenuItem>
                         </ContextMenu>
                     </ListView.ContextMenu>
                 </ListView>
-            </controls:SmoothScrollViewer>
+            </fui:SmoothScrollViewer>
         </Grid>
     </Grid>
 </ui:Page>
