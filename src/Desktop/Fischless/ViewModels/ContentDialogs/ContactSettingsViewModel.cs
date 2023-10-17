@@ -178,4 +178,23 @@ public partial class ContactSettingsViewModel : ObservableObject
             Log.Error(e.ToString());
         }
     }
+
+    [ObservableProperty]
+    private bool isUseReShade = Configurations.IsUseReShade.Get();
+    partial void OnIsUseReShadeChanged(bool value)
+    {
+        Configurations.IsUseReShade.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [ObservableProperty]
+    private bool isUseReShadeSlient = Configurations.IsUseReShadeSlient.Get();
+    partial void OnIsUseReShadeSlientChanged(bool value)
+    {
+        Configurations.IsUseReShadeSlient.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [ObservableProperty]
+    private bool isInstalleShade = !string.IsNullOrWhiteSpace(Configurations.ReShadePath.Get());
 }

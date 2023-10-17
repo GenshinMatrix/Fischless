@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Fischless.Configuration;
 using Fischless.Design.Controls;
 using Fischless.Fetch.Launch;
+using Fischless.Fetch.ReShade;
 using Fischless.Logging;
 using Fischless.Models;
 using Fischless.Models.Message;
@@ -14,6 +15,7 @@ using GongSolutions.Wpf.DragDrop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -174,6 +176,12 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         try
         {
+            if (Configurations.IsUseReShade.Get() && Directory.Exists(Configurations.ReShadePath.Get()))
+            {
+                await GILauncher.KillAsync(GIRelaunchMethod.Kill);
+                await ReShadeLoader.LaunchAsync(Configurations.ReShadePath.Get(), Configurations.IsUseReShadeSlient.Get());
+            }
+
             await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill, launchParameter: new GILaunchParameter()
             {
                 Server = contact.Server,

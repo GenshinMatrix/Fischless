@@ -23,4 +23,7 @@ public sealed class ReShadeSentimentalString
     public const string LoaderD3dxIni = "d3dx.ini";
 
     public const string LoaderD3dxIniGameExePrefix = "target = ";
+
+    public const string LoaderExeMsgReady = "3DMigoto ready - Now run the game.";
+    public const string LoaderExeMsgAlreadyRunning = "ERROR: Another instance of the 3DMigoto Loader is already running. Please close it and try again";
 }

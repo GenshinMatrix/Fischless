@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using static Fischless.Fetch.ReShade.ReShadeSentimentalString;
 
 namespace Fischless.ViewModels;
@@ -314,6 +315,18 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     [RelayCommand]
     private void Settings()
     {
+        if (Directory.Exists(Configurations.ReShadePath.Get()))
+        {
+            if (MessageBoxX.Question(
+                $"""
+                当前已正确设定 3DMigoto 目录“{Configurations.ReShadePath.Get()}”。
+                您是否需要重新设定？"
+                """) != MessageBoxResult.Yes)
+            {
+                return;
+            }
+        }
+
         CommonOpenFileDialog dialog = new()
         {
             IsFolderPicker = true,
@@ -334,7 +347,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 return;
             }
             
-            ReShadeLoader.SetD3dxIniGameExe(Configurations.ReShadePath.Get(), () =>
+            ReShadeLoader.SetD3dxIniGameExe(selectedDirectory, () =>
             {
                 OpenFileDialog dialog = new()
                 {

@@ -43,6 +43,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <CheckBox Grid.Row="0"
                           Grid.Column="0"
@@ -194,11 +195,11 @@
                             Grid.Column="0"
                             Grid.ColumnSpan="999"
                             Margin="0,16,0,0"
+                            d:Visibility="Collapsed"
                             Orientation="Horizontal"
                             Visibility="{Binding IsInstallLazy, Converter={StaticResource BoolToVisibilityConverter}}">
                     <CheckBox MinWidth="0"
                               VerticalAlignment="Center"
-                              d:Visibility="Collapsed"
                               Cursor="{x:Null}"
                               IsChecked="{Binding IsUseLazy, Mode=TwoWay}">
                         <CheckBox.Content>
@@ -232,6 +233,23 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="5"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="999"
+                            Margin="0,16,0,0"
+                            d:Visibility="Collapsed"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsInstallReShade, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <CheckBox MinWidth="0"
+                              VerticalAlignment="Center"
+                              Content="启用幽夜净土组件"
+                              Cursor="{x:Null}"
+                              IsChecked="{Binding IsUseReShade, Mode=TwoWay}" />
+                    <wui:ToggleSwitch Margin="8,0,0,0"
+                                      VerticalAlignment="Center"
+                                      Content="静默模式"
+                                      IsChecked="{Binding IsUseReShadeSlient, Mode=TwoWay}" />
                 </StackPanel>
             </Grid>
         </Grid>

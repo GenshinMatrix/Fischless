@@ -22,6 +22,8 @@ public static class Configurations
     public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);
     public static ConfigurationDefinition<bool> IsUseFullScreen { get; } = new(nameof(IsUseFullScreen), false);
     public static ConfigurationDefinition<bool> IsUseLazy { get; } = new(nameof(IsUseLazy), false);
+    public static ConfigurationDefinition<bool> IsUseReShade { get; } = new(nameof(IsUseReShade), false);
+    public static ConfigurationDefinition<bool> IsUseReShadeSlient { get; } = new(nameof(IsUseReShadeSlient), false);
     public static ConfigurationDefinition<bool> IsUseGameRunningHint { get; } = new(nameof(IsUseGameRunningHint), false);
     public static ConfigurationDefinition<int> ThemeTextFontFamily { get; } = new(nameof(ThemeTextFontFamily), 0);
     public static ConfigurationDefinition<bool> IsUseThemeCursor { get; } = new(nameof(IsUseThemeCursor), true);

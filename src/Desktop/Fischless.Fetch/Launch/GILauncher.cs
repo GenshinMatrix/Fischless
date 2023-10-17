@@ -96,7 +96,7 @@ public class GILauncher
         return string.IsNullOrEmpty(gamePath = fileName);
     }
 
-    public static async Task LaunchAsync(int? delayMs = null, GIRelaunchMethod relaunchMethod = GIRelaunchMethod.None, GILaunchParameter launchParameter = null!)
+    public static async Task KillAsync(GIRelaunchMethod relaunchMethod = GIRelaunchMethod.None)
     {
         try
         {
@@ -117,6 +117,11 @@ public class GILauncher
         {
             throw;
         }
+    }
+
+    public static async Task LaunchAsync(int? delayMs = null, GIRelaunchMethod relaunchMethod = GIRelaunchMethod.None, GILaunchParameter launchParameter = null!)
+    {
+        await KillAsync(relaunchMethod);
 
         if (string.IsNullOrEmpty(GIRegedit.InstallPathCN) && string.IsNullOrEmpty(GIRegedit.InstallPathOVERSEA))
         {

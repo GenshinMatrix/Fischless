@@ -15,7 +15,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.3-beta1" />
 		<PackageReference Include="Octokit" Version="8.1.1" />
-		<PackageReference Include="YamlDotNet" Version="13.7.0" />
+		<PackageReference Include="YamlDotNet" Version="13.7.1" />
 		<PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
 		<PackageReference Include="Vanara.PInvoke.ComCtl32" Version="3.4.16" />
 		<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.16" />
