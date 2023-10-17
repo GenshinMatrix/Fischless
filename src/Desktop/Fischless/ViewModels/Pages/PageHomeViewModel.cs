@@ -172,6 +172,44 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         CancelLaunchGameDelayTokenSource = null!;
     }
 
+    [ObservableProperty]
+    private bool isInstalleShade = !string.IsNullOrWhiteSpace(Configurations.ReShadePath.Get());
+
+    [RelayCommand]
+    public async Task LaunchGameFromListWithReShadeAsync()
+    {
+        if (SelectedItem == null)
+        {
+            Toast.Warning("请选择要启动的账号");
+            return;
+        }
+
+        Contact contact = SelectedItem.Contact;
+
+        try
+        {
+            if (Directory.Exists(Configurations.ReShadePath.Get()))
+            {
+                await GILauncher.KillAsync(GIRelaunchMethod.Kill);
+                await ReShadeLoader.LaunchAsync(Configurations.ReShadePath.Get(), Configurations.IsUseReShadeSlient.Get());
+            }
+
+            await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill, launchParameter: new GILaunchParameter()
+            {
+                Server = contact.Server,
+                Prod = contact.Prod,
+                IsFullScreen = Configurations.IsUseResolution.Get() ? Configurations.IsUseFullScreen.Get() : null,
+                ScreenWidth = Configurations.IsUseResolution.Get() ? Configurations.ResolutionWidth.Get() : null,
+                ScreenHeight = Configurations.IsUseResolution.Get() ? Configurations.ResolutionHeight.Get() : null,
+                Fps = Configurations.IsUseFps.Get() ? Configurations.Fps.Get() : null,
+            });
+        }
+        catch (Exception e)
+        {
+            Notification.AddNotice(string.Empty, e.Message);
+        }
+    }
+
     private static async Task LaunchGameAsync(Contact contact)
     {
         try

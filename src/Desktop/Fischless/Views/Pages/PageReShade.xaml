@@ -162,6 +162,18 @@
                                              Source="pack://application:,,,/Fischless;component/Assets/Images/male-female.svg" />
                         </ToggleButton.Content>
                     </ToggleButton>
+                    <ToggleButton Margin="6,0,0,0"
+                                  Padding="5,2,5,2"
+                                  IsChecked="{Binding IsEnableOnly, Mode=TwoWay}"
+                                  Style="{StaticResource ImageToggleButtonStyle}"
+                                  ToolTip="仅显示生效中">
+                        <ToggleButton.Content>
+                            <svgc:SvgViewbox Width="28"
+                                             Height="28"
+                                             Margin="5,5,5,5"
+                                             Source="pack://application:,,,/Fischless;component/Assets/Images/torii.svg" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
                 </StackPanel>
                 <StackPanel Grid.Column="1"
                             HorizontalAlignment="Right"
@@ -187,6 +199,18 @@
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Settings}" />
                                 <TextBlock Margin="5,0,0,0" Text="设定" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="5,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding DisableThisListCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static fui:FontSymbols.ErrorBadge}" />
+                                <TextBlock Margin="5,0,0,0" Text="取消" />
                             </StackPanel>
                         </Button.Content>
                     </Button>

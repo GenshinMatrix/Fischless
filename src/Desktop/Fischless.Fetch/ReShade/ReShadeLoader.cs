@@ -88,18 +88,21 @@ public static class ReShadeLoader
 
                             if (hWnd != IntPtr.Zero)
                             {
-                                //_ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_HIDE);
-                                //_ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_SHOWMINIMIZED);
-                                //_ = User32.MoveWindow(hWnd, 0, 0, 100, 100, false);
-
-                                FluentProcess rundll32 = FluentProcess.Create()
-                                   .FileName("rundll32")
-                                   .Arguments($"user32.dll,ShowWindow {(int)hWnd}, {(int)ShowWindowCommand.SW_HIDE}")
-                                   .WorkingDirectory(loaderPath)
-                                   .Verb("runas")
-                                   .CreateNoWindow()
-                                   .UseShellExecute(false)
-                                   .Start();
+                                // Useless
+                                if (!User32.ShowWindow(hWnd, ShowWindowCommand.SW_HIDE))
+                                {
+                                    // Useless
+#if false
+                                    FluentProcess rundll32 = FluentProcess.Create()
+                                       .FileName("rundll32")
+                                       .Arguments($"{Lib.User32},{nameof(User32.ShowWindow)} {(int)hWnd}, {(int)ShowWindowCommand.SW_HIDE}")
+                                       .WorkingDirectory(loaderPath)
+                                       .Verb("runas")
+                                       .CreateNoWindow()
+                                       .UseShellExecute(false)
+                                       .Start();
+#endif
+                                }
                             }
                         }
                         catch (Exception e)

@@ -354,6 +354,15 @@
                                                  Glyph="{x:Static fui:FontSymbols.Cancel}" />
                                 </MenuItem.Icon>
                             </MenuItem>
+                            <MenuItem Command="{Binding LaunchGameFromListWithReShadeCommand}"
+                                      Header="启动幽夜净土"
+                                      Visibility="{Binding IsInstalleShade}">
+                                <MenuItem.Icon>
+                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                 FontSize="16"
+                                                 Glyph="{x:Static fui:FontSymbols.Play}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                             <Separator />
                             <MenuItem Command="{Binding RefreshContactCommand}" Header="刷新">
                                 <MenuItem.Icon>

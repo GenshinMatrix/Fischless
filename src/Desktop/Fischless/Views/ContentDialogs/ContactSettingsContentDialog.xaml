@@ -247,8 +247,18 @@
                               IsChecked="{Binding IsUseReShade, Mode=TwoWay}" />
                     <wui:ToggleSwitch Margin="8,0,0,0"
                                       VerticalAlignment="Center"
-                                      Content="静默模式"
-                                      IsChecked="{Binding IsUseReShadeSlient, Mode=TwoWay}" />
+                                      IsChecked="{Binding IsUseReShadeSlient, Mode=TwoWay}">
+                        <wui:ToggleSwitch.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="静默模式" />
+                                <ui:FontIcon Margin="8,0,8,0"
+                                             FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="14"
+                                             Glyph="{x:Static fui:FontSymbols.LaptopSecure}"
+                                             ToolTip="需要管理员权限" />
+                            </StackPanel>
+                        </wui:ToggleSwitch.Content>
+                    </wui:ToggleSwitch>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -97,8 +97,25 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     partial void OnIsMaleChanged(bool value) => SyncSearch();
 
     [Obsolete]
+    [property: Obsolete]
     [ObservableProperty]
     private bool isMaleFemale = false;
+
+    [ObservableProperty]
+    private bool isEnableOnly = false;
+    partial void OnIsEnableOnlyChanged(bool value)
+    {
+        if (IsEnableOnly)
+        {
+            IEnumerable<ReShadeFolderList> list = AvatarListDict.Values
+                .SelectMany(list => list)
+                .Where(list => list.IsEnabled);
+            AvatarList.Reset(list);
+            return;
+        }
+        SyncAvatar();
+        SelectedAvatarListDetail.Images.Clear();
+    }
 
     public PageReShadeViewModel()
     {
@@ -377,6 +394,27 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     private void Refresh()
     {
         SyncFolderAsync();
+    }
+
+    [RelayCommand]
+    private void DisableThisList()
+    {
+        int count = AvatarList.Count(list => list.IsEnabled);
+
+        if (count <= 0)
+        {
+            Toast.Success("无需操作");
+            return;
+        }
+
+        if (MessageBoxX.Question($"是否取消当前列表中 {count} 个选中项？") == MessageBoxResult.Yes)
+        {
+            foreach (var item in AvatarList)
+            {
+                item.IsEnabled = false;
+            }
+            Toast.Success("操作成功");
+        }
     }
 
     [RelayCommand]
