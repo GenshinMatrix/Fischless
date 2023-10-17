@@ -16,8 +16,12 @@ namespace Fischless;
 [SuppressMessage("Performance", "CA1822:")]
 public class Startup
 {
-    public void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(IApplicationBuilder app, IServiceCollection services)
     {
+        app.UseConfiguration()
+           .UseElevated()
+           .UseSingleInstance("Fischless");
+
         Log.Logger = LoggerConfiguration.CreateDefault()
             .UseType(LoggerType.Async)
             .UseLevel(LogLevel.Trace)
@@ -27,14 +31,14 @@ public class Startup
             )
             .CreateLogger();
 
-        IHost app = new App()
+        IHost host = new App()
             .UseDispatcherUnhandledExceptionCatched()
             .UseMuiLanguage();
 
-        services.AddSingleton(app)
+        services.AddSingleton(host)
                 .AddLogging(c => c.AddLogger(Log.Logger))
                 .AddSingleton(KeyboardReader.Default)
-                .AddPlugins(app)
+                .AddPlugins(host)
                 .AddSingleton<INavigationService, NavigationService>()
                 .AddTransient<IAutoStartService, AutoStartRegistyService>()
                 .AddSingleton<IForeverTickService, ForeverTickService>()
@@ -48,10 +52,7 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env, IServiceCollection services)
     {
-        app.UseConfiguration()
-           .UseElevated()
-           .UseSingleInstance("Fischless")
-           .UseMapper()
+        app.UseMapper()
            .UseAppCenter()
            .UseDpiAware()
            .UseDomainUnhandledExceptionCatched()
