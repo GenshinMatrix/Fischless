@@ -1,5 +1,6 @@
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
+using Fischless.InputSimulator;
 using Fischless.KeyboardCapture;
 using Fischless.Logging;
 using Fischless.Services;
@@ -39,6 +40,7 @@ public class Startup
                 .AddLogging(c => c.AddLogger(Log.Logger))
                 .AddSingleton(KeyboardReader.Default)
                 .AddPlugins(host)
+                .AddSingleton<IInputSimulator, InputSimulator.InputSimulator>()
                 .AddSingleton<INavigationService, NavigationService>()
                 .AddTransient<IAutoStartService, AutoStartRegistyService>()
                 .AddSingleton<IForeverTickService, ForeverTickService>()

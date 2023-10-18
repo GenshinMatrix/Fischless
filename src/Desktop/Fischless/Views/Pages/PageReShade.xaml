@@ -397,48 +397,51 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </fui:SmoothScrollViewer>
-                    <Grid Grid.Row="1"
-                          MaxHeight="200"
-                          Margin="0,8,0,8">
-                        <ItemsControl ItemsSource="{Binding SelectedAvatarListDetail.Images}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel HorizontalAlignment="Center"
-                                                CanHorizontallyScroll="True"
+                    <Grid Grid.Row="1" MaxHeight="200">
+                        <fui:SmoothScrollViewer Margin="8"
+                                                HorizontalScrollBarVisibility="Visible"
                                                 Orientation="Horizontal"
-                                                ScrollViewer.HorizontalScrollBarVisibility="Visible" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate DataType="x:Type m:ReShadeFolderListDetail">
-                                    <Border Margin="6,0,6,0"
-                                            BorderBrush="DarkGoldenrod"
-                                            BorderThickness="0">
-                                        <Button Padding="0"
-                                                Background="Transparent"
-                                                BorderBrush="Transparent"
-                                                FocusVisualStyle="{x:Null}">
-                                            <Button.Content>
-                                                <fui:CachedImage MaxWidth="200"
-                                                                 MaxHeight="200"
-                                                                 CornerRadius="8"
-                                                                 Path="{Binding ImageFileProtocol}"
-                                                                 ToolTip="{Binding ImagePath}" />
-                                            </Button.Content>
-                                            <ui:FlyoutService.Flyout>
-                                                <ui:Flyout>
-                                                    <fui:CachedImage Margin="-8"
+                                                VerticalScrollBarVisibility="Disabled">
+                            <ItemsControl Margin="0,0,0,16" ItemsSource="{Binding SelectedAvatarListDetail.Images}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    CanHorizontallyScroll="True"
+                                                    Orientation="Horizontal"
+                                                    ScrollViewer.HorizontalScrollBarVisibility="Visible" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="x:Type m:ReShadeFolderListDetail">
+                                        <Border Margin="6,0,6,0"
+                                                BorderBrush="DarkGoldenrod"
+                                                BorderThickness="0">
+                                            <Button Padding="0"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    FocusVisualStyle="{x:Null}">
+                                                <Button.Content>
+                                                    <fui:CachedImage MaxWidth="200"
+                                                                     MaxHeight="200"
                                                                      CornerRadius="8"
-                                                                     Cursor="{DynamicResource ThemeCursor}"
                                                                      Path="{Binding ImageFileProtocol}"
                                                                      ToolTip="{Binding ImagePath}" />
-                                                </ui:Flyout>
-                                            </ui:FlyoutService.Flyout>
-                                        </Button>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                                                </Button.Content>
+                                                <ui:FlyoutService.Flyout>
+                                                    <ui:Flyout>
+                                                        <fui:CachedImage Margin="-8"
+                                                                         CornerRadius="8"
+                                                                         Cursor="{DynamicResource ThemeCursor}"
+                                                                         Path="{Binding ImageFileProtocol}"
+                                                                         ToolTip="{Binding ImagePath}" />
+                                                    </ui:Flyout>
+                                                </ui:FlyoutService.Flyout>
+                                            </Button>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </fui:SmoothScrollViewer>
                     </Grid>
                 </Grid>
             </Grid>
