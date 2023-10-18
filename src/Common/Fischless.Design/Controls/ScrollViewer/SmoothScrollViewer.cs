@@ -30,14 +30,16 @@ public class SmoothScrollViewer : ScrollViewer
 
     protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
-        if (ViewportHeight + VerticalOffset >= ExtentHeight && e.Delta <= 0)
+        if (Orientation == Orientation.Vertical)
         {
-            return;
-        }
-
-        if (VerticalOffset == 0 && e.Delta >= 0)
-        {
-            return;
+            if (ViewportHeight + VerticalOffset >= ExtentHeight && e.Delta <= 0)
+            {
+                return;
+            }
+            if (VerticalOffset == 0 && e.Delta >= 0)
+            {
+                return;
+            }
         }
 
         if (!CanMouseWheel)
