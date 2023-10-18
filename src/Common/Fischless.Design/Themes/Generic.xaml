@@ -13,5 +13,6 @@
         <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/TextBox/MonoUiTextBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/Button/TransparentButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/ToggleButton/ImageToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fischless.Design;component/Controls/Menu/MenuItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
