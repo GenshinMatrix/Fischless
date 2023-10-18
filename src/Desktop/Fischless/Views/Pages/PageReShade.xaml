@@ -336,7 +336,6 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Grid.Column="0">
                                                 <CheckBox Cursor="{x:Null}" IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
@@ -345,39 +344,54 @@
                                                 <TextBlock Text="{Binding FolderName}" />
                                                 <TextBlock Foreground="{DynamicResource WindowTitleForeground}" Text="{Binding FolderPath}" />
                                             </StackPanel>
-                                            <StackPanel Grid.Column="2"
-                                                        HorizontalAlignment="Right"
-                                                        Orientation="Horizontal">
-                                                <Button>
-                                                    <Button.Content>
-                                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                     FontSize="12"
-                                                                     Glyph="{x:Static fui:FontSymbols.More}" />
-                                                    </Button.Content>
-                                                    <Button.ContextMenu>
-                                                        <ContextMenu Cursor="{DynamicResource ThemeCursor}">
-                                                            <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
-                                                                <MenuItem.Icon>
-                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                                 FontSize="16"
-                                                                                 Glyph="{x:Static fui:FontSymbols.Folder}" />
-                                                                </MenuItem.Icon>
-                                                            </MenuItem>
-                                                            <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
-                                                                <MenuItem.Icon>
-                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                                 FontSize="16"
-                                                                                 Glyph="{x:Static fui:FontSymbols.Delete}" />
-                                                                </MenuItem.Icon>
-                                                            </MenuItem>
-                                                        </ContextMenu>
-                                                    </Button.ContextMenu>
-                                                    <i:Interaction.Behaviors>
-                                                        <fui:LeftContextMenuBehavior />
-                                                    </i:Interaction.Behaviors>
-                                                </Button>
-                                            </StackPanel>
                                         </Grid>
+                                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                            <Button>
+                                                <Button.Content>
+                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                 FontSize="12"
+                                                                 Glyph="{x:Static fui:FontSymbols.More}" />
+                                                </Button.Content>
+                                                <Button.ContextMenu>
+                                                    <ContextMenu Cursor="{DynamicResource ThemeCursor}">
+                                                        <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
+                                                            <MenuItem.Icon>
+                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                             FontSize="16"
+                                                                             Glyph="{x:Static fui:FontSymbols.Folder}" />
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
+                                                            <MenuItem.Icon>
+                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                             FontSize="16"
+                                                                             Glyph="{x:Static fui:FontSymbols.Delete}" />
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <Separator />
+                                                        <MenuItem Command="{Binding RenameFolderCommand}">
+                                                            <MenuItem.Icon>
+                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                             FontSize="16"
+                                                                             Glyph="{x:Static fui:FontSymbols.Rename}" />
+                                                            </MenuItem.Icon>
+                                                            <MenuItem.Header>
+                                                                <StackPanel>
+                                                                    <TextBlock Text="重命名目录" />
+                                                                    <TextBox MaxWidth="400"
+                                                                             Margin="0,6,0,0"
+                                                                             Padding="2,2,0,0"
+                                                                             Text="{Binding FolderNameForEdit, Mode=TwoWay}" />
+                                                                </StackPanel>
+                                                            </MenuItem.Header>
+                                                        </MenuItem>
+                                                    </ContextMenu>
+                                                </Button.ContextMenu>
+                                                <i:Interaction.Behaviors>
+                                                    <fui:LeftContextMenuBehavior />
+                                                </i:Interaction.Behaviors>
+                                            </Button>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

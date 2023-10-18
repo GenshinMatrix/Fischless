@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.System;
 
@@ -165,6 +166,37 @@ public partial class ReShadeFolderList : ObservableObject
         {
             await Launcher.LaunchUriAsync(new Uri($"file://{FolderPath.Replace(Path.DirectorySeparatorChar, '/')}"));
         }
+    }
+
+    public string FolderNameForEdit
+    {
+        get => FolderName;
+        set
+        {
+            DirectoryInfo directoryInfo = new(FolderPath);
+
+            if (directoryInfo.Exists)
+            {
+                string newFolderName = value ?? string.Empty;
+                string newFolderPath = Path.Combine(directoryInfo.Parent.FullName, new string(newFolderName.Where(ch => !Path.GetInvalidFileNameChars().Contains(ch)).ToArray()));
+                
+                if (newFolderPath.Equals(directoryInfo.FullName, StringComparison.OrdinalIgnoreCase)
+                 || newFolderPath.Length > 248)
+                {
+                    return;
+                }
+                directoryInfo.MoveTo(newFolderPath);
+                FolderPath = newFolderPath;
+                FolderName = newFolderName;
+                IsEnabled = newFolderName.IsEnabledFolderPath();
+            }
+        }
+    }
+
+    [RelayCommand]
+    public void RenameFolder()
+    {
+        ///
     }
 
     [ObservableProperty]
