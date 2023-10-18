@@ -67,7 +67,7 @@ public static class ReShadeIniMapper
             10000072 => "Candace;Kandisi",
             10000073 => "Nahida;Naxida",
             10000074 => "Layla;Laila",
-            10000075 => "Wanderer;Liulanzhe",
+            10000075 => "Wanderer;Liulanzhe;Scara",
             10000076 => "Faruzan;Falusan",
             10000077 => "Yaoyao",
             10000078 => "Alhatham;Alhaitham",
