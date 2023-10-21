@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="GenshinElementIcon">pack://application:,,,/Fischless;component/Assets/Fonts/GenshinElementIcon.ttf#GenshinElementIcon</FontFamily>
+    <FontFamily x:Key="TeyvatBlack">pack://application:,,,/Fischless;component/Assets/Fonts/TeyvatBlack-Regular.ttf#Teyvat Black</FontFamily>
+
+</ResourceDictionary>

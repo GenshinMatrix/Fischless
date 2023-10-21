@@ -1,4 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Fischless.ModelViewer;
+using Microsoft.Win32;
+using System.IO;
+using Windows.UI.Core;
 
 namespace Fischless.ViewModels;
 
@@ -13,5 +18,22 @@ public partial class PageModelViewerViewModel : ObservableRecipient
     public void LoadModel(string modelPath)
     {
         ModelPath = modelPath;
+    }
+
+    [RelayCommand]
+    public void OpenModel()
+    {
+        OpenFileDialog dialog = new()
+        {
+            Title = "Select Model",
+            Filter = "DMM(*.pmx,*.zip,*.7z,*.rar)|*.pmx;*.zip;*.7z;*.rar",
+            RestoreDirectory = true,
+            DefaultExt = "pmx",
+            InitialDirectory = Directory.Exists(ForDispatcher.ApplicationModelPath) ? ForDispatcher.ApplicationModelPath : null,
+        };
+        if (dialog.ShowDialog() ?? false)
+        {
+            LoadModel(dialog.FileName);
+        }
     }
 }

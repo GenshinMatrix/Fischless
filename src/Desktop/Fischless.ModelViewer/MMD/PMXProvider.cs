@@ -8,7 +8,7 @@ namespace Fischless.ModelViewer.MMD;
 
 public class PMXProvider : IDisposable
 {
-    private SevenZipStock stock;
+    private ArchiveStock stock;
     private string path = null;
 
     public void Dispose()

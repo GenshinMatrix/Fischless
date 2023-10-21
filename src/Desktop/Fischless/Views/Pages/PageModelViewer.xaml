@@ -16,6 +16,63 @@
          Drop="OnDrop"
          FontSize="14"
          mc:Ignorable="d">
-    <!--<mv:HelixViewer ModelPath="D:/xxx/菲谢尔.pmx" />-->
-    <mv:HelixViewer ModelPath="{Binding ModelPath}" />
+    <ui:Page.Resources>
+        <conv:ValueConverterGroup x:Key="StringIsNullOrEmptyVisibilityConverter">
+            <conv:StringIsNullOrEmptyConverter />
+            <conv:BoolToVisibilityConverter />
+        </conv:ValueConverterGroup>
+        <conv:ValueConverterGroup x:Key="StringIsNotNullOrEmptyVisibilityConverter">
+            <conv:StringIsNotNullOrEmptyConverter />
+            <conv:BoolToVisibilityConverter />
+        </conv:ValueConverterGroup>
+    </ui:Page.Resources>
+    <Grid>
+        <mv:HelixViewer ModelPath="{Binding ModelPath}" Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}" />
+        <Button Width="500"
+                Height="250"
+                Padding="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding OpenModelCommand}"
+                Opacity="0.5"
+                Visibility="{Binding ModelPath, Converter={StaticResource StringIsNullOrEmptyVisibilityConverter}}">
+            <Button.Content>
+                <StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe906;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe905;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe900;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe903;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe902;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe901;" />
+                        <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
+                                   FontSize="40"
+                                   Foreground="#AAA"
+                                   Text="&#xe904;" />
+                    </StackPanel>
+                    <TextBlock Margin="0,10,0,0"
+                               Foreground="#AAA"
+                               Text="Click here to select a DMM file or drop down it here ..." />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+    </Grid>
 </ui:Page>

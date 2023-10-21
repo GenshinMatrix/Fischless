@@ -4,15 +4,15 @@ using System.IO;
 
 namespace Fischless.ModelViewer;
 
-public class SevenZipStock : IDisposable
+public sealed class ArchiveStock : IDisposable
 {
     public Dictionary<string, Stream> ContentDict = new();
 
-    public SevenZipStock(string path)
+    public ArchiveStock(string path)
     {
+        Dispose();
         try
         {
-            Dispose();
             ContentDict = ArchiveExtractor.ExtractFilesToMemory(path);
         }
         catch (Exception e)

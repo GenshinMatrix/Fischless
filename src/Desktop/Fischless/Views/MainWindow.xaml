@@ -121,9 +121,7 @@
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                     FontSize="18"
-                                     Glyph="{x:Static fui:FontSymbols.Shuffle}" />
+                        <ui:BitmapIcon UriSource="pack://application:,,,/Assets/Images/d08b71bd-8ad0-4c48-9222-27a796b1a2e0.png" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
@@ -132,9 +130,20 @@
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
+                        <ui:BitmapIcon UriSource="pack://application:,,,/Assets/Images/UI_CharacterTabIcon_Flycloak.png" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItemHeader Content="插件" Foreground="{DynamicResource WindowTitleForeground}" />
+
+                <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PagePluginManager}"
+                                       Content="{DynamicResource PluginManager}"
+                                       CornerRadius="4"
+                                       FontFamily="{DynamicResource TextThemeFontFamily}">
+                    <ui:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                      FontSize="18"
-                                     Glyph="{x:Static fui:FontSymbols.ComposeMode}" />
+                                     Glyph="{x:Static fui:FontSymbols.Puzzle}" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
