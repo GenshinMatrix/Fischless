@@ -338,7 +338,10 @@
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Grid.Column="0">
-                                                <CheckBox Cursor="{x:Null}" IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
+                                                <CheckBox Cursor="{x:Null}"
+                                                          FocusVisualStyle="{x:Null}"
+                                                          Focusable="False"
+                                                          IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
                                             </StackPanel>
                                             <StackPanel Grid.Column="1">
                                                 <TextBlock Text="{Binding FolderName}" />

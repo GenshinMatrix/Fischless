@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+		<TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Platforms>x64</Platforms>
+		<LangVersion>11.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<UseWPF>True</UseWPF>
+    </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HelixToolkit" Version="2.24.0" />
+		<PackageReference Include="HelixToolkit.Core.Wpf" Version="2.24.0" />
+		<PackageReference Include="Pfim" Version="0.11.2" />
+		<PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.2.23479.14" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Common\Fischless.Compression\Fischless.Compression.csproj" />
+	  <ProjectReference Include="..\..\Common\Fischless.Logging\Fischless.Logging.csproj" />
+	</ItemGroup>
+
+</Project>

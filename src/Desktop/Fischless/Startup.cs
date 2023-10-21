@@ -49,7 +49,9 @@ public class Startup
                 .AddTransient<PageSettingsViewModel>()
                 .AddTransient<PageSettings>()
                 .AddSingleton<PageReShadeViewModel>()
-                .AddSingleton<PageReShade>();
+                .AddSingleton<PageReShade>()
+                .AddSingleton<PageModelViewerViewModel>()
+                .AddSingleton<PageModelViewer>();
     }
 
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env, IServiceCollection services)

@@ -127,6 +127,17 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
+                <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PageModelViewer}"
+                                       Content="{DynamicResource ModelViewer}"
+                                       CornerRadius="4"
+                                       FontFamily="{DynamicResource TextThemeFontFamily}">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                     FontSize="18"
+                                     Glyph="{x:Static fui:FontSymbols.ComposeMode}" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
             </ui:NavigationView.MenuItems>
 
             <ui:NavigationView.FooterMenuItems>

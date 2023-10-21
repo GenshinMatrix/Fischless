@@ -1,7 +1,6 @@
 ﻿using Fischless.Hosting.Absraction;
 using Fischless.Native;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Reflection;
 using System.Windows;

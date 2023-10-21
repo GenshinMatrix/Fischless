@@ -59,6 +59,7 @@
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
         <ProjectReference Include="..\Fischless.InputSimulator\Fischless.InputSimulator.csproj" />
         <ProjectReference Include="..\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj" />
+        <ProjectReference Include="..\Fischless.ModelViewer\Fischless.ModelViewer.csproj" />
         <ProjectReference Include="..\Fischless.WindowCapture\Fischless.WindowCapture.csproj" />
     </ItemGroup>
 
