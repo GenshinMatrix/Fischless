@@ -19,11 +19,6 @@ public static class NativeMethods
         _ = User32.BringWindowToTop(hWnd);
     }
 
-    public static string MB_GetString(DialogBoxCommand wBtn)
-    {
-        return Marshal.PtrToStringAuto(User32Ex.MB_GetString((uint)wBtn));
-    }
-
     public static void HideAllWindowButton(nint hWnd)
     {
         _ = User32.SetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE, User32.GetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE) & ~(int)User32.WindowStyles.WS_SYSMENU);
