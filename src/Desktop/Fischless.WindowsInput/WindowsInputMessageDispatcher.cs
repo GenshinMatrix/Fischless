@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Vanara.PInvoke;
 
-namespace Fischless.InputSimulator;
+namespace Fischless.WindowsInput;
 
 internal class WindowsInputMessageDispatcher : IInputMessageDispatcher
 {

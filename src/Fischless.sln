@@ -52,7 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.WindowCapture", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.KeyboardCapture", "Desktop\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj", "{E8BDFFDD-205B-4246-B46C-55DB01899EB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.InputSimulator", "Desktop\Fischless.InputSimulator\Fischless.InputSimulator.csproj", "{DD218209-DDAC-4ED7-A14B-A8AEC7037406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.WindowsInput", "Desktop\Fischless.WindowsInput\Fischless.WindowsInput.csproj", "{DD218209-DDAC-4ED7-A14B-A8AEC7037406}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.HotkeyCapture", "Desktop\Fischless.HotkeyCapture\Fischless.HotkeyCapture.csproj", "{4EEE47AA-A34C-46CF-AA88-F90B4B752E40}"
 EndProject

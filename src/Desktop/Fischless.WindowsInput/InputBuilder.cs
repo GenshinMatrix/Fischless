@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Vanara.PInvoke;
 
-namespace Fischless.InputSimulator;
+namespace Fischless.WindowsInput;
 
 internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
 {

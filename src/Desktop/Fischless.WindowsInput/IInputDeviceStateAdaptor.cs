@@ -1,6 +1,6 @@
 ﻿using Vanara.PInvoke;
 
-namespace Fischless.InputSimulator;
+namespace Fischless.WindowsInput;
 
 public interface IInputDeviceStateAdaptor
 {

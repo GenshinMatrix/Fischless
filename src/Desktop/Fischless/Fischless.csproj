@@ -18,6 +18,10 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
         <PackageReference Include="CompiledBindings.WPF" Version="1.0.17.6" />
+        <PackageReference Include="IsExternalInit" Version="1.0.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="MethodTimer.Fody" Version="3.2.2" />
         <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
         <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
@@ -57,7 +61,7 @@
         <ProjectReference Include="..\..\Plugins\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
         <ProjectReference Include="..\Fischless.Fetch\Fischless.Fetch.csproj" />
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
-        <ProjectReference Include="..\Fischless.InputSimulator\Fischless.InputSimulator.csproj" />
+        <ProjectReference Include="..\Fischless.WindowsInput\Fischless.WindowsInput.csproj" />
         <ProjectReference Include="..\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj" />
         <ProjectReference Include="..\Fischless.ModelViewer\Fischless.ModelViewer.csproj" />
         <ProjectReference Include="..\Fischless.WindowCapture\Fischless.WindowCapture.csproj" />

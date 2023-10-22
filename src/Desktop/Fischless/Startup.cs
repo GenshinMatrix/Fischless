@@ -1,11 +1,11 @@
 using Fischless.Extensions;
 using Fischless.Hosting.Absraction;
-using Fischless.InputSimulator;
 using Fischless.KeyboardCapture;
 using Fischless.Logging;
 using Fischless.Services;
 using Fischless.ViewModels;
 using Fischless.Views;
+using Fischless.WindowsInput;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -40,7 +40,7 @@ public class Startup
                 .AddLogging(c => c.AddLogger(Log.Logger))
                 .AddSingleton(KeyboardReader.Default)
                 .AddPlugins(host)
-                .AddSingleton<IInputSimulator, InputSimulator.InputSimulator>()
+                .AddSingleton<IInputSimulator, InputSimulator>()
                 .AddSingleton<INavigationService, NavigationService>()
                 .AddTransient<IAutoStartService, AutoStartRegistyService>()
                 .AddSingleton<IForeverTickService, ForeverTickService>()

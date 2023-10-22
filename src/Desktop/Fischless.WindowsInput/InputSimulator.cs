@@ -1,4 +1,4 @@
-﻿namespace Fischless.InputSimulator;
+﻿namespace Fischless.WindowsInput;
 
 public class InputSimulator : IInputSimulator
 {
