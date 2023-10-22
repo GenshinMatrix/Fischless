@@ -1,6 +1,9 @@
-﻿using Fischless.Logging;
+﻿using Fischless.Design.Helpers;
+using Fischless.Logging;
+using Fischless.Native;
 using Fischless.Threading;
 using System.Diagnostics;
+using System.Drawing;
 using System.Security.Principal;
 using System.Text;
 using Vanara.PInvoke;
@@ -63,19 +66,26 @@ public static class ReShadeLoader
                 }
                 return hWnd;
             });
-            if (isSilent)
+            if (hWnd != IntPtr.Zero)
             {
-                if (hWnd != IntPtr.Zero)
+                if (ResourceHelper.GetStream("pack://application:,,,/Fischless;component/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico") is Stream iconStream)
+                {
+                    NativeMethods.ModifyWindowIcon(hWnd, new Icon(iconStream));
+                    using (iconStream) _ = false;
+                }
+                if (isSilent)
                 {
                     _ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_HIDE);
                 }
             }
+
             await Task.Delay(500);
         }
         else
         {
             await Task.Delay(500);
 
+#if false // Not Elevated
             if (isSilent)
             {
                 if (TryGetProcess(out Process?[] ps))
@@ -88,11 +98,13 @@ public static class ReShadeLoader
 
                             if (hWnd != IntPtr.Zero)
                             {
-                                // Useless
+                                if (ResourceHelper.GetStream("pack://application:,,,/Fischless;component/Assets/Icons/i2Q2r-4cr2K2kT3cSkf-ke.ico") is Stream iconStream)
+                                {
+                                    NativeMethods.ModifyWindowIcon(hWnd, new Icon(iconStream));
+                                }
+
                                 if (!User32.ShowWindow(hWnd, ShowWindowCommand.SW_HIDE))
                                 {
-                                    // Useless
-#if false
                                     FluentProcess rundll32 = FluentProcess.Create()
                                        .FileName("rundll32")
                                        .Arguments($"{Lib.User32},{nameof(User32.ShowWindow)} {(int)hWnd}, {(int)ShowWindowCommand.SW_HIDE}")
@@ -101,7 +113,6 @@ public static class ReShadeLoader
                                        .CreateNoWindow()
                                        .UseShellExecute(false)
                                        .Start();
-#endif
                                 }
                             }
                         }
@@ -112,6 +123,7 @@ public static class ReShadeLoader
                     }
                 }
             }
+#endif
         }
     }
 

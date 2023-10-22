@@ -50,4 +50,10 @@ public static class NativeMethods
 
         return true;
     }
+
+    public static void ModifyWindowIcon(nint hWnd, Icon icon)
+    {
+        _ = User32.SendMessage(hWnd, User32.WindowMessage.WM_SETICON, ICONSZ.ICON_SMALL, icon.Handle);
+        _ = User32.SendMessage(hWnd, User32.WindowMessage.WM_SETICON, ICONSZ.ICON_BIG, icon.Handle);
+    }
 }
