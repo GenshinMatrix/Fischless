@@ -62,6 +62,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Compression", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.ModelViewer", "Desktop\Fischless.ModelViewer\Fischless.ModelViewer.csproj", "{33503218-CB83-4B83-B3C8-0E2358B4D108}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.DisplayDefault", "Plugins\Fischless.Plugin.DisplayDefault\Fischless.Plugin.DisplayDefault.csproj", "{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -160,6 +162,10 @@ Global
 		{33503218-CB83-4B83-B3C8-0E2358B4D108}.Debug|x64.Build.0 = Debug|x64
 		{33503218-CB83-4B83-B3C8-0E2358B4D108}.Release|x64.ActiveCfg = Release|x64
 		{33503218-CB83-4B83-B3C8-0E2358B4D108}.Release|x64.Build.0 = Release|x64
+		{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}.Debug|x64.ActiveCfg = Debug|x64
+		{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}.Debug|x64.Build.0 = Debug|x64
+		{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}.Release|x64.ActiveCfg = Release|x64
+		{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,6 +194,7 @@ Global
 		{6493D449-59EF-47A6-B6B2-D8033E2FF6C6} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{7BFCFC76-A796-4C0E-A4D0-9AD91EDFC08E} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{33503218-CB83-4B83-B3C8-0E2358B4D108} = {2944494E-EB09-4387-9677-BB38A224A624}
+		{24B1EFF5-0073-4B6A-83C8-BF4AFB718832} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}

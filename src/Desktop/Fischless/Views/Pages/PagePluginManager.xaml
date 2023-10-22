@@ -10,7 +10,74 @@
          xmlns:mv="urn:fischless.modelviewer"
          xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
          xmlns:ui="http://schemas.modernwpf.com/2019"
+         xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
          d:DesignHeight="450"
          d:DesignWidth="800"
          FontSize="14"
-         mc:Ignorable="d" />
+         mc:Ignorable="d">
+    <fui:SmoothScrollViewer Margin="16"
+                            HorizontalAlignment="Left"
+                            PanningMode="None"
+                            VerticalScrollBarVisibility="Visible">
+        <ItemsControl ItemsSource="{Binding Plugins}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Margin="0,0,8,0"
+                               ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                               ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="x:Type vm:PluginViewModel">
+                    <wui:Card Width="300">
+                        <Grid>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <ContentControl HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Content="{Binding Icon}" />
+                                    <TextBlock Margin="6,0,0,0"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding PluginName}" />
+                                </StackPanel>
+                                <TextBlock Margin="0,6,0,0" Foreground="{DynamicResource WindowTitleForeground}">
+                                    <TextBlock.Inlines>
+                                        <Run Text="说明：" />
+                                        <Run Text="{Binding Description}" />
+                                    </TextBlock.Inlines>
+                                </TextBlock>
+                                <Grid>
+                                    <StackPanel>
+                                        <TextBlock Foreground="{DynamicResource WindowTitleForeground}">
+                                            <TextBlock.Inlines>
+                                                <Run Text="作者：" />
+                                                <Run Text="{Binding Author}" />
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <TextBlock Foreground="{DynamicResource WindowTitleForeground}">
+                                            <TextBlock.Inlines>
+                                                <Run Text="版本：" />
+                                                <Run Text="v" /><Run Text="{Binding Version}" />
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <Button Margin="8,0,0,0"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            Command="{Binding ButtonCommand}">
+                                        <Button.Content>
+                                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                         FontSize="16"
+                                                         Glyph="{x:Static fui:FontSymbols.Settings}" />
+                                        </Button.Content>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </wui:Card>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </fui:SmoothScrollViewer>
+</ui:Page>

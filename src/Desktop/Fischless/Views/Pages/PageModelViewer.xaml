@@ -41,35 +41,35 @@
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe906;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe905;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe900;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe903;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe902;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe901;" />
                         <TextBlock FontFamily="{StaticResource GenshinElementIcon}"
                                    FontSize="40"
-                                   Foreground="#AAA"
+                                   Foreground="{DynamicResource WindowTitleForeground}"
                                    Text="&#xe904;" />
                     </StackPanel>
                     <TextBlock Margin="0,10,0,0"
-                               Foreground="#AAA"
+                               Foreground="{DynamicResource WindowTitleForeground}"
                                Text="Click here to select a DMM file or drop down it here ..." />
                 </StackPanel>
             </Button.Content>

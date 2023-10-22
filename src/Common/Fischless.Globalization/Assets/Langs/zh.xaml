@@ -28,6 +28,9 @@
     <s:String x:Key="ModelViewer">模型预览</s:String>
     <s:String x:Key="PluginManager">插件管理</s:String>
     <s:String x:Key="Fischless">极夜真梦</s:String>
+    <s:String x:Key="DisplayDefault">图形设置</s:String>
+    <s:String x:Key="DisplayDefaultHint">打开系统图形设置</s:String>
+
     <s:String x:Key="AvatarNameOfWriothesley">莱欧斯利</s:String>
     <s:String x:Key="AvatarNameOfPlayerBoy">空</s:String>
     <s:String x:Key="AvatarNameOfPlayerGirl">荧</s:String>

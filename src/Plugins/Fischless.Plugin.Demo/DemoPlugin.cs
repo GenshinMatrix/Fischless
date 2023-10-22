@@ -10,7 +10,7 @@ public class DemoPlugin : IPlugin
 {
     public string PluginName => "DemoPlugin";
     public string Description => "DemoDescription";
-    public string Icon => "DemoIcon";
+    public object Icon => "DemoIcon";
     public string Author => "GenshinMatrix";
     public Version Version => new();
     public int Index => default;

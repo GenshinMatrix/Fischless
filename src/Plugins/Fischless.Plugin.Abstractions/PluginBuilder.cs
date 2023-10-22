@@ -10,6 +10,7 @@ public sealed class PluginBuilder
 
     public PluginBuilder(IPlugin plugin)
     {
+        Plugin = plugin;
         PluginPageTypes = plugin.GetType().Assembly.GetExportedTypes()
             .Where(t => typeof(IPluginPage).IsAssignableFrom(t));
     }
