@@ -1,4 +1,6 @@
-﻿namespace Fischless.Native;
+﻿using Vanara.PInvoke;
+
+namespace Fischless.Native;
 
 public static class OsVersionHelper
 {
@@ -52,12 +54,12 @@ public static class OsVersionHelper
     {
         if (versionCache is null)
         {
-            if (NtDllEx.RtlGetVersion(out var osv) != 0)
+            if (NtDll.RtlGetVersion(out NtDll.OSVERSIONINFOW osv) != NTStatus.STATUS_SUCCESS)
             {
                 throw new PlatformNotSupportedException("Setup can only run on Windows.");
             }
 
-            versionCache = new Version(osv.MajorVersion, osv.MinorVersion, osv.BuildNumber, osv.Revision);
+            versionCache = new Version((int)osv.dwMajorVersion, (int)osv.dwMinorVersion, (int)osv.dwBuildNumber, (int)osv.dwPlatformId);
         }
         return versionCache;
     }
