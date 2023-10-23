@@ -62,6 +62,29 @@ public static class RuntimeHelper
         return string.Join(" ", args);
     }
 
+    public static void Restart(string fileName = null!, string dir = null!, string args = null!, int? exitCode = null, bool forced = false)
+    {
+        try
+        {
+            FluentProcess.Create()
+                .FileName(fileName ?? Path.Combine(dir ?? AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName))
+                .Arguments(args ?? ReArguments())
+                .WorkingDirectory(dir ?? Environment.CurrentDirectory)
+                .UseShellExecute()
+                .Start()
+                .Forget();
+        }
+        catch (Win32Exception)
+        {
+            return;
+        }
+        if (forced)
+        {
+            Process.GetCurrentProcess().Kill();
+        }
+        Environment.Exit(exitCode ?? 'r' + 'u' + 'n' + 'a' + 's');
+    }
+
     public static void RestartAsElevated(string fileName = null!, string dir = null!, string args = null!, int? exitCode = null, bool forced = false)
     {
         try

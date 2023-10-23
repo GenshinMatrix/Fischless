@@ -15,14 +15,14 @@ using Windows.System;
 namespace Fischless.Plugin.Demo;
 
 [Export(typeof(IPlugin))]
-public class DisplayDefaultPlugin : IPlugin, IPlugin2
+public class FixRegeditPlugin : IPlugin, IPlugin2
 {
-    public string PluginName => "DisplayDefault";
-    public string Description => "DisplayDefaultHint";
-    public object Icon => IconProvider.GetFontIcon(FontSymbols.DeviceLaptopPic);
+    public string PluginName => "FixRegedit";
+    public string Description => "FixRegeditHint";
+    public object Icon => IconProvider.GetFontIcon(FontSymbols.Read);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);
-    public int Index => 1;
+    public int Index => 0;
     public bool IsShowButton => true;
     public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
 }
@@ -47,9 +47,6 @@ internal partial class ButtonMethod : ObservableObject
     [RelayCommand]
     public async Task GoToAsync()
     {
-        // ms-settings:display
-        // ms-settings:display-advancedgraphics
-        // ms-settings:display-advancedgraphics-default
         await Launcher.LaunchUriAsync(new Uri("ms-settings:display-advancedgraphics"));
     }
 }
