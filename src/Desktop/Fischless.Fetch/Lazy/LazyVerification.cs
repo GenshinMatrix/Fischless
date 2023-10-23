@@ -17,8 +17,8 @@ public static class LazyVerification
 
         if (fvi != null)
         {
-            return fvi.ProductName == "GenshinLazy"
-                && fvi.OriginalFilename == "GenshinLazy.dll"
+            return (fvi.ProductName == "GenshinLazy" || fvi.ProductName == "Fischless.Lazy")
+                && (fvi.OriginalFilename == "GenshinLazy.dll" || fvi.OriginalFilename == "Fischless.Lazy.dll")
                 && fvi.CompanyName == "GenshinMatrix";
         }
         return false;
