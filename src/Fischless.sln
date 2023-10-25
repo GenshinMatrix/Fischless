@@ -64,7 +64,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.ModelViewer", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.DisplayDefault", "Plugins\Fischless.Plugin.DisplayDefault\Fischless.Plugin.DisplayDefault.csproj", "{24B1EFF5-0073-4B6A-83C8-BF4AFB718832}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.FixRegedit", "Plugins\Fischless.Plugin.FixRegedit\Fischless.Plugin.FixRegedit.csproj", "{4737BA93-6AB6-49A6-8EE4-EF46A5613EB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.RepairRegedit", "Plugins\Fischless.Plugin.RepairRegedit\Fischless.Plugin.RepairRegedit.csproj", "{4737BA93-6AB6-49A6-8EE4-EF46A5613EB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,115 @@
+﻿<ui:ContentDialog x:Class="Fischless.Plugin.RepairRegedit.Views.RepairRegeditContentDialog"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:fui="urn:fischless.design"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:ui="http://schemas.modernwpf.com/2019"
+                  xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
+                  Title="修复注册表"
+                  CloseButtonClick="OnCloseButtonClick"
+                  CloseButtonText="关闭"
+                  FontFamily="{DynamicResource TextThemeFontFamily}"
+                  FontSize="14"
+                  PrimaryButtonClick="OnPrimaryButtonClick"
+                  PrimaryButtonText="导出"
+                  SecondaryButtonClick="OnSecondaryButtonClick"
+                  SecondaryButtonText="保存"
+                  Style="{DynamicResource DefaultContentDialogStyle}"
+                  mc:Ignorable="d">
+    <ui:ContentDialog.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </ui:ContentDialog.Resources>
+    <Grid Width="450">
+        <Grid Margin="0,-40,0,0"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              Panel.ZIndex="-999">
+            <Image Width="84"
+                   Opacity="0.5"
+                   Source="/Assets/Images/UI_Icon_GcgBossChallenges_Difficulty.png" />
+        </Grid>
+        <Grid>
+            <StackPanel>
+                <TextBlock FontSize="16">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold"
+                             Foreground="{DynamicResource AccentForeground}"
+                             Text="*" />
+                        <Run Text="服务器" />
+                    </TextBlock.Inlines>
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox MinWidth="200"
+                              Margin="0,4,0,0"
+                              SelectedIndex="{Binding RegionType}">
+                        <ComboBox.Items>
+                            <ComboBoxItem Content="自动" />
+                            <ComboBoxItem Content="国服" />
+                            <ComboBoxItem Content="国际服" />
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <TextBlock Margin="0,16,0,0" FontSize="16">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold"
+                             Foreground="{DynamicResource AccentForeground}"
+                             Text="*" />
+                        <Run Text="注册表路径" />
+                    </TextBlock.Inlines>
+                </TextBlock>
+                <Grid Margin="0,4,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             IsReadOnly="True"
+                             Text="{Binding RegistryKey}" />
+                    <Button Grid.Column="1"
+                            Margin="6,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            BorderBrush="Transparent"
+                            Command="{Binding OpenRegeditCommand}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                             FontSize="16"
+                                             Glyph="{x:Static fui:FontSymbols.OpenInNewWindow}" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+                <TextBlock Margin="0,16,0,0" FontSize="16">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold"
+                             Foreground="{DynamicResource AccentForeground}"
+                             Text="*" />
+                        <Run Text="安装路径" />
+                    </TextBlock.Inlines>
+                </TextBlock>
+                <Grid Margin="6,4,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <wui:TextBox PlaceholderText="C:\Program Files\Genshin Impact" Text="{Binding InstallPath, Mode=TwoWay}" />
+                    <Button Grid.Column="1"
+                            Margin="6,0,0,0"
+                            BorderBrush="Transparent"
+                            Command="{Binding OpenFolderCommand}">
+                        <Button.Content>
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="16"
+                                         Glyph="{x:Static fui:FontSymbols.Folder}" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</ui:ContentDialog>

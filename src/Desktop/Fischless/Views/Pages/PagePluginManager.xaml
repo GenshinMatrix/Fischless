@@ -89,8 +89,7 @@
                                             <TextBlock Foreground="{DynamicResource WindowTitleForeground}">
                                                 <TextBlock.Inlines>
                                                     <Run Text="版本：" />
-                                                    <Run Text="v" />
-                                                    <Run Text="{Binding Version}" />
+                                                    <Run Text="{Binding Version, StringFormat='{}v{0}'}" />
                                                 </TextBlock.Inlines>
                                             </TextBlock>
                                         </StackPanel>

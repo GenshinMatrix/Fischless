@@ -7,85 +7,35 @@ using System.Text;
 
 namespace Fischless.Fetch.Regedit;
 
-public static class GIRegedit
+public  static partial class GIRegedit
 {
-    public static string InstallPath
-    {
-        get
-        {
-            var installPath = InstallPathCN;
-
-            if (string.IsNullOrEmpty(installPath))
-            {
-                installPath = InstallPathOVERSEA;
-            }
-            return installPath;
-        }
-    }
-
-    public static string InstallPathCN => GetInstallPath(GameType.CN);
-
     public static string ProdCN
     {
-        get => GetStringFromRegedit(GIRegeditKeys.PROD_CN, GameType.CN);
-        set => SetStringToRegedit(GIRegeditKeys.PROD_CN, value, GameType.CN);
+        get => GetStringFromRegedit(GIRegeditKeys.PROD_CN, GIGameType.CN);
+        set => SetStringToRegedit(GIRegeditKeys.PROD_CN, value, GIGameType.CN);
     }
-
-    public static string InstallPathOVERSEA => GetInstallPath(GameType.OVERSEA);
 
     public static string ProdOVERSEA
     {
-        get => GetStringFromRegedit(GIRegeditKeys.PROD_OVERSEA, GameType.OVERSEA);
-        set => SetStringToRegedit(GIRegeditKeys.PROD_OVERSEA, value, GameType.OVERSEA);
+        get => GetStringFromRegedit(GIRegeditKeys.PROD_OVERSEA, GIGameType.OVERSEA);
+        set => SetStringToRegedit(GIRegeditKeys.PROD_OVERSEA, value, GIGameType.OVERSEA);
     }
 
     [Obsolete("Unusable")]
     public static string DataCN
     {
-        get => GetStringFromRegedit(GIRegeditKeys.DATA, GameType.CN);
-        set => SetStringToRegedit(GIRegeditKeys.DATA, value, GameType.CN);
+        get => GetStringFromRegedit(GIRegeditKeys.DATA, GIGameType.CN);
+        set => SetStringToRegedit(GIRegeditKeys.DATA, value, GIGameType.CN);
     }
 
     [Obsolete("Unusable")]
     public static string DataOVERSEA
     {
-        get => GetStringFromRegedit(GIRegeditKeys.DATA, GameType.OVERSEA);
-        set => SetStringToRegedit(GIRegeditKeys.DATA, value, GameType.OVERSEA);
+        get => GetStringFromRegedit(GIRegeditKeys.DATA, GIGameType.OVERSEA);
+        set => SetStringToRegedit(GIRegeditKeys.DATA, value, GIGameType.OVERSEA);
     }
 
-    internal static string GetInstallPath(GameType type = GameType.CN)
-    {
-        try
-        {
-            using RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
-            RegistryKey? key = hklm.OpenSubKey(type.GetRegUninstallName());
-
-            if (key == null)
-            {
-                key = hklm.OpenSubKey(type.GetRegUninstallName());
-
-                if (key == null)
-                {
-                    return null!;
-                }
-            }
-
-            object installLocation = key.GetValue("InstallPath")!;
-            key?.Dispose();
-
-            if (installLocation != null && !string.IsNullOrEmpty(installLocation.ToString()))
-            {
-                return installLocation.ToString()!;
-            }
-        }
-        catch
-        {
-            throw;
-        }
-        return null!;
-    }
-
-    internal static string GetStringFromRegedit(string key, GameType type = GameType.CN)
+    public static string GetStringFromRegedit(string key, GIGameType type = GIGameType.CN)
     {
         if (RuntimeHelper.IsElevated)
         {
@@ -126,7 +76,7 @@ public static class GIRegedit
         return null!;
     }
 
-    internal static string GetStringFromRegeditDirect(string key, GameType type = GameType.CN)
+    public static string GetStringFromRegeditDirect(string key, GIGameType type = GIGameType.CN)
     {
         object? value = Registry.GetValue(type.GetRegKeyName(), key, string.Empty);
 
@@ -137,7 +87,7 @@ public static class GIRegedit
         return null!;
     }
 
-    internal static void SetStringToRegedit(string key, string value, GameType type = GameType.CN)
+    public static void SetStringToRegedit(string key, string value, GIGameType type = GIGameType.CN)
     {
         if (RuntimeHelper.IsElevated)
         {
@@ -166,47 +116,35 @@ public static class GIRegedit
         }
     }
 
-    internal static void SetStringToRegeditDirect(string key, string value, GameType type = GameType.CN)
+    public static void SetStringToRegeditDirect(string key, string value, GIGameType type = GIGameType.CN)
     {
         Registry.SetValue(GetRegKeyName(type), key, Encoding.UTF8.GetBytes(value));
     }
 
-    internal static string GetRegKey(this GameType type)
+    public static string GetRegKey(this GIGameType type)
     {
         return type switch
         {
-            GameType.OVERSEA => GIRegeditKeys.PROD_OVERSEA,
-            GameType.CNCloud => GIRegeditKeys.PROD_CNCloud,
-            GameType.CN or _ => GIRegeditKeys.PROD_CN,
+            GIGameType.OVERSEA => GIRegeditKeys.PROD_OVERSEA,
+            GIGameType.CNCloud => GIRegeditKeys.PROD_CNCloud,
+            GIGameType.CN or _ => GIRegeditKeys.PROD_CN,
         };
     }
 
-    internal static string GetRegKeyName(this GameType type)
+    public static string GetRegKeyName(this GIGameType type)
     {
-        return @"HKEY_CURRENT_USER\SOFTWARE\miHoYo\" + ParseGameType(type);
+        return @$"{GIRegeditKeys.HKEY_CURRENT_USER}\SOFTWARE\miHoYo\" + ParseGameType(type);
     }
 
-    internal static string GetRegUninstallName(this GameType type)
-    {
-        return @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\" + ParseGameType(type);
-    }
-
-    internal static string ParseGameType(this GameType type)
+    public static string ParseGameType(this GIGameType type)
     {
         return type switch
         {
-            GameType.OVERSEA => GIRegeditKeys.OVERSEA,
-            GameType.CNCloud => GIRegeditKeys.CNCloud,
-            GameType.CN or _ => GIRegeditKeys.CN,
+            GIGameType.OVERSEA => GIRegeditKeys.OVERSEA,
+            GIGameType.CNCloud => GIRegeditKeys.CNCloud,
+            GIGameType.CN or _ => GIRegeditKeys.CN,
         };
     }
-}
-
-internal enum GameType
-{
-    CN,
-    OVERSEA,
-    CNCloud,
 }
 
 file static class RuntimeHelper
