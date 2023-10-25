@@ -3,11 +3,11 @@ using CommunityToolkit.Mvvm.Input;
 using Fischless.Design.Controls;
 using Fischless.Helpers;
 using Fischless.Mapper;
-using Fischless.ModelViewer;
 using Fischless.Mvvm;
 using Fischless.Plugin.Abstractions;
 using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,7 +62,13 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
 
             try
             {
-                // TODO: Check assembly
+                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(dialog.FileName);
+
+                if (string.IsNullOrEmpty(fvi.FileVersion))
+                {
+                    Toast.Error("插件不合法");
+                    return;
+                }
             }
             catch (Exception e)
             {
@@ -72,7 +78,7 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
 
             try
             {
-                File.Move(dialog.FileName, Path.Combine(folderPath, fileInfo.Name));
+                File.Copy(dialog.FileName, Path.Combine(folderPath, fileInfo.Name));
             }
             catch (Exception e)
             {
