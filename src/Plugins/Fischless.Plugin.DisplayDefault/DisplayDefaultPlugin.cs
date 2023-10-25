@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Design.Controls;
+using Fischless.Globalization;
 using Fischless.Plugin.Abstractions;
 using ModernWpf.Controls;
 using System.ComponentModel.Composition;
@@ -17,8 +18,8 @@ namespace Fischless.Plugin.Demo;
 [Export(typeof(IPlugin))]
 public class DisplayDefaultPlugin : IPlugin, IPlugin2
 {
-    public string PluginName => "DisplayDefault";
-    public string Description => "DisplayDefaultHint";
+    public string PluginName => MuiLanguage.Mui("DisplayDefault");
+    public string Description => MuiLanguage.Mui("DisplayDefaultHint");
     public object Icon => IconProvider.GetFontIcon(FontSymbols.DeviceLaptopPic);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);

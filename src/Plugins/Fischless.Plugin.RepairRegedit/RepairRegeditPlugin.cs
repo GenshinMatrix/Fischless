@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Design.Controls;
+using Fischless.Globalization;
 using Fischless.Plugin.Abstractions;
 using Fischless.Plugin.RepairRegedit.Views;
 using ModernWpf.Controls;
@@ -17,8 +18,8 @@ namespace Fischless.Plugin.RepairRegedit;
 [Export(typeof(IPlugin))]
 public class RepairRegeditPlugin : IPlugin, IPlugin2
 {
-    public string PluginName => "RepairRegedit";
-    public string Description => "RepairRegeditHint";
+    public string PluginName => MuiLanguage.Mui("RepairRegedit");
+    public string Description => MuiLanguage.Mui("RepairRegeditHint");
     public object Icon => IconProvider.GetFontIcon(FontSymbols.Rename);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);

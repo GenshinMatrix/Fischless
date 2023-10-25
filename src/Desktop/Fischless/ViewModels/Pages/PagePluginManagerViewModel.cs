@@ -118,7 +118,7 @@ public partial class PluginViewModel : ObservableRecipient
     private ICommand buttonCommand;
 
     [ObservableProperty]
-    private bool isInternalPlugin = false;
+    private bool isOfficial = false;
 
     public PluginViewModel(object plugin)
     {
@@ -128,10 +128,7 @@ public partial class PluginViewModel : ObservableRecipient
 
             if (plugin1.GetType().Assembly.GetCustomAttributes(typeof(FischlessInternalPluginAttribute), false).Any())
             {
-                IsInternalPlugin = true;
-
-                PluginName = Mui(PluginName);
-                Description = Mui(Description);
+                IsOfficial = true;
             }
         }
         if (plugin is IPlugin2 plugin2)
