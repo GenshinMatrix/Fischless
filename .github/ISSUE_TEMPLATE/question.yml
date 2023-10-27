@@ -1,0 +1,48 @@
+name: I have a problem | 我有问题
+description: Please fill in your question according to the template | 请按照模板填写你的问题
+title: Your title | 你的标题
+labels:
+  - question
+body:
+- type: textarea
+  id: description
+  validations:
+    required: true
+  attributes:
+    label: Problem Description | 问题描述
+- type: textarea
+  id: repro-steps
+  validations:
+    required: true
+  attributes:
+    label: Reproduction steps | 复现步骤
+    description: Steps for reproducing problems | 复现问题的操作步骤
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Screenshot | 截图
+    description: Submitting screenshots is more helpful in analyzing problems | 提交截图更有助于分析问题
+- type: input
+  id: system-version
+  validations:
+    required: true
+  attributes:
+    label: System version | 系统版本
+    description: Accurate to version number, such as Windows 11 23H2 | 精确到版本号，如 Windows 11 23H2
+- type: input
+  id: fischless-version
+  validations:
+    required: true
+  attributes:
+    label: Fischless Version | 永夜真梦版本
+    description: Feedback on issues after updating to the latest version | 更新到最新版后再反馈问题
+- type: textarea
+  id: log-info
+  attributes:
+    label: Log | 日志
+    description: Log folder | 日志路径 C:\Users\UserName\AppData\Local\Fischless\log
+- type: textarea     
+  id: additional-context
+  attributes:
+    label: Remarks | 备注
+    description: Add anything necessary | 添加你认为有必要的信息

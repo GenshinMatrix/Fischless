@@ -1,3 +1,8 @@
+・[English](README.en.md) ・[中文](README.md) ・[日本語](README.jp.md)
+
+[![GitHub downloads](https://img.shields.io/github/downloads/genshin-matrix/Fischless/total)](https://github.com/genshin-matrix/Fischless/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/genshin-matrix/Fischless/latest/total)](https://github.com/genshin-matrix/Fischless/releases)
+
 # 永夜真梦
 
 > Fischless
