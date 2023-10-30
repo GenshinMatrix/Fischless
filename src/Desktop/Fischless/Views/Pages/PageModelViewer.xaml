@@ -70,7 +70,7 @@
                     </StackPanel>
                     <TextBlock Margin="0,10,0,0"
                                Foreground="{DynamicResource WindowTitleForeground}"
-                               Text="Click here to select a DMM file or drop down it here ..." />
+                               Text="{DynamicResource ModelViewerClickOrDropHint}" />
                 </StackPanel>
             </Button.Content>
         </Button>

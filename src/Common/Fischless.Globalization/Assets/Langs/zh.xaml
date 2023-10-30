@@ -32,6 +32,7 @@
     <s:String x:Key="DisplayDefaultHint">打开系统图形设置</s:String>
     <s:String x:Key="RepairRegedit">修复注册表</s:String>
     <s:String x:Key="RepairRegeditHint">修复游戏注册表安装信息</s:String>
+    <s:String x:Key="ModelViewerClickOrDropHint">点击此处选择DMM文件或将其拖放到此处...</s:String>
 
     <s:String x:Key="AvatarNameOfWriothesley">莱欧斯利</s:String>
     <s:String x:Key="AvatarNameOfPlayerBoy">空</s:String>
@@ -77,7 +78,7 @@
     <s:String x:Key="AvatarNameOfShougun">雷电将军</s:String>
     <s:String x:Key="AvatarNameOfKokomi">珊瑚宫心海</s:String>
     <s:String x:Key="AvatarNameOfTohma">托马</s:String>
-    <s:String x:Key="AvatarNameOfGorou">戎犬锵锵</s:String>
+    <s:String x:Key="AvatarNameOfGorou">五郎</s:String>
     <s:String x:Key="AvatarNameOfItto">荒泷一斗</s:String>
     <s:String x:Key="AvatarNameOfYunjin">云堇</s:String>
     <s:String x:Key="AvatarNameOfShenhe">申鹤</s:String>
