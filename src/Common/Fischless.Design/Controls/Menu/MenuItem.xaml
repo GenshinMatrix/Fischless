@@ -262,7 +262,7 @@
                     Margin="4,1,4,1"
                     BorderThickness="1"
                     CornerRadius="4">
-                <Grid x:Name="MenuItemContent" Margin="8,6,8,6">
+                <Grid x:Name="MenuItemContent" Margin="11,6,11,6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
@@ -270,7 +270,7 @@
                     </Grid.ColumnDefinitions>
                     <ContentPresenter x:Name="Icon"
                                       Grid.Column="0"
-                                      Margin="0,0,6,0"
+                                      Margin="-3,0,6,0"
                                       VerticalAlignment="Center"
                                       Content="{TemplateBinding Icon}" />
 
@@ -281,7 +281,6 @@
 
                     <Grid Grid.Column="2">
                         <controls:SymbolIcon x:Name="Chevron"
-                                             Margin="0,3,0,0"
                                              VerticalAlignment="Center"
                                              FontSize="{TemplateBinding FontSize}"
                                              Symbol="ChevronRight20" />
@@ -297,7 +296,7 @@
                    Placement="Right"
                    PlacementTarget="{Binding ElementName=MenuItemContent}"
                    PopupAnimation="None"
-                   VerticalOffset="-20">
+                   VerticalOffset="-18">
                 <Grid>
                     <Border x:Name="SubmenuBorder"
                             Margin="12,10,12,18"
@@ -677,7 +676,7 @@
                     Margin="4,1,4,1"
                     BorderThickness="1"
                     CornerRadius="4">
-                <Grid x:Name="MenuItemContent" Margin="8,6,8,6">
+                <Grid x:Name="MenuItemContent" Margin="11,6,11,6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
@@ -687,7 +686,7 @@
 
                     <ContentControl x:Name="IconElement"
                                     Grid.Column="0"
-                                    Margin="0,0,6,0"
+                                    Margin="-3,0,6,0"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Icon}"
                                     FontSize="16" />
@@ -699,7 +698,6 @@
 
                     <Grid Grid.Column="3">
                         <controls:SymbolIcon x:Name="Chevron"
-                                             Margin="0,3,0,0"
                                              VerticalAlignment="Center"
                                              FontSize="14"
                                              Symbol="ChevronRight20" />
@@ -715,7 +713,7 @@
                    Placement="Right"
                    PlacementTarget="{Binding ElementName=MenuItemContent}"
                    PopupAnimation="None"
-                   VerticalOffset="-20">
+                   VerticalOffset="-18">
                 <Grid>
                     <Border x:Name="SubmenuBorder"
                             Margin="12,10,12,18"
