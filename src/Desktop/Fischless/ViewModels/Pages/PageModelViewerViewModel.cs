@@ -25,7 +25,7 @@ public partial class PageModelViewerViewModel : ObservableRecipient
     {
         OpenFileDialog dialog = new()
         {
-            Title = "选择DMM模型文件",
+            Title = Mui("ModelViewerSelectDMM"),
             Filter = "DMM(*.pmx,*.zip,*.7z,*.rar)|*.pmx;*.zip;*.7z;*.rar",
             RestoreDirectory = true,
             DefaultExt = "pmx",

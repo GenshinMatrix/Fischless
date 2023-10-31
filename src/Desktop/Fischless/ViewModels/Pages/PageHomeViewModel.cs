@@ -147,7 +147,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning($"请选择要启动的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToLaunch"));
             return;
         }
         CancelLaunchGameFromListWithDelay();
@@ -159,7 +159,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning("请选择要启动的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToLaunch"));
             return;
         }
         await Task.Delay(180000, (CancelLaunchGameDelayTokenSource ??= new()).Token);
@@ -180,7 +180,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning("请选择要启动的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToLaunch"));
             return;
         }
 
@@ -241,17 +241,17 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning($"请选择要刷新的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToRefresh"));
             return;
         }
         if (string.IsNullOrWhiteSpace(SelectedItem.Contact.Cookie))
         {
-            Toast.Warning($"选中账号无 Cookie 信息");
+            Toast.Warning(Mui("LaunchGameSelectAccountNoCookie"));
             return;
         }
         if (!SelectedItem.Contact.IsUseCookie)
         {
-            Toast.Warning($"选中账号未启用 Cookie 使用");
+            Toast.Warning(Mui("LaunchGameSelectAccountDisCookie"));
             return;
         }
         await SelectedItem.FetchAllAsync();
@@ -262,7 +262,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning("请选择要复制的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToCopy"));
             return;
         }
 
@@ -273,7 +273,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             try
             {
                 Clipboard.SetText(uid);
-                Toast.Information($"角色UID:{uid}已复制到剪贴板");
+                Toast.Information(Mui("LaunchGameUidCopied", uid));
             }
             catch (Exception e)
             {
@@ -282,7 +282,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
         }
         else
         {
-            Toast.Warning("选中账号无 Cookie 信息");
+            Toast.Warning(Mui("LaunchGameSelectAccountNoCookie"));
             return;
         }
     }
@@ -292,7 +292,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning($"请选择要复制的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToCopy"));
             return;
         }
 
@@ -308,11 +308,11 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             {
                 Log.Warning(e.ToString());
             }
-            Toast.Information($"Cookie 已复制到剪贴板");
+            Toast.Information(Mui("LaunchGameCookieCopied"));
         }
         else
         {
-            Toast.Warning($"选中账号无 Cookie 信息");
+            Toast.Warning(Mui("LaunchGameSelectAccountNoCookie"));
             return;
         }
     }
@@ -322,7 +322,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning($"请选择要编辑的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToEdit"));
             return;
         }
 
@@ -340,11 +340,11 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         if (SelectedItem == null)
         {
-            Toast.Warning("请选择要删除的账号");
+            Toast.Warning(Mui("LaunchGamePleaseSelectAccountToDelete"));
             return;
         }
 
-        if (MessageBoxX.Question($"是否确定要删除账号“{SelectedItem.Contact.AliasName}”？", "删除账号") == MessageBoxResult.Yes)
+        if (MessageBoxX.Question(Mui("LaunchGameDeleteAccountHint", SelectedItem.Contact.AliasName), Mui("LaunchGameDeleteAccount")) == MessageBoxResult.Yes)
         {
             await AddOrUpdateContactAsync(new ContactMessage()
             {
@@ -363,7 +363,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
             ContactViewModel vm = new(message.Contact);
             contacts.Add(message.Contact);
             Contacts.Add(vm);
-            Toast.Success($"添加 {message.Contact.AliasName} 成功");
+            Toast.Success(Mui("LaunchGameAddAccountSuccessed", message.Contact.AliasName));
             if (!string.IsNullOrWhiteSpace(message.Contact.Cookie) && message.Contact.IsUseCookie)
             {
                 await vm.FetchAllAsync();

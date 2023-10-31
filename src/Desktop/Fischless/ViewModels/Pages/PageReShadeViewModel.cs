@@ -237,7 +237,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 }
             }
 
-            Toast.Success("已删除至回收站");
+            Toast.Success(Mui("ReShadeRemovedToRecycleBin"));
         }
     }
 
@@ -354,11 +354,11 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
         CommonOpenFileDialog dialog = new()
         {
+            Title = Mui("ReShadeSelectFolder"),
             IsFolderPicker = true,
             RestoreDirectory = true,
             InitialDirectory = Configurations.ReShadePath.Get(),
             DefaultDirectory = Configurations.ReShadePath.Get(),
-            Title = "选择 3DMigoto 目录"
         };
 
         if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
@@ -367,8 +367,8 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
             if (!File.Exists(Path.Combine(selectedDirectory, LoaderExe)))
             {
-                Toast.Warning($"{LoaderExe} 不存在");
-                MessageBoxX.Error("请选择 3DMigoto 目录");
+                Toast.Warning(Mui("ReShadeLoaderExeNotExists", LoaderExe));
+                MessageBoxX.Error(Mui("ReShadeSelectFolder"));
                 return;
             }
             
@@ -376,7 +376,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             {
                 OpenFileDialog dialog = new()
                 {
-                    Title = $"选择 {GILauncher.FileNameCN} 或 {GILauncher.FileNameOVERSEA}",
+                    Title = Mui("LaunchGameSelectGamePathHint", GILauncher.FileNameCN, GILauncher.FileNameOVERSEA),
                     RestoreDirectory = true,
                     InitialDirectory = new FileInfo(Configurations.GamePath.Get()).DirectoryName,
                     FileName = Configurations.GamePath.Get(),
@@ -393,7 +393,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
             Configurations.ReShadePath.Set(selectedDirectory);
             ConfigurationManager.Save();
-            Toast.Success("设定成功");
+            Toast.Success(Mui("SetSuccessfully"));
             Refresh();
         }
     }
@@ -411,7 +411,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
         if (count <= 0)
         {
-            Toast.Success("无需操作");
+            Toast.Success(Mui("UnneedOperation"));
             return;
         }
 
@@ -419,13 +419,13 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
         Log.Debug(string.Join(Environment.NewLine, AvatarList.Where(list => list.IsEnabled).Select(list => list.FolderName)));
 #endif
 
-        if (MessageBoxX.Question($"是否取消当前列表中 {count} 个选中项？") == MessageBoxResult.Yes)
+        if (MessageBoxX.Question(Mui("ReShadeMultiUnselectedHint", count)) == MessageBoxResult.Yes)
         {
             foreach (var item in AvatarList)
             {
                 item.IsEnabled = false;
             }
-            Toast.Success("操作成功");
+            Toast.Success(Mui("OperationSuccessfully"));
         }
     }
 

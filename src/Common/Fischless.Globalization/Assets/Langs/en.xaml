@@ -2,14 +2,19 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
 
+    <!--  Punctuation  -->
     <s:String x:Key="__LeftParenthesis__">(</s:String>
     <s:String x:Key="__RightParenthesis__">)</s:String>
     <s:String x:Key="__Colon__" xml:space="preserve">: </s:String>
+
+    <!--  Design  -->
     <s:String x:Key="Loading">Loading</s:String>
     <s:String x:Key="MessageBoxCaptionInfo">Info</s:String>
     <s:String x:Key="MessageBoxCaptionWarn">Warn</s:String>
     <s:String x:Key="MessageBoxCaptionQuestion">Question</s:String>
     <s:String x:Key="MessageBoxCaptionError">Error</s:String>
+
+    <!--  About  -->
     <s:String x:Key="AutoMute">Auto Mute</s:String>
     <s:String x:Key="Exit">Exit</s:String>
     <s:String x:Key="Restart">Restart</s:String>
@@ -18,8 +23,10 @@
     <s:String x:Key="CheckUpdate">Check for updates</s:String>
     <s:String x:Key="PrivacyPolicy">Privacy Policy</s:String>
     <s:String x:Key="LicenseInfo">License</s:String>
-    <s:String x:Key="CopySuccessfully">Successfully copied</s:String>
-    <s:String x:Key="CopyFailed">Copy failed</s:String>
+    <s:String x:Key="CreateDesktopShortcut">创建桌面快捷方式</s:String>
+
+    <!--  Navi  -->
+    <s:String x:Key="Fischless">Fischless</s:String>
     <s:String x:Key="Home">Home</s:String>
     <s:String x:Key="GlobalSettings">Global Settings</s:String>
     <s:String x:Key="CopyVersionInfo">Copy version information</s:String>
@@ -27,13 +34,85 @@
     <s:String x:Key="ReShade">ReShade</s:String>
     <s:String x:Key="ModelViewer">Model Viewer</s:String>
     <s:String x:Key="PluginManager">Plugin Manager</s:String>
-    <s:String x:Key="Fischless">Fischless</s:String>
+
+    <!--  General  -->
+    <s:String x:Key="On">On</s:String>
+    <s:String x:Key="Off">Off</s:String>
+    <s:String x:Key="Save">Save</s:String>
+    <s:String x:Key="Close">Close</s:String>
+    <s:String x:Key="Cancel">Cancel</s:String>
+    <s:String x:Key="Detail">Detail</s:String>
+    <s:String x:Key="CopySuccessfully">Successfully copied</s:String>
+    <s:String x:Key="CopyFailed">Copy failed</s:String>
+    <s:String x:Key="SetSuccessfully">Set　Successfully</s:String>
+    <s:String x:Key="UnneedOperation">Unneed Operate</s:String>
+    <s:String x:Key="OperationSuccessfully">Operation Successfully</s:String>
+    <s:String x:Key="CreationFailed">Creation Failed</s:String>
+
+    <!--  Plugin  -->
     <s:String x:Key="DisplayDefault">Display Settings</s:String>
     <s:String x:Key="DisplayDefaultHint">Open the System Display Settings</s:String>
     <s:String x:Key="RepairRegedit">Repair Regedit</s:String>
     <s:String x:Key="RepairRegeditHint">Repair Game Regedit about installtion.</s:String>
+
+    <!--  Home Launch  -->
+    <s:String x:Key="LaunchGameSelectGamePathHint">Select {0} or {1}</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToLaunch">请选择要启动的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToRefresh">请选择要启动的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToCopy">请选择要复制的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToEdit">请选择要编辑的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToDelete">请选择要删除的账号</s:String>
+    <s:String x:Key="LaunchGameSelectAccountNoCookie">选中账号无 Cookie 信息</s:String>
+    <s:String x:Key="LaunchGameSelectAccountDisCookie">选中账号未启用 Cookie 使用</s:String>
+    <s:String x:Key="LaunchGameUidCopied">Your UID:{0} was copied to clipboard</s:String>
+    <s:String x:Key="LaunchGameCookieCopied">Cookie 已复制到剪贴板</s:String>
+    <s:String x:Key="LaunchGameDeleteAccount">Delete Account</s:String>
+    <s:String x:Key="LaunchGameDeleteAccountHint">是否确定要删除账号“{0}”？</s:String>
+    <s:String x:Key="LaunchGameAddAccountSuccessed">Add {0} Successfully</s:String>
+    <s:String x:Key="LaunchGameSettingsTitle">Functions Settings</s:String>
+    <s:String x:Key="LaunchGameSettingsGamePath">Game　Path</s:String>
+    <s:String x:Key="LaunchGameSettingsGameResolution">Resolution</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFullScreen">FullScreen</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFps">Unlock FPS</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFpsHint">以注入渲染引擎方式调整帧率</s:String>
+    <s:String x:Key="LaunchGameSettingsPotentialRisks">Potential Risks</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableDetectAccountGaming">启用识别账号是否</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableDetectAccountGamingHint">很智能但消耗少量资源轮询检测</s:String>
+    <s:String x:Key="LaunchGamePlayingGame">Playing</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableLazy">Enable Lazy</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">Private</s:String>
+    <s:String x:Key="LazySearchRecord">Search Record</s:String>
+    <s:String x:Key="LazySetupToken">Setup Token</s:String>
+    <s:String x:Key="LazySearchRecordFailedTitle">查看记录失败</s:String>
+    <s:String x:Key="LazySearchRecordFailedHint">请保证服务器令牌路径正确后重试</s:String>
+    <s:String x:Key="LazySetupNoTokenTitle">未探测到接入服务器令牌</s:String>
+    <s:String x:Key="LazySetupNoTokenHint">请查阅组件使用说明设定好令牌后重试</s:String>
+    <s:String x:Key="LazyTestTokenTitle">测试服务器令牌</s:String>
+    <s:String x:Key="LazyTestTokenPassHint">测试通过：耗时 {0} 毫秒</s:String>
+    <s:String x:Key="LazyTestTokenFailHint">测试失败：令牌有误或网络环境欠佳</s:String>
+    <s:String x:Key="LazyPleaseInputTokenHint">请输入令牌</s:String>
+    <s:String x:Key="LazyTokenErrorHint">Token Error</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShade">Enable ReShade</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShadeSilent">Silent Mode</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">Needs UAC Permissions</s:String>
+
+    <!--  Model Viewer  -->
+    <s:String x:Key="ModelViewerSelectDMM">选择DMM模型文件</s:String>
     <s:String x:Key="ModelViewerClickOrDropHint">Click here to select a DMM file or drop down it here ...</s:String>
 
+    <!--  Plugin Manager  -->
+    <s:String x:Key="PluginManagerSelectPlugin">Select Plugin</s:String>
+    <s:String x:Key="PluginManagerPlugin">Plugin</s:String>
+    <s:String x:Key="PluginManagerPluginIllegal">Illegal Plugin</s:String>
+    <s:String x:Key="PluginManagerInstallNeedRestartHint">Take effect after App Restart. Restarted immediately?</s:String>
+
+    <!--  ReShade  -->
+    <s:String x:Key="ReShadeRemovedToRecycleBin">已删除至回收站</s:String>
+    <s:String x:Key="ReShadeSelectFolder">Select 3DMigoto Folder</s:String>
+    <s:String x:Key="ReShadeLoaderExeNotExists">{0} Not Exists</s:String>
+    <s:String x:Key="ReShadeMultiUnselectedHint">是否取消当前列表中 {0} 个选中项？</s:String>
+
+    <!--  Avatar  -->
     <s:String x:Key="AvatarNameOfWriothesley">Wriothesley</s:String>
     <s:String x:Key="AvatarNameOfPlayerBoy">Aether</s:String>
     <s:String x:Key="AvatarNameOfPlayerGirl">Lumine</s:String>

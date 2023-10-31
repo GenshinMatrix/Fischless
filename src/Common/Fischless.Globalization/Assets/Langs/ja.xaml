@@ -2,14 +2,19 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
 
+    <!--  Punctuation  -->
     <s:String x:Key="__LeftParenthesis__">「</s:String>
     <s:String x:Key="__RightParenthesis__">」</s:String>
     <s:String x:Key="__Colon__">：</s:String>
+
+    <!--  Design  -->
     <s:String x:Key="Loading">ローディング</s:String>
     <s:String x:Key="MessageBoxCaptionInfo">ヒント</s:String>
     <s:String x:Key="MessageBoxCaptionWarn">警告</s:String>
     <s:String x:Key="MessageBoxCaptionQuestion">質問</s:String>
     <s:String x:Key="MessageBoxCaptionError">エラー</s:String>
+
+    <!--  About  -->
     <s:String x:Key="AutoMute">自動ミュート</s:String>
     <s:String x:Key="Exit">終了</s:String>
     <s:String x:Key="Restart">再起動</s:String>
@@ -18,8 +23,10 @@
     <s:String x:Key="CheckUpdate">アップデートを確認</s:String>
     <s:String x:Key="PrivacyPolicy">プライバシーポリシー</s:String>
     <s:String x:Key="LicenseInfo">ライセンス情報</s:String>
-    <s:String x:Key="CopySuccessfully">コピー成功</s:String>
-    <s:String x:Key="CopyFailed">コピー失敗</s:String>
+    <s:String x:Key="CreateDesktopShortcut">创建桌面快捷方式</s:String>
+
+    <!--  Navi  -->
+    <s:String x:Key="Fischless">極夜の真夢</s:String>
     <s:String x:Key="Home">ホームページ</s:String>
     <s:String x:Key="GlobalSettings">グローバル設定</s:String>
     <s:String x:Key="CopyVersionInfo">バージョン情報をコピー</s:String>
@@ -27,13 +34,85 @@
     <s:String x:Key="ReShade">幽夜浄土</s:String>
     <s:String x:Key="ModelViewer">モデルビュアー</s:String>
     <s:String x:Key="PluginManager">プラグイン</s:String>
-    <s:String x:Key="Fischless">極夜の真夢</s:String>
+
+    <!--  General  -->
+    <s:String x:Key="On">オン</s:String>
+    <s:String x:Key="Off">オフ</s:String>
+    <s:String x:Key="Save">セーブ</s:String>
+    <s:String x:Key="Close">閉じる</s:String>
+    <s:String x:Key="Cancel">キャンセル</s:String>
+    <s:String x:Key="Detail">詳細</s:String>
+    <s:String x:Key="CopySuccessfully">コピー成功</s:String>
+    <s:String x:Key="CopyFailed">コピー失敗</s:String>
+    <s:String x:Key="SetSuccessfully">設定成功</s:String>
+    <s:String x:Key="UnneedOperation">操作不要</s:String>
+    <s:String x:Key="OperationSuccessfully">操作成功</s:String>
+    <s:String x:Key="CreationFailed">新規失敗</s:String>
+
+    <!--  Plugin  -->
     <s:String x:Key="DisplayDefault">グラフィック設定</s:String>
     <s:String x:Key="DisplayDefaultHint">システムのグラフィック設定を開く</s:String>
     <s:String x:Key="RepairRegedit">レジストリの修復</s:String>
     <s:String x:Key="RepairRegeditHint">ゲームのレジストリのインストール情報を修復</s:String>
-    <s:String x:Key="ModelViewerClickOrDropHint">ここをクリックしてDMMファイルを選択、またはそれをドロップダウン...</s:String>
 
+    <!--  Home Launch  -->
+    <s:String x:Key="LaunchGameSelectGamePathHint">{0} または {1} を選択</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToLaunch">请选择要启动的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToRefresh">请选择要启动的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToCopy">请选择要复制的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToEdit">请选择要编辑的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToDelete">请选择要删除的账号</s:String>
+    <s:String x:Key="LaunchGameSelectAccountNoCookie">选中账号无 Cookie 信息</s:String>
+    <s:String x:Key="LaunchGameSelectAccountDisCookie">选中账号未启用 Cookie 使用</s:String>
+    <s:String x:Key="LaunchGameUidCopied">角色UID:{0}已复制到剪贴板</s:String>
+    <s:String x:Key="LaunchGameCookieCopied">Cookie 已复制到剪贴板</s:String>
+    <s:String x:Key="LaunchGameDeleteAccount">删除账号</s:String>
+    <s:String x:Key="LaunchGameDeleteAccountHint">是否确定要删除账号“{0}”？</s:String>
+    <s:String x:Key="LaunchGameAddAccountSuccessed">{0} を追加成功</s:String>
+    <s:String x:Key="LaunchGameSettingsTitle">機能設定</s:String>
+    <s:String x:Key="LaunchGameSettingsGamePath">ゲームパス</s:String>
+    <s:String x:Key="LaunchGameSettingsGameResolution">解像度</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFullScreen">フルスクリーン</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFps">FPSアンロック</s:String>
+    <s:String x:Key="LaunchGameSettingsGameFpsHint">以注入渲染引擎方式调整帧率</s:String>
+    <s:String x:Key="LaunchGameSettingsPotentialRisks">潜在リスク</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableDetectAccountGaming">启用识别账号是否</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableDetectAccountGamingHint">很智能但消耗少量资源轮询检测</s:String>
+    <s:String x:Key="LaunchGamePlayingGame">ゲーム中</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableLazy">启用世界任务组件</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">私有组件</s:String>
+    <s:String x:Key="LazySearchRecord">查看记录</s:String>
+    <s:String x:Key="LazySetupToken">设定令牌</s:String>
+    <s:String x:Key="LazySearchRecordFailedTitle">查看记录失败</s:String>
+    <s:String x:Key="LazySearchRecordFailedHint">请保证服务器令牌路径正确后重试</s:String>
+    <s:String x:Key="LazySetupNoTokenTitle">未探测到接入服务器令牌</s:String>
+    <s:String x:Key="LazySetupNoTokenHint">请查阅组件使用说明设定好令牌后重试</s:String>
+    <s:String x:Key="LazyTestTokenTitle">测试服务器令牌</s:String>
+    <s:String x:Key="LazyTestTokenPassHint">测试通过：耗时 {0} 毫秒</s:String>
+    <s:String x:Key="LazyTestTokenFailHint">测试失败：令牌有误或网络环境欠佳</s:String>
+    <s:String x:Key="LazyPleaseInputTokenHint">トークンを入力ください</s:String>
+    <s:String x:Key="LazyTokenErrorHint">トークンエラー</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShade">启用幽夜净土组件</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShadeSilent">サイレントモード</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">UAC権限必要</s:String>
+
+    <!--  Model Viewer  -->
+    <s:String x:Key="ModelViewerSelectDMM">ＤＭＭモデルファイルを選択</s:String>
+    <s:String x:Key="ModelViewerClickOrDropHint">ここをクリックしてＤＭＭファイルを選択、またはそれをドロップダウン...</s:String>
+
+    <!--  Plugin Manager  -->
+    <s:String x:Key="PluginManagerSelectPlugin">プラグインを選択</s:String>
+    <s:String x:Key="PluginManagerPlugin">プラグイン</s:String>
+    <s:String x:Key="PluginManagerPluginIllegal">無効なプラグイン</s:String>
+    <s:String x:Key="PluginManagerInstallNeedRestartHint">需要应用重启后生效，是否立即重启应用？</s:String>
+
+    <!--  ReShade  -->
+    <s:String x:Key="ReShadeRemovedToRecycleBin">已删除至回收站</s:String>
+    <s:String x:Key="ReShadeSelectFolder">选择 3DMigoto 目录</s:String>
+    <s:String x:Key="ReShadeLoaderExeNotExists">{0} 不存在</s:String>
+    <s:String x:Key="ReShadeMultiUnselectedHint">是否取消当前列表中 {0} 个选中项？</s:String>
+
+    <!--  Avatar  -->
     <s:String x:Key="AvatarNameOfWriothesley">リオセスリ</s:String>
     <s:String x:Key="AvatarNameOfPlayerBoy">空</s:String>
     <s:String x:Key="AvatarNameOfPlayerGirl">蛍</s:String>

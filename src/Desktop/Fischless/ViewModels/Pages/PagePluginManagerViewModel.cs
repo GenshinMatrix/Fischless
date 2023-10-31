@@ -45,8 +45,8 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
     {
         OpenFileDialog dialog = new()
         {
-            Title = "选择插件",
-            Filter = "插件(*.dll)|*.dll",
+            Title = Mui("PluginManagerSelectPlugin"),
+            Filter = Mui("PluginManagerPlugin") + "(*.dll)|*.dll",
             RestoreDirectory = true,
             DefaultExt = "dll",
         };
@@ -66,7 +66,7 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
 
                 if (string.IsNullOrEmpty(fvi.FileVersion))
                 {
-                    Toast.Error("插件不合法");
+                    Toast.Error(Mui("PluginManagerPluginIllegal"));
                     return;
                 }
             }
@@ -86,7 +86,7 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
                 return;
             }
 
-            if (MessageBoxX.Question("需要应用重启后生效，是否立即重启应用？") == MessageBoxResult.Yes)
+            if (MessageBoxX.Question(Mui("PluginManagerInstallNeedRestartHint")) == MessageBoxResult.Yes)
             {
                 RuntimeHelper.Restart(forced: true);
             }

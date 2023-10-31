@@ -47,7 +47,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
         OpenFileDialog dialog = new()
         {
-            Title = $"选择 {GILauncher.FileNameCN} 或 {GILauncher.FileNameOVERSEA}",
+            Title = Mui("LaunchGameSelectGamePathHint", GILauncher.FileNameCN, GILauncher.FileNameOVERSEA),
             RestoreDirectory = true,
             InitialDirectory = gameFileInfo.DirectoryName,
             FileName = gameFileInfo.Name,
@@ -66,7 +66,7 @@ public partial class ContactSettingsViewModel : ObservableObject
             }
             else
             {
-                MessageBoxX.Warn($"选择 {GILauncher.FileNameCN} 或 {GILauncher.FileNameOVERSEA}");
+                MessageBoxX.Warn(Mui("LaunchGameSelectGamePathHint", GILauncher.FileNameCN, GILauncher.FileNameOVERSEA));
             }
         }
     }
@@ -165,12 +165,12 @@ public partial class ContactSettingsViewModel : ObservableObject
                 }
                 else
                 {
-                    Notification.AddNotice("查看记录失败", "请保证服务器令牌路径正确后重试");
+                    Notification.AddNotice(Mui("LazySearchRecordFailedTitle"), Mui("LazySearchRecordFailedHint"));
                 }
             }
             else
             {
-                Notification.AddNotice("未探测到接入服务器令牌", "请查阅组件使用说明设定好令牌后重试");
+                Notification.AddNotice(Mui("LazySetupNoTokenTitle"), Mui("LazySetupNoTokenHint"));
             }
         }
         catch (Exception e)

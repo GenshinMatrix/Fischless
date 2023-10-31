@@ -89,11 +89,11 @@ public partial class SetLazyTokenViewModel : ObservableObject
         if (!string.IsNullOrEmpty(await LazyRepository.GetFile(token)))
         {
             stopwatch.Stop();
-            Notification.AddNotice("测试服务器令牌", $"测试通过：耗时 {stopwatch.ElapsedMilliseconds} 毫秒");
+            Notification.AddNotice(Mui("LazyTestTokenTitle"), Mui("LazyTestTokenPassHint", stopwatch.ElapsedMilliseconds));
         }
         else
         {
-            Notification.AddNotice("测试服务器令牌", "测试失败：令牌有误或网络环境欠佳");
+            Notification.AddNotice(Mui("LazyTestTokenTitle"), Mui("LazyTestTokenFailHint"));
         }
     }
 
@@ -121,12 +121,12 @@ public partial class SetLazyTokenViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(TokenInput))
         {
-            Toast.Warning("请输入令牌");
+            Toast.Warning(Mui("LazyPleaseInputTokenHint"));
             return;
         }
         else if (!TokenInput.StartsWith("g"))
         {
-            Toast.Warning("令牌有误");
+            Toast.Warning(Mui("LazyTokenErrorHint"));
             return;
         }
         await LazyRepository.SaveToken(TokenInput);

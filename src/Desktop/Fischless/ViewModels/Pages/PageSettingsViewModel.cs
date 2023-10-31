@@ -52,12 +52,12 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
             try
             {
                 LnkHelper.CreateShortcutOnDesktop(AppConfig.PackName, Environment.ProcessPath!);
-                Notification.AddNotice("创建桌面快捷方式", "操作成功");
+                Notification.AddNotice(Mui("CreateDesktopShortcut"), Mui("OperationSuccessfully"));
             }
             catch (Exception e)
             {
                 Log.Error(e.ToString());
-                Notification.AddNotice("创建失败", "详见", e.ToString());
+                Notification.AddNotice(Mui("CreationFailed"), Mui("Detail"), e.ToString());
             }
         }
         else

@@ -226,8 +226,8 @@
                                                      Margin="16,0,0,0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding EnsureElevated, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="0,24,0,0">
@@ -267,8 +267,8 @@
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding AutoStart, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="0,24,0,0">
@@ -304,8 +304,8 @@
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding DesktopShortcut, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="0,24,0,0">
@@ -341,8 +341,8 @@
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding CloseToTray, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="0,24,0,0">
@@ -385,8 +385,8 @@
                                                      Margin="16,0,0,0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding AutoMute, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
@@ -522,8 +522,8 @@
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding IsUseThemeCursor, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="0,24,0,0">
@@ -605,8 +605,8 @@
                                                      MinWidth="0"
                                                      FontFamily="{DynamicResource TextThemeFontFamily}"
                                                      IsOn="{Binding IsUseSmallerSize, Mode=TwoWay}"
-                                                     OffContent="关"
-                                                     OnContent="开" />
+                                                     OffContent="{DynamicResource Off}"
+                                                     OnContent="{DynamicResource On}" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>

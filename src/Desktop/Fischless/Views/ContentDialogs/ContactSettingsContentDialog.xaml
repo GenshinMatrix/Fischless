@@ -9,11 +9,11 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="功能配置"
+                  Title="{DynamicResource LaunchGameSettingsTitle}"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   FontSize="14"
                   PrimaryButtonClick="OnPrimaryButtonClick"
-                  PrimaryButtonText="关闭"
+                  PrimaryButtonText="{DynamicResource Close}"
                   Style="{DynamicResource DefaultContentDialogStyle}"
                   mc:Ignorable="d">
     <ui:ContentDialog.Resources>
@@ -49,7 +49,7 @@
                           MinWidth="0"
                           Margin="0,0,0,0"
                           VerticalAlignment="Center"
-                          Content="游戏路径"
+                          Content="{DynamicResource LaunchGameSettingsGamePath}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseGamePath, Mode=TwoWay}" />
                 <Grid Grid.Row="0"
@@ -64,7 +64,7 @@
                                  IsReadOnly="True"
                                  Text="{Binding GamePath, Mode=TwoWay}">
                         <wui:TextBox.PlaceholderText>
-                            <MultiBinding StringFormat="{}选择 {0} 或 {1}">
+                            <MultiBinding StringFormat="{StaticResource LaunchGameSelectGamePathHint}">
                                 <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameCN}" />
                                 <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameOVERSEA}" />
                             </MultiBinding>
@@ -85,7 +85,7 @@
                           MinWidth="0"
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
-                          Content="分辨率"
+                          Content="{DynamicResource LaunchGameSettingsGameResolution}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseResolution, Mode=TwoWay}" />
                 <Grid Grid.Row="1"
@@ -119,7 +119,7 @@
                     <CheckBox Grid.Column="3"
                               Margin="16,0,0,0"
                               VerticalAlignment="Center"
-                              Content="独占全屏"
+                              Content="{DynamicResource LaunchGameSettingsGameFullScreen}"
                               Cursor="{x:Null}"
                               IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
                 </Grid>
@@ -128,7 +128,7 @@
                           MinWidth="0"
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
-                          Content="解锁帧率"
+                          Content="{DynamicResource LaunchGameSettingsGameFps}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseFps, Mode=TwoWay}" />
                 <Grid Grid.Row="2"
@@ -152,7 +152,7 @@
                             Background="{DynamicResource AccentForeground}"
                             CornerRadius="4"
                             Opacity="0.8"
-                            ToolTip="以注入渲染引擎方式调整帧率">
+                            ToolTip="{DynamicResource LaunchGameSettingsGameFpsHint}">
                         <StackPanel Orientation="Horizontal">
                             <ui:FontIcon VerticalAlignment="Center"
                                          FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -160,7 +160,7 @@
                                          Glyph="{x:Static fui:FontSymbols.Warning}" />
                             <TextBlock Margin="4,0,0,0"
                                        VerticalAlignment="Center"
-                                       Text="潜在风险" />
+                                       Text="{DynamicResource LaunchGameSettingsPotentialRisks}" />
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -174,18 +174,18 @@
                           IsChecked="{Binding IsUseGameRunningHint, Mode=TwoWay}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="启用识别账号是否" />
+                            <TextBlock Text="{DynamicResource LaunchGameSettingsEnableDetectAccountGaming}" />
                             <Border Margin="3,0,0,0"
                                     Background="#EA1D953F"
                                     BorderBrush="AliceBlue"
                                     BorderThickness="0"
                                     CornerRadius="3"
-                                    ToolTip="很智能但消耗少量资源轮询检测">
+                                    ToolTip="{DynamicResource LaunchGameSettingsEnableDetectAccountGamingHint}">
                                 <TextBlock Margin="3,0,3,0"
                                            Foreground="#FFFFFF"
                                            Opacity="1"
-                                           Text="正在游戏"
-                                           ToolTip="很智能但消耗少量资源轮询检测" />
+                                           Text="{DynamicResource LaunchGamePlayingGame}"
+                                           ToolTip="{DynamicResource LaunchGameSettingsEnableDetectAccountGamingHint}" />
                             </Border>
                         </StackPanel>
                     </CheckBox.Content>
@@ -203,12 +203,12 @@
                               IsChecked="{Binding IsUseLazy, Mode=TwoWay}">
                         <CheckBox.Content>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="启用世界任务组件" />
+                                <TextBlock Text="{DynamicResource LaunchGameSettingsEnableLazy}" />
                                 <ui:FontIcon Margin="8,0,8,0"
                                              FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="12"
                                              Glyph="{x:Static fui:FontSymbols.Lock}"
-                                             ToolTip="私有组件" />
+                                             ToolTip="{DynamicResource LaunchGameSettingsEnableLazyPrivate}" />
                             </StackPanel>
                         </CheckBox.Content>
                     </CheckBox>
@@ -218,7 +218,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="18"
                                              Glyph="{x:Static fui:FontSymbols.CloudSearch}" />
-                                <TextBlock Margin="5,0,0,0" Text="查看记录" />
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource LazySearchRecord}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -228,7 +228,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="18"
                                              Glyph="{x:Static fui:FontSymbols.KeyboardDismiss}" />
-                                <TextBlock Margin="5,0,0,0" Text="设定令牌" />
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource LazySetupToken}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -242,7 +242,7 @@
                             Visibility="{Binding IsInstallReShade, Converter={StaticResource BoolToVisibilityConverter}}">
                     <CheckBox MinWidth="0"
                               VerticalAlignment="Center"
-                              Content="启用幽夜净土组件"
+                              Content="{DynamicResource LaunchGameSettingsEnableReShade}"
                               Cursor="{x:Null}"
                               IsChecked="{Binding IsUseReShade, Mode=TwoWay}" />
                     <wui:ToggleSwitch Margin="8,0,0,0"
@@ -250,12 +250,12 @@
                                       IsChecked="{Binding IsUseReShadeSlient, Mode=TwoWay}">
                         <wui:ToggleSwitch.Content>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="静默模式" />
+                                <TextBlock Text="{DynamicResource LaunchGameSettingsEnableReShadeSilent}" />
                                 <ui:FontIcon Margin="8,0,8,0"
                                              FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="14"
                                              Glyph="{x:Static fui:FontSymbols.LaptopSecure}"
-                                             ToolTip="需要管理员权限" />
+                                             ToolTip="{DynamicResource LaunchGameSettingsEnableReShadeSilentUAC}" />
                             </StackPanel>
                         </wui:ToggleSwitch.Content>
                     </wui:ToggleSwitch>

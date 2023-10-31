@@ -11,9 +11,9 @@
                   DefaultButton="Secondary"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   PrimaryButtonClick="OnPrimaryButtonClick"
-                  PrimaryButtonText="取消"
+                  PrimaryButtonText="{DynamicResource Cancel}"
                   SecondaryButtonClick="OnSecondaryButtonClick"
-                  SecondaryButtonText="保存"
+                  SecondaryButtonText="{DynamicResource Save}"
                   Style="{DynamicResource DefaultContentDialogStyle}"
                   mc:Ignorable="d">
     <Grid Width="450">
