@@ -24,6 +24,10 @@
             <conv:NullToBoolConverter />
             <conv:BoolToVisibilityConverter IsInverted="True" />
         </conv:ValueConverterGroup>
+        <conv:ValueConverterGroup x:Key="IntegerToVisibilityConverter">
+            <conv:IntegerToBoolConverter />
+            <conv:BoolToVisibilityConverter />
+        </conv:ValueConverterGroup>
     </Page.Resources>
     <Grid>
         <Grid Margin="0,0,0,0">
@@ -308,98 +312,111 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <fui:SmoothScrollViewer Grid.Row="0">
-                        <ListView AllowDrop="True"
-                                  ItemsSource="{Binding AvatarList}"
-                                  ScrollViewer.CanContentScroll="False"
-                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                                  SelectedItem="{Binding SelectedAvatarList, Mode=TwoWay}"
-                                  VirtualizingPanel.IsVirtualizing="False">
-                            <i:Interaction.Behaviors>
-                                <fui:ListViewMouseWheelBubblingBehavior />
-                            </i:Interaction.Behaviors>
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel VerticalAlignment="Top" />
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                            <ListView.ItemTemplate>
-                                <DataTemplate DataType="m:ReShadeFolderList">
-                                    <Grid Height="50" Background="#01000000">
-                                        <i:Interaction.Behaviors>
-                                            <fui:FrameworkElementLoadedTransitionBehavior IsOnce="False"
-                                                                                          Transition="FadeIn"
-                                                                                          Duration="50" />
-                                        </i:Interaction.Behaviors>
-                                        <Grid Margin="8,0,8,0" VerticalAlignment="Center">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="Auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <StackPanel Grid.Column="0">
-                                                <CheckBox Cursor="{x:Null}"
-                                                          FocusVisualStyle="{x:Null}"
-                                                          Focusable="False"
-                                                          IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
-                                            </StackPanel>
-                                            <StackPanel Grid.Column="1">
-                                                <TextBlock Text="{Binding FolderName}" />
-                                                <TextBlock Foreground="{DynamicResource WindowTitleForeground}" Text="{Binding FolderPath}" />
+                    <Grid Grid.Row="0">
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Visibility="{Binding AvatarList.Count, Converter={StaticResource IntegerToVisibilityConverter}, ConverterParameter={fui:Int32 Value=0}}">
+                            <ui:FontIcon FontFamily="{DynamicResource IcoMoon}"
+                                         FontSize="42"
+                                         Foreground="{DynamicResource WindowTitleForeground}"
+                                         Glyph="{x:Static m:IcoMoonFontSymbols.Empty}" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Foreground="{DynamicResource WindowTitleForeground}"
+                                       Text="空空如也" />
+                        </StackPanel>
+                        <fui:SmoothScrollViewer>
+                            <ListView AllowDrop="True"
+                                      ItemsSource="{Binding AvatarList}"
+                                      ScrollViewer.CanContentScroll="False"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                      SelectedItem="{Binding SelectedAvatarList, Mode=TwoWay}"
+                                      VirtualizingPanel.IsVirtualizing="False">
+                                <i:Interaction.Behaviors>
+                                    <fui:ListViewMouseWheelBubblingBehavior />
+                                </i:Interaction.Behaviors>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel VerticalAlignment="Top" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate DataType="m:ReShadeFolderList">
+                                        <Grid Height="50" Background="#01000000">
+                                            <i:Interaction.Behaviors>
+                                                <fui:FrameworkElementLoadedTransitionBehavior IsOnce="False"
+                                                                                              Transition="FadeIn"
+                                                                                              Duration="50" />
+                                            </i:Interaction.Behaviors>
+                                            <Grid Margin="8,0,8,0" VerticalAlignment="Center">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <CheckBox Cursor="{x:Null}"
+                                                              FocusVisualStyle="{x:Null}"
+                                                              Focusable="False"
+                                                              IsChecked="{Binding IsEnabled, Mode=TwoWay}" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding FolderName}" />
+                                                    <TextBlock Foreground="{DynamicResource WindowTitleForeground}" Text="{Binding FolderPath}" />
+                                                </StackPanel>
+                                            </Grid>
+                                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                                <Button>
+                                                    <Button.Content>
+                                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                     FontSize="12"
+                                                                     Glyph="{x:Static fui:FontSymbols.More}" />
+                                                    </Button.Content>
+                                                    <Button.ContextMenu>
+                                                        <ContextMenu Cursor="{DynamicResource ThemeCursor}">
+                                                            <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
+                                                                <MenuItem.Icon>
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static fui:FontSymbols.Folder}" />
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
+                                                                <MenuItem.Icon>
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static fui:FontSymbols.Delete}" />
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <Separator />
+                                                            <MenuItem Command="{Binding RenameFolderCommand}">
+                                                                <MenuItem.Icon>
+                                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                                 FontSize="16"
+                                                                                 Glyph="{x:Static fui:FontSymbols.Rename}" />
+                                                                </MenuItem.Icon>
+                                                                <MenuItem.Header>
+                                                                    <StackPanel>
+                                                                        <TextBlock Text="重命名目录" />
+                                                                        <TextBox MaxWidth="400"
+                                                                                 Margin="0,6,0,0"
+                                                                                 Padding="2,2,0,0"
+                                                                                 Text="{Binding FolderNameForEdit, Mode=TwoWay}" />
+                                                                    </StackPanel>
+                                                                </MenuItem.Header>
+                                                            </MenuItem>
+                                                        </ContextMenu>
+                                                    </Button.ContextMenu>
+                                                    <i:Interaction.Behaviors>
+                                                        <fui:LeftContextMenuBehavior />
+                                                    </i:Interaction.Behaviors>
+                                                </Button>
                                             </StackPanel>
                                         </Grid>
-                                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                            <Button>
-                                                <Button.Content>
-                                                    <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                 FontSize="12"
-                                                                 Glyph="{x:Static fui:FontSymbols.More}" />
-                                                </Button.Content>
-                                                <Button.ContextMenu>
-                                                    <ContextMenu Cursor="{DynamicResource ThemeCursor}">
-                                                        <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
-                                                            <MenuItem.Icon>
-                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                             FontSize="16"
-                                                                             Glyph="{x:Static fui:FontSymbols.Folder}" />
-                                                            </MenuItem.Icon>
-                                                        </MenuItem>
-                                                        <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
-                                                            <MenuItem.Icon>
-                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                             FontSize="16"
-                                                                             Glyph="{x:Static fui:FontSymbols.Delete}" />
-                                                            </MenuItem.Icon>
-                                                        </MenuItem>
-                                                        <Separator />
-                                                        <MenuItem Command="{Binding RenameFolderCommand}">
-                                                            <MenuItem.Icon>
-                                                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                             FontSize="16"
-                                                                             Glyph="{x:Static fui:FontSymbols.Rename}" />
-                                                            </MenuItem.Icon>
-                                                            <MenuItem.Header>
-                                                                <StackPanel>
-                                                                    <TextBlock Text="重命名目录" />
-                                                                    <TextBox MaxWidth="400"
-                                                                             Margin="0,6,0,0"
-                                                                             Padding="2,2,0,0"
-                                                                             Text="{Binding FolderNameForEdit, Mode=TwoWay}" />
-                                                                </StackPanel>
-                                                            </MenuItem.Header>
-                                                        </MenuItem>
-                                                    </ContextMenu>
-                                                </Button.ContextMenu>
-                                                <i:Interaction.Behaviors>
-                                                    <fui:LeftContextMenuBehavior />
-                                                </i:Interaction.Behaviors>
-                                            </Button>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </fui:SmoothScrollViewer>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </fui:SmoothScrollViewer>
+                    </Grid>
                     <Grid Grid.Row="1" MaxHeight="200">
                         <fui:SmoothScrollViewer Margin="8"
                                                 HorizontalScrollBarVisibility="Visible"

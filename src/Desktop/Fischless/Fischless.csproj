@@ -78,6 +78,7 @@
 		<None Remove="Assets\Images\AvatarIcons\*.png" />
 		<None Remove="Assets\Fonts\*.ttf" />
 		<None Remove="Assets\Fonts\*.otf" />
+		<None Remove="Assets\Fonts\IcoMoon\fonts\*.ttf" />
     </ItemGroup>
 
     <ItemGroup>
@@ -88,6 +89,7 @@
 		<Resource Include="Assets\Images\AvatarIcons\*.png" />
 		<Resource Include="Assets\Fonts\*.ttf" />
 		<Resource Include="Assets\Fonts\*.otf" />
+		<Resource Include="Assets\Fonts\IcoMoon\fonts\*.ttf" />
     </ItemGroup>
 
 	<ItemGroup>
