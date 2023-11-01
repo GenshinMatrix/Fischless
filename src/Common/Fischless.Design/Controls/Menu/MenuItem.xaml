@@ -262,7 +262,7 @@
                     Margin="4,1,4,1"
                     BorderThickness="1"
                     CornerRadius="4">
-                <Grid x:Name="MenuItemContent" Margin="11,6,11,6">
+                <Grid x:Name="MenuItemContent" Margin="12,6,12,6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
@@ -270,7 +270,7 @@
                     </Grid.ColumnDefinitions>
                     <ContentPresenter x:Name="Icon"
                                       Grid.Column="0"
-                                      Margin="-3,0,6,0"
+                                      Margin="-4,0,6,0"
                                       VerticalAlignment="Center"
                                       Content="{TemplateBinding Icon}" />
 
@@ -676,7 +676,7 @@
                     Margin="4,1,4,1"
                     BorderThickness="1"
                     CornerRadius="4">
-                <Grid x:Name="MenuItemContent" Margin="11,6,11,6">
+                <Grid x:Name="MenuItemContent" Margin="12,6,12,6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
@@ -686,7 +686,7 @@
 
                     <ContentControl x:Name="IconElement"
                                     Grid.Column="0"
-                                    Margin="-3,0,6,0"
+                                    Margin="-4,0,6,0"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Icon}"
                                     FontSize="16" />
