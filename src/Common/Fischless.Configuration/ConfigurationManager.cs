@@ -3,6 +3,7 @@
 public class ConfigurationManager
 {
     public static event Action? Reloaded = null!;
+
     public static string FilePath { get; private set; } = null!;
     public static ConfigurationCache Cache { get; private set; } = Init();
 

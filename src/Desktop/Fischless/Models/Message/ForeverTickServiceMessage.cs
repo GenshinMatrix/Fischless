@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fischless.Models;
+﻿namespace Fischless.Models;
 
 public sealed class ForeverTickServiceMessage
 {

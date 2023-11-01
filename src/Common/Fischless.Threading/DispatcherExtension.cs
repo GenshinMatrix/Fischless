@@ -22,6 +22,6 @@ public static class DispatcherExtension
     public static async Task WaitEvents(this Dispatcher dispatcher, int millisecondsDelay = default)
     {
         await Task.Delay(millisecondsDelay);
-        await dispatcher.BeginInvoke(() => {});
+        await dispatcher.BeginInvoke(() => { });
     }
 }

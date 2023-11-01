@@ -19,6 +19,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 {
     [ObservableProperty]
     private bool isUseGamePath = Configurations.IsUseGamePath.Get();
+
     partial void OnIsUseGamePathChanged(bool value)
     {
         Configurations.IsUseGamePath.Set(value);
@@ -27,6 +28,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private string gamePath = Configurations.GamePath.Get();
+
     partial void OnGamePathChanged(string value)
     {
         Configurations.GamePath.Set(value);
@@ -73,6 +75,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseFps = Configurations.IsUseFps.Get();
+
     partial void OnIsUseFpsChanged(bool value)
     {
         Configurations.IsUseFps.Set(value);
@@ -81,6 +84,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private uint fps = Configurations.Fps.Get();
+
     partial void OnFpsChanged(uint value)
     {
         Configurations.Fps.Set(value);
@@ -89,6 +93,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseResolution = Configurations.IsUseResolution.Get();
+
     partial void OnIsUseResolutionChanged(bool value)
     {
         Configurations.IsUseResolution.Set(value);
@@ -97,6 +102,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private uint resolutionWidth = Configurations.ResolutionWidth.Get();
+
     partial void OnResolutionWidthChanged(uint value)
     {
         Configurations.ResolutionWidth.Set(value);
@@ -105,6 +111,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private uint resolutionHeight = Configurations.ResolutionHeight.Get();
+
     partial void OnResolutionHeightChanged(uint value)
     {
         Configurations.ResolutionHeight.Set(value);
@@ -113,6 +120,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseFullScreen = Configurations.IsUseFullScreen.Get();
+
     partial void OnIsUseFullScreenChanged(bool value)
     {
         Configurations.IsUseFullScreen.Set(value);
@@ -121,6 +129,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseGameRunningHint = Configurations.IsUseGameRunningHint.Get();
+
     partial void OnIsUseGameRunningHintChanged(bool value)
     {
         Configurations.IsUseGameRunningHint.Set(value);
@@ -129,6 +138,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseLazy = Configurations.IsUseLazy.Get();
+
     partial void OnIsUseLazyChanged(bool value)
     {
         Configurations.IsUseLazy.Set(value);
@@ -181,6 +191,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseReShade = Configurations.IsUseReShade.Get();
+
     partial void OnIsUseReShadeChanged(bool value)
     {
         Configurations.IsUseReShade.Set(value);
@@ -189,6 +200,7 @@ public partial class ContactSettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isUseReShadeSlient = Configurations.IsUseReShadeSlient.Get();
+
     partial void OnIsUseReShadeSlientChanged(bool value)
     {
         Configurations.IsUseReShadeSlient.Set(value);

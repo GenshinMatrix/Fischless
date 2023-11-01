@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using System;
+﻿using System;
+using System.Threading;
 using System.Windows.Threading;
 
 namespace Fischless.Threading;
@@ -63,6 +63,7 @@ public class STAThread<T> : STADispatcherObject, IDisposable where T : class
 public class STADispatcherObject
 {
     private Dispatcher dispatcher = null;
+
     public Dispatcher Dispatcher
     {
         get => dispatcher;

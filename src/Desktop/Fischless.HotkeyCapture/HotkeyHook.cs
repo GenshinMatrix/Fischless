@@ -6,6 +6,7 @@ namespace Fischless.HotkeyCapture;
 public sealed class HotkeyHook : IDisposable
 {
     public event EventHandler<KeyPressedEventArgs>? KeyPressed = null;
+
     private readonly Window window = new();
     private int currentId;
 

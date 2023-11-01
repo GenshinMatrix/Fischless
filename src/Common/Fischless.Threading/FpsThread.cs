@@ -27,6 +27,7 @@ public class FpsThread
     public bool IsPaused { get; set; } = false;
 
     protected int interval = default;
+
     public int Interval
     {
         get => interval;
@@ -40,6 +41,7 @@ public class FpsThread
     }
 
     protected int intervalOriginal = default;
+
     public int IntervalOriginal
     {
         get => intervalOriginal;
@@ -81,6 +83,7 @@ public class FpsThread
     }
 
     public void Pause() => IsPaused = true;
+
     public void Resume() => IsPaused = false;
 
     public void ThreadStart()

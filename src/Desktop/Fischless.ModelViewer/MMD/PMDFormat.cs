@@ -151,6 +151,7 @@ public class PMDFormat
         // int num = vertex_count - skin_vert_count;
         // skin_vert[num]みたいな形で参照しないと無理
         public uint skin_vert_index; // 表情用の頂点の番号(頂点リストにある番号)
+
         public Point3D skin_vert_pos; // x, y, z // 表情用の頂点の座標(頂点自体の座標)
     }
 
@@ -177,8 +178,8 @@ public class PMDFormat
 
     public class BoneDisplay
     {
-        public ushort bone_index;       // 枠用ボーン番号 
-        public byte bone_disp_frame_index;  // 表示枠番号 
+        public ushort bone_index;       // 枠用ボーン番号
+        public byte bone_disp_frame_index;  // 表示枠番号
     }
 
     /// <summary>
@@ -186,7 +187,7 @@ public class PMDFormat
     /// </summary>
     public class EnglishHeader
     {
-        public byte english_name_compatibility; // 01で英名対応 
+        public byte english_name_compatibility; // 01で英名対応
         public string model_name_eg;    // 20byte
         public string comment_eg;   // 256byte
     }
@@ -201,7 +202,7 @@ public class PMDFormat
 
     public class EnglishSkinNameList
     {
-        // baseは英名が登録されない 
+        // baseは英名が登録されない
         public string[] skin_name_eg;   // 20byte * skin_count-1
     }
 
@@ -212,7 +213,7 @@ public class PMDFormat
 
     public class ToonTextureList
     {
-        public string[] toon_texture_file;  // 100byte * 10個固定 
+        public string[] toon_texture_file;  // 100byte * 10個固定
     }
 
     public class RigidbodyList
@@ -227,15 +228,15 @@ public class PMDFormat
     public class Rigidbody
     {
         public string rigidbody_name; // 諸データ：名称 ,20byte
-        public int rigidbody_rel_bone_index;// 諸データ：関連ボーン番号 
-        public byte rigidbody_group_index; // 諸データ：グループ 
+        public int rigidbody_rel_bone_index;// 諸データ：関連ボーン番号
+        public byte rigidbody_group_index; // 諸データ：グループ
         public ushort rigidbody_group_target; // 諸データ：グループ：対象 // 0xFFFFとの差
-        public byte shape_type;  // 形状：タイプ(0:球、1:箱、2:カプセル)  
-        public float shape_w;   // 形状：半径(幅) 
-        public float shape_h;   // 形状：高さ 
-        public float shape_d;   // 形状：奥行 
-        public Point3D pos_pos;  // 位置：位置(x, y, z) 
-        public Point3D pos_rot;  // 位置：回転(rad(x), rad(y), rad(z)) 
+        public byte shape_type;  // 形状：タイプ(0:球、1:箱、2:カプセル)
+        public float shape_w;   // 形状：半径(幅)
+        public float shape_h;   // 形状：高さ
+        public float shape_d;   // 形状：奥行
+        public Point3D pos_pos;  // 位置：位置(x, y, z)
+        public Point3D pos_rot;  // 位置：回転(rad(x), rad(y), rad(z))
         public float rigidbody_weight; // 諸データ：質量 // 00 00 80 3F // 1.0
         public float rigidbody_pos_dim; // 諸データ：移動減 // 00 00 00 00
         public float rigidbody_rot_dim; // 諸データ：回転減 // 00 00 00 00
@@ -253,15 +254,15 @@ public class PMDFormat
     public class Joint
     {
         public string joint_name;   // 20byte
-        public uint joint_rigidbody_a; // 諸データ：剛体A 
-        public uint joint_rigidbody_b; // 諸データ：剛体B 
-        public Point3D joint_pos; // 諸データ：位置(x, y, z) // 諸データ：位置合せでも設定可 
-        public Point3D joint_rot; // 諸データ：回転(rad(x), rad(y), rad(z)) 
-        public Point3D constrain_pos_1; // 制限：移動1(x, y, z) 
-        public Point3D constrain_pos_2; // 制限：移動2(x, y, z) 
-        public Point3D constrain_rot_1; // 制限：回転1(rad(x), rad(y), rad(z)) 
-        public Point3D constrain_rot_2; // 制限：回転2(rad(x), rad(y), rad(z)) 
-        public Point3D spring_pos; // ばね：移動(x, y, z) 
-        public Point3D spring_rot; // ばね：回転(rad(x), rad(y), rad(z)) 
+        public uint joint_rigidbody_a; // 諸データ：剛体A
+        public uint joint_rigidbody_b; // 諸データ：剛体B
+        public Point3D joint_pos; // 諸データ：位置(x, y, z) // 諸データ：位置合せでも設定可
+        public Point3D joint_rot; // 諸データ：回転(rad(x), rad(y), rad(z))
+        public Point3D constrain_pos_1; // 制限：移動1(x, y, z)
+        public Point3D constrain_pos_2; // 制限：移動2(x, y, z)
+        public Point3D constrain_rot_1; // 制限：回転1(rad(x), rad(y), rad(z))
+        public Point3D constrain_rot_2; // 制限：回転2(rad(x), rad(y), rad(z))
+        public Point3D spring_pos; // ばね：移動(x, y, z)
+        public Point3D spring_rot; // ばね：回転(rad(x), rad(y), rad(z))
     }
 }

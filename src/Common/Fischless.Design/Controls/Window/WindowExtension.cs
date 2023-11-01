@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Fischless.Design.Controls;
+﻿namespace Fischless.Design.Controls;
 
 public static class WindowExtension
 {

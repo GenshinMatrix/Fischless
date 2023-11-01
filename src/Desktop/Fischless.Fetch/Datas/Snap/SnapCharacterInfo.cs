@@ -35,7 +35,7 @@ public partial class SnapCharacterInfo
     public int SortId { get; set; }
 
     public DateTime BeginTime { get; set; }
-    
+
     public List<SnapCharacterOutfit>? Outfits { get; set; }
 
     public string? TextureOverride { get; set; }

@@ -122,7 +122,7 @@ public sealed class NavigationService : INavigationService
         {
             return false;
         }
-        
+
         NavigationViewItem? target = NavigationView.MenuItems
             .OfType<NavigationViewItem>()
             .FirstOrDefault(menuItem => NavigationHelper.GetNavigateTo(menuItem) == pageType)

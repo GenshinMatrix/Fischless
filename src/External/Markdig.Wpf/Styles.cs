@@ -90,6 +90,7 @@ namespace Markdig.Wpf
         /// Resource Key for the StrikeThroughStyle.
         /// </summary>
         public static ComponentResourceKey StrikeThroughStyleKey { get; } = new ComponentResourceKey(typeof(Styles), nameof(StrikeThroughStyleKey));
+
         /// <summary>
         /// Resource Key for the SubscriptStyle.
         /// </summary>

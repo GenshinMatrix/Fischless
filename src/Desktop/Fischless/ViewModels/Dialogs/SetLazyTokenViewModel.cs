@@ -22,6 +22,7 @@ public partial class SetLazyTokenViewModel : ObservableObject
 {
     [ObservableProperty]
     private string tokenInput = string.Empty;
+
     partial void OnTokenInputChanged(string value)
     {
         if (string.IsNullOrWhiteSpace(TokenInput))

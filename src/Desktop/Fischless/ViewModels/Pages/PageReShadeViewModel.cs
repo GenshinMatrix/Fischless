@@ -43,6 +43,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private ReShadeFolderList selectedAvatarList = null!;
+
     partial void OnSelectedAvatarListChanged(ReShadeFolderList value)
     {
         if (value == null)
@@ -51,7 +52,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
             return;
         }
 
-        IEnumerable<ReShadeFolderListDetailImage> imageDetails = 
+        IEnumerable<ReShadeFolderListDetailImage> imageDetails =
             ReShadeFolderWalker.EnumerateFolderImage(value.FolderPath)
                                .Select(imagePath => new ReShadeFolderListDetailImage(imagePath));
 
@@ -63,38 +64,47 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool isPyro = false;
+
     partial void OnIsPyroChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isHydro = false;
+
     partial void OnIsHydroChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isAnemo = false;
+
     partial void OnIsAnemoChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isElectro = false;
+
     partial void OnIsElectroChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isDendro = false;
+
     partial void OnIsDendroChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isIce = false;
+
     partial void OnIsIceChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isGeo = false;
+
     partial void OnIsGeoChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isFemale = false;
+
     partial void OnIsFemaleChanged(bool value) => SyncSearch();
 
     [ObservableProperty]
     private bool isMale = false;
+
     partial void OnIsMaleChanged(bool value) => SyncSearch();
 
     [Obsolete]
@@ -104,6 +114,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool isEnableOnly = false;
+
     partial void OnIsEnableOnlyChanged(bool value)
     {
         if (IsEnableOnly)
@@ -371,7 +382,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 MessageBoxX.Error(Mui("ReShadeSelectFolder"));
                 return;
             }
-            
+
             ReShadeLoader.SetD3dxIniGameExe(selectedDirectory, () =>
             {
                 OpenFileDialog dialog = new()

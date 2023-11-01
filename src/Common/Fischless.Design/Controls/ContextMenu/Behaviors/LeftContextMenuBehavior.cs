@@ -13,7 +13,7 @@ public sealed class LeftContextMenuBehavior : Behavior<FrameworkElement>
     public double? PlacementOffsetX
     {
         get => PlacementOffset?.X;
-        set => PlacementOffset = value != null ? new (value ?? 0d, PlacementOffset?.Y ?? 0d) : null;
+        set => PlacementOffset = value != null ? new(value ?? 0d, PlacementOffset?.Y ?? 0d) : null;
     }
 
     public double? PlacementOffsetY

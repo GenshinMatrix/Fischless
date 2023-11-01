@@ -2,12 +2,11 @@
 // This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
+using Markdig.Syntax.Inlines;
+using Markdig.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Documents;
-
-using Markdig.Syntax.Inlines;
-using Markdig.Wpf;
 
 namespace Markdig.Renderers.Wpf.Inlines
 {
@@ -30,18 +29,22 @@ namespace Markdig.Renderers.Wpf.Inlines
                 case '_':
                     span = obj.DelimiterCount == 2 ? (Span)new Bold() : new Italic();
                     break;
+
                 case '~':
                     span = new Span();
                     span.SetResourceReference(FrameworkContentElement.StyleProperty, obj.DelimiterCount == 2 ? Styles.StrikeThroughStyleKey : Styles.SubscriptStyleKey);
                     break;
+
                 case '^':
                     span = new Span();
                     span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.SuperscriptStyleKey);
                     break;
+
                 case '+':
                     span = new Span();
                     span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.InsertedStyleKey);
                     break;
+
                 case '=':
                     span = new Span();
                     span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.MarkedStyleKey);

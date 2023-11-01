@@ -24,6 +24,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool ensureElevated = Configurations.EnsureElevated.Get();
+
     partial void OnEnsureElevatedChanged(bool value)
     {
         Configurations.EnsureElevated.Set(value);
@@ -38,6 +39,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool autoStart = AppConfig.GetService<IAutoStartService>()?.IsEnabled() ?? false;
+
     partial void OnAutoStartChanged(bool value)
     {
         AppConfig.GetService<IAutoStartService>()?.SetEnabled(value);
@@ -45,6 +47,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool desktopShortcut = LnkHelper.HasShortcutOnDesktop(AppConfig.PackName);
+
     partial void OnDesktopShortcutChanged(bool value)
     {
         if (value)
@@ -68,6 +71,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool closeToTray = Configurations.CloseToTray.Get();
+
     partial void OnCloseToTrayChanged(bool value)
     {
         Configurations.CloseToTray.Set(value);
@@ -76,6 +80,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool autoMute = Configurations.AutoMute.Get();
+
     partial void OnAutoMuteChanged(bool value)
     {
         MuteManager.AutoMute = value;
@@ -93,6 +98,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool isUseThemeCursor = Configurations.IsUseThemeCursor.Get();
+
     partial void OnIsUseThemeCursorChanged(bool value)
     {
         Configurations.IsUseThemeCursor.Set(value);
@@ -110,6 +116,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private int themeTextFontFamily = Configurations.ThemeTextFontFamily.Get();
+
     partial void OnThemeTextFontFamilyChanged(int value)
     {
         Configurations.ThemeTextFontFamily.Set(value);
@@ -120,6 +127,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool isUseSmallerSize = Configurations.IsUseSmallerSize.Get();
+
     partial void OnIsUseSmallerSizeChanged(bool value)
     {
         Configurations.IsUseSmallerSize.Set(value);

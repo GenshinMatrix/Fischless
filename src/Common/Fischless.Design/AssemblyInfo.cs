@@ -10,7 +10,6 @@ using System.Windows.Markup;
                                               //(used if a resource is not found in the page,
                                               // app, or any theme specific resource dictionaries)
 )]
-
 [assembly: XmlnsPrefix("urn:fischless.design", "fui")]
 [assembly: XmlnsDefinition("urn:fischless.design", "Fischless.Design")]
 [assembly: XmlnsDefinition("urn:fischless.design", "Fischless.Design.Animations")]
@@ -18,7 +17,6 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("urn:fischless.design", "Fischless.Design.Converters")]
 [assembly: XmlnsDefinition("urn:fischless.design", "Fischless.Design.Markups")]
 [assembly: XmlnsDefinition("urn:fischless.design", "Fischless.Design.Themes")]
-
 [assembly: XmlnsPrefix("http://schemas.fischless.design/2023", "fui")]
 [assembly: XmlnsDefinition("http://schemas.fischless.design/2023", "Fischless.Design")]
 [assembly: XmlnsDefinition("http://schemas.fischless.design/2023", "Fischless.Design.Animations")]
@@ -26,6 +24,5 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("http://schemas.fischless.design/2023", "Fischless.Design.Converters")]
 [assembly: XmlnsDefinition("http://schemas.fischless.design/2023", "Fischless.Design.Markups")]
 [assembly: XmlnsDefinition("http://schemas.fischless.design/2023", "Fischless.Design.Themes")]
-
 [assembly: ComVisible(false)]
 [assembly: Guid("3673062b-46b3-4f65-be44-cca410a1614e")]

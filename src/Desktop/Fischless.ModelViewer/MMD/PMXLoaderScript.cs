@@ -155,18 +155,23 @@ public partial class PMXLoaderScript
             case PMXFormat.Vertex.WeightMethod.BDEF1:
                 result.bone_weight = ReadBoneWeightBDEF1();
                 break;
+
             case PMXFormat.Vertex.WeightMethod.BDEF2:
                 result.bone_weight = ReadBoneWeightBDEF2();
                 break;
+
             case PMXFormat.Vertex.WeightMethod.BDEF4:
                 result.bone_weight = ReadBoneWeightBDEF4();
                 break;
+
             case PMXFormat.Vertex.WeightMethod.SDEF:
                 result.bone_weight = ReadBoneWeightSDEF();
                 break;
+
             case PMXFormat.Vertex.WeightMethod.QDEF:
                 result.bone_weight = ReadBoneWeightQDEF();
                 break;
+
             default:
                 result.bone_weight = null;
                 throw new FormatException();
@@ -411,12 +416,15 @@ public partial class PMXLoaderScript
                 case PMXFormat.MorphData.MorphType.Flip:
                     result.morph_offset[i] = ReadGroupMorphOffset();
                     break;
+
                 case PMXFormat.MorphData.MorphType.Vertex:
                     result.morph_offset[i] = ReadVertexMorphOffset();
                     break;
+
                 case PMXFormat.MorphData.MorphType.Bone:
                     result.morph_offset[i] = ReadBoneMorphOffset();
                     break;
+
                 case PMXFormat.MorphData.MorphType.Uv:
                 case PMXFormat.MorphData.MorphType.Adduv1:
                 case PMXFormat.MorphData.MorphType.Adduv2:
@@ -424,18 +432,22 @@ public partial class PMXLoaderScript
                 case PMXFormat.MorphData.MorphType.Adduv4:
                     result.morph_offset[i] = ReadUVMorphOffset();
                     break;
+
                 case PMXFormat.MorphData.MorphType.Material:
                     result.morph_offset[i] = ReadMaterialMorphOffset();
                     break;
+
                 case PMXFormat.MorphData.MorphType.Impulse:
                     result.morph_offset[i] = ReadImpulseMorphOffset();
                     break;
+
                 default:
                     throw new System.FormatException();
             }
         }
         return result;
     }
+
     private PMXFormat.MorphOffset ReadGroupMorphOffset()
     {
         PMXFormat.GroupMorphOffset result = new();
@@ -443,6 +455,7 @@ public partial class PMXLoaderScript
         result.morph_rate = binaryReader.ReadSingle();
         return result;
     }
+
     private PMXFormat.MorphOffset ReadVertexMorphOffset()
     {
         PMXFormat.VertexMorphOffset result = new();
@@ -450,6 +463,7 @@ public partial class PMXLoaderScript
         result.position_offset = ReadSinglesToPoint3D(binaryReader);
         return result;
     }
+
     private PMXFormat.MorphOffset ReadBoneMorphOffset()
     {
         PMXFormat.BoneMorphOffset result = new();
@@ -458,6 +472,7 @@ public partial class PMXLoaderScript
         result.rotate_value = ReadSinglesToQuaternion(binaryReader);
         return result;
     }
+
     private PMXFormat.MorphOffset ReadUVMorphOffset()
     {
         PMXFormat.UVMorphOffset result = new();
@@ -465,6 +480,7 @@ public partial class PMXLoaderScript
         result.uv_offset = ReadSinglesToPoint4D(binaryReader);
         return result;
     }
+
     private PMXFormat.MorphOffset ReadMaterialMorphOffset()
     {
         PMXFormat.MaterialMorphOffset result = new();
@@ -481,6 +497,7 @@ public partial class PMXLoaderScript
         result.toon_texture_coefficient = ReadSinglesToColor(binaryReader);
         return result;
     }
+
     private PMXFormat.MorphOffset ReadImpulseMorphOffset()
     {
         PMXFormat.ImpulseMorphOffset result = new();
@@ -502,7 +519,6 @@ public partial class PMXLoaderScript
         }
         return result;
     }
-
 
     private PMXFormat.DisplayFrame ReadDisplayFrame()
     {
@@ -593,6 +609,7 @@ public partial class PMXLoaderScript
                 result.spring_position = ReadSinglesToPoint3D(binaryReader);
                 result.spring_rotation = ReadSinglesToPoint3D(binaryReader);
                 break;
+
             default:
                 //empty.
                 break;
@@ -610,9 +627,11 @@ public partial class PMXLoaderScript
             case PMXFormat.Header.StringCode.Utf16le:
                 result = Encoding.Unicode.GetString(buf);
                 break;
+
             case PMXFormat.Header.StringCode.Utf8:
                 result = Encoding.UTF8.GetString(buf);
                 break;
+
             default:
                 throw new InvalidOperationException();
         }
@@ -631,6 +650,7 @@ public partial class PMXLoaderScript
                     result = uint.MaxValue;
                 }
                 break;
+
             case PMXFormat.Header.IndexSize.Byte2:
                 result = binaryReader.ReadUInt16();
                 if (ushort.MaxValue == result)
@@ -638,9 +658,11 @@ public partial class PMXLoaderScript
                     result = uint.MaxValue;
                 }
                 break;
+
             case PMXFormat.Header.IndexSize.Byte4:
                 result = binaryReader.ReadUInt32();
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -732,8 +754,8 @@ public partial class PMXLoaderScript
         return (byte)(f * 255);
     }
 
-    string filePath;
-    BinaryReader binaryReader;
-    PMXFormat format;
-    PMXFormat.Header.StringCode stringCode;
+    private string filePath;
+    private BinaryReader binaryReader;
+    private PMXFormat format;
+    private PMXFormat.Header.StringCode stringCode;
 }

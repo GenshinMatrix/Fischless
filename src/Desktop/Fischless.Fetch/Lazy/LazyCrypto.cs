@@ -18,7 +18,7 @@ public sealed class LazyCrypto
 
 file class RSACrypto
 {
-    public const string PrivateKey = 
+    public const string PrivateKey =
         """
         <RSAKeyValue>
             <Modulus>sPAuYecKadGFjndkqks/iIYL4/A6PrvHY6ygU5vzl+29H0mi2v5SPrdwKBRMxlDZGQXdiErNuDFfKwMxN7pN9ZI1uCxGFwbmlJ5v2+9lG01liJKLe0NPkaMMrXAdVBn8NOtOrbKmOGrUu3+2PDTkbXTuebpICA/FHitf1AcLOtk=</Modulus>
@@ -31,7 +31,8 @@ file class RSACrypto
             <D>eQkjwWcJsY9ZHDbCDtgAswR3V8p6HXXYlG9/ERKqVLCVYbS+ia3VVv+m4lPYnQSrLbncbCI3jZuAbWz2mxd/waugaCtjEp+tMa6EAWNPGuoiZ2wH5w4L5y7gfJoNNiFb7LN/6kJQdj782GPYo6z70jdDYPxpIgP9QNhynKy1cc0=</D>
         </RSAKeyValue>
         """;
-    public const string PublicKey = 
+
+    public const string PublicKey =
         """
         <RSAKeyValue>
             <Modulus>sPAuYecKadGFjndkqks/iIYL4/A6PrvHY6ygU5vzl+29H0mi2v5SPrdwKBRMxlDZGQXdiErNuDFfKwMxN7pN9ZI1uCxGFwbmlJ5v2+9lG01liJKLe0NPkaMMrXAdVBn8NOtOrbKmOGrUu3+2PDTkbXTuebpICA/FHitf1AcLOtk=</Modulus>

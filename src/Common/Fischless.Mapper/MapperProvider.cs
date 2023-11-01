@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
+
 #if NETSTANDARD2_1
+
 using AutoMapper.Internal;
+
 #endif
+
 using System;
 using System.Diagnostics;
 using System.Linq;

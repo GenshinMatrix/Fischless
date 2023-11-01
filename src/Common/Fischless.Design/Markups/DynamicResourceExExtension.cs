@@ -15,7 +15,6 @@ public partial class DynamicResourceExExtension : MarkupExtension
     [SuppressMessage("CommunityToolkit.Mvvm.SourceGenerators.ObservablePropertyGenerator", "MVVMTK0034:")]
 #pragma warning disable CS0658
     [prop: ConstructorArgument(nameof(resourceKey))]
-#pragma warning restore CS0658
     public Binding resourceKey = null!;
 
     public DynamicResourceExExtension()

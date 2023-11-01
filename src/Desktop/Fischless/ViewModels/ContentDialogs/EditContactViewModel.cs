@@ -23,10 +23,12 @@ public partial class EditContactViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ProdMD5))]
     private string? prod = null!;
+
     partial void OnProdChanged(string? value)
     {
         Prod = value?.Replace("\n", string.Empty) ?? string.Empty;
     }
+
     public string? ProdMD5
     {
         get
@@ -53,6 +55,7 @@ public partial class EditContactViewModel : ObservableObject
 
     [ObservableProperty]
     private int selectedServerIndex = (int)ContactServer.Auto;
+
     partial void OnSelectedServerIndexChanged(int value)
     {
         RegetProd();
@@ -123,10 +126,12 @@ public partial class EditContactViewModel : ObservableObject
                     Server = GILauncher.RegionOVERSEA;
                 }
                 break;
+
             case ContactServer.CN:
                 Prod = GIRegedit.ProdCN;
                 Server = GILauncher.RegionCN;
                 break;
+
             case ContactServer.OVERSEA:
                 Prod = GIRegedit.ProdOVERSEA;
                 Server = GILauncher.RegionOVERSEA;

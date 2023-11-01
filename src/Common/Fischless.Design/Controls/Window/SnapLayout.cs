@@ -1,6 +1,5 @@
 ﻿using Fischless.Native;
 using Microsoft.Win32;
-using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Automation.Peers;
@@ -57,9 +56,11 @@ public sealed class SnapLayout
                     handled = true;
                 }
                 break;
+
             case User32.WindowMessage.WM_NCMOUSELEAVE:
                 DefocusButton();
                 break;
+
             case User32.WindowMessage.WM_NCHITTEST:
                 if (IsEnabled)
                 {
@@ -74,12 +75,14 @@ public sealed class SnapLayout
                     }
                 }
                 return (int)User32.HitTestValues.HTMAXBUTTON;
+
             case User32.WindowMessage.WM_SETCURSOR:
                 if (isButtonFocused)
                 {
                     handled = true;
                 }
                 break;
+
             default:
                 handled = false;
                 break;

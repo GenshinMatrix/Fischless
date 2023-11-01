@@ -88,7 +88,7 @@ public static class ApplicationBuilderExtension
         }
         return app;
     }
-    
+
     public static IApplicationBuilder UseConfiguration(this IApplicationBuilder app)
     {
         ConfigurationManager.Setup(SpecialPathHelper.GetPath("config.yaml"));

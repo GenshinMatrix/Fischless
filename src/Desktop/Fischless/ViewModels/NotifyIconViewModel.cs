@@ -70,6 +70,7 @@ public partial class NotifyIconViewModel : ObservableRecipient, IDisposable
 
     [ObservableProperty]
     private bool autoMute = Configurations.AutoMute.Get();
+
     partial void OnAutoMuteChanged(bool value)
     {
         MuteManager.AutoMute = value;

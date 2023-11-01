@@ -7,7 +7,9 @@ namespace Fischless.KeyboardCapture;
 public sealed class KeyboardHook : IDisposable
 {
     public event KeyEventHandler KeyDown = null!;
+
     public event KeyPressEventHandler KeyPress = null!;
+
     public event KeyEventHandler KeyUp = null!;
 
     private User32.SafeHHOOK hKeyboardHook = new(IntPtr.Zero);
@@ -29,9 +31,9 @@ public sealed class KeyboardHook : IDisposable
         {
             KeyboardHookProcedure = KeyboardHookProc;
             hKeyboardHook = User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, KeyboardHookProcedure, Kernel32.GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
-        
+
             User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, KeyboardHookProcedure, IntPtr.Zero, (int)Kernel32.GetCurrentThreadId());
-            
+
             if (hKeyboardHook.IsNull)
             {
                 Stop();

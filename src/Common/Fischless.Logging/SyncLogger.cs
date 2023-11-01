@@ -10,7 +10,7 @@ public sealed class SyncLogger : ILogger, IDisposable
 {
     public static bool IsEnabled { get; private set; } = false;
     public LogLevel Level { get; set; } = LogLevel.Trace;
-    
+
     internal readonly object WriterLock = new();
 
     internal string ApplicationLogPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");

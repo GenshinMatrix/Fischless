@@ -1,6 +1,5 @@
 ﻿using Fischless.Native;
 using Microsoft.Xaml.Behaviors;
-using System;
 using System.Windows;
 using System.Windows.Interop;
 

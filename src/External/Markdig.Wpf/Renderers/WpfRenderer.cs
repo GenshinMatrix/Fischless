@@ -2,13 +2,6 @@
 // This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Markup;
 using ColorCode.Styling;
 using Markdig.Helpers;
 using Markdig.Renderers.Wpf;
@@ -17,6 +10,12 @@ using Markdig.Renderers.Wpf.Inlines;
 using Markdig.Syntax;
 using Markdig.Wpf;
 using Markdig.Wpf.ColorCode;
+using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Markup;
 using Block = System.Windows.Documents.Block;
 
 namespace Markdig.Renderers

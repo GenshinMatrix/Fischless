@@ -49,7 +49,7 @@ public partial class MessageBoxX : Window
 
     public static readonly DependencyProperty MessageBoxIconProperty = DependencyProperty.Register("MessageBoxIcon", typeof(MessageBoxIcon), typeof(MessageBoxX), new(MessageBoxIcon.Info));
 
-    #endregion
+    #endregion MessageBoxIcon
 
     #region Caption
 
@@ -65,7 +65,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CaptionProperty, value);
     }
 
-    #endregion
+    #endregion Caption
 
     #region CaptionTemplate
 
@@ -81,7 +81,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CaptionTemplateProperty, value);
     }
 
-    #endregion
+    #endregion CaptionTemplate
 
     #region OKButtonText
 
@@ -98,7 +98,7 @@ public partial class MessageBoxX : Window
         set => SetValue(OKButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion OKButtonText
 
     #region OKButtonCommand
 
@@ -115,7 +115,7 @@ public partial class MessageBoxX : Window
         set => SetValue(OKButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion OKButtonCommand
 
     #region OKButtonCommandParameter
 
@@ -132,7 +132,7 @@ public partial class MessageBoxX : Window
         set => SetValue(OKButtonCommandParameterProperty, value);
     }
 
-    #endregion
+    #endregion OKButtonCommandParameter
 
     #region OKButtonStyle
 
@@ -149,7 +149,7 @@ public partial class MessageBoxX : Window
         set => SetValue(OKButtonStyleProperty, value);
     }
 
-    #endregion
+    #endregion OKButtonStyle
 
     #region YesButtonText
 
@@ -166,7 +166,7 @@ public partial class MessageBoxX : Window
         set => SetValue(YesButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion YesButtonText
 
     #region YesButtonCommand
 
@@ -183,7 +183,7 @@ public partial class MessageBoxX : Window
         set => SetValue(YesButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion YesButtonCommand
 
     #region YesButtonCommandParameter
 
@@ -200,7 +200,7 @@ public partial class MessageBoxX : Window
         set => SetValue(YesButtonCommandParameterProperty, value);
     }
 
-    #endregion
+    #endregion YesButtonCommandParameter
 
     #region YesButtonStyle
 
@@ -217,7 +217,7 @@ public partial class MessageBoxX : Window
         set => SetValue(YesButtonStyleProperty, value);
     }
 
-    #endregion
+    #endregion YesButtonStyle
 
     #region NoButtonText
 
@@ -234,7 +234,7 @@ public partial class MessageBoxX : Window
         set => SetValue(NoButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion NoButtonText
 
     #region NoButtonCommand
 
@@ -251,7 +251,7 @@ public partial class MessageBoxX : Window
         set => SetValue(NoButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion NoButtonCommand
 
     #region NoButtonCommandParameter
 
@@ -268,7 +268,7 @@ public partial class MessageBoxX : Window
         set => SetValue(NoButtonCommandParameterProperty, value);
     }
 
-    #endregion
+    #endregion NoButtonCommandParameter
 
     #region NoButtonStyle
 
@@ -285,7 +285,7 @@ public partial class MessageBoxX : Window
         set => SetValue(NoButtonStyleProperty, value);
     }
 
-    #endregion
+    #endregion NoButtonStyle
 
     #region CancelButtonText
 
@@ -302,7 +302,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CancelButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion CancelButtonText
 
     #region CancelButtonCommand
 
@@ -319,7 +319,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CancelButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion CancelButtonCommand
 
     #region CancelButtonCommandParameter
 
@@ -336,7 +336,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CancelButtonCommandParameterProperty, value);
     }
 
-    #endregion
+    #endregion CancelButtonCommandParameter
 
     #region CancelButtonStyle
 
@@ -353,7 +353,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CancelButtonStyleProperty, value);
     }
 
-    #endregion
+    #endregion CancelButtonStyle
 
     #region CornerRadius
 
@@ -369,7 +369,7 @@ public partial class MessageBoxX : Window
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region IconSource
 
@@ -391,7 +391,7 @@ public partial class MessageBoxX : Window
         ((MessageBoxX)sender).OnIconSourcePropertyChanged(args);
     }
 
-    #endregion
+    #endregion IconSource
 
     #region MessageBoxButtons
 
@@ -413,7 +413,7 @@ public partial class MessageBoxX : Window
         ((MessageBoxX)sender).UpdateMessageBoxButtonState();
     }
 
-    #endregion
+    #endregion MessageBoxButtons
 
     #region DefaultResult
 
@@ -429,7 +429,7 @@ public partial class MessageBoxX : Window
             typeof(MessageBoxResult),
             typeof(MessageBoxX));
 
-    #endregion
+    #endregion DefaultResult
 
     #region TemplateSettings
 
@@ -448,7 +448,7 @@ public partial class MessageBoxX : Window
         get => (MessageBoxTemplateSettings)GetValue(TemplateSettingsProperty);
     }
 
-    #endregion
+    #endregion TemplateSettings
 
     public event TypedEventHandler<MessageBoxX, MessageBoxOpenedEventArgs> Opened;
 
@@ -651,18 +651,22 @@ public partial class MessageBoxX : Window
                 stateName = OKVisibleState;
                 OKButton?.Focus();
                 break;
+
             case MessageBoxButton.OKCancel:
                 stateName = OKCancelVisibleState;
                 OKButton?.Focus();
                 break;
+
             case MessageBoxButton.YesNoCancel:
                 stateName = YesNoCancelVisibleState;
                 YesButton?.Focus();
                 break;
+
             case MessageBoxButton.YesNo:
                 stateName = YesNoVisibleState;
                 YesButton?.Focus();
                 break;
+
             default:
                 stateName = OKVisibleState;
                 if (OKButton != null) { OKButton.Focus(); }

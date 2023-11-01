@@ -44,6 +44,7 @@ file static class RegisterAsTitleHeaderBehaviorExtension
                             case WindowState.Normal:
                                 WindowSystemCommands.MaximizeWindow(window);
                                 break;
+
                             case WindowState.Maximized:
                                 WindowSystemCommands.RestoreWindow(window);
                                 break;

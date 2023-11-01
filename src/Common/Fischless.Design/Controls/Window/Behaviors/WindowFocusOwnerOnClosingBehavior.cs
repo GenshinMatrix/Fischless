@@ -1,6 +1,4 @@
-﻿using Fischless.Native;
-using Microsoft.Xaml.Behaviors;
-using System;
+﻿using Microsoft.Xaml.Behaviors;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;

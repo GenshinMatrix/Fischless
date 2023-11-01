@@ -52,6 +52,7 @@ public partial class RepairRegeditViewModel : ObservableObject
 
     [ObservableProperty]
     private int regionType = 0;
+
     partial void OnRegionTypeChanged(int value)
     {
         if (!Reload((RegionTypeIndex)value switch

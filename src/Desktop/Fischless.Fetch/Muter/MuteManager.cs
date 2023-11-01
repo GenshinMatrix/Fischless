@@ -12,6 +12,7 @@ namespace Fischless.Fetch.Muter;
 public class MuteManager
 {
     private static bool autoMute = false;
+
     public static bool AutoMute
     {
         get => autoMute;

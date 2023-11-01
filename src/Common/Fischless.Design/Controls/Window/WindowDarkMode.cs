@@ -97,5 +97,4 @@ public static class WindowDarkMode
 
         return true;
     }
-
 }

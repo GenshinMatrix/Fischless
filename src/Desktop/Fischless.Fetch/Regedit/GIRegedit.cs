@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Fischless.Fetch.Regedit;
 
-public  static partial class GIRegedit
+public static partial class GIRegedit
 {
     public static string ProdCN
     {

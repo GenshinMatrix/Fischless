@@ -76,7 +76,6 @@ public static class ForegroundWindowHelper
     public static event ForegroundWindowHelperEventHandler? ForegroundWindowChanged;
 }
 
-
 public delegate void ForegroundWindowHelperEventHandler(ForegroundWindowHelperEventArgs args);
 
 public struct ForegroundWindowHelperEventArgs
@@ -146,6 +145,7 @@ public struct ForegroundWindowHelperEventArgs
         || WindowClassName?.StartsWith("HwndWrapper[DefaultDomain;;", StringComparison.OrdinalIgnoreCase) == true;
 
     private static readonly Dictionary<IntPtr, bool> isWindowOfProcessElevatedCache = new();
+
     public bool IsWindowOfProcessElevated
     {
         get

@@ -1,7 +1,6 @@
 ﻿using Fischless.Native;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using POINT = Vanara.PInvoke.POINT;

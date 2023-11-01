@@ -1,6 +1,5 @@
 ﻿using Fischless.Hosting.Absraction;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
@@ -10,7 +9,6 @@ public static class WpfHostBuilderExtensions
 {
     public static IWpfHostBuilder UseStartup<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicMethods)] TStartup>(this IWpfHostBuilder wpfHostBuilder) where TStartup : class
     {
-
         IServiceCollection services = wpfHostBuilder.HostBuilder.Services;
 
         services.AddSingleton<IApplicationBuilder>(new ApplicationBuilder());

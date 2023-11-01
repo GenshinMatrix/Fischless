@@ -1,6 +1,4 @@
-﻿using ModernWpf.Controls;
-
-namespace Fischless.Design.Controls;
+﻿namespace Fischless.Design.Controls;
 
 public enum MessageBoxIcon
 {

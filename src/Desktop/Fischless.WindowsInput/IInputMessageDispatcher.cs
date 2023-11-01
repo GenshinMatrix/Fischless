@@ -4,5 +4,5 @@ namespace Fischless.WindowsInput;
 
 internal interface IInputMessageDispatcher
 {
-	public void DispatchInput(User32.INPUT[] inputs);
+    public void DispatchInput(User32.INPUT[] inputs);
 }

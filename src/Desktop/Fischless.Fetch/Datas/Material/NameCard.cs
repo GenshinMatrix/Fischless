@@ -14,5 +14,4 @@ public class NameCard : MaterialItem
     /// Esc 键按下后的个人信息的背景图片
     /// </summary>
     public string ProfileImage { get; set; }
-
 }

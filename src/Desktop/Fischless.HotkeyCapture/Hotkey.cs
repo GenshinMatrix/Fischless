@@ -10,6 +10,7 @@ public sealed class Hotkey
     public bool Windows { get; set; }
 
     private Keys key;
+
     public Keys Key
     {
         get => key;

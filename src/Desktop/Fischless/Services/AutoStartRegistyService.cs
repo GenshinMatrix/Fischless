@@ -17,6 +17,7 @@ public class AutoStartRegistyService : IAutoStartService
     }
 
     public string? GetAppName() => AppConfig.PackName;
+
     public string? GetLaunchCommand() => AppConfig.AutoStartCommand;
 
     public void Enable()

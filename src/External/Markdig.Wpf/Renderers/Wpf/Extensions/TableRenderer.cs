@@ -1,11 +1,11 @@
 // Copyright (c) Nicolas Musset. All rights reserved.
-// This file is licensed under the MIT license. 
+// This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
-using System;
-using System.Windows;
 using Markdig.Extensions.Tables;
 using Markdig.Wpf;
+using System;
+using System.Windows;
 using WpfTable = System.Windows.Documents.Table;
 using WpfTableCell = System.Windows.Documents.TableCell;
 using WpfTableColumn = System.Windows.Documents.TableColumn;
@@ -82,9 +82,11 @@ namespace Markdig.Renderers.Wpf.Extensions
                                 case TableColumnAlign.Center:
                                     wpfCell.TextAlignment = TextAlignment.Center;
                                     break;
+
                                 case TableColumnAlign.Right:
                                     wpfCell.TextAlignment = TextAlignment.Right;
                                     break;
+
                                 case TableColumnAlign.Left:
                                     wpfCell.TextAlignment = TextAlignment.Left;
                                     break;

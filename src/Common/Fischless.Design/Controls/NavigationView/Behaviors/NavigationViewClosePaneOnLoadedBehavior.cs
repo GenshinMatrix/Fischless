@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xaml.Behaviors;
 using ModernWpf.Controls;
-using System;
 using System.Reflection;
 using System.Windows;
 

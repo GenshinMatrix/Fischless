@@ -21,9 +21,7 @@ public class CharacterTalent
     public float CostElementValue { get; set; }
 
     public List<CharacterTalentLevel> Levels { get; set; }
-
 }
-
 
 public class CharacterTalentLevel
 {
@@ -39,7 +37,6 @@ public class CharacterTalentLevel
 
     public List<CharacterTalentLevelParam> Params { get; set; }
 }
-
 
 public class CharacterTalentLevelParam
 {

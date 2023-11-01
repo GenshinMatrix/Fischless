@@ -86,9 +86,11 @@ public static class WindowBackdrop
                     WindowDarkMode.ApplyWindowDarkMode(hWnd);
                 }
                 break;
+
             case ApplicationTheme.Dark:
                 WindowDarkMode.ApplyWindowDarkMode(hWnd);
                 break;
+
             case ApplicationTheme.Light:
             case ApplicationTheme.HighContrast:
                 WindowDarkMode.RemoveWindowDarkMode(hWnd);

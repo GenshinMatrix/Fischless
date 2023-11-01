@@ -1,7 +1,6 @@
 ﻿using Fischless.Design.Helpers;
 using Fischless.Native;
 using Fischless.Threading;
-using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -151,32 +150,40 @@ public partial class ToastControl : UserControl
                 popup.HorizontalOffset = popup.Width;
                 popup.VerticalOffset = (ownerHeight - popup.Height - 38) / 2;
                 break;
+
             case ToastLocation.Right:
                 popup.HorizontalOffset = ownerWidth - 16;
                 popup.VerticalOffset = (ownerHeight - popup.Height - 38) / 2;
                 break;
+
             case ToastLocation.TopLeft:
                 popup.HorizontalOffset = popup.Width;
                 break;
+
             case ToastLocation.TopCenter:
                 popup.HorizontalOffset = (ownerWidth - popup.Width - 16) / 2 + p.X;
                 popup.VerticalOffset = toast.OffsetMargin.Top + p.Y;
                 break;
+
             case ToastLocation.TopRight:
                 popup.HorizontalOffset = ownerWidth - 16;
                 break;
+
             case ToastLocation.BottomLeft:
                 popup.HorizontalOffset = popup.Width;
                 popup.VerticalOffset = ownerHeight - popup.Height - 38;
                 break;
+
             case ToastLocation.BottomCenter:
                 popup.HorizontalOffset = (ownerWidth - popup.Width - 16) / 2;
                 popup.VerticalOffset = ownerHeight - popup.Height - 38;
                 break;
+
             case ToastLocation.BottomRight:
                 popup.HorizontalOffset = (ownerWidth - popup.Width - 16);
                 popup.VerticalOffset = ownerHeight - popup.Height - 38;
                 break;
+
             case ToastLocation.Center:
                 popup.HorizontalOffset = (ownerWidth - popup.Width - 16) / 2;
                 popup.VerticalOffset = (ownerHeight - popup.Height - 38) / 2;
@@ -201,6 +208,7 @@ public partial class ToastControl : UserControl
         get => (string)GetValue(MessageProperty);
         set => SetValue(MessageProperty, value);
     }
+
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register("Message", typeof(string), typeof(ToastControl), new PropertyMetadata(string.Empty));
 
     public CornerRadius CornerRadius
@@ -208,6 +216,7 @@ public partial class ToastControl : UserControl
         get { return (CornerRadius)GetValue(CornerRadiusProperty); }
         set { SetValue(CornerRadiusProperty, value); }
     }
+
     public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ToastControl), new PropertyMetadata(new CornerRadius(5)));
 
     public double IconSize
@@ -215,6 +224,7 @@ public partial class ToastControl : UserControl
         get { return (double)GetValue(IconSizeProperty); }
         set { SetValue(IconSizeProperty, value); }
     }
+
     public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register("IconSize", typeof(double), typeof(ToastControl), new PropertyMetadata(26.0));
 
     public new Brush BorderBrush
@@ -222,41 +232,47 @@ public partial class ToastControl : UserControl
         get { return (Brush)GetValue(BorderBrushProperty); }
         set { SetValue(BorderBrushProperty, value); }
     }
-    public static new readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#E1E1E1")));
+
+    public new static readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#E1E1E1")));
 
     public new Thickness BorderThickness
     {
         get { return (Thickness)GetValue(BorderThicknessProperty); }
         set { SetValue(BorderThicknessProperty, value); }
     }
-    public static new readonly DependencyProperty BorderThicknessProperty = DependencyProperty.Register("BorderThickness", typeof(Thickness), typeof(ToastControl), new PropertyMetadata(new Thickness(0.5d)));
+
+    public new static readonly DependencyProperty BorderThicknessProperty = DependencyProperty.Register("BorderThickness", typeof(Thickness), typeof(ToastControl), new PropertyMetadata(new Thickness(0.5d)));
 
     public new Brush Background
     {
         get { return (Brush)GetValue(BackgroundProperty); }
         set { SetValue(BackgroundProperty, value); }
     }
-    public static new readonly DependencyProperty BackgroundProperty = DependencyProperty.Register("Background", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#FAFAFA")));
+
+    public new static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register("Background", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#FAFAFA")));
 
     public new HorizontalAlignment HorizontalContentAlignment
     {
         get { return (HorizontalAlignment)GetValue(HorizontalContentAlignmentProperty); }
         set { SetValue(HorizontalContentAlignmentProperty, value); }
     }
-    public static new readonly DependencyProperty HorizontalContentAlignmentProperty = DependencyProperty.Register("HorizontalContentAlignment", typeof(HorizontalAlignment), typeof(ToastControl), new PropertyMetadata(HorizontalAlignment.Left));
+
+    public new static readonly DependencyProperty HorizontalContentAlignmentProperty = DependencyProperty.Register("HorizontalContentAlignment", typeof(HorizontalAlignment), typeof(ToastControl), new PropertyMetadata(HorizontalAlignment.Left));
 
     public new VerticalAlignment VerticalContentAlignment
     {
         get { return (VerticalAlignment)GetValue(VerticalContentAlignmentProperty); }
         set { SetValue(VerticalContentAlignmentProperty, value); }
     }
-    public static new readonly DependencyProperty VerticalContentAlignmentProperty = DependencyProperty.Register("VerticalContentAlignment", typeof(VerticalAlignment), typeof(ToastControl), new PropertyMetadata(VerticalAlignment.Center));
+
+    public new static readonly DependencyProperty VerticalContentAlignmentProperty = DependencyProperty.Register("VerticalContentAlignment", typeof(VerticalAlignment), typeof(ToastControl), new PropertyMetadata(VerticalAlignment.Center));
 
     public new double Width
     {
         get { return (double)GetValue(WidthProperty); }
         set { SetValue(WidthProperty, value); }
     }
+
     public new static readonly DependencyProperty WidthProperty = DependencyProperty.Register("Width", typeof(double), typeof(ToastControl), new PropertyMetadata(100d));
 
     public new double Height
@@ -264,6 +280,7 @@ public partial class ToastControl : UserControl
         get { return (double)GetValue(HeightProperty); }
         set { SetValue(HeightProperty, value); }
     }
+
     public new static readonly DependencyProperty HeightProperty = DependencyProperty.Register("Height", typeof(double), typeof(ToastControl), new PropertyMetadata(48.0));
 
     public MessageBoxIcon MessageBoxIcon
@@ -279,6 +296,7 @@ public partial class ToastControl : UserControl
         get { return (int)GetValue(TimeProperty); }
         set { SetValue(TimeProperty, value); }
     }
+
     public static readonly DependencyProperty TimeProperty = DependencyProperty.Register("Time", typeof(int), typeof(ToastControl), new PropertyMetadata(ToastConfig.NormalTime));
 
     public ToastLocation Location
@@ -286,6 +304,7 @@ public partial class ToastControl : UserControl
         get { return (ToastLocation)GetValue(LocationProperty); }
         set { SetValue(LocationProperty, value); }
     }
+
     public static readonly DependencyProperty LocationProperty = DependencyProperty.Register("Location", typeof(ToastLocation), typeof(ToastControl), new PropertyMetadata(ToastLocation.TopCenter));
 }
 

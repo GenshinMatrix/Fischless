@@ -2,9 +2,8 @@
 // This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
-using System;
-
 using Markdig.Syntax.Inlines;
+using System;
 
 namespace Markdig.Renderers.Xaml.Inlines
 {
@@ -46,17 +45,21 @@ namespace Markdig.Renderers.Xaml.Inlines
                 case '*':
                 case '_':
                     break;
+
                 case '~':
                     renderer.Write(obj.DelimiterCount == 2
                         ? " Style=\"{StaticResource {x:Static markdig:Styles.StrikeThroughStyleKey}}\""
                         : " Style=\"{StaticResource {x:Static markdig:Styles.SubscriptStyleKey}}\"");
                     break;
+
                 case '^':
                     renderer.Write(" Style=\"{StaticResource {x:Static markdig:Styles.SuperscriptStyleKey}}\"");
                     break;
+
                 case '+':
                     renderer.Write(" Style=\"{StaticResource {x:Static markdig:Styles.InsertedStyleKey}}\"");
                     break;
+
                 case '=':
                     renderer.Write(" Style=\"{StaticResource {x:Static markdig:Styles.MarkedStyleKey}}\"");
                     break;

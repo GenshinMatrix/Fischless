@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Fischless.KeyboardCapture;
+﻿namespace Fischless.KeyboardCapture;
 
 public class KeyboardReader : IDisposable
 {

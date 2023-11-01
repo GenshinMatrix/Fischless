@@ -2,12 +2,12 @@
 // This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
+using Markdig.Syntax.Inlines;
+using Markdig.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
-using Markdig.Syntax.Inlines;
-using Markdig.Wpf;
 
 namespace Markdig.Renderers.Wpf.Inlines
 {

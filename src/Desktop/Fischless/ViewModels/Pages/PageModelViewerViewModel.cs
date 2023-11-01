@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using Fischless.ModelViewer;
 using Microsoft.Win32;
 using System.IO;
-using Windows.UI.Core;
 
 namespace Fischless.ViewModels;
 
@@ -11,6 +10,7 @@ public partial class PageModelViewerViewModel : ObservableRecipient
 {
     [ObservableProperty]
     private string modelPath = null!;
+
     partial void OnModelPathChanged(string value)
     {
     }

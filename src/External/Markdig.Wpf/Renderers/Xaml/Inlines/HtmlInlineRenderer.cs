@@ -1,5 +1,5 @@
 // Copyright (c) Nicolas Musset. All rights reserved.
-// This file is licensed under the MIT license. 
+// This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
 using Markdig.Syntax.Inlines;

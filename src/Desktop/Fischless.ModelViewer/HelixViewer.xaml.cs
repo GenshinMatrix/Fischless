@@ -11,6 +11,7 @@ public partial class HelixViewer : UserControl
         get => (string)GetValue(ModelPathProperty);
         set => SetValue(ModelPathProperty, value);
     }
+
     public static readonly DependencyProperty ModelPathProperty = DependencyProperty.Register(nameof(ModelPath), typeof(string), typeof(HelixViewer), new(null!, OnModelPathChanged));
 
     public Model3DGroup Models

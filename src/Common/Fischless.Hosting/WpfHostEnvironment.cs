@@ -14,6 +14,7 @@ public class WpfHostEnvironment : IWpfHostEnvironment
     public bool IsDevelopment() =>
 #if DEBUG
         true;
+
 #else
         false;
 #endif

@@ -151,8 +151,10 @@ public enum LanguageIndex
 {
     [Description("zh")]
     Chinese,
+
     [Description("ja")]
     Japanese,
+
     [Description("en")]
     English,
 }

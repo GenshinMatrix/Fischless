@@ -8,6 +8,7 @@ public interface IWindowCapture : IDisposable
     public void Start(nint hWnd);
 
     public Bitmap? Capture();
+
     public Bitmap? Capture(int x, int y, int width, int height);
 
     public void Stop();

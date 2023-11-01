@@ -61,7 +61,7 @@ public static partial class ReShadeFolderWalker
                 }
             }
 
-            GOTO_GET_FOLDER:
+        GOTO_GET_FOLDER:
             // Recursion yield
             {
                 await foreach (ReShadeFolder folder in EnumerateFolder(subfolder))
@@ -97,7 +97,7 @@ public static partial class ReShadeFolderWalker
             IEnumerable<string> imageFiles = Directory.EnumerateFiles(folderPath)
                 .Where(file => Path.GetExtension(file).ToLower() switch
                 {
-                EXT_PNG or EXT_JPG or EXT_JPEG or EXT_BMP => true,
+                    EXT_PNG or EXT_JPG or EXT_JPEG or EXT_BMP => true,
                     _ => false,
                 })
                 .OrderBy(file => Path.GetExtension(file).ToLower() switch

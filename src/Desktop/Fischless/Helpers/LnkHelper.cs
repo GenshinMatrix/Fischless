@@ -37,7 +37,7 @@ public static class LnkHelper
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         string path = Path.Combine(desktop, $"{shortcutName}.lnk");
-        
+
         if (File.Exists(path))
         {
             File.Delete(path);

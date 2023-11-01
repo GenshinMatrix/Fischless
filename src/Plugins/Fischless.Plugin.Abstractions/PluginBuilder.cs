@@ -26,9 +26,11 @@ public sealed class PluginBuilder
                     case ServiceLifetime.Transient:
                         services.AddTransient(type);
                         break;
+
                     case ServiceLifetime.Scoped:
                         services.AddScoped(type);
                         break;
+
                     case ServiceLifetime.Singleton:
                         services.AddSingleton(type);
                         break;

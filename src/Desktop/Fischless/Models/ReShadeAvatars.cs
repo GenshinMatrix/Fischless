@@ -1,9 +1,4 @@
-﻿using Fischless.Fetch.Datas;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace Fischless.Models;
+﻿namespace Fischless.Models;
 
 internal static class ReShadeAvatars
 {

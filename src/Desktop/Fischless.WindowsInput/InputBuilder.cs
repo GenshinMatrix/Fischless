@@ -5,41 +5,41 @@ namespace Fischless.WindowsInput;
 
 internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
 {
-	public InputBuilder()
-	{
-		_inputList = new List<User32.INPUT>();
-	}
-	
-	public User32.INPUT[] ToArray()
-	{
-		return _inputList.ToArray();
-	}
+    public InputBuilder()
+    {
+        _inputList = new List<User32.INPUT>();
+    }
 
-	public IEnumerator<User32.INPUT> GetEnumerator()
-	{
-		return _inputList.GetEnumerator();
-	}
+    public User32.INPUT[] ToArray()
+    {
+        return _inputList.ToArray();
+    }
 
-	IEnumerator IEnumerable.GetEnumerator()
-	{
-		return GetEnumerator();
-	}
+    public IEnumerator<User32.INPUT> GetEnumerator()
+    {
+        return _inputList.GetEnumerator();
+    }
 
-	public User32.INPUT this[int position]
-	{
-		get
-		{
-			return _inputList[position];
-		}
-	}
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
-	public static bool IsExtendedKey(User32.VK keyCode)
-	{
-		return keyCode == User32.VK.VK_MENU || keyCode == User32.VK.VK_LMENU || keyCode == User32.VK.VK_RMENU || keyCode == User32.VK.VK_CONTROL || keyCode == User32.VK.VK_RCONTROL || keyCode == User32.VK.VK_INSERT || keyCode == User32.VK.VK_DELETE || keyCode == User32.VK.VK_HOME || keyCode == User32.VK.VK_END || keyCode == User32.VK.VK_PRIOR || keyCode == User32.VK.VK_NEXT || keyCode == User32.VK.VK_RIGHT || keyCode == User32.VK.VK_UP || keyCode == User32.VK.VK_LEFT || keyCode == User32.VK.VK_DOWN || keyCode == User32.VK.VK_NUMLOCK || keyCode == User32.VK.VK_CANCEL || keyCode == User32.VK.VK_SNAPSHOT || keyCode == User32.VK.VK_DIVIDE;
-	}
+    public User32.INPUT this[int position]
+    {
+        get
+        {
+            return _inputList[position];
+        }
+    }
 
-	public InputBuilder AddKeyDown(User32.VK keyCode)
-	{
+    public static bool IsExtendedKey(User32.VK keyCode)
+    {
+        return keyCode == User32.VK.VK_MENU || keyCode == User32.VK.VK_LMENU || keyCode == User32.VK.VK_RMENU || keyCode == User32.VK.VK_CONTROL || keyCode == User32.VK.VK_RCONTROL || keyCode == User32.VK.VK_INSERT || keyCode == User32.VK.VK_DELETE || keyCode == User32.VK.VK_HOME || keyCode == User32.VK.VK_END || keyCode == User32.VK.VK_PRIOR || keyCode == User32.VK.VK_NEXT || keyCode == User32.VK.VK_RIGHT || keyCode == User32.VK.VK_UP || keyCode == User32.VK.VK_LEFT || keyCode == User32.VK.VK_DOWN || keyCode == User32.VK.VK_NUMLOCK || keyCode == User32.VK.VK_CANCEL || keyCode == User32.VK.VK_SNAPSHOT || keyCode == User32.VK.VK_DIVIDE;
+    }
+
+    public InputBuilder AddKeyDown(User32.VK keyCode)
+    {
         User32.INPUT input = new()
         {
             type = User32.INPUTTYPE.INPUT_KEYBOARD,
@@ -53,50 +53,50 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
             },
         };
         User32.INPUT item = input;
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddKeyUp(User32.VK keyCode)
-	{
+    public InputBuilder AddKeyUp(User32.VK keyCode)
+    {
         User32.INPUT input = new()
         {
             type = User32.INPUTTYPE.INPUT_KEYBOARD,
-			ki = new User32.KEYBDINPUT()
+            ki = new User32.KEYBDINPUT()
             {
                 wVk = (ushort)keyCode,
-				wScan = 0,
-				dwFlags = IsExtendedKey(keyCode) ? (User32.KEYEVENTF.KEYEVENTF_KEYUP | User32.KEYEVENTF.KEYEVENTF_EXTENDEDKEY) : User32.KEYEVENTF.KEYEVENTF_KEYUP,
-				time = 0,
-				dwExtraInfo = IntPtr.Zero,
+                wScan = 0,
+                dwFlags = IsExtendedKey(keyCode) ? (User32.KEYEVENTF.KEYEVENTF_KEYUP | User32.KEYEVENTF.KEYEVENTF_EXTENDEDKEY) : User32.KEYEVENTF.KEYEVENTF_KEYUP,
+                time = 0,
+                dwExtraInfo = IntPtr.Zero,
             },
         };
         User32.INPUT item = input;
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddKeyPress(User32.VK keyCode)
-	{
-		AddKeyDown(keyCode);
-		AddKeyUp(keyCode);
-		return this;
-	}
+    public InputBuilder AddKeyPress(User32.VK keyCode)
+    {
+        AddKeyDown(keyCode);
+        AddKeyUp(keyCode);
+        return this;
+    }
 
-	public InputBuilder AddCharacter(char character)
-	{
+    public InputBuilder AddCharacter(char character)
+    {
         User32.INPUT input = new()
-		{
-			type = User32.INPUTTYPE.INPUT_KEYBOARD,
-			ki = new User32.KEYBDINPUT()
-			{
-				wVk = 0,
+        {
+            type = User32.INPUTTYPE.INPUT_KEYBOARD,
+            ki = new User32.KEYBDINPUT()
+            {
+                wVk = 0,
                 wScan = character,
                 dwFlags = User32.KEYEVENTF.KEYEVENTF_UNICODE,
                 time = 0,
                 dwExtraInfo = IntPtr.Zero,
             },
-		};
+        };
         User32.INPUT item = input;
         User32.INPUT input2 = new()
         {
@@ -111,10 +111,10 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
             },
         };
         User32.INPUT item2 = input2;
-		if ((character & '\u1234') == '\u1234')
-		{
-			item.ki = new User32.KEYBDINPUT()
-			{
+        if ((character & '\u1234') == '\u1234')
+        {
+            item.ki = new User32.KEYBDINPUT()
+            {
                 wVk = item.ki.wVk,
                 wScan = item.ki.wScan,
                 dwFlags = item.ki.dwFlags | User32.KEYEVENTF.KEYEVENTF_EXTENDEDKEY,
@@ -129,28 +129,28 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
                 time = item2.ki.time,
                 dwExtraInfo = item2.ki.dwExtraInfo,
             };
-		}
-		_inputList.Add(item);
-		_inputList.Add(item2);
-		return this;
-	}
+        }
+        _inputList.Add(item);
+        _inputList.Add(item2);
+        return this;
+    }
 
-	public InputBuilder AddCharacters(IEnumerable<char> characters)
-	{
-		foreach (char character in characters)
-		{
-			AddCharacter(character);
-		}
-		return this;
-	}
+    public InputBuilder AddCharacters(IEnumerable<char> characters)
+    {
+        foreach (char character in characters)
+        {
+            AddCharacter(character);
+        }
+        return this;
+    }
 
-	public InputBuilder AddCharacters(string characters)
-	{
-		return AddCharacters(characters.ToCharArray());
-	}
+    public InputBuilder AddCharacters(string characters)
+    {
+        return AddCharacters(characters.ToCharArray());
+    }
 
-	public InputBuilder AddRelativeMouseMovement(int x, int y)
-	{
+    public InputBuilder AddRelativeMouseMovement(int x, int y)
+    {
         User32.INPUT item = new()
         {
             type = User32.INPUTTYPE.INPUT_MOUSE,
@@ -161,12 +161,12 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
                 dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_MOVE,
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddAbsoluteMouseMovement(int absoluteX, int absoluteY)
-	{
+    public InputBuilder AddAbsoluteMouseMovement(int absoluteX, int absoluteY)
+    {
         User32.INPUT item = new()
         {
             type = User32.INPUTTYPE.INPUT_MOUSE,
@@ -177,28 +177,28 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
                 dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_MOVE | User32.MOUSEEVENTF.MOUSEEVENTF_ABSOLUTE,
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddAbsoluteMouseMovementOnVirtualDesktop(int absoluteX, int absoluteY)
-	{
+    public InputBuilder AddAbsoluteMouseMovementOnVirtualDesktop(int absoluteX, int absoluteY)
+    {
         User32.INPUT item = new()
         {
             type = User32.INPUTTYPE.INPUT_MOUSE,
             mi = new User32.MOUSEINPUT()
             {
-				dx = absoluteX,
-				dy = absoluteY,
+                dx = absoluteX,
+                dy = absoluteY,
                 dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_MOVE | User32.MOUSEEVENTF.MOUSEEVENTF_ABSOLUTE | User32.MOUSEEVENTF.MOUSEEVENTF_VIRTUALDESK,
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddMouseButtonDown(MouseButton button)
-	{
+    public InputBuilder AddMouseButtonDown(MouseButton button)
+    {
         User32.INPUT item = new()
         {
             type = User32.INPUTTYPE.INPUT_MOUSE,
@@ -207,93 +207,93 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
                 dwFlags = ToMouseButtonDownFlag(button),
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddMouseXButtonDown(int xButtonId)
-	{
+    public InputBuilder AddMouseXButtonDown(int xButtonId)
+    {
         User32.INPUT item = new()
         {
             type = User32.INPUTTYPE.INPUT_MOUSE,
             mi = new User32.MOUSEINPUT()
-			{
+            {
                 dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_XDOWN,
-				mouseData = xButtonId,
+                mouseData = xButtonId,
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddMouseButtonUp(MouseButton button)
-	{
+    public InputBuilder AddMouseButtonUp(MouseButton button)
+    {
         User32.INPUT item = new()
-		{
-			type = User32.INPUTTYPE.INPUT_MOUSE,
-			mi = new User32.MOUSEINPUT()
-			{
-				dwFlags = ToMouseButtonUpFlag(button),
-            },
-		};
-		_inputList.Add(item);
-		return this;
-	}
-
-	public InputBuilder AddMouseXButtonUp(int xButtonId)
-	{
-        User32.INPUT item = new()
-		{
-			type = User32.INPUTTYPE.INPUT_MOUSE,
-			mi = new User32.MOUSEINPUT()
-			{
-				dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_XUP,
-				mouseData = xButtonId,
-			},
-		};
-		_inputList.Add(item);
-		return this;
-	}
-
-	public InputBuilder AddMouseButtonClick(MouseButton button)
-	{
-		return AddMouseButtonDown(button).AddMouseButtonUp(button);
-	}
-
-	public InputBuilder AddMouseXButtonClick(int xButtonId)
-	{
-		return AddMouseXButtonDown(xButtonId).AddMouseXButtonUp(xButtonId);
-	}
-
-	public InputBuilder AddMouseButtonDoubleClick(MouseButton button)
-	{
-		return AddMouseButtonClick(button).AddMouseButtonClick(button);
-	}
-
-	public InputBuilder AddMouseXButtonDoubleClick(int xButtonId)
-	{
-		return AddMouseXButtonClick(xButtonId).AddMouseXButtonClick(xButtonId);
-	}
-
-	public InputBuilder AddMouseVerticalWheelScroll(int scrollAmount)
-	{
-        User32.INPUT item = new()
-		{
+        {
             type = User32.INPUTTYPE.INPUT_MOUSE,
-			mi = new User32.MOUSEINPUT()
-			{
+            mi = new User32.MOUSEINPUT()
+            {
+                dwFlags = ToMouseButtonUpFlag(button),
+            },
+        };
+        _inputList.Add(item);
+        return this;
+    }
+
+    public InputBuilder AddMouseXButtonUp(int xButtonId)
+    {
+        User32.INPUT item = new()
+        {
+            type = User32.INPUTTYPE.INPUT_MOUSE,
+            mi = new User32.MOUSEINPUT()
+            {
+                dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_XUP,
+                mouseData = xButtonId,
+            },
+        };
+        _inputList.Add(item);
+        return this;
+    }
+
+    public InputBuilder AddMouseButtonClick(MouseButton button)
+    {
+        return AddMouseButtonDown(button).AddMouseButtonUp(button);
+    }
+
+    public InputBuilder AddMouseXButtonClick(int xButtonId)
+    {
+        return AddMouseXButtonDown(xButtonId).AddMouseXButtonUp(xButtonId);
+    }
+
+    public InputBuilder AddMouseButtonDoubleClick(MouseButton button)
+    {
+        return AddMouseButtonClick(button).AddMouseButtonClick(button);
+    }
+
+    public InputBuilder AddMouseXButtonDoubleClick(int xButtonId)
+    {
+        return AddMouseXButtonClick(xButtonId).AddMouseXButtonClick(xButtonId);
+    }
+
+    public InputBuilder AddMouseVerticalWheelScroll(int scrollAmount)
+    {
+        User32.INPUT item = new()
+        {
+            type = User32.INPUTTYPE.INPUT_MOUSE,
+            mi = new User32.MOUSEINPUT()
+            {
                 dwFlags = User32.MOUSEEVENTF.MOUSEEVENTF_WHEEL,
                 mouseData = scrollAmount,
-			},
+            },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	public InputBuilder AddMouseHorizontalWheelScroll(int scrollAmount)
-	{
+    public InputBuilder AddMouseHorizontalWheelScroll(int scrollAmount)
+    {
         User32.INPUT item = new()
-		{
+        {
             type = User32.INPUTTYPE.INPUT_MOUSE,
             mi = new User32.MOUSEINPUT()
             {
@@ -301,12 +301,12 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
                 mouseData = scrollAmount,
             },
         };
-		_inputList.Add(item);
-		return this;
-	}
+        _inputList.Add(item);
+        return this;
+    }
 
-	private static User32.MOUSEEVENTF ToMouseButtonDownFlag(MouseButton button)
-	{
+    private static User32.MOUSEEVENTF ToMouseButtonDownFlag(MouseButton button)
+    {
         return button switch
         {
             MouseButton.LeftButton => User32.MOUSEEVENTF.MOUSEEVENTF_LEFTDOWN,
@@ -316,8 +316,8 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
         };
     }
 
-	private static User32.MOUSEEVENTF ToMouseButtonUpFlag(MouseButton button)
-	{
+    private static User32.MOUSEEVENTF ToMouseButtonUpFlag(MouseButton button)
+    {
         return button switch
         {
             MouseButton.LeftButton => User32.MOUSEEVENTF.MOUSEEVENTF_LEFTUP,
@@ -327,5 +327,5 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
         };
     }
 
-	private readonly List<User32.INPUT> _inputList;
+    private readonly List<User32.INPUT> _inputList;
 }

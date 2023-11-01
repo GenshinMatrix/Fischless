@@ -1,6 +1,7 @@
 ﻿namespace Fischless.Hoyolab;
 
 #pragma warning disable IDE0051
+
 public partial class HoyolabClient
 {
     private const string Accept = "Accept";

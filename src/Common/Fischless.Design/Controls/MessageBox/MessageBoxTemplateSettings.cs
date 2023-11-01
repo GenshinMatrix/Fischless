@@ -28,7 +28,7 @@ public class MessageBoxTemplateSettings : DependencyObject
         internal set => SetValue(IconElementPropertyKey, value);
     }
 
-    #endregion
+    #endregion IconElement
 
     #region OKButtonText
 
@@ -45,7 +45,7 @@ public class MessageBoxTemplateSettings : DependencyObject
         set => SetValue(OKButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion OKButtonText
 
     #region YesButtonText
 
@@ -62,7 +62,7 @@ public class MessageBoxTemplateSettings : DependencyObject
         set => SetValue(YesButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion YesButtonText
 
     #region NoButtonText
 
@@ -79,7 +79,7 @@ public class MessageBoxTemplateSettings : DependencyObject
         set => SetValue(NoButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion NoButtonText
 
     #region CancelButtonText
 
@@ -96,5 +96,5 @@ public class MessageBoxTemplateSettings : DependencyObject
         set => SetValue(CancelButtonTextProperty, value);
     }
 
-    #endregion
+    #endregion CancelButtonText
 }

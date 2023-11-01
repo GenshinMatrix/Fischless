@@ -37,7 +37,6 @@ public class PromotionCostItem
     };
 }
 
-
 public class PromotionAddProperty
 {
     public string PropType { get; set; }

@@ -203,7 +203,6 @@ public static partial class GIRegedit
             "EstimatedSize"=dword:{info.EstimatedSize}
             "NetworkType"="{info.NetworkType}"
 
-
             """;
     }
 

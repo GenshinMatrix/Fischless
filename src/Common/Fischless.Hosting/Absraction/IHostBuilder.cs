@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Fischless.Hosting.Absraction;
 
@@ -9,5 +8,6 @@ public interface IHostBuilder
     public IServiceCollection Services { get; set; }
 
     public IHostBuilder ConfigureDefaults(string[]? args);
+
     public IHost Build();
 }

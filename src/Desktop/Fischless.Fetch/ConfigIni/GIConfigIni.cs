@@ -16,7 +16,7 @@ public static class GIConfigIni
 
     public static void Fetch()
     {
-        List<KeyValuePair<string, string>> list = 
+        List<KeyValuePair<string, string>> list =
             new ConfigurationBuilder()
                 ?.AddIniFile(FilePath)
                 ?.Build()

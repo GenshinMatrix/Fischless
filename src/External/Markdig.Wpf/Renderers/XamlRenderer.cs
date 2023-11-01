@@ -5,16 +5,14 @@
 // Some parts taken from https://github.com/lunet-io/markdig
 // Copyright (c) Alexandre Mutel. All rights reserved.
 
-using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Text;
-
 using Markdig.Helpers;
 using Markdig.Renderers.Xaml;
 using Markdig.Renderers.Xaml.Inlines;
 using Markdig.Syntax;
-
+using System;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Markdig.Renderers
 {

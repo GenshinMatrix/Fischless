@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xaml.Behaviors;
-using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;

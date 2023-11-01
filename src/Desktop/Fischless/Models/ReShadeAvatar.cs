@@ -54,6 +54,7 @@ public partial class ReShadeAvatar : ObservableObject
 
     [ObservableProperty]
     private bool isSelected = false;
+
     partial void OnIsSelectedChanged(bool value)
     {
         IsSelectedChanged?.Invoke(this, value);
@@ -104,6 +105,7 @@ public partial class ReShadeFolderList : ObservableObject
 
     [ObservableProperty]
     private bool isEnabled = false;
+
     partial void OnIsEnabledChanged(bool value)
     {
         if (value && !FolderPath.IsEnabledFolderPath())
@@ -179,7 +181,7 @@ public partial class ReShadeFolderList : ObservableObject
             {
                 string newFolderName = value ?? string.Empty;
                 string newFolderPath = Path.Combine(directoryInfo.Parent.FullName, new string(newFolderName.Where(ch => !Path.GetInvalidFileNameChars().Contains(ch)).ToArray()));
-                
+
                 if (newFolderPath.Equals(directoryInfo.FullName, StringComparison.OrdinalIgnoreCase)
                  || newFolderPath.Length > 248)
                 {
@@ -226,6 +228,7 @@ public partial class ReShadeFolderListDetailImage : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ImageFileProtocol))]
     private string imagePath = null!;
+
     public string ImageFileProtocol => $"file://{ImagePath.Replace(Path.DirectorySeparatorChar, '/')}";
 
     public ReShadeFolderListDetailImage()

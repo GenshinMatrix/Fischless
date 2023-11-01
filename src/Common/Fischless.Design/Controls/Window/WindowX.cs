@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Native;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -22,7 +21,8 @@ public partial class WindowX : Window
         get => (bool)GetValue(IsActivatedProperty);
         set => SetValue(IsActivatedProperty, value);
     }
-    public static readonly DependencyProperty IsActivatedProperty =  DependencyProperty.Register(nameof(IsActivated), typeof(bool), typeof(WindowX), new PropertyMetadata(false));
+
+    public static readonly DependencyProperty IsActivatedProperty = DependencyProperty.Register(nameof(IsActivated), typeof(bool), typeof(WindowX), new PropertyMetadata(false));
 
     public WindowX()
     {

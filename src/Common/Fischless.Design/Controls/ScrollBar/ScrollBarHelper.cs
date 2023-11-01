@@ -57,7 +57,7 @@ public static class ScrollBarHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region IndicatorMode
 
@@ -83,7 +83,7 @@ public static class ScrollBarHelper
         UpdateVisualState((ScrollBar)d);
     }
 
-    #endregion
+    #endregion IndicatorMode
 
     #region AutoHide
 
@@ -110,7 +110,7 @@ public static class ScrollBarHelper
         UpdateVisualState(scrollBar);
     }
 
-    #endregion
+    #endregion AutoHide
 
     private static void OnScrollBarIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {

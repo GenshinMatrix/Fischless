@@ -98,7 +98,7 @@ public sealed class AsyncLogger : ILogger, IDisposable
             ResetEvent.Set();
         }
     }
-    
+
     [SuppressMessage("Style", "IDE0060:")]
     [SuppressMessage("Style", "IDE0079:")]
     public void None(params object[] values)

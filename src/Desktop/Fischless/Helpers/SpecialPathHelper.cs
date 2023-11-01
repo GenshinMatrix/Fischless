@@ -5,7 +5,7 @@ namespace Fischless.Helpers;
 
 internal static class SpecialPathHelper
 {
-    private readonly static string _localApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+    private static readonly string _localApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
     public static string TempPath { get; } = Path.GetTempPath();
 
     public static string GetFolder(string optionFolder = null!)

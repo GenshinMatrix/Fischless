@@ -2,9 +2,8 @@
 // This file is licensed under the MIT license.
 // See the LICENSE.md file in the project root for more information.
 
-using System;
-
 using Markdig.Syntax;
+using System;
 
 namespace Markdig.Renderers.Xaml
 {
@@ -45,7 +44,6 @@ namespace Markdig.Renderers.Xaml
                 renderer.WriteLine("<ListItem>");
                 renderer.WriteChildren(listItem);
                 renderer.WriteLine("</ListItem>");
-
             }
             renderer.WriteLine("</List>");
         }
