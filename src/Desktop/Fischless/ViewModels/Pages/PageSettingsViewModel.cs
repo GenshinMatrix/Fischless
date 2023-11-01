@@ -155,4 +155,10 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
     {
         _ = await Launcher.LaunchUriAsync(new Uri($"file://{SpecialPathHelper.GetPath()}/"));
     }
+
+    [RelayCommand]
+    public static async Task OpenLogsFolder()
+    {
+        _ = await Launcher.LaunchUriAsync(new Uri($"file://{AppConfig.LogFolder}/"));
+    }
 }

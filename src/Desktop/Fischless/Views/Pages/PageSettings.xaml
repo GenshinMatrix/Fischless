@@ -636,6 +636,26 @@
                         </StackPanel>
                     </wui:CardAction.Content>
                 </wui:CardAction>
+                <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenLogsFolderCommand}">
+                    <wui:CardAction.Icon>
+                        <wui:FontIcon Height="40"
+                                      Margin="6,0,0,0"
+                                      FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                      FontSize="24"
+                                      Glyph="{x:Static fui:FontSymbols.OpenFolderHorizontal}" />
+                    </wui:CardAction.Icon>
+                    <wui:CardAction.Content>
+                        <StackPanel Margin="6,0,0,0">
+                            <TextBlock FontSize="14"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                       Text="应用日志" />
+                            <TextBlock FontSize="13"
+                                       Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                       Text="本地记录的应用日志" />
+                        </StackPanel>
+                    </wui:CardAction.Content>
+                </wui:CardAction>
             </StackPanel>
         </fui:SmoothScrollViewer>
     </Grid>
