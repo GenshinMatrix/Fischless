@@ -15,6 +15,10 @@
         <ApplicationIcon>Assets\Icons\i2Q2r-4cr2K2kT3cSkf-ke.ico</ApplicationIcon>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <DefineConstants>$(DefineConstants);_DEMOPRO</DefineConstants>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
         <PackageReference Include="CompiledBindings.WPF" Version="1.0.17.6" />

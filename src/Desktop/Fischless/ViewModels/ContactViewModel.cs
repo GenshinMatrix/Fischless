@@ -88,7 +88,11 @@ public sealed partial class ContactViewModel : ObservableObject
                 RoleFetched = (await Client.GetGenshinRoleInfosAsync(Contact.Server.ToHoyolabRegion(), Contact.Cookie)).FirstOrDefault();
 
                 Log.Information($"[GenshinRoleInfo] Uid=\"{RoleFetched!.Uid}\" NickName=\"{RoleFetched!.Nickname}\"");
+#if DEMOPRO
+                Contact.NickName = Mui("AvatarNameOfAozi");
+#else
                 Contact.NickName = RoleFetched!.Nickname;
+#endif
                 Contact.Uid = RoleFetched!.Uid;
                 Contact.Level = RoleFetched!.Level;
                 Contact.RegionName = RoleFetched!.RegionName;
