@@ -32,8 +32,12 @@
 - 插件管理：内含官方插件的同时开放自定义插件；
   - 修复注册表：修复游戏注册表安装信息；
   - 祈愿云记录：利用代码仓库管理你的私人祈愿记录（待开发）；
+  - 圣遗物预测：预测目标圣遗物的获取周期（待开发）；
+  - 祈愿预测：祈愿预测概率曲线（待开发）；
   - 提瓦特文字：渲染游戏内文字（待开发）；
+  - 音轨提取：提取游戏音乐、语言轨道文件（待开发）；
   - 图形设置：打开系统图形设置；
+
 
 - 其他；
   - 多语言：支持中日英语言；
@@ -44,7 +48,7 @@
 
 - 渐进式：尽可能实现渐进式库隔离；
 
-- 格式化：[CodeMaid.config](\src\CodeMaid.config)、[Settings.XamlStyler](\src\Settings.XamlStyler)；
+- 格式化：[CodeMaid.config](src/CodeMaid.config)、[Settings.XamlStyler](src/Settings.XamlStyler)；
 
 ## 致谢
 
