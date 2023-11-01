@@ -13,6 +13,7 @@ public partial class PageModelViewerViewModel : ObservableRecipient
 
     partial void OnModelPathChanged(string value)
     {
+        ///
     }
 
     public void LoadModel(string modelPath)
@@ -34,6 +35,15 @@ public partial class PageModelViewerViewModel : ObservableRecipient
         if (dialog.ShowDialog() ?? false)
         {
             LoadModel(dialog.FileName);
+        }
+    }
+
+    [RelayCommand]
+    public void ResetCamera(object param)
+    {
+        if (param is HelixViewer viewer)
+        {
+            viewer.ResetCamera();
         }
     }
 }

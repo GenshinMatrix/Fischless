@@ -4,11 +4,8 @@
          xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          xmlns:fui="urn:fischless.design"
-         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-         xmlns:m="clr-namespace:Fischless.Models"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:mv="urn:fischless.modelviewer"
-         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
          xmlns:ui="http://schemas.modernwpf.com/2019"
          d:DesignHeight="450"
          d:DesignWidth="800"
@@ -27,7 +24,51 @@
         </conv:ValueConverterGroup>
     </ui:Page.Resources>
     <Grid>
-        <mv:HelixViewer ModelPath="{Binding ModelPath}" Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}" />
+        <mv:HelixViewer x:Name="HelixViewer"
+                        ModelPath="{Binding ModelPath}"
+                        Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}" />
+        <DockPanel Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}">
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                <Button BorderBrush="Transparent" Command="{Binding OpenModelCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="16"
+                                         Glyph="{x:Static fui:FontSymbols.Folder}" />
+                            <TextBlock Margin="5,0,0,0" Text="打开" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Margin="8,0,0,0"
+                        BorderBrush="Transparent"
+                        Command="{Binding ResetCameraCommand}"
+                        CommandParameter="{x:Reference HelixViewer}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="16"
+                                         Glyph="{x:Static fui:FontSymbols.UpdateRestore}" />
+                            <TextBlock Margin="5,0,0,0" Text="重置" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel Margin="0,0,8,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        DockPanel.Dock="Right"
+                        Orientation="Horizontal">
+                <Button BorderBrush="Transparent" Visibility="Collapsed">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                         FontSize="16"
+                                         Glyph="{x:Static fui:FontSymbols.Help}" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </DockPanel>
         <Button Width="500"
                 Height="250"
                 Padding="0"
