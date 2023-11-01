@@ -1,0 +1,30 @@
+﻿using System.Globalization;
+using System.Windows.Data;
+
+namespace Fischless.Design.Converters;
+
+[ValueConversion(typeof(string), typeof(bool))]
+public sealed class StringEqualityConverter : IValueConverter
+{
+    public static StringEqualityConverter Instance => new();
+
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is string inputString)
+        {
+            return inputString == parameter as string;
+        }
+        return value;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        bool isChecked = (bool)value;
+
+        if (!isChecked)
+        {
+            return string.Empty;
+        }
+        return (parameter as string) ?? string.Empty;
+    }
+}
