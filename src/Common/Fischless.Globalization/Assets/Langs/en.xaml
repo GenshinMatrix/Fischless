@@ -187,7 +187,7 @@
     <s:String x:Key="AvatarNameOfLiney">Lyney</s:String>
     <s:String x:Key="AvatarNameOfFreminet">Freminet</s:String>
     <s:String x:Key="AvatarNameOfNeuvillette">Neuvillette</s:String>
-    <s:String x:Key="AvatarNameOfAozi">Aozi</s:String>
+    <s:String x:Key="AvatarNameOfAozi">Oz</s:String>
     <s:String x:Key="AvatarNameOfUI_FlycloakIcon_Psalmus">Psalmus</s:String>
     <s:String x:Key="AvatarNameOfPaimon">Paimon</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">Mitternachts Waltz</s:String>
