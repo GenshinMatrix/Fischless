@@ -74,6 +74,11 @@ public static partial class ReShadeFolderWalker
 
     public static IEnumerable<string> EnumerateFolderImage(string folderPath)
     {
+        if (!Directory.Exists(folderPath))
+        {
+            return Array.Empty<string>();
+        }
+
         if (IsUseTextureImage)
         {
             IEnumerable<string> imageFiles = Directory.EnumerateFiles(folderPath)
