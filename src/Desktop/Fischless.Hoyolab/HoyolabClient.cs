@@ -1,6 +1,15 @@
 ﻿using Fischless.Hoyolab.Account;
 using System.Net;
+
+#if !DEBUG
+
+using System.Net.Http.Json;
+
+#else
+
 using System.Text.Json;
+
+#endif
 
 namespace Fischless.Hoyolab;
 
