@@ -26,6 +26,7 @@
     <Grid>
         <mv:HelixViewer x:Name="HelixViewer"
                         ModelPath="{Binding ModelPath}"
+                        Selector="{Binding Selector}"
                         Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}" />
         <DockPanel Visibility="{Binding ModelPath, Converter={StaticResource StringIsNotNullOrEmptyVisibilityConverter}}">
             <StackPanel VerticalAlignment="Top" Orientation="Horizontal">

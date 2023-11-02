@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.ModelViewer;
+using Fischless.Mvvm;
 using Microsoft.Win32;
+using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Fischless.ViewModels;
 
@@ -10,6 +13,22 @@ public partial class PageModelViewerViewModel : ObservableRecipient
 {
     [ObservableProperty]
     private string modelPath = null!;
+
+    [ObservableProperty]
+    private Func<string[], Task<string>> selector = null!;
+
+    [ObservableProperty]
+    private ObservableCollectionEx<string> pmxs = new();
+
+    public PageModelViewerViewModel()
+    {
+        Selector = async (inputs) =>
+        {
+            Pmxs = new(inputs);
+            await Task.CompletedTask;
+            return inputs[0];
+        };
+    }
 
     partial void OnModelPathChanged(string value)
     {

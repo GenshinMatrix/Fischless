@@ -14,6 +14,14 @@ public partial class HelixViewer : UserControl
 
     public static readonly DependencyProperty ModelPathProperty = DependencyProperty.Register(nameof(ModelPath), typeof(string), typeof(HelixViewer), new(null!, OnModelPathChanged));
 
+    public Func<string[], Task<string>> Selector
+    {
+        get => (Func<string[], Task<string>>)GetValue(SelectorProperty);
+        set => SetValue(SelectorProperty, value);
+    }
+
+    public static readonly DependencyProperty SelectorProperty = DependencyProperty.Register(nameof(Selector), typeof(Func<string[], Task<string>>), typeof(HelixViewer), new(null!, OnSelectorChanged));
+
     public Model3DGroup Models
     {
         get => Model.Content as Model3DGroup;
@@ -21,7 +29,6 @@ public partial class HelixViewer : UserControl
     }
 
     public ModelLoader Loader = new();
-    public Func<string[], Task<string>> Selector = null;
 
     public HelixViewer()
     {
@@ -33,6 +40,14 @@ public partial class HelixViewer : UserControl
         if (d is HelixViewer self)
         {
             self.LoadModel((e.NewValue as string)!, self.Selector);
+        }
+    }
+
+    private static void OnSelectorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is HelixViewer self)
+        {
+            _ = self;
         }
     }
 
