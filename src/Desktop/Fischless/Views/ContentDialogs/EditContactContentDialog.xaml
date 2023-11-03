@@ -73,7 +73,7 @@
                                                 <Image Width="64" Source="{Binding LocalIconUri, Converter={x:Static fui:UriToImageSourceConverter.Instance}, ConverterParameter=64, Mode=OneWay}" />
                                             </Button.Content>
                                             <Button.ContextMenu>
-                                                <ContextMenu>
+                                                <ContextMenu Cursor="{DynamicResource ThemeCursor}">
                                                     <ContextMenu.Style>
                                                         <Style TargetType="{x:Type ContextMenu}">
                                                             <Setter Property="Template">

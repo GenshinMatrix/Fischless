@@ -8,7 +8,15 @@ namespace Fischless.Design.Controls;
 
 public sealed class FlyoutCursorBehavior : Behavior<Popup>
 {
-    public Cursor Cursor { get; set; } = null!;
+    public static readonly DependencyProperty CursorProperty =
+        DependencyProperty.Register(nameof(Cursor), typeof(Cursor), typeof(FlyoutCursorBehavior), new PropertyMetadata(null!));
+
+    public Cursor Cursor
+    {
+        get => (Cursor)GetValue(CursorProperty);
+        set => SetValue(CursorProperty, value);
+    }
+
     public Uri CursorUri { get; set; } = null!;
     public int HotSpotX { get; set; } = default;
     public int HotSpotY { get; set; } = default;
