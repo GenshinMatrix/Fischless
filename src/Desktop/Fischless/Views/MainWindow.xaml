@@ -24,6 +24,10 @@
              WindowStartupLocation="CenterScreen"
              mc:Ignorable="d">
 
+    <fui:WindowX.Resources>
+        <fui:StringEqualityConverter x:Key="StringEqualityConverter" />
+    </fui:WindowX.Resources>
+
     <fui:WindowXCaption.Header>
         <Border Height="30" Margin="3,5,0,0">
             <StackPanel Orientation="Horizontal">
@@ -85,6 +89,137 @@
             </StackPanel>
         </Border>
     </fui:WindowXCaption.Header>
+
+    <fui:WindowXCaption.ExtendControl>
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="0,3,8,0"
+                    Padding="5"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                    ToolTip="{DynamicResource MoreActions}">
+                <Button.Content>
+                    <TextBlock FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                               FontSize="16"
+                               Text="{x:Static fui:FontSymbols.More}">
+                        <TextBlock.RenderTransform>
+                            <RotateTransform Angle="90" CenterX="8" CenterY="8" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </Button.Content>
+                <Button.ContextMenu>
+                    <ContextMenu Cursor="{DynamicResource ThemeCursor}"
+                                 FontFamily="{StaticResource TextThemeFontFamily}"
+                                 FontSize="12">
+                        <MenuItem Command="{Binding ViewSettingsCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource GlobalSettings}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="16"
+                                           Text="{x:Static fui:FontSymbols.Settings}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem FontSize="12" Header="{DynamicResource Language}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="16"
+                                           Text="{x:Static fui:FontSymbols.LocaleLanguage}" />
+                            </MenuItem.Icon>
+                            <ui:RadioMenuItem CommandParameter="zh"
+                                              Cursor="{DynamicResource ThemeCursor}"
+                                              FontSize="12"
+                                              Header="简体中文"
+                                              IsChecked="{Binding Language, Converter={StaticResource StringEqualityConverter}, ConverterParameter=zh, Mode=TwoWay}" />
+                            <ui:RadioMenuItem CommandParameter="ja"
+                                              FontSize="12"
+                                              Header="日本語"
+                                              IsChecked="{Binding Language, Converter={StaticResource StringEqualityConverter}, ConverterParameter=ja, Mode=TwoWay}" />
+                            <ui:RadioMenuItem CommandParameter="en"
+                                              FontSize="12"
+                                              Header="English"
+                                              IsChecked="{Binding Language, Converter={StaticResource StringEqualityConverter}, ConverterParameter=en, Mode=TwoWay}" />
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Command="{Binding ShowLogsCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource RunLog}"
+                                  ToolTip="{DynamicResource RunLogHint}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.FolderOpen}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="{Binding ShowCacheDatasCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource CacheData}"
+                                  ToolTip="{DynamicResource CacheDataHint}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.FolderOpen}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Command="{Binding OpenUserManualCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource UserManual}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.ReadingMode}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem FontSize="12" Header="{DynamicResource DeveloperTools}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.DeveloperTools}" />
+                            </MenuItem.Icon>
+                            <MenuItem Command="{Binding ShowScreenKeyboardCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource ScreenKeyboard}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="14"
+                                               Text="{x:Static fui:FontSymbols.KeyboardNarrow}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{Binding ShowEventViewerCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource SystemEvent}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="14"
+                                               Text="{x:Static fui:FontSymbols.Safe}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{Binding ShowVersionViewerCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource SystemVersion}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="14"
+                                               Text="{x:Static fui:FontSymbols.System}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Command="{Binding ViewAboutCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource AboutProgram}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.Info}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+                <i:Interaction.Behaviors>
+                    <fui:LeftContextMenuBehavior PlacementOffsetX="0" PlacementOffsetY="0" />
+                </i:Interaction.Behaviors>
+            </Button>
+        </StackPanel>
+    </fui:WindowXCaption.ExtendControl>
 
     <Grid>
 

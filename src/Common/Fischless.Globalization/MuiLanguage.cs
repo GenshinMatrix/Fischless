@@ -10,6 +10,7 @@ namespace Fischless.Globalization;
 public static class MuiLanguage
 {
     public static bool IsResourceReady { get; private set; } = false;
+    public static string MuiLanguageName { get; private set; } = string.Empty;
 
     public static string DetectLanguage() => CultureInfo.CurrentUICulture.TwoLetterISOLanguageName switch
     {
@@ -31,6 +32,8 @@ public static class MuiLanguage
 
     public static bool SetLanguage(string name = "en")
     {
+        MuiLanguageName = name;
+
         if (!string.IsNullOrWhiteSpace(name))
         {
             CultureInfo cultureInfo = new(name);
