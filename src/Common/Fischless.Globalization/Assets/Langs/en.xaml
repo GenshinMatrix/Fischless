@@ -192,4 +192,16 @@
     <s:String x:Key="AvatarNameOfPaimon">Paimon</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">Mitternachts Waltz</s:String>
 
+    <s:String x:Key="UsefullLinks">Usefull Links</s:String>
+    <s:String x:Key="OpenUrlInteractiveMap">Teyvat Map</s:String>
+    <s:String x:Key="OpenUrlPlayBox">Play Box</s:String>
+    <s:String x:Key="CacheData">User data</s:String>
+    <s:String x:Key="CacheDataHint">User data recorded locally</s:String>
+    <s:String x:Key="RunLog">Application logs</s:String>
+    <s:String x:Key="RunLogHint">Application log recorded locally</s:String>
+    <s:String x:Key="UserManual">User Manual</s:String>
+    <s:String x:Key="DeveloperTools">Developer Tools</s:String>
+    <s:String x:Key="SystemEvent">System Event</s:String>
+    <s:String x:Key="SystemVersion">System Version</s:String>
+
 </ResourceDictionary>

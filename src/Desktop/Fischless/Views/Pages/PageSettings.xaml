@@ -631,10 +631,10 @@
                             <TextBlock FontSize="14"
                                        FontWeight="Bold"
                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                       Text="用户数据" />
+                                       Text="{DynamicResource CacheData}" />
                             <TextBlock FontSize="13"
                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                       Text="本地记录的用户数据" />
+                                       Text="{DynamicResource CacheDataHint}" />
                         </StackPanel>
                     </wui:CardAction.Content>
                 </wui:CardAction>
@@ -651,10 +651,10 @@
                             <TextBlock FontSize="14"
                                        FontWeight="Bold"
                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                       Text="应用日志" />
+                                       Text="{DynamicResource RunLog}" />
                             <TextBlock FontSize="13"
                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                       Text="本地记录的应用日志" />
+                                       Text="{DynamicResource RunLogHint}" />
                         </StackPanel>
                     </wui:CardAction.Content>
                 </wui:CardAction>

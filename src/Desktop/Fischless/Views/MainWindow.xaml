@@ -138,18 +138,33 @@
                                               Header="English"
                                               IsChecked="{Binding Language, Converter={StaticResource StringEqualityConverter}, ConverterParameter=en, Mode=TwoWay}" />
                         </MenuItem>
-                        <Separator />
-                        <MenuItem Command="{Binding ShowLogsCommand}"
-                                  FontSize="12"
-                                  Header="{DynamicResource RunLog}"
-                                  ToolTip="{DynamicResource RunLogHint}">
+                        <MenuItem FontSize="12" Header="{DynamicResource UsefullLinks}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                           FontSize="14"
-                                           Text="{x:Static fui:FontSymbols.FolderOpen}" />
+                                           FontSize="16"
+                                           Text="{x:Static fui:FontSymbols.Link}" />
                             </MenuItem.Icon>
+                            <MenuItem Command="{Binding OpenUrlInteractiveMapCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource OpenUrlInteractiveMap}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="16"
+                                               Text="{x:Static fui:FontSymbols.Link}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="{Binding OpenUrlPlayBoxCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource OpenUrlPlayBox}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="16"
+                                               Text="{x:Static fui:FontSymbols.Link}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
-                        <MenuItem Command="{Binding ShowCacheDatasCommand}"
+                        <Separator />
+                        <MenuItem Command="{Binding OpenSpecialFolderCommand}"
                                   FontSize="12"
                                   Header="{DynamicResource CacheData}"
                                   ToolTip="{DynamicResource CacheDataHint}">
@@ -159,10 +174,21 @@
                                            Text="{x:Static fui:FontSymbols.FolderOpen}" />
                             </MenuItem.Icon>
                         </MenuItem>
+                        <MenuItem Command="{Binding OpenLogsFolderCommand}"
+                                  FontSize="12"
+                                  Header="{DynamicResource RunLog}"
+                                  ToolTip="{DynamicResource RunLogHint}">
+                            <MenuItem.Icon>
+                                <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                           FontSize="14"
+                                           Text="{x:Static fui:FontSymbols.FolderOpen}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
                         <Separator />
                         <MenuItem Command="{Binding OpenUserManualCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource UserManual}">
+                                  Header="{DynamicResource UserManual}"
+                                  Visibility="Collapsed">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -175,15 +201,6 @@
                                            FontSize="14"
                                            Text="{x:Static fui:FontSymbols.DeveloperTools}" />
                             </MenuItem.Icon>
-                            <MenuItem Command="{Binding ShowScreenKeyboardCommand}"
-                                      FontSize="12"
-                                      Header="{DynamicResource ScreenKeyboard}">
-                                <MenuItem.Icon>
-                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                               FontSize="14"
-                                               Text="{x:Static fui:FontSymbols.KeyboardNarrow}" />
-                                </MenuItem.Icon>
-                            </MenuItem>
                             <MenuItem Command="{Binding ShowEventViewerCommand}"
                                       FontSize="12"
                                       Header="{DynamicResource SystemEvent}">

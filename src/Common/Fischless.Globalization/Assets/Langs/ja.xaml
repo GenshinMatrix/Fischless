@@ -192,4 +192,16 @@
     <s:String x:Key="AvatarNameOfPaimon">パイモン</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">幽夜のワルツ</s:String>
 
+    <s:String x:Key="UsefullLinks">リンクたち</s:String>
+    <s:String x:Key="OpenUrlInteractiveMap">テイワットマップ</s:String>
+    <s:String x:Key="OpenUrlPlayBox">模ノ屋</s:String>
+    <s:String x:Key="CacheData">ユーザデータ</s:String>
+    <s:String x:Key="CacheDataHint">ローカルディスクに保存したユーザデータ</s:String>
+    <s:String x:Key="RunLog">アプリのログ</s:String>
+    <s:String x:Key="RunLogHint">ローカルディスクに保存したアプリのログ</s:String>
+    <s:String x:Key="UserManual">ユーザマニュアル</s:String>
+    <s:String x:Key="DeveloperTools">開発者ツール</s:String>
+    <s:String x:Key="SystemEvent">システムイベント</s:String>
+    <s:String x:Key="SystemVersion">システムバージョン</s:String>
+
 </ResourceDictionary>

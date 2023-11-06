@@ -192,4 +192,16 @@
     <s:String x:Key="AvatarNameOfPaimon">派蒙</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">幽夜华尔兹</s:String>
 
+    <s:String x:Key="UsefullLinks">常用链接</s:String>
+    <s:String x:Key="OpenUrlInteractiveMap">提瓦特地图</s:String>
+    <s:String x:Key="OpenUrlPlayBox">模之屋</s:String>
+    <s:String x:Key="CacheData">用户数据</s:String>
+    <s:String x:Key="CacheDataHint">本地记录的用户数据</s:String>
+    <s:String x:Key="RunLog">应用日志</s:String>
+    <s:String x:Key="RunLogHint">本地记录的应用日志</s:String>
+    <s:String x:Key="UserManual">用户手册</s:String>
+    <s:String x:Key="DeveloperTools">开发者工具</s:String>
+    <s:String x:Key="SystemEvent">系统事件</s:String>
+    <s:String x:Key="SystemVersion">系统版本</s:String>
+
 </ResourceDictionary>
