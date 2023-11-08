@@ -30,7 +30,7 @@ public class CursorExtension : MarkupExtension
     {
         if (cursorUri == null)
         {
-            throw new ArgumentNullException(nameof(cursorUri));
+            return null;
         }
 
         var pngBitmap = new BitmapImage(cursorUri);
