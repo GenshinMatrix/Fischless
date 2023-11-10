@@ -63,6 +63,7 @@ public partial class WindowX : Window
     protected override void OnSourceInitialized(EventArgs e)
     {
         base.OnSourceInitialized(e);
+        WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.None, ApplicationTheme.Unknown);
         NativeMethods.HideAllWindowButton(new WindowInteropHelper(this).Handle);
     }
 
