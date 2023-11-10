@@ -7,21 +7,14 @@ using System.Windows.Media.Imaging;
 namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(Bitmap), typeof(BitmapSource))]
-public sealed class BitmapToBitmapSourceConverter : IValueConverter
+public sealed class BitmapToBitmapSourceConverter : SingletonConverterBase<BitmapToBitmapSourceConverter>
 {
-    public static BitmapToBitmapSourceConverter Instance => new();
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is Bitmap bitmap)
         {
             return bitmap.ToBitmapSource();
         }
         return null!;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
     }
 }

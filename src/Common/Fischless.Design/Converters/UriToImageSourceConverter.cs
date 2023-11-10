@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -7,11 +6,9 @@ using System.Windows.Media.Imaging;
 namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(object), typeof(ImageSource))]
-public sealed class UriToImageSourceConverter : IValueConverter
+public sealed class UriToImageSourceConverter : SingletonConverterBase<UriToImageSourceConverter>
 {
-    public static UriToImageSourceConverter Instance => new();
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         int? decodePixelWidth = null;
         if (parameter is string pixel)
@@ -28,11 +25,6 @@ public sealed class UriToImageSourceConverter : IValueConverter
             return new Uri(uriString).ToImageSource(decodePixelWidth);
         }
         return null!;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        return DependencyProperty.UnsetValue;
     }
 }
 

@@ -5,13 +5,11 @@ using System.Windows.Media;
 namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(string), typeof(SolidColorBrush))]
-public sealed class ColorToSolidBrushConverter : IValueConverter
+public sealed class ColorToSolidBrushConverter : ConverterBase
 {
-    public static ColorToSolidBrushConverter Instance => new();
-
     public bool Freeze { get; set; } = true;
 
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is Color color)
         {
@@ -26,7 +24,7 @@ public sealed class ColorToSolidBrushConverter : IValueConverter
         return value;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is SolidColorBrush brush)
         {

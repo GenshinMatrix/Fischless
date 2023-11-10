@@ -2,7 +2,6 @@
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:app="clr-namespace:Fischless"
-         xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          xmlns:fui="urn:fischless.design"
          xmlns:helpers="clr-namespace:Fischless.Helpers"
@@ -16,7 +15,7 @@
          mc:Ignorable="d">
 
     <Page.Resources>
-        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <fui:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Page.Resources>
 
     <Grid>
@@ -90,7 +89,7 @@
                                     <Border.Visibility>
                                         <fui:Converter>
                                             <fui:Converter.Converter>
-                                                <conv:BoolToVisibilityConverter />
+                                                <fui:BoolToVisibilityConverter />
                                             </fui:Converter.Converter>
                                             <fui:Converter.Value>
                                                 <x:Static Member="app:AppConfig.Preview" />

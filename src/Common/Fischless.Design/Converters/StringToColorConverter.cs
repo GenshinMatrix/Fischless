@@ -7,11 +7,9 @@ namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(string), typeof(Color))]
 [SuppressMessage("WpfAnalyzers.IValueConverter", "WPF0072:")]
-public sealed class StringToColorConverter : IValueConverter
+public sealed class StringToColorConverter : SingletonConverterBase<StringToColorConverter>
 {
-    public static StringToColorConverter Instance => new();
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is string inputString)
         {
@@ -20,7 +18,7 @@ public sealed class StringToColorConverter : IValueConverter
         return value;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is Color color)
         {

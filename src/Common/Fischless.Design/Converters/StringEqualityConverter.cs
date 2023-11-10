@@ -4,11 +4,9 @@ using System.Windows.Data;
 namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(string), typeof(bool))]
-public sealed class StringEqualityConverter : IValueConverter
+public sealed class StringEqualityConverter : SingletonConverterBase<StringEqualityConverter>
 {
-    public static StringEqualityConverter Instance => new();
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is string inputString)
         {
@@ -17,7 +15,7 @@ public sealed class StringEqualityConverter : IValueConverter
         return value;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         bool isChecked = (bool)value;
 

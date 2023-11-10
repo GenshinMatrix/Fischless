@@ -5,11 +5,9 @@ using System.Windows.Data;
 namespace Fischless.Design.Converters;
 
 [ValueConversion(typeof(Image), typeof(Bitmap))]
-public sealed class ImageToBitmapConverter : IValueConverter
+public sealed class ImageToBitmapConverter : SingletonConverterBase<ImageToBitmapConverter>
 {
-    public static ImageToBitmapConverter Instance => new();
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is Image image)
         {
@@ -20,10 +18,5 @@ public sealed class ImageToBitmapConverter : IValueConverter
             return value;
         }
         return null!;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
     }
 }
