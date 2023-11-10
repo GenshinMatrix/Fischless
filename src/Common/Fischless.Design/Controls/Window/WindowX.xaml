@@ -65,7 +65,7 @@
                 <SolidColorBrush Color="{DynamicResource SystemBaseHighColor}" />
             </Setter.Value>
         </Setter>
-        <Setter Property="local:WindowXCaption.Height" Value="30" />
+        <Setter Property="local:WindowXCaption.Height" Value="36" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CaptionHeight="0"

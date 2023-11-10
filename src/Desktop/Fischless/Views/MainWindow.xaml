@@ -13,7 +13,6 @@
              Width="1100"
              Height="700"
              d:Background="#00FFFFFF"
-             fui:WindowXCaption.Height="36"
              Background="#272727"
              Cursor="{DynamicResource ThemeCursor}"
              FontFamily="{StaticResource TextThemeFontFamily}"
