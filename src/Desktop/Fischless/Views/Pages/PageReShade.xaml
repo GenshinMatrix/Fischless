@@ -217,29 +217,55 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    <Button Margin="5,0,0,0"
-                            BorderBrush="Transparent"
-                            Command="{Binding LaunchGameCommand}">
+                    <Button Margin="5,0,5,0" BorderBrush="Transparent">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
-                                             Glyph="{x:Static fui:FontSymbols.Play}" />
-                                <TextBlock Margin="5,0,0,0" Text="启动游戏" />
+                                             Glyph="{x:Static fui:FontSymbols.More}">
+                                    <ui:FontIcon.LayoutTransform>
+                                        <RotateTransform Angle="90" CenterX="8" CenterY="8" />
+                                    </ui:FontIcon.LayoutTransform>
+                                </ui:FontIcon>
+                                <TextBlock Margin="5,0,0,0" Text="更多" />
                             </StackPanel>
                         </Button.Content>
-                    </Button>
-                    <Button Margin="5,0,0,0"
-                            BorderBrush="Transparent"
-                            Command="{Binding LaunchLoaderCommand}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                             FontSize="16"
-                                             Glyph="{x:Static fui:FontSymbols.Play}" />
-                                <TextBlock Margin="5,0,0,0" Text="启动幽夜净土" />
-                            </StackPanel>
-                        </Button.Content>
+                        <Button.ContextMenu>
+                            <ContextMenu Cursor="{DynamicResource ThemeCursor}"
+                                         FontFamily="{StaticResource TextThemeFontFamily}"
+                                         FontSize="12">
+                                <MenuItem Command="{Binding LaunchGameCommand}"
+                                          FontSize="12"
+                                          Header="启动游戏">
+                                    <MenuItem.Icon>
+                                        <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                   FontSize="16"
+                                                   Text="{x:Static fui:FontSymbols.Play}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Command="{Binding LaunchLoaderCommand}"
+                                          FontSize="12"
+                                          Header="启动幽夜净土">
+                                    <MenuItem.Icon>
+                                        <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                   FontSize="16"
+                                                   Text="{x:Static fui:FontSymbols.Play}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Command="{Binding OpenLoaderFolderCommand}"
+                                          FontSize="12"
+                                          Header="打开幽夜净土目录">
+                                    <MenuItem.Icon>
+                                        <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                   FontSize="16"
+                                                   Text="{x:Static fui:FontSymbols.Folder}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                        <i:Interaction.Behaviors>
+                            <fui:LeftContextMenuBehavior PlacementOffsetX="0" PlacementOffsetY="0" />
+                        </i:Interaction.Behaviors>
                     </Button>
                 </StackPanel>
             </Grid>

@@ -20,6 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Windows.System;
 using static Fischless.Fetch.ReShade.ReShadeSentimentalString;
 
 namespace Fischless.ViewModels;
@@ -478,6 +479,15 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
         catch (Exception e)
         {
             Notification.AddNotice(string.Empty, e.Message);
+        }
+    }
+
+    [RelayCommand]
+    public async Task OpenLoaderFolderAsync()
+    {
+        if (Directory.Exists(Configurations.ReShadePath.Get()))
+        {
+            await Launcher.LaunchUriAsync(new Uri($"file://{Configurations.ReShadePath.Get()}"));
         }
     }
 }
