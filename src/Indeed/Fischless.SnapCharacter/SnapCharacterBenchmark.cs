@@ -1,14 +1,16 @@
 ﻿using Fischless.Fetch.Datas.Character;
 using Fischless.Fetch.Datas.Core;
+using Fischless.Fetch.Datas.Snap;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
 
-namespace Fischless.Fetch.Datas.Snap;
+namespace Fischless.SnapCharacter;
 
-public static class SnapCharacterBenchmark
+internal static class SnapCharacterBenchmark
 {
     public static void Action()
     {
