@@ -2618,6 +2618,75 @@ public static class SnapCharacterProvider
         };
         yield return new SnapCharacterInfo()
         {
+            Id = 10000088,
+            Name = "夏洛蒂",
+            Title = "朗镜索真",
+            Rarity = 4,
+            Gender = 1,
+            Element = ElementType.Ice,
+            WeaponType = WeaponType.Catalyst,
+            Card = "UI_AvatarIcon_Charlotte_Card.png",
+            FaceIcon = "UI_AvatarIcon_Charlotte.png",
+            SideIcon = "UI_AvatarIcon_Side_Charlotte.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Charlotte.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Charlotte.png",
+            SortId = 73,
+            BeginTime = "2023-11-06T16:00:00.00000000Z".ParseExactDateTime(),
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 208800,
+                    CharacterId = 10000088,
+                    Name = "「皆在镜前」",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000088),
+        };
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000089,
+            Name = "芙宁娜",
+            Title = "不休独舞",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Water,
+            WeaponType = WeaponType.Sword,
+            Card = "UI_AvatarIcon_Furina_Card.png",
+            FaceIcon = "UI_AvatarIcon_Furina.png",
+            SideIcon = "UI_AvatarIcon_Side_Furina.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Furina.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Furina.png",
+            SortId = 74,
+            BeginTime = "2023-11-06T16:00:00.00000000Z".ParseExactDateTime(),
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 208900,
+                    CharacterId = 10000089,
+                    Name = "冠笄伶优",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000089),
+        };
+
+        ///
+
+        yield return new SnapCharacterInfo()
+        {
             Id = -1,
             Name = "奧兹",
             Rarity = 4,
@@ -2670,61 +2739,5 @@ public static class SnapCharacterProvider
             },
             TextureOverride = ReShadeIniMapper.Map(-2),
         };
-#if false // Not Supported for RS Scaner
-        yield return new SnapCharacterInfo()
-        {
-            Id = -3,
-            Name = "降临之翼",
-            Rarity = 4,
-            Gender = 2,
-            Element = ElementType.None,
-            WeaponType = WeaponType.None,
-            FaceIcon = "UI_FlycloakIcon_Psalmus.png",
-            SortId = -3,
-            Outfits = new List<SnapCharacterOutfit>
-            {
-                new SnapCharacterOutfit()
-                {
-                    Id = 0,
-                    CharacterId = -3,
-                    Name = "",
-                    IsDefault = true,
-                    Card = "",
-                    FaceIcon = "UI_FlycloakIcon_Psalmus.png",
-                    SideIcon = "",
-                    GachaSplash = "",
-                    TextureOverride = null,
-                },
-            },
-            TextureOverride = ReShadeIniMapper.Map(-3),
-        };
-        yield return new SnapCharacterInfo()
-        {
-            Id = -4,
-            Name = "幽夜华尔兹",
-            Rarity = 4,
-            Gender = 2,
-            Element = ElementType.None,
-            WeaponType = WeaponType.None,
-            FaceIcon = "UI_EquipIcon_Bow_Nachtblind_Awaken.png",
-            SortId = -4,
-            Outfits = new List<SnapCharacterOutfit>
-            {
-                new SnapCharacterOutfit()
-                {
-                    Id = 0,
-                    CharacterId = -4,
-                    Name = "",
-                    IsDefault = true,
-                    Card = "",
-                    FaceIcon = "UI_EquipIcon_Bow_Nachtblind_Awaken.png",
-                    SideIcon = "",
-                    GachaSplash = "",
-                    TextureOverride = null,
-                },
-            },
-            TextureOverride = ReShadeIniMapper.Map(-4),
-        };
-#endif
     }
 }

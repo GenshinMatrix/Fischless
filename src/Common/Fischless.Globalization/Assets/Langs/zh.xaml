@@ -187,6 +187,8 @@
     <s:String x:Key="AvatarNameOfLiney">林尼</s:String>
     <s:String x:Key="AvatarNameOfFreminet">菲米尼</s:String>
     <s:String x:Key="AvatarNameOfNeuvillette">那维莱特</s:String>
+    <s:String x:Key="AvatarNameOfCharlotte">夏洛蒂</s:String>
+    <s:String x:Key="AvatarNameOfFurina">芙宁娜</s:String>
     <s:String x:Key="AvatarNameOfAozi">奥兹</s:String>
     <s:String x:Key="AvatarNameOfUI_FlycloakIcon_Psalmus">降临之翼</s:String>
     <s:String x:Key="AvatarNameOfPaimon">派蒙</s:String>

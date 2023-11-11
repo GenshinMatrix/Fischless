@@ -59,7 +59,7 @@ public static class ReShadeIniMapper
             10000064 => "Yunjin",
             10000065 => "Shinobu;KukiShinobu",
             10000066 => "Ayato;Linren;KamisatoAyato;AyatoKamisato",
-            10000067 => "Collei",
+            10000067 => "Collei;Kelai",
             10000068 => "Dori;Duoli",
             10000069 => "Tighnari;Tinali",
             10000070 => "Nilou;Nilu;Nirou",
@@ -80,6 +80,8 @@ public static class ReShadeIniMapper
             10000085 => "Freminet;Feimini",
             10000086 => "Wriothesley;Laiousili",
             10000087 => "Neuvillette;Naweilaite",
+            10000088 => "Charlotte;Xialuodi",
+            10000089 => "Furina;Focalor;Funingna",
             -2 => "Paimon",
             -1 or _ => "Aozi",
         };
