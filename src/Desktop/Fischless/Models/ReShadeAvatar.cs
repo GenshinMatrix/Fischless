@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.ReShade;
+using Fischless.Logging;
 using Fischless.Mvvm;
 using Microsoft.VisualBasic.FileIO;
 using System;
@@ -152,6 +153,12 @@ public partial class ReShadeFolderList : ObservableObject
 
                 if (newFolderPath.Equals(directoryInfo.FullName, StringComparison.OrdinalIgnoreCase))
                 {
+                    return;
+                }
+
+                if (Directory.Exists(newFolderPath))
+                {
+                    Log.Warning($"[ReShadeAvatar] Can not disable '{newFolderPath}', cuz target folder already exists.");
                     return;
                 }
                 directoryInfo.MoveTo(newFolderPath);
