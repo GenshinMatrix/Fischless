@@ -70,7 +70,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Diagnostics", "Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Indeed", "Indeed", "{E5066E35-23C6-4F4E-8FDE-70EDE1745346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fischless.SnapCharacter", "Indeed\Fischless.SnapCharacter\Fischless.SnapCharacter.csproj", "{A7D3462E-007A-406E-9AB2-D665D0A63098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.SnapCharacter", "Indeed\Fischless.SnapCharacter\Fischless.SnapCharacter.csproj", "{A7D3462E-007A-406E-9AB2-D665D0A63098}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.LaunchHyperion", "Plugins\Fischless.Plugin.LaunchHyperion\Fischless.Plugin.LaunchHyperion.csproj", "{A6BE0346-55C4-4351-968C-E5B5CE758EC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,6 +188,10 @@ Global
 		{A7D3462E-007A-406E-9AB2-D665D0A63098}.Debug|x64.Build.0 = Debug|x64
 		{A7D3462E-007A-406E-9AB2-D665D0A63098}.Release|x64.ActiveCfg = Release|x64
 		{A7D3462E-007A-406E-9AB2-D665D0A63098}.Release|x64.Build.0 = Release|x64
+		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Debug|x64.ActiveCfg = Debug|x64
+		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Debug|x64.Build.0 = Debug|x64
+		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Release|x64.ActiveCfg = Release|x64
+		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +224,7 @@ Global
 		{4737BA93-6AB6-49A6-8EE4-EF46A5613EB1} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
 		{ABF0A04F-D6DF-4140-93B9-9BC4D4C4E016} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{A7D3462E-007A-406E-9AB2-D665D0A63098} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
+		{A6BE0346-55C4-4351-968C-E5B5CE758EC0} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}

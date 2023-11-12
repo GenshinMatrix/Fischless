@@ -13,14 +13,14 @@ using Windows.System;
 [assembly: FischlessPlugin]
 [assembly: FischlessInternalPlugin]
 
-namespace Fischless.Plugin.DisplayDefault;
+namespace Fischless.Plugin.LaunchHyperion;
 
 [Export(typeof(IPlugin))]
 public class DisplayDefaultPlugin : IPlugin, IPlugin2
 {
-    public string PluginName => MuiLanguage.Mui("DisplayDefault");
-    public string Description => MuiLanguage.Mui("DisplayDefaultHint");
-    public object Icon => IconProvider.GetFontIcon(FontSymbols.DeviceLaptopPic);
+    public string PluginName => MuiLanguage.Mui("LaunchHyperion");
+    public string Description => MuiLanguage.Mui("LaunchHyperionHint");
+    public object Icon => IconProvider.GetFontIcon(FontSymbols.AspectRatio);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);
     public int Index => 1;
@@ -48,9 +48,7 @@ internal partial class ButtonMethod : ObservableObject
     [RelayCommand]
     public async Task GoToAsync()
     {
-        // ms-settings:display
-        // ms-settings:display-advancedgraphics
-        // ms-settings:display-advancedgraphics-default
-        await Launcher.LaunchUriAsync(new Uri("ms-settings:display-advancedgraphics"));
+        // Chinese server only: https://www.miyoushe.com/ys/
+        await Launcher.LaunchUriAsync(new Uri("wsa://com.mihoyo.hyperion"));
     }
 }

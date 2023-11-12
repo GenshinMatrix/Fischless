@@ -54,6 +54,8 @@
     <s:String x:Key="DisplayDefaultHint">打开系统图形设置</s:String>
     <s:String x:Key="RepairRegedit">修复注册表</s:String>
     <s:String x:Key="RepairRegeditHint">修复游戏注册表安装信息</s:String>
+    <s:String x:Key="LaunchHyperion">米游社 安卓™子系统</s:String>
+    <s:String x:Key="LaunchHyperionHint">使用Windows11的WSA启动国服米游社</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">选择 {0} 或 {1}</s:String>
