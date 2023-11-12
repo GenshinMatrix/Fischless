@@ -7,13 +7,13 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: Guid("00000000-0000-0000-0000-000000000000")]
-[assembly: AssemblyTitle("MicaApp Setup")]
-[assembly: AssemblyProduct("MicaApp")]
-[assembly: AssemblyDescription("MicaApp Setup")]
-[assembly: AssemblyCompany("Lemutec")]
-[assembly: AssemblyCopyright("Under MIT License. Copyright (c) Lemutec Contributors.")]
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyTitle("Fischless Setup")]
+[assembly: AssemblyProduct("Fischless")]
+[assembly: AssemblyDescription("Fischless Setup")]
+[assembly: AssemblyCompany("GenshinMatrix")]
+[assembly: AssemblyCopyright("Under MIT License. Copyright (c) GenshinMatrix Contributors.")]
+[assembly: AssemblyVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.0.0")]
 
 namespace MicaSetup;
 
@@ -24,7 +24,7 @@ internal class Program
     {
         Hosting.CreateBuilder()
             .UseLogger()
-            .UseSingleInstance("MicaSetup")
+            .UseSingleInstance("FischlessMicaSetup")
             .UseTempPathFork()
             .UseElevated()
             .UseDpiAware()
@@ -47,14 +47,14 @@ internal class Program
                 option.IsInstallCertificate = false;
                 option.OverlayInstallRemoveExt = "exe,dll,pdb";
                 option.UnpackingPassword = null!;
-                option.ExeName = "MicaApp.exe";
-                option.KeyName = "MicaApp";
-                option.DisplayName = "MicaApp";
-                option.DisplayIcon = "MicaApp.exe";
+                option.ExeName = "Fischless.exe";
+                option.KeyName = "Fischless";
+                option.DisplayName = "Fischless";
+                option.DisplayIcon = "Fischless.exe";
                 option.DisplayVersion = "1.3.0.0";
-                option.Publisher = "Lemutec";
-                option.AppName = "MicaApp";
-                option.SetupName = $"MicaApp {Mui("Setup")}";
+                option.Publisher = "GenshinMatrix";
+                option.AppName = "Fischless";
+                option.SetupName = $"Fischless {Mui("Setup")}";
             })
             .UseServices(service =>
             {

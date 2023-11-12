@@ -74,6 +74,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.SnapCharacter", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.LaunchHyperion", "Plugins\Fischless.Plugin.LaunchHyperion\Fischless.Plugin.LaunchHyperion.csproj", "{A6BE0346-55C4-4351-968C-E5B5CE758EC0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{2CD795BB-B93D-4DF1-B2D6-C73E0D83C98F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicaSetup", "..\build\MicaSetup\MicaSetup.csproj", "{CCE92E62-B01C-4110-ACBD-F76B1E13E393}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicaSetup.Uninst", "..\build\MicaSetup\MicaSetup.Uninst.csproj", "{333475B4-D760-4D14-A60E-70019713F7D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -192,6 +198,14 @@ Global
 		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Debug|x64.Build.0 = Debug|x64
 		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Release|x64.ActiveCfg = Release|x64
 		{A6BE0346-55C4-4351-968C-E5B5CE758EC0}.Release|x64.Build.0 = Release|x64
+		{CCE92E62-B01C-4110-ACBD-F76B1E13E393}.Debug|x64.ActiveCfg = Debug|x64
+		{CCE92E62-B01C-4110-ACBD-F76B1E13E393}.Debug|x64.Build.0 = Debug|x64
+		{CCE92E62-B01C-4110-ACBD-F76B1E13E393}.Release|x64.ActiveCfg = Release|x64
+		{CCE92E62-B01C-4110-ACBD-F76B1E13E393}.Release|x64.Build.0 = Release|x64
+		{333475B4-D760-4D14-A60E-70019713F7D1}.Debug|x64.ActiveCfg = Debug|x64
+		{333475B4-D760-4D14-A60E-70019713F7D1}.Debug|x64.Build.0 = Debug|x64
+		{333475B4-D760-4D14-A60E-70019713F7D1}.Release|x64.ActiveCfg = Release|x64
+		{333475B4-D760-4D14-A60E-70019713F7D1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -225,6 +239,8 @@ Global
 		{ABF0A04F-D6DF-4140-93B9-9BC4D4C4E016} = {53B99E64-B289-4394-8C49-241B0CB015D7}
 		{A7D3462E-007A-406E-9AB2-D665D0A63098} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
 		{A6BE0346-55C4-4351-968C-E5B5CE758EC0} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
+		{CCE92E62-B01C-4110-ACBD-F76B1E13E393} = {2CD795BB-B93D-4DF1-B2D6-C73E0D83C98F}
+		{333475B4-D760-4D14-A60E-70019713F7D1} = {2CD795BB-B93D-4DF1-B2D6-C73E0D83C98F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
