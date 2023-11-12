@@ -17,8 +17,7 @@ public static class WindowBackdrop
             WindowBackdropType.Tabbed => OsVersionHelper.IsWindows11_22523,
             WindowBackdropType.Mica => OsVersionHelper.IsWindows11_OrGreater,
             WindowBackdropType.Acrylic => OsVersionHelper.IsWindows7_OrGreater,
-            WindowBackdropType.None => true,
-            _ => false
+            WindowBackdropType.None or _ => false,
         };
     }
 
