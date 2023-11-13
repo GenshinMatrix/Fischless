@@ -8,6 +8,8 @@ namespace Fischless.Design.Controls;
 
 public class CachedImage : Image
 {
+    public static Dictionary<string, ImageSource> Caches { get; private set; } = new();
+
     static CachedImage()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(CachedImage), new FrameworkPropertyMetadata(typeof(CachedImage)));
@@ -28,26 +30,41 @@ public class CachedImage : Image
 
     private static void OnPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is CachedImage customImage && e.NewValue is string path)
+        if (d is CachedImage self && e.NewValue is string path)
         {
             try
             {
-                Uri uri = new(customImage.Path);
+                if (Caches.ContainsKey(path))
+                {
+                    self.Source = Caches[path];
+                    return;
+                }
+                if (Caches.ContainsKey(self.Path))
+                {
+                    self.Source = Caches[self.Path];
+                    return;
+                }
+
+                Uri uri = new(self.Path);
 
                 if (uri.Scheme == "file" && File.Exists(uri.LocalPath))
                 {
                     using FileStream fileStream = new(uri.LocalPath, FileMode.Open, FileAccess.Read);
-                    customImage.Source = fileStream.ToBitmapImage();
+                    ImageSource bi = fileStream.ToBitmapImage();
+                    self.Source = bi;
+                    Caches.Add(self.Path, bi);
                     return;
                 }
                 else
                 {
-                    customImage.Source = new BitmapImage(new Uri(path));
+                    BitmapImage bi = new BitmapImage(new Uri(path));
+                    self.Source = bi;
+                    Caches.Add(path, bi);
                 }
             }
             catch
             {
-                customImage.Source = null!;
+                self.Source = null!;
             }
         }
     }

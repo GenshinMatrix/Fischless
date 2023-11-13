@@ -272,12 +272,13 @@
             <Grid Grid.Row="1" Margin="6,8,6,3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1.9*" />
                 </Grid.ColumnDefinitions>
-                <fui:SmoothScrollViewer Grid.Column="0"
-                                        HorizontalAlignment="Left"
-                                        PanningMode="None"
-                                        VerticalScrollBarVisibility="Visible">
+                <ScrollViewer Grid.Column="0"
+                              Padding="0"
+                              HorizontalAlignment="Left"
+                              PanningMode="None"
+                              VerticalScrollBarVisibility="Visible">
                     <ItemsControl ItemsSource="{Binding Avatars}">
                         <ItemsControl.Resources>
                             <fui:ToggleButtonGroup x:Key="ToggleButtonGroup" />
@@ -302,15 +303,15 @@
                                             <Grid Width="80">
                                                 <fui:CachedImage Width="78"
                                                                  CornerRadius="4"
-                                                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                                                 Source="{Binding RarityBackground, Converter={StaticResource UriToImageSourceConverter}}" />
+                                                                 Path="{Binding RarityBackground}"
+                                                                 RenderOptions.BitmapScalingMode="LowQuality" />
                                             </Grid>
                                             <Grid Width="78"
                                                   Height="79"
                                                   VerticalAlignment="Top">
                                                 <fui:CachedImage VerticalAlignment="Bottom"
                                                                  CornerRadius="0,0,20,0"
-                                                                 RenderOptions.BitmapScalingMode="HighQuality"
+                                                                 RenderOptions.BitmapScalingMode="Fant"
                                                                  Source="{Binding FaceIcon, Converter={StaticResource UriToImageSourceConverter}}" />
                                             </Grid>
                                             <Grid Height="16"
@@ -331,7 +332,7 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                </fui:SmoothScrollViewer>
+                </ScrollViewer>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
