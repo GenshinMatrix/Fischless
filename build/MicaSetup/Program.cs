@@ -35,8 +35,8 @@ internal class Program
                 option.IsCreateStartMenu = true;
                 option.IsCreateQuickLaunch = false;
                 option.IsCreateRegistryKeys = true;
-                option.IsCreateAsAutoRun = true;
-                option.IsCustomizeVisiableAutoRun = true;
+                option.IsCreateAsAutoRun = false;
+                option.IsCustomizeVisiableAutoRun = false;
                 option.AutoRunLaunchCommand = "-autostart";
                 option.UseFolderPickerPreferClassic = false;
                 option.UseInstallPathPreferX86 = false;
