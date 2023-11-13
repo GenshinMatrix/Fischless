@@ -57,7 +57,7 @@ internal class Program
             })
             .CreateApp()
             .UseMuiLanguage()
-            .UseTheme(WindowsTheme.Auto)
+            .UseTheme(WindowsTheme.Dark)
             .UsePages(page =>
             {
                 page.Add(nameof(MainPage), typeof(MainPage));
