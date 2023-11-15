@@ -19,7 +19,7 @@
 
 最低支持版本 Windows 10.0.19041.0
 
-[.NET7运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-7.0.11-windows-x64-installer)
+[.NET8运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-8.0.0-windows-x64-installer)
 
 ## 功能
 
