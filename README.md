@@ -68,3 +68,4 @@
 - [xunkong](https://github.com/xunkong/xunkong)
 - [better-genshin-impact](https://github.com/babalae/better-genshin-impact)
 
+- [Unlocker](https://github.com/DGP-Studio/Unlocker)

@@ -54,7 +54,7 @@
     <s:String x:Key="DisplayDefaultHint">Open the System Display Settings</s:String>
     <s:String x:Key="RepairRegedit">Repair Regedit</s:String>
     <s:String x:Key="RepairRegeditHint">Repair Game Regedit about installtion.</s:String>
-    <s:String x:Key="LaunchHyperion">MiYouShe Android™</s:String>
+    <s:String x:Key="LaunchHyperion">MiYouShe Android</s:String>
     <s:String x:Key="LaunchHyperionHint">Launch the MiYouShe using Windows 11 WSA (Chinese server only).</s:String>
 
     <!--  Home Launch  -->

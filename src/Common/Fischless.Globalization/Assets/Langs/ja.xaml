@@ -54,7 +54,7 @@
     <s:String x:Key="DisplayDefaultHint">システムのグラフィック設定を開く</s:String>
     <s:String x:Key="RepairRegedit">レジストリの修復</s:String>
     <s:String x:Key="RepairRegeditHint">ゲームのレジストリのインストール情報を修復</s:String>
-    <s:String x:Key="LaunchHyperion">米遊社 ｱﾝﾄﾞﾛｲﾄﾞ™</s:String>
+    <s:String x:Key="LaunchHyperion">米遊社 ｱﾝﾄﾞﾛｲﾄﾞ</s:String>
     <s:String x:Key="LaunchHyperionHint">中国サーバのみの米遊社をWindows11にてWSA起動</s:String>
 
     <!--  Home Launch  -->
