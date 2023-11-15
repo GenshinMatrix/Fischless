@@ -10,7 +10,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Dumpify" Version="0.6.0" />
-		<PackageReference Include="ObjectDumper.NET" Version="4.1.4-pre" />
+		<PackageReference Include="ObjectDumper.NET" Version="4.1.13-pre" />
 	</ItemGroup>
 	
 </Project>
