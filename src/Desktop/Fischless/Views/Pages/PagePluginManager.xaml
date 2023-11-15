@@ -51,6 +51,18 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
+            <Button Margin="8,0,0,0"
+                    BorderBrush="Transparent"
+                    Command="{Binding MarketCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                     FontSize="16"
+                                     Glyph="{x:Static fui:FontSymbols.CloudDownload}" />
+                        <TextBlock Margin="5,0,0,0" Text="插件市场" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
         </StackPanel>
         <Grid Grid.Row="1">
             <StackPanel HorizontalAlignment="Center"

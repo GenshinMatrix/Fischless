@@ -92,6 +92,12 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
             }
         }
     }
+
+    [RelayCommand]
+    public async Task MarketAsync()
+    {
+        await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless/tree/main/src/Plugins"));
+    }
 }
 
 public partial class PluginViewModel : ObservableRecipient
