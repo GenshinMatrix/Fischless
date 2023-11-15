@@ -160,6 +160,15 @@
                                                Text="{x:Static fui:FontSymbols.Link}" />
                                 </MenuItem.Icon>
                             </MenuItem>
+                            <MenuItem Command="{Binding OpenUrlGameBananaCommand}"
+                                      FontSize="12"
+                                      Header="{DynamicResource OpenUrlGameBanana}">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                               FontSize="16"
+                                               Text="{x:Static fui:FontSymbols.Link}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
                         <Separator />
                         <MenuItem Command="{Binding OpenSpecialFolderCommand}"

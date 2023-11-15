@@ -199,6 +199,7 @@
     <s:String x:Key="UsefullLinks">Usefull Links</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">Teyvat Map</s:String>
     <s:String x:Key="OpenUrlPlayBox">Play Box</s:String>
+    <s:String x:Key="OpenUrlGameBanana">Game Banana</s:String>
     <s:String x:Key="CacheData">User data</s:String>
     <s:String x:Key="CacheDataHint">User data recorded locally</s:String>
     <s:String x:Key="RunLog">Application logs</s:String>

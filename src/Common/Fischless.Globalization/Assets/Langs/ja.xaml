@@ -199,6 +199,7 @@
     <s:String x:Key="UsefullLinks">リンクたち</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">テイワットマップ</s:String>
     <s:String x:Key="OpenUrlPlayBox">模ノ屋</s:String>
+    <s:String x:Key="OpenUrlGameBanana">ゲームバナナ</s:String>
     <s:String x:Key="CacheData">ユーザデータ</s:String>
     <s:String x:Key="CacheDataHint">ローカルディスクに保存したユーザデータ</s:String>
     <s:String x:Key="RunLog">アプリのログ</s:String>

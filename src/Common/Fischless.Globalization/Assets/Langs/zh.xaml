@@ -199,6 +199,7 @@
     <s:String x:Key="UsefullLinks">常用链接</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">提瓦特地图</s:String>
     <s:String x:Key="OpenUrlPlayBox">模之屋</s:String>
+    <s:String x:Key="OpenUrlGameBanana">游戏香蕉</s:String>
     <s:String x:Key="CacheData">用户数据</s:String>
     <s:String x:Key="CacheDataHint">本地记录的用户数据</s:String>
     <s:String x:Key="RunLog">应用日志</s:String>

@@ -61,6 +61,12 @@ public partial class MainViewModel : ObservableRecipient
     }
 
     [RelayCommand]
+    public async Task OpenUrlGameBananaAsync()
+    {
+        await Launcher.LaunchUriAsync(new Uri("https://gamebanana.com/games/8552"));
+    }
+
+    [RelayCommand]
     public static async Task OpenSpecialFolderAsync()
     {
         _ = await Launcher.LaunchUriAsync(new Uri($"file://{SpecialPathHelper.GetPath()}/"));
