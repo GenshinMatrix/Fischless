@@ -56,6 +56,11 @@
     <s:String x:Key="RepairRegeditHint">ゲームのレジストリのインストール情報を修復</s:String>
     <s:String x:Key="LaunchHyperion">米遊社 ｱﾝﾄﾞﾛｲﾄﾞ</s:String>
     <s:String x:Key="LaunchHyperionHint">中国サーバのみの米遊社をWindows11にてWSA起動</s:String>
+    <s:String x:Key="Borderless">ボーダレス</s:String>
+    <s:String x:Key="BorderlessMenu1">ボーダレスを有効にする</s:String>
+    <s:String x:Key="BorderlessMenu2">ボーダレスを無効にする</s:String>
+    <s:String x:Key="BorderlessMenu3">最大化ボタンを有効にする</s:String>
+    <s:String x:Key="BorderlessHint">ボーダレスゲーム</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">{0} または {1} を選択</s:String>
@@ -196,6 +201,7 @@
     <s:String x:Key="AvatarNameOfPaimon">パイモン</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">幽夜のワルツ</s:String>
 
+    <s:String x:Key="Plugin">プラグイン</s:String>
     <s:String x:Key="UsefullLinks">リンクたち</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">テイワットマップ</s:String>
     <s:String x:Key="OpenUrlPlayBox">模ノ屋</s:String>

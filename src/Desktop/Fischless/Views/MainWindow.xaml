@@ -293,7 +293,7 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
-                <ui:NavigationViewItemHeader Content="插件" Foreground="{DynamicResource WindowTitleForeground}" />
+                <ui:NavigationViewItemHeader Content="{DynamicResource Plugin}" Foreground="{DynamicResource WindowTitleForeground}" />
 
                 <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PagePluginManager}"
                                        Content="{DynamicResource PluginManager}"

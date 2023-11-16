@@ -56,6 +56,11 @@
     <s:String x:Key="RepairRegeditHint">修复游戏注册表安装信息</s:String>
     <s:String x:Key="LaunchHyperion">米游社 安卓子系统</s:String>
     <s:String x:Key="LaunchHyperionHint">使用Win11的WSA启动国服米游社</s:String>
+    <s:String x:Key="Borderless">无界</s:String>
+    <s:String x:Key="BorderlessMenu1">取消游戏边框</s:String>
+    <s:String x:Key="BorderlessMenu2">恢复游戏边框</s:String>
+    <s:String x:Key="BorderlessMenu3">恢复最大化按钮</s:String>
+    <s:String x:Key="BorderlessHint">无界游戏</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">选择 {0} 或 {1}</s:String>
@@ -196,6 +201,7 @@
     <s:String x:Key="AvatarNameOfPaimon">派蒙</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">幽夜华尔兹</s:String>
 
+    <s:String x:Key="Plugin">插件</s:String>
     <s:String x:Key="UsefullLinks">常用链接</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">提瓦特地图</s:String>
     <s:String x:Key="OpenUrlPlayBox">模之屋</s:String>

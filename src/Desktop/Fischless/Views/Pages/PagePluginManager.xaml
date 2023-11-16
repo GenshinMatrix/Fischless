@@ -134,10 +134,12 @@
                                                     </TextBlock.Inlines>
                                                 </TextBlock>
                                             </StackPanel>
-                                            <Button Margin="8,0,0,0"
+                                            <Button x:Name="SettingsButton"
+                                                    Margin="8,0,0,0"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Bottom"
-                                                    Command="{Binding ButtonCommand}">
+                                                    Command="{Binding ButtonCommand}"
+                                                    CommandParameter="{x:Reference SettingsButton}">
                                                 <Button.Content>
                                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                                  FontSize="16"

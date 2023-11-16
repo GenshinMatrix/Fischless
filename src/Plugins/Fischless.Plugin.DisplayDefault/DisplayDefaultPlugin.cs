@@ -28,7 +28,7 @@ public class DisplayDefaultPlugin : IPlugin, IPlugin2
     public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
 }
 
-internal class IconProvider
+file class IconProvider
 {
     public static object GetFontIcon(string glyph)
     {

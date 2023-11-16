@@ -56,6 +56,11 @@
     <s:String x:Key="RepairRegeditHint">Repair Game Regedit about installtion.</s:String>
     <s:String x:Key="LaunchHyperion">MiYouShe Android</s:String>
     <s:String x:Key="LaunchHyperionHint">Launch the MiYouShe using Windows 11 WSA (Chinese server only).</s:String>
+    <s:String x:Key="Borderless">Borderless</s:String>
+    <s:String x:Key="BorderlessMenu1">Enable Borderless Game</s:String>
+    <s:String x:Key="BorderlessMenu2">Restore Border Game</s:String>
+    <s:String x:Key="BorderlessMenu3">Restore Maximize button</s:String>
+    <s:String x:Key="BorderlessHint">Borderless Game</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">Select {0} or {1}</s:String>
@@ -196,6 +201,7 @@
     <s:String x:Key="AvatarNameOfPaimon">Paimon</s:String>
     <s:String x:Key="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken">Mitternachts Waltz</s:String>
 
+    <s:String x:Key="Plugin">Plugin</s:String>
     <s:String x:Key="UsefullLinks">Usefull Links</s:String>
     <s:String x:Key="OpenUrlInteractiveMap">Teyvat Map</s:String>
     <s:String x:Key="OpenUrlPlayBox">Play Box</s:String>
