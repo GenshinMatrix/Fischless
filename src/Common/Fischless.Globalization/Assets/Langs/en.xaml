@@ -48,6 +48,7 @@
     <s:String x:Key="UnneedOperation">Unneed Operate</s:String>
     <s:String x:Key="OperationSuccessfully">Operation Successfully</s:String>
     <s:String x:Key="CreationFailed">Creation Failed</s:String>
+    <s:String x:Key="UACRequestRestartHint">需要管理员权限，是否以管理员权限重启？</s:String>
 
     <!--  Plugin  -->
     <s:String x:Key="DisplayDefault">Display Settings</s:String>
@@ -57,10 +58,12 @@
     <s:String x:Key="LaunchHyperion">MiYouShe Android</s:String>
     <s:String x:Key="LaunchHyperionHint">Launch the MiYouShe using Windows 11 WSA (Chinese server only).</s:String>
     <s:String x:Key="Borderless">Borderless</s:String>
-    <s:String x:Key="BorderlessMenu1">Enable Borderless Game</s:String>
-    <s:String x:Key="BorderlessMenu2">Restore Border Game</s:String>
-    <s:String x:Key="BorderlessMenu3">Restore Maximize button</s:String>
     <s:String x:Key="BorderlessHint">Borderless Game</s:String>
+    <s:String x:Key="BorderlessMenu1">Enable Borderless Game</s:String>
+    <s:String x:Key="BorderlessMenu2">Disable Borderless Game</s:String>
+    <s:String x:Key="BorderlessMenu3">Restore Maximize button</s:String>
+    <s:String x:Key="BorderlessMenu4">Enable Topmost Game</s:String>
+    <s:String x:Key="BorderlessMenu5">Disable Topmost Game</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">Select {0} or {1}</s:String>

@@ -1,4 +1,5 @@
 ﻿using Fischless.Design.Controls;
+using Fischless.Globalization;
 using Fischless.Helpers;
 using Fischless.Logging;
 using Fischless.Plugin.RepairRegedit.ViewModel;
@@ -53,7 +54,7 @@ public partial class RepairRegeditContentDialog : ContentDialog
 
         if (!RuntimeHelper.IsElevated)
         {
-            if (MessageBoxX.Question("需要管理员权限，是否以管理员权限重启？") == MessageBoxResult.Yes)
+            if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
             {
                 RuntimeHelper.RestartAsElevated();
             }

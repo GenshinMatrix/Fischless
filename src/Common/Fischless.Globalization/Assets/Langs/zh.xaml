@@ -48,6 +48,7 @@
     <s:String x:Key="UnneedOperation">无需操作</s:String>
     <s:String x:Key="OperationSuccessfully">操作成功</s:String>
     <s:String x:Key="CreationFailed">创建失败</s:String>
+    <s:String x:Key="UACRequestRestartHint">需要管理员权限，是否以管理员权限重启？</s:String>
 
     <!--  Plugin  -->
     <s:String x:Key="DisplayDefault">图形设置</s:String>
@@ -57,10 +58,12 @@
     <s:String x:Key="LaunchHyperion">米游社 安卓子系统</s:String>
     <s:String x:Key="LaunchHyperionHint">使用Win11的WSA启动国服米游社</s:String>
     <s:String x:Key="Borderless">无界</s:String>
-    <s:String x:Key="BorderlessMenu1">取消游戏边框</s:String>
-    <s:String x:Key="BorderlessMenu2">恢复游戏边框</s:String>
+    <s:String x:Key="BorderlessHint">无界游戏体验</s:String>
+    <s:String x:Key="BorderlessMenu1">无界游戏生效</s:String>
+    <s:String x:Key="BorderlessMenu2">无界游戏无效</s:String>
     <s:String x:Key="BorderlessMenu3">恢复最大化按钮</s:String>
-    <s:String x:Key="BorderlessHint">无界游戏</s:String>
+    <s:String x:Key="BorderlessMenu4">置顶游戏生效</s:String>
+    <s:String x:Key="BorderlessMenu5">置顶游戏无效</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">选择 {0} 或 {1}</s:String>

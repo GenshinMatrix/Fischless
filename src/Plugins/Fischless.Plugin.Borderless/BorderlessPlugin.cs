@@ -12,7 +12,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using Vanara.PInvoke;
 
 [assembly: FischlessPlugin]
 [assembly: FischlessInternalPlugin]
@@ -49,37 +48,6 @@ internal partial class ButtonMethod : ObservableObject
 {
     public static ButtonMethod Default { get; } = new();
 
-    public static void MakeWindowBorderless(nint hWnd)
-    {
-        nint dwStyle = User32.GetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE);
-
-        dwStyle = dwStyle.ToInt32() & ~(int)(User32.WindowStyles.WS_BORDER | User32.WindowStyles.WS_DLGFRAME | User32.WindowStyles.WS_CAPTION | User32.WindowStyles.WS_SYSMENU | User32.WindowStyles.WS_MINIMIZEBOX | User32.WindowStyles.WS_MAXIMIZEBOX);
-
-        _ = User32.SetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE, dwStyle);
-
-        _ = User32.SetWindowPos(hWnd, 0, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE | User32.SetWindowPosFlags.SWP_FRAMECHANGED);
-    }
-
-    public static void EnableWindowBorder(nint hWnd)
-    {
-        nint dwStyle = User32.GetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE);
-
-        dwStyle = dwStyle.ToInt32() | (int)(User32.WindowStyles.WS_BORDER | User32.WindowStyles.WS_DLGFRAME | User32.WindowStyles.WS_CAPTION | User32.WindowStyles.WS_SYSMENU | User32.WindowStyles.WS_MINIMIZEBOX | User32.WindowStyles.WS_MAXIMIZEBOX);
-
-        _ = User32.SetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE, dwStyle);
-
-        _ = User32.SetWindowPos(hWnd, 0, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE | User32.SetWindowPosFlags.SWP_FRAMECHANGED);
-    }
-
-    public static void EnableWindowMaximizeBox(nint hWnd)
-    {
-        nint dwStyle = User32.GetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE);
-
-        dwStyle = dwStyle.ToInt32() | (int)User32.WindowStyles.WS_MAXIMIZEBOX;
-
-        _ = User32.SetWindowLong(hWnd, User32.WindowLongFlags.GWL_STYLE, dwStyle);
-    }
-
     [RelayCommand]
     public void GoTo(object param)
     {
@@ -97,22 +65,34 @@ internal partial class ButtonMethod : ObservableObject
                 MenuItem menuItem1 = new()
                 {
                     Header = MuiLanguage.Mui("BorderlessMenu1"),
-                    Command = MakeWindowBorderlessCommand,
+                    Command = EnableWindowBorderlessCommand,
                 };
                 MenuItem menuItem2 = new()
                 {
                     Header = MuiLanguage.Mui("BorderlessMenu2"),
-                    Command = EnableWindowBorderCommand,
+                    Command = DisableWindowBorderlessCommand,
                 };
                 MenuItem menuItem3 = new()
                 {
                     Header = MuiLanguage.Mui("BorderlessMenu3"),
                     Command = EnableWindowMaximizeBoxCommand,
                 };
+                MenuItem menuItem4 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu4"),
+                    Command = EnableWindowTopmostCommand,
+                };
+                MenuItem menuItem5 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu5"),
+                    Command = DisableWindowTopmostCommand,
+                };
                 LeftContextMenuBehavior behavior = new();
                 contextMenu.Items.Add(menuItem1);
                 contextMenu.Items.Add(menuItem2);
                 contextMenu.Items.Add(menuItem3);
+                contextMenu.Items.Add(menuItem4);
+                contextMenu.Items.Add(menuItem5);
                 button.ContextMenu = contextMenu;
                 Interaction.GetBehaviors(button).Add(behavior);
                 contextMenu.IsOpen = true;
@@ -121,13 +101,13 @@ internal partial class ButtonMethod : ObservableObject
     }
 
     [RelayCommand]
-    public async Task MakeWindowBorderlessAsync()
+    public async Task EnableWindowBorderlessAsync()
     {
         if (!await GILauncher.TryGetProcessAsync(async t =>
         {
             if (!RuntimeHelper.IsElevated)
             {
-                if (MessageBoxX.Question("需要管理员权限，是否以管理员权限重启？") == MessageBoxResult.Yes)
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
                 {
                     RuntimeHelper.RestartAsElevated();
                 }
@@ -137,7 +117,7 @@ internal partial class ButtonMethod : ObservableObject
             await Task.CompletedTask;
 
             nint hWnd = t.MainWindowHandle;
-            MakeWindowBorderless(hWnd);
+            hWnd.EnableWindowBorderless();
         }))
         {
             // NO GAME PLAYING
@@ -145,13 +125,13 @@ internal partial class ButtonMethod : ObservableObject
     }
 
     [RelayCommand]
-    public async Task EnableWindowBorderAsync()
+    public async Task DisableWindowBorderlessAsync()
     {
         if (!await GILauncher.TryGetProcessAsync(async t =>
         {
             if (!RuntimeHelper.IsElevated)
             {
-                if (MessageBoxX.Question("需要管理员权限，是否以管理员权限重启？") == MessageBoxResult.Yes)
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
                 {
                     RuntimeHelper.RestartAsElevated();
                 }
@@ -161,7 +141,7 @@ internal partial class ButtonMethod : ObservableObject
             await Task.CompletedTask;
 
             nint hWnd = t.MainWindowHandle;
-            EnableWindowBorder(hWnd);
+            hWnd.DisableWindowBorderless();
         }))
         {
             // NO GAME PLAYING
@@ -175,7 +155,7 @@ internal partial class ButtonMethod : ObservableObject
         {
             if (!RuntimeHelper.IsElevated)
             {
-                if (MessageBoxX.Question("需要管理员权限，是否以管理员权限重启？") == MessageBoxResult.Yes)
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
                 {
                     RuntimeHelper.RestartAsElevated();
                 }
@@ -185,7 +165,55 @@ internal partial class ButtonMethod : ObservableObject
             await Task.CompletedTask;
 
             nint hWnd = t.MainWindowHandle;
-            EnableWindowMaximizeBox(hWnd);
+            hWnd.EnableWindowMaximizeBox();
+        }))
+        {
+            // NO GAME PLAYING
+        }
+    }
+
+    [RelayCommand]
+    public async Task EnableWindowTopmostAsync()
+    {
+        if (!await GILauncher.TryGetProcessAsync(async t =>
+        {
+            if (!RuntimeHelper.IsElevated)
+            {
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
+                {
+                    RuntimeHelper.RestartAsElevated();
+                }
+                return;
+            }
+
+            await Task.CompletedTask;
+
+            nint hWnd = t.MainWindowHandle;
+            hWnd.EnableWindowTopmost();
+        }))
+        {
+            // NO GAME PLAYING
+        }
+    }
+
+    [RelayCommand]
+    public async Task DisableWindowTopmostAsync()
+    {
+        if (!await GILauncher.TryGetProcessAsync(async t =>
+        {
+            if (!RuntimeHelper.IsElevated)
+            {
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
+                {
+                    RuntimeHelper.RestartAsElevated();
+                }
+                return;
+            }
+
+            await Task.CompletedTask;
+
+            nint hWnd = t.MainWindowHandle;
+            hWnd.DisableWindowTopmost();
         }))
         {
             // NO GAME PLAYING
