@@ -88,7 +88,7 @@
     <s:String x:Key="LaunchGameSettingsPotentialRisks">潜在リスク</s:String>
     <s:String x:Key="LaunchGameSettingsEnableDetectAccountGaming">启用识别账号是否</s:String>
     <s:String x:Key="LaunchGameSettingsEnableDetectAccountGamingHint">很智能但消耗少量资源轮询检测</s:String>
-    <s:String x:Key="LaunchGamePlayingGame">ゲーム中</s:String>
+    <s:String x:Key="LaunchGamePlayingGame">ゲームなう</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazy">启用世界任务组件</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">私有组件</s:String>
     <s:String x:Key="LazySearchRecord">查看记录</s:String>
@@ -108,7 +108,7 @@
 
     <!--  Model Viewer  -->
     <s:String x:Key="ModelViewerSelectDMM">ＤＭＭモデルファイルを選択</s:String>
-    <s:String x:Key="ModelViewerClickOrDropHint">ここをクリックしてＤＭＭファイルを選択、またはそれをドロップダウン...</s:String>
+    <s:String x:Key="ModelViewerClickOrDropHint">ここをクリックしてＤＭＭファイルを選択、またはここにドロップダウンする...</s:String>
 
     <!--  Plugin Manager  -->
     <s:String x:Key="PluginManagerSelectPlugin">プラグインを選択</s:String>
