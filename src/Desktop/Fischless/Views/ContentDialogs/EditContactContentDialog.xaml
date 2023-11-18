@@ -152,9 +152,6 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
                             <TextBlock.Inlines>
-                                <Run FontWeight="Bold"
-                                     Foreground="{DynamicResource AccentForeground}"
-                                     Text="*" />
                                 <Run FontSize="16" Text="当前账号" />
                             </TextBlock.Inlines>
                         </TextBlock>
@@ -177,7 +174,7 @@
             <wui:TextBox Height="80"
                          MaxHeight="80"
                          AcceptsReturn="False"
-                         PlaceholderText="请勿随意修改"
+                         PlaceholderText="留空表示仅启动游戏不切换账号"
                          Style="{StaticResource MonoUiTextBoxStyle}"
                          Text="{Binding Prod, Mode=TwoWay}"
                          TextWrapping="Wrap" />
