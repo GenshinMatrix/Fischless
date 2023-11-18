@@ -1,4 +1,5 @@
-﻿using Vanara.PInvoke;
+﻿using System.Windows.Forms;
+using Vanara.PInvoke;
 
 namespace Fischless.Plugin.Borderless;
 
@@ -37,11 +38,17 @@ internal static class BorderlessExtension
 
     public static void EnableWindowTopmost(this nint hWnd)
     {
-        User32.SetWindowPos(hWnd, User32.SpecialWindowHandles.HWND_TOPMOST, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE);
+        _ = User32.SetWindowPos(hWnd, User32.SpecialWindowHandles.HWND_TOPMOST, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE);
     }
 
     public static void DisableWindowTopmost(this nint hWnd)
     {
-        User32.SetWindowPos(hWnd, User32.SpecialWindowHandles.HWND_NOTOPMOST, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE);
+        _ = User32.SetWindowPos(hWnd, User32.SpecialWindowHandles.HWND_NOTOPMOST, 0, 0, 0, 0, User32.SetWindowPosFlags.SWP_NOMOVE | User32.SetWindowPosFlags.SWP_NOSIZE);
+    }
+
+    public static void RestoreWindowPositon(this nint hWnd)
+    {
+        Screen screen = Screen.FromHandle(hWnd);
+        _ = User32.SetWindowPos(hWnd, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
     }
 }

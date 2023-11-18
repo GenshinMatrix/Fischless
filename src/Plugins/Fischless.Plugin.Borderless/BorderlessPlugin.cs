@@ -87,12 +87,18 @@ internal partial class ButtonMethod : ObservableObject
                     Header = MuiLanguage.Mui("BorderlessMenu5"),
                     Command = DisableWindowTopmostCommand,
                 };
+                MenuItem menuItem6 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu6"),
+                    Command = RestoreWindowPositonCommand,
+                };
                 LeftContextMenuBehavior behavior = new();
                 contextMenu.Items.Add(menuItem1);
                 contextMenu.Items.Add(menuItem2);
                 contextMenu.Items.Add(menuItem3);
                 contextMenu.Items.Add(menuItem4);
                 contextMenu.Items.Add(menuItem5);
+                contextMenu.Items.Add(menuItem6);
                 button.ContextMenu = contextMenu;
                 Interaction.GetBehaviors(button).Add(behavior);
                 contextMenu.IsOpen = true;
@@ -214,6 +220,30 @@ internal partial class ButtonMethod : ObservableObject
 
             nint hWnd = t.MainWindowHandle;
             hWnd.DisableWindowTopmost();
+        }))
+        {
+            // NO GAME PLAYING
+        }
+    }
+
+    [RelayCommand]
+    public async Task RestoreWindowPositonAsync()
+    {
+        if (!await GILauncher.TryGetProcessAsync(async t =>
+        {
+            if (!RuntimeHelper.IsElevated)
+            {
+                if (MessageBoxX.Question(MuiLanguage.Mui("UACRequestRestartHint")) == MessageBoxResult.Yes)
+                {
+                    RuntimeHelper.RestartAsElevated();
+                }
+                return;
+            }
+
+            await Task.CompletedTask;
+
+            nint hWnd = t.MainWindowHandle;
+            hWnd.RestoreWindowPositon();
         }))
         {
             // NO GAME PLAYING

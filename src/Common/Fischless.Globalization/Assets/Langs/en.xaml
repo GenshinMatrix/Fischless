@@ -64,6 +64,7 @@
     <s:String x:Key="BorderlessMenu3">Restore Maximize button</s:String>
     <s:String x:Key="BorderlessMenu4">Enable Topmost Game</s:String>
     <s:String x:Key="BorderlessMenu5">Disable Topmost Game</s:String>
+    <s:String x:Key="BorderlessMenu6">Restore Screen Zero Position</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">Select {0} or {1}</s:String>
