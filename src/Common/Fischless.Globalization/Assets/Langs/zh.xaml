@@ -84,6 +84,7 @@
     <s:String x:Key="LaunchGameSettingsGamePath">游戏路径</s:String>
     <s:String x:Key="LaunchGameSettingsGameResolution">分辨率</s:String>
     <s:String x:Key="LaunchGameSettingsGameFullScreen">独占全屏</s:String>
+    <s:String x:Key="LaunchGameSettingsGameBorderless">无界</s:String>
     <s:String x:Key="LaunchGameSettingsGameFps">解锁帧率</s:String>
     <s:String x:Key="LaunchGameSettingsGameFpsHint">以注入渲染引擎方式调整帧率</s:String>
     <s:String x:Key="LaunchGameSettingsPotentialRisks">潜在风险</s:String>

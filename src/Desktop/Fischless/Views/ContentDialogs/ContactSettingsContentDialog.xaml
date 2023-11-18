@@ -18,7 +18,7 @@
     <ui:ContentDialog.Resources>
         <fui:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </ui:ContentDialog.Resources>
-    <Grid Width="450">
+    <Grid>
         <Grid Margin="0,-40,0,0"
               HorizontalAlignment="Right"
               VerticalAlignment="Top"
@@ -35,7 +35,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1.1*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -115,12 +115,21 @@
                                    Minimum="0"
                                    SpinButtonPlacementMode="Hidden"
                                    Value="{Binding ResolutionHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <CheckBox Grid.Column="3"
-                              Margin="16,0,0,0"
-                              VerticalAlignment="Center"
-                              Content="{DynamicResource LaunchGameSettingsGameFullScreen}"
-                              Cursor="{x:Null}"
-                              IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
+                    <StackPanel Grid.Column="3"
+                                Margin="16,0,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <CheckBox MinWidth="0"
+                                  VerticalAlignment="Center"
+                                  Content="{DynamicResource LaunchGameSettingsGameFullScreen}"
+                                  Cursor="{x:Null}"
+                                  IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
+                        <CheckBox MinWidth="0"
+                                  VerticalAlignment="Center"
+                                  Content="{DynamicResource LaunchGameSettingsGameBorderless}"
+                                  Cursor="{x:Null}"
+                                  IsChecked="{Binding IsUseBorderless, Mode=TwoWay}" />
+                    </StackPanel>
                 </Grid>
                 <CheckBox Grid.Row="2"
                           Grid.Column="0"

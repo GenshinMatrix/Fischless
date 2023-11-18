@@ -84,6 +84,7 @@
     <s:String x:Key="LaunchGameSettingsGamePath">Game　Path</s:String>
     <s:String x:Key="LaunchGameSettingsGameResolution">Resolution</s:String>
     <s:String x:Key="LaunchGameSettingsGameFullScreen">FullScreen</s:String>
+    <s:String x:Key="LaunchGameSettingsGameBorderless">Borderless</s:String>
     <s:String x:Key="LaunchGameSettingsGameFps">Unlock FPS</s:String>
     <s:String x:Key="LaunchGameSettingsGameFpsHint">以注入渲染引擎方式调整帧率</s:String>
     <s:String x:Key="LaunchGameSettingsPotentialRisks">Potential Risks</s:String>

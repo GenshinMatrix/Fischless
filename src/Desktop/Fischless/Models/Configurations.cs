@@ -21,6 +21,7 @@ public static class Configurations
     public static ConfigurationDefinition<uint> ResolutionWidth { get; } = new(nameof(ResolutionWidth), 1920);
     public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);
     public static ConfigurationDefinition<bool> IsUseFullScreen { get; } = new(nameof(IsUseFullScreen), false);
+    public static ConfigurationDefinition<bool> IsUseBorderless { get; } = new(nameof(IsUseBorderless), false);
     public static ConfigurationDefinition<bool> IsUseLazy { get; } = new(nameof(IsUseLazy), false);
     public static ConfigurationDefinition<bool> IsUseReShade { get; } = new(nameof(IsUseReShade), false);
     public static ConfigurationDefinition<bool> IsUseReShadeSlient { get; } = new(nameof(IsUseReShadeSlient), false);

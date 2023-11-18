@@ -128,6 +128,15 @@ public partial class ContactSettingsViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool isUseBorderless = Configurations.IsUseBorderless.Get();
+
+    partial void OnIsUseBorderlessChanged(bool value)
+    {
+        Configurations.IsUseBorderless.Set(value);
+        ConfigurationManager.Save();
+    }
+
+    [ObservableProperty]
     private bool isUseGameRunningHint = Configurations.IsUseGameRunningHint.Get();
 
     partial void OnIsUseGameRunningHintChanged(bool value)
