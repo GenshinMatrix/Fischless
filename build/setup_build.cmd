@@ -6,8 +6,9 @@ for /f "usebackq tokens=*" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio
 
 echo [build app using vs2022]
 cd ..\src\
+@REM dotnet restore
 @REM dotnet publish .\Desktop\Fischless\Fischless.csproj -c Release -p:PublishProfile=FolderProfile
-dotnet restore
+msbuild .\Desktop\Fischless\Fischless.csproj /t:Restore
 msbuild .\Desktop\Fischless\Fischless.csproj /t:Publish /p:Configuration=Release /p:PublishProfile=FolderProfile
 msbuild .\Plugins\Fischless.Plugin.DisplayDefault\Fischless.Plugin.DisplayDefault.csproj /t:Publish /p:Configuration=Release
 msbuild .\Plugins\Fischless.Plugin.LaunchHyperion\Fischless.Plugin.LaunchHyperion.csproj /t:Publish /p:Configuration=Release

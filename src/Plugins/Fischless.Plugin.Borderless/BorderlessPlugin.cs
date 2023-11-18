@@ -23,7 +23,7 @@ public class BorderlessPlugin : IPlugin, IPlugin2
 {
     public string PluginName => MuiLanguage.Mui("Borderless");
     public string Description => MuiLanguage.Mui("BorderlessHint");
-    public object Icon => IconProvider.GetFontIcon(FontSymbols.DeviceLaptopPic);
+    public object Icon => IconProvider.GetFontIcon(FontSymbols.QuickNote);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);
     public int Index => 1;
