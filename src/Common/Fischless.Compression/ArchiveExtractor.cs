@@ -12,7 +12,7 @@ public static class ArchiveExtractor
 
     public static Dictionary<string, Stream> ExtractFilesToMemory(Stream stream)
     {
-        Dictionary<string, Stream> fileContents = new();
+        Dictionary<string, Stream> fileContents = [];
         using IArchive archive = ArchiveFactory.Open(stream);
 
         foreach (var entry in archive.Entries)
