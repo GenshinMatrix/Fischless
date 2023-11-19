@@ -96,7 +96,7 @@ public partial class PagePluginManagerViewModel : ObservableRecipient
     [RelayCommand]
     public async Task MarketAsync()
     {
-        await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless/tree/main/src/Plugins"));
+        await Launcher.LaunchUriAsync(new Uri($"{AppConfig.Website}/tree/main/src/Plugins"));
     }
 }
 

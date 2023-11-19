@@ -237,5 +237,6 @@
     <s:String x:Key="Refresh">刷新</s:String>
     <s:String x:Key="Edit">编辑</s:String>
     <s:String x:Key="Delete">删除</s:String>
+    <s:String x:Key="HomePage">主页</s:String>
 
 </ResourceDictionary>

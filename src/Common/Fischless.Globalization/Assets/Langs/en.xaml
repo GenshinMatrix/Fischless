@@ -237,5 +237,6 @@
     <s:String x:Key="Refresh">Refresh</s:String>
     <s:String x:Key="Edit">Edit</s:String>
     <s:String x:Key="Delete">Delete</s:String>
+    <s:String x:Key="HomePage">Home Page</s:String>
 
 </ResourceDictionary>

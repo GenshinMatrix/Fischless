@@ -81,13 +81,13 @@ public partial class MainViewModel : ObservableRecipient
     [RelayCommand]
     public static async Task OpenUserManualAsync()
     {
-        _ = await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless"));
+        _ = await Launcher.LaunchUriAsync(new Uri($"{AppConfig.Website}/wiki"));
     }
 
     [RelayCommand]
     public static async Task ViewAboutAsync()
     {
-        _ = await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless"));
+        await new AboutContentDialog().ShowAsync();
     }
 
     [RelayCommand]

@@ -56,7 +56,7 @@
     <s:String x:Key="RepairRegedit">レジストリの修復</s:String>
     <s:String x:Key="RepairRegeditHint">ゲームのレジストリのインストール情報を修復</s:String>
     <s:String x:Key="LaunchHyperion">米遊社 ｱﾝﾄﾞﾛｲﾄﾞ</s:String>
-    <s:String x:Key="LaunchHyperionHint">中国サーバのみの米遊社をWindows11にてWSA起動</s:String>
+    <s:String x:Key="LaunchHyperionHint">中国サーバのみの米遊社をWin11にてWSA起動</s:String>
     <s:String x:Key="Borderless">ボーダレス</s:String>
     <s:String x:Key="BorderlessHint">ボーダレスゲーム</s:String>
     <s:String x:Key="BorderlessMenu1">ボーダレスを有効にする</s:String>
@@ -237,5 +237,6 @@
     <s:String x:Key="Refresh">更新</s:String>
     <s:String x:Key="Edit">編集</s:String>
     <s:String x:Key="Delete">削除</s:String>
+    <s:String x:Key="HomePage">ホームページ</s:String>
 
 </ResourceDictionary>

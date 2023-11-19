@@ -12,6 +12,7 @@ internal static class AppConfig
     public static string? AppName => Mui(PackName) ?? PackName;
     public static string? PackName => "Fischless";
     public static string? AutoStartCommand => "-autostart";
+    public static string Website => "https://github.com/GenshinMatrix/Fischless";
     public static bool Preview => true;
     public static string? AppVersion { get; private set; }
     public static string LogFolder { get; internal set; }

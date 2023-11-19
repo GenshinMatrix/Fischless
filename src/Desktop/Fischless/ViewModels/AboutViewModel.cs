@@ -33,18 +33,24 @@ public partial class AboutViewModel : ObservableObject
     [RelayCommand]
     public async Task CheckUpdateVersionAsync()
     {
-        await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless/releases"));
+        await Launcher.LaunchUriAsync(new Uri($"{AppConfig.Website}/releases"));
     }
 
     [RelayCommand]
     public async Task ShowPrivacyPolicyAsync()
     {
-        await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless/blob/main/PRIVACYPOLICY.md"));
+        await Launcher.LaunchUriAsync(new Uri($"{AppConfig.Website}/blob/main/PRIVACYPOLICY.md"));
     }
 
     [RelayCommand]
     public async Task ShowLicenseAsync()
     {
-        await Launcher.LaunchUriAsync(new Uri("https://github.com/GenshinMatrix/Fischless/blob/main/LICENSE"));
+        await Launcher.LaunchUriAsync(new Uri($"{AppConfig.Website}/blob/main/LICENSE"));
+    }
+
+    [RelayCommand]
+    public static async Task ViewWebsiteAsync()
+    {
+        _ = await Launcher.LaunchUriAsync(new Uri(AppConfig.Website));
     }
 }

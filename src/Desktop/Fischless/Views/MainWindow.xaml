@@ -194,8 +194,7 @@
                         <Separator />
                         <MenuItem Command="{Binding OpenUserManualCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource UserManual}"
-                                  Visibility="Collapsed">
+                                  Header="{DynamicResource UserManual}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
