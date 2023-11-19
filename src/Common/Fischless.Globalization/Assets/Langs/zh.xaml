@@ -93,6 +93,18 @@
     <s:String x:Key="LaunchGamePlayingGame">正在游戏</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazy">启用世界任务组件</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">私有组件</s:String>
+    <s:String x:Key="LaunchGameSettingsLazy">Daily World Quest</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyNotCompleted">任务未完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyCompleted">任务已完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchLazy">启动组件</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGame">启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlow">缓启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowHint">3分钟后启动选中账号</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowCancel">取消缓启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchReShade">启动幽夜净土</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyUID">复制 UID</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyCookie">复制 Cookie</s:String>
+
     <s:String x:Key="LazySearchRecord">查看记录</s:String>
     <s:String x:Key="LazySetupToken">设定令牌</s:String>
     <s:String x:Key="LazySearchRecordFailedTitle">查看记录失败</s:String>
@@ -219,5 +231,11 @@
     <s:String x:Key="DeveloperTools">开发者工具</s:String>
     <s:String x:Key="SystemEvent">系统事件</s:String>
     <s:String x:Key="SystemVersion">系统版本</s:String>
+
+    <s:String x:Key="Add">添加</s:String>
+    <s:String x:Key="Settings">设定</s:String>
+    <s:String x:Key="Refresh">刷新</s:String>
+    <s:String x:Key="Edit">编辑</s:String>
+    <s:String x:Key="Delete">删除</s:String>
 
 </ResourceDictionary>

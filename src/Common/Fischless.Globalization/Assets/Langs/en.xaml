@@ -23,7 +23,7 @@
     <s:String x:Key="CheckUpdate">Check for updates</s:String>
     <s:String x:Key="PrivacyPolicy">Privacy Policy</s:String>
     <s:String x:Key="LicenseInfo">License</s:String>
-    <s:String x:Key="CreateDesktopShortcut">创建桌面快捷方式</s:String>
+    <s:String x:Key="CreateDesktopShortcut">Create Desktop Shortcut</s:String>
 
     <!--  Navi  -->
     <s:String x:Key="Fischless">Fischless</s:String>
@@ -48,7 +48,7 @@
     <s:String x:Key="UnneedOperation">Unneed Operate</s:String>
     <s:String x:Key="OperationSuccessfully">Operation Successfully</s:String>
     <s:String x:Key="CreationFailed">Creation Failed</s:String>
-    <s:String x:Key="UACRequestRestartHint">需要管理员权限，是否以管理员权限重启？</s:String>
+    <s:String x:Key="UACRequestRestartHint">Admin UAC required. Do you want to restart with admin?</s:String>
 
     <!--  Plugin  -->
     <s:String x:Key="DisplayDefault">Display Settings</s:String>
@@ -93,6 +93,18 @@
     <s:String x:Key="LaunchGamePlayingGame">Playing</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazy">Enable Lazy</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">Private</s:String>
+    <s:String x:Key="LaunchGameSettingsLazy">毎日のワールドクエスト</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyNotCompleted">任务未完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyCompleted">任务已完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchLazy">启动组件</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGame">启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlow">缓启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowHint">3分钟后启动选中账号</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowCancel">取消缓启动游戏</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchReShade">启动幽夜净土</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyUID">Copy UID</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyCookie">Copy Cookie</s:String>
+
     <s:String x:Key="LazySearchRecord">Search Record</s:String>
     <s:String x:Key="LazySetupToken">Setup Token</s:String>
     <s:String x:Key="LazySearchRecordFailedTitle">查看记录失败</s:String>
@@ -109,7 +121,7 @@
     <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">Needs UAC Permissions</s:String>
 
     <!--  Model Viewer  -->
-    <s:String x:Key="ModelViewerSelectDMM">选择DMM模型文件</s:String>
+    <s:String x:Key="ModelViewerSelectDMM">Select a DMM model file</s:String>
     <s:String x:Key="ModelViewerClickOrDropHint">Click here to select a DMM file or drop down it here ...</s:String>
 
     <!--  Plugin Manager  -->
@@ -119,10 +131,10 @@
     <s:String x:Key="PluginManagerInstallNeedRestartHint">Take effect after App Restart. Restarted immediately?</s:String>
 
     <!--  ReShade  -->
-    <s:String x:Key="ReShadeRemovedToRecycleBin">已删除至回收站</s:String>
+    <s:String x:Key="ReShadeRemovedToRecycleBin">Deleted to the Recycle Bin</s:String>
     <s:String x:Key="ReShadeSelectFolder">Select 3DMigoto Folder</s:String>
     <s:String x:Key="ReShadeLoaderExeNotExists">{0} Not Exists</s:String>
-    <s:String x:Key="ReShadeMultiUnselectedHint">是否取消当前列表中 {0} 个选中项？</s:String>
+    <s:String x:Key="ReShadeMultiUnselectedHint">Do you want to disable {0} selection(s) in the current list?</s:String>
 
     <!--  Avatar  -->
     <s:String x:Key="AvatarNameOfWriothesley">Wriothesley</s:String>
@@ -219,5 +231,11 @@
     <s:String x:Key="DeveloperTools">Developer Tools</s:String>
     <s:String x:Key="SystemEvent">System Event</s:String>
     <s:String x:Key="SystemVersion">System Version</s:String>
+
+    <s:String x:Key="Add">Add</s:String>
+    <s:String x:Key="Settings">Settings</s:String>
+    <s:String x:Key="Refresh">Refresh</s:String>
+    <s:String x:Key="Edit">Edit</s:String>
+    <s:String x:Key="Delete">Delete</s:String>
 
 </ResourceDictionary>

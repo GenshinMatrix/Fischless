@@ -92,9 +92,21 @@
     <s:String x:Key="LaunchGameSettingsEnableDetectAccountGamingHint">很智能但消耗少量资源轮询检测</s:String>
     <s:String x:Key="LaunchGamePlayingGame">ゲームなう</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazy">启用世界任务组件</s:String>
-    <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">私有组件</s:String>
-    <s:String x:Key="LazySearchRecord">查看记录</s:String>
-    <s:String x:Key="LazySetupToken">设定令牌</s:String>
+    <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">プライベート</s:String>
+    <s:String x:Key="LaunchGameSettingsLazy">毎日のワールドクエスト</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyNotCompleted">任务未完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLazyCompleted">任务已完成</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchLazy">启动组件</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGame">ゲーム起動</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlow">ゲームスロー起動</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowHint">３分後に選択したアカウントを起動する</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchGameSlowCancel">スロー起動をキャンセル</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchReShade">幽夜浄土起動</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyUID">UID をコピー</s:String>
+    <s:String x:Key="LaunchGameSettingsLaunchCopyCookie">Cookie をコピー</s:String>
+
+    <s:String x:Key="LazySearchRecord">レコード表示</s:String>
+    <s:String x:Key="LazySetupToken">トークン設定</s:String>
     <s:String x:Key="LazySearchRecordFailedTitle">查看记录失败</s:String>
     <s:String x:Key="LazySearchRecordFailedHint">请保证服务器令牌路径正确后重试</s:String>
     <s:String x:Key="LazySetupNoTokenTitle">未探测到接入服务器令牌</s:String>
@@ -116,13 +128,13 @@
     <s:String x:Key="PluginManagerSelectPlugin">プラグインを選択</s:String>
     <s:String x:Key="PluginManagerPlugin">プラグイン</s:String>
     <s:String x:Key="PluginManagerPluginIllegal">無効なプラグイン</s:String>
-    <s:String x:Key="PluginManagerInstallNeedRestartHint">需要应用重启后生效，是否立即重启应用？</s:String>
+    <s:String x:Key="PluginManagerInstallNeedRestartHint">アプリを再起動してから有効にする必要があります。今すぐにアプリを再起動しますか？</s:String>
 
     <!--  ReShade  -->
-    <s:String x:Key="ReShadeRemovedToRecycleBin">已删除至回收站</s:String>
-    <s:String x:Key="ReShadeSelectFolder">选择 3DMigoto 目录</s:String>
-    <s:String x:Key="ReShadeLoaderExeNotExists">{0} 不存在</s:String>
-    <s:String x:Key="ReShadeMultiUnselectedHint">是否取消当前列表中 {0} 个选中项？</s:String>
+    <s:String x:Key="ReShadeRemovedToRecycleBin">ごみ箱へ削除されました</s:String>
+    <s:String x:Key="ReShadeSelectFolder">3DMigoto フォルダを選択</s:String>
+    <s:String x:Key="ReShadeLoaderExeNotExists">{0} が存在しない</s:String>
+    <s:String x:Key="ReShadeMultiUnselectedHint">現在リストに選択した {0} 個のモデルを無効にしますか？</s:String>
 
     <!--  Avatar  -->
     <s:String x:Key="AvatarNameOfWriothesley">リオセスリ</s:String>
@@ -219,5 +231,11 @@
     <s:String x:Key="DeveloperTools">開発者ツール</s:String>
     <s:String x:Key="SystemEvent">システムイベント</s:String>
     <s:String x:Key="SystemVersion">システムバージョン</s:String>
+
+    <s:String x:Key="Add">新規</s:String>
+    <s:String x:Key="Settings">設定</s:String>
+    <s:String x:Key="Refresh">更新</s:String>
+    <s:String x:Key="Edit">編集</s:String>
+    <s:String x:Key="Delete">削除</s:String>
 
 </ResourceDictionary>
