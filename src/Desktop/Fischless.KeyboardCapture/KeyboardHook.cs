@@ -12,8 +12,8 @@ public sealed class KeyboardHook : IDisposable
 
     public event KeyEventHandler KeyUp = null!;
 
-    private User32.SafeHHOOK hKeyboardHook = new(IntPtr.Zero);
-    private User32.HookProc? KeyboardHookProcedure;
+    private User32.SafeHHOOK hook = new(IntPtr.Zero);
+    private User32.HookProc? hookProc;
 
     ~KeyboardHook()
     {
@@ -27,14 +27,14 @@ public sealed class KeyboardHook : IDisposable
 
     public void Start()
     {
-        if (hKeyboardHook.IsNull)
+        if (hook.IsNull)
         {
-            KeyboardHookProcedure = KeyboardHookProc;
-            hKeyboardHook = User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, KeyboardHookProcedure, Kernel32.GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
+            hookProc = KeyboardHookProc;
+            hook = User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, hookProc, Kernel32.GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
 
-            User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, KeyboardHookProcedure, IntPtr.Zero, (int)Kernel32.GetCurrentThreadId());
+            User32.SetWindowsHookEx(User32.HookType.WH_KEYBOARD_LL, hookProc, IntPtr.Zero, (int)Kernel32.GetCurrentThreadId());
 
-            if (hKeyboardHook.IsNull)
+            if (hook.IsNull)
             {
                 Stop();
                 throw new SystemException("Failed to install keyboard hook");
@@ -46,10 +46,10 @@ public sealed class KeyboardHook : IDisposable
     {
         bool retKeyboard = true;
 
-        if (!hKeyboardHook.IsNull)
+        if (!hook.IsNull)
         {
-            retKeyboard = User32.UnhookWindowsHookEx(hKeyboardHook);
-            hKeyboardHook = new(IntPtr.Zero);
+            retKeyboard = User32.UnhookWindowsHookEx(hook);
+            hook = new(IntPtr.Zero);
         }
 
         if (!retKeyboard)
@@ -93,6 +93,6 @@ public sealed class KeyboardHook : IDisposable
                 }
             }
         }
-        return User32.CallNextHookEx(hKeyboardHook, nCode, wParam, lParam);
+        return User32.CallNextHookEx(hook, nCode, wParam, lParam);
     }
 }
