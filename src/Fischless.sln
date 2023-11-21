@@ -82,6 +82,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicaSetup.Uninst", "..\buil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.Plugin.Borderless", "Plugins\Fischless.Plugin.Borderless\Fischless.Plugin.Borderless.csproj", "{9649F9E3-C446-4D5F-9AB2-56FC335A38D3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.MouseCapture", "Desktop\Fischless.MouseCapture\Fischless.MouseCapture.csproj", "{6915E8A6-6F65-4148-839B-A9176B90EE3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -212,6 +214,10 @@ Global
 		{9649F9E3-C446-4D5F-9AB2-56FC335A38D3}.Debug|x64.Build.0 = Debug|x64
 		{9649F9E3-C446-4D5F-9AB2-56FC335A38D3}.Release|x64.ActiveCfg = Release|x64
 		{9649F9E3-C446-4D5F-9AB2-56FC335A38D3}.Release|x64.Build.0 = Release|x64
+		{6915E8A6-6F65-4148-839B-A9176B90EE3E}.Debug|x64.ActiveCfg = Debug|x64
+		{6915E8A6-6F65-4148-839B-A9176B90EE3E}.Debug|x64.Build.0 = Debug|x64
+		{6915E8A6-6F65-4148-839B-A9176B90EE3E}.Release|x64.ActiveCfg = Release|x64
+		{6915E8A6-6F65-4148-839B-A9176B90EE3E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -248,6 +254,7 @@ Global
 		{CCE92E62-B01C-4110-ACBD-F76B1E13E393} = {2CD795BB-B93D-4DF1-B2D6-C73E0D83C98F}
 		{333475B4-D760-4D14-A60E-70019713F7D1} = {2CD795BB-B93D-4DF1-B2D6-C73E0D83C98F}
 		{9649F9E3-C446-4D5F-9AB2-56FC335A38D3} = {B5E6C855-D52D-4501-9D85-F05A17F9AB80}
+		{6915E8A6-6F65-4148-839B-A9176B90EE3E} = {2944494E-EB09-4387-9677-BB38A224A624}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
