@@ -4,7 +4,7 @@ using Vanara.PInvoke;
 
 namespace Fischless.MouseCapture;
 
-public class MouseHook : IDisposable
+public sealed class MouseHook : IDisposable
 {
     public event EventHandler<MouseEventArgs> MouseMove = null!;
 
@@ -22,7 +22,7 @@ public class MouseHook : IDisposable
 
     public void Dispose()
     {
-        User32.UnhookWindowsHookEx(hook);
+        Stop();
     }
 
     public void Start()

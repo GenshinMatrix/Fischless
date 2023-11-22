@@ -65,6 +65,8 @@
     <s:String x:Key="BorderlessMenu4">最前面を有効にする</s:String>
     <s:String x:Key="BorderlessMenu5">最前面を無効にする</s:String>
     <s:String x:Key="BorderlessMenu6">スクリーンのゼロポジに戻す</s:String>
+    <s:String x:Key="BorderlessMenu7">ドラッグ移動を有効にする</s:String>
+    <s:String x:Key="BorderlessMenu8">ドラッグ移動を無効にする</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">{0} または {1} を選択</s:String>

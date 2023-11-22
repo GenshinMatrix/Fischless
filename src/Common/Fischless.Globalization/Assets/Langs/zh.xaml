@@ -65,6 +65,8 @@
     <s:String x:Key="BorderlessMenu4">置顶游戏生效</s:String>
     <s:String x:Key="BorderlessMenu5">置顶游戏无效</s:String>
     <s:String x:Key="BorderlessMenu6">恢复到屏幕零点</s:String>
+    <s:String x:Key="BorderlessMenu7">窗口拖动生效</s:String>
+    <s:String x:Key="BorderlessMenu8">窗口拖动无效</s:String>
 
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">选择 {0} 或 {1}</s:String>
@@ -93,7 +95,7 @@
     <s:String x:Key="LaunchGamePlayingGame">正在游戏</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazy">启用世界任务组件</s:String>
     <s:String x:Key="LaunchGameSettingsEnableLazyPrivate">私有组件</s:String>
-    <s:String x:Key="LaunchGameSettingsLazy">Daily World Quest</s:String>
+    <s:String x:Key="LaunchGameSettingsLazy">每日世界任务</s:String>
     <s:String x:Key="LaunchGameSettingsLazyNotCompleted">任务未完成</s:String>
     <s:String x:Key="LaunchGameSettingsLazyCompleted">任务已完成</s:String>
     <s:String x:Key="LaunchGameSettingsLaunchLazy">启动组件</s:String>

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Design.Controls;
+using Fischless.Fetch.DragMove;
 using Fischless.Fetch.Launch;
 using Fischless.Globalization;
 using Fischless.Helpers;
@@ -92,6 +93,16 @@ internal partial class ButtonMethod : ObservableObject
                     Header = MuiLanguage.Mui("BorderlessMenu6"),
                     Command = RestoreWindowPositonCommand,
                 };
+                MenuItem menuItem7 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu7"),
+                    Command = EnableWindowDragMoveCommand,
+                };
+                MenuItem menuItem8 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu8"),
+                    Command = DisableWindowDragMoveCommand,
+                };
                 LeftContextMenuBehavior behavior = new();
                 contextMenu.Items.Add(menuItem1);
                 contextMenu.Items.Add(menuItem2);
@@ -99,6 +110,8 @@ internal partial class ButtonMethod : ObservableObject
                 contextMenu.Items.Add(menuItem4);
                 contextMenu.Items.Add(menuItem5);
                 contextMenu.Items.Add(menuItem6);
+                contextMenu.Items.Add(menuItem7);
+                contextMenu.Items.Add(menuItem8);
                 button.ContextMenu = contextMenu;
                 Interaction.GetBehaviors(button).Add(behavior);
                 contextMenu.IsOpen = true;
@@ -248,5 +261,17 @@ internal partial class ButtonMethod : ObservableObject
         {
             // NO GAME PLAYING
         }
+    }
+
+    [RelayCommand]
+    public void EnableWindowDragMove()
+    {
+        DragMoveProvider.IsEnabled = true;
+    }
+
+    [RelayCommand]
+    public void DisableWindowDragMove()
+    {
+        DragMoveProvider.IsEnabled = false;
     }
 }

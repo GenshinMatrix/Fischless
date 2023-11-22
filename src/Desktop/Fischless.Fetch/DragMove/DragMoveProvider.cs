@@ -9,8 +9,6 @@ namespace Fischless.Fetch.DragMove;
 
 public static class DragMoveProvider
 {
-    internal static MouseHook MouseHook { get; private set; } = null!;
-
     private static bool isEnabled = false;
 
     public static bool IsEnabled
@@ -25,11 +23,20 @@ public static class DragMoveProvider
                 {
                     latestLocation = null;
                     isMouseDown = false;
-                    MouseHook.Start();
+                    MouseReader.Default.MouseDown -= OnMouseDown;
+                    MouseReader.Default.MouseUp -= OnMouseUp;
+                    MouseReader.Default.MouseMove -= OnMouseMove;
+                    MouseReader.Default.MouseDown += OnMouseDown;
+                    MouseReader.Default.MouseUp += OnMouseUp;
+                    MouseReader.Default.MouseMove += OnMouseMove;
+                    MouseReader.Default.Start();
                 }
                 else
                 {
-                    MouseHook.Stop();
+                    MouseReader.Default.MouseDown -= OnMouseDown;
+                    MouseReader.Default.MouseUp -= OnMouseUp;
+                    MouseReader.Default.MouseMove -= OnMouseMove;
+                    MouseReader.Default.Stop();
                 }
             }
         }
@@ -37,14 +44,6 @@ public static class DragMoveProvider
 
     private static Point? latestLocation = null;
     private static bool isMouseDown = false;
-
-    static DragMoveProvider()
-    {
-        MouseHook = new MouseHook();
-        MouseHook.MouseDown += OnMouseDown;
-        MouseHook.MouseUp += OnMouseUp;
-        MouseHook.MouseMove += OnMouseMove;
-    }
 
     private static void OnMouseDown(object? sender, MouseEventArgs e)
     {
