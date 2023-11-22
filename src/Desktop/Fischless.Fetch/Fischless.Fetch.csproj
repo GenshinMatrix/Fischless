@@ -29,6 +29,7 @@
         <ProjectReference Include="..\..\Common\Fischless.Native\Fischless.Native.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Threading\Fischless.Threading.csproj" />
         <ProjectReference Include="..\Fischless.Hoyolab\Fischless.Hoyolab.csproj" />
+        <ProjectReference Include="..\Fischless.KeyboardCapture\Fischless.KeyboardCapture.csproj" />
         <ProjectReference Include="..\Fischless.MouseCapture\Fischless.MouseCapture.csproj" />
     </ItemGroup>
 
