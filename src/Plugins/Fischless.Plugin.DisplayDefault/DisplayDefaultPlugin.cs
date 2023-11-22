@@ -23,7 +23,7 @@ public class DisplayDefaultPlugin : IPlugin, IPlugin2
     public object Icon => IconProvider.GetFontIcon(FontSymbols.DeviceLaptopPic);
     public string Author => "GenshinMatrix";
     public Version Version => new(0, 0, 1);
-    public int Index => 1;
+    public int Index => 3;
     public bool IsShowButton => true;
     public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
 }
