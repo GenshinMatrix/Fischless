@@ -59,6 +59,7 @@
     <s:String x:Key="LaunchHyperionHint">Launch the MiYouShe using Windows 11 WSA (Chinese server only).</s:String>
     <s:String x:Key="Borderless">Borderless</s:String>
     <s:String x:Key="BorderlessHint">Borderless Game</s:String>
+    <s:String x:Key="BorderlessMenu0">Enable</s:String>
     <s:String x:Key="BorderlessMenu1">Enable Borderless Game</s:String>
     <s:String x:Key="BorderlessMenu2">Disable Borderless Game</s:String>
     <s:String x:Key="BorderlessMenu3">Restore Maximize button</s:String>

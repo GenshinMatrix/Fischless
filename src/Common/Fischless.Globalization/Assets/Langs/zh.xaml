@@ -59,6 +59,7 @@
     <s:String x:Key="LaunchHyperionHint">使用Win11的WSA启动国服米游社</s:String>
     <s:String x:Key="Borderless">无界</s:String>
     <s:String x:Key="BorderlessHint">无界游戏体验</s:String>
+    <s:String x:Key="BorderlessMenu0">生效</s:String>
     <s:String x:Key="BorderlessMenu1">无界游戏生效</s:String>
     <s:String x:Key="BorderlessMenu2">无界游戏无效</s:String>
     <s:String x:Key="BorderlessMenu3">恢复最大化按钮</s:String>

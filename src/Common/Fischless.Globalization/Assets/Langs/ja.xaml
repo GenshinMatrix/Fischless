@@ -59,6 +59,7 @@
     <s:String x:Key="LaunchHyperionHint">中国サーバのみの米遊社をWin11にてWSA起動</s:String>
     <s:String x:Key="Borderless">ボーダレス</s:String>
     <s:String x:Key="BorderlessHint">ボーダレスゲーム</s:String>
+    <s:String x:Key="BorderlessMenu0">有効にする</s:String>
     <s:String x:Key="BorderlessMenu1">ボーダレスを有効にする</s:String>
     <s:String x:Key="BorderlessMenu2">ボーダレスを無効にする</s:String>
     <s:String x:Key="BorderlessMenu3">最大化ボタンを有効にする</s:String>

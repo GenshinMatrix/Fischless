@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Fischless.Configuration;
 using Fischless.Design.Controls;
 using Fischless.Fetch.DragMove;
 using Fischless.Fetch.Launch;
@@ -9,6 +10,7 @@ using Fischless.Plugin.Abstractions;
 using Microsoft.Xaml.Behaviors;
 using ModernWpf.Controls;
 using System.ComponentModel.Composition;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -22,6 +24,14 @@ namespace Fischless.Plugin.Borderless;
 [Export(typeof(IPlugin))]
 public class BorderlessPlugin : IPlugin, IPlugin2
 {
+    static BorderlessPlugin()
+    {
+        if (Configurations.IsUseBorderlessPlugin.Get())
+        {
+            DragMoveProvider.IsEnabled = true;
+        }
+    }
+
     public string PluginName => MuiLanguage.Mui("Borderless");
     public string Description => MuiLanguage.Mui("BorderlessHint");
     public object Icon => IconProvider.GetFontIcon(FontSymbols.QuickNote);
@@ -62,6 +72,25 @@ internal partial class ButtonMethod : ObservableObject
                     PlacementRectangle = new Rect(new Point(), new Size(button.ActualWidth, button.ActualHeight)),
                     Placement = PlacementMode.Bottom,
                     StaysOpen = true,
+                };
+
+                MenuItem menuItem0 = new()
+                {
+                    Header = MuiLanguage.Mui("BorderlessMenu0"),
+                    IsCheckable = true,
+                    IsChecked = Configurations.IsUseBorderlessPlugin.Get(),
+                };
+                menuItem0.Checked += (object sender, RoutedEventArgs e) =>
+                {
+                    DragMoveProvider.IsEnabled = true;
+                    Configurations.IsUseBorderlessPlugin.Set(DragMoveProvider.IsEnabled);
+                    ConfigurationManager.Save();
+                };
+                menuItem0.Unchecked += (object sender, RoutedEventArgs e) =>
+                {
+                    DragMoveProvider.IsEnabled = false;
+                    Configurations.IsUseBorderlessPlugin.Set(DragMoveProvider.IsEnabled);
+                    ConfigurationManager.Save();
                 };
                 MenuItem menuItem1 = new()
                 {
@@ -104,6 +133,8 @@ internal partial class ButtonMethod : ObservableObject
                     Command = DisableWindowDragMoveCommand,
                 };
                 LeftContextMenuBehavior behavior = new();
+                contextMenu.Items.Add(menuItem0);
+                contextMenu.Items.Add(new Separator());
                 contextMenu.Items.Add(menuItem1);
                 contextMenu.Items.Add(menuItem2);
                 contextMenu.Items.Add(menuItem3);
@@ -274,4 +305,10 @@ internal partial class ButtonMethod : ObservableObject
     {
         DragMoveProvider.IsEnabled = false;
     }
+}
+
+[Obfuscation]
+file static class Configurations
+{
+    public static ConfigurationDefinition<bool> IsUseBorderlessPlugin { get; } = new(nameof(IsUseBorderlessPlugin), false);
 }
