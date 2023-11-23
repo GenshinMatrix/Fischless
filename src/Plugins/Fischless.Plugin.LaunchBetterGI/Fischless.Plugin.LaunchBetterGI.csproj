@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Platforms>x64</Platforms>
+        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+        <LangVersion>12.0</LangVersion>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Desktop\Fischless\Fischless.csproj" />
+        <ProjectReference Include="..\Fischless.Plugin.Abstractions\Fischless.Plugin.Abstractions.csproj" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
+        <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)Desktop\Fischless\bin\x64\Debug\net8.0-windows10.0.22621.0\Plugins\&quot; /y" />
+    </Target>
+
+</Project>
