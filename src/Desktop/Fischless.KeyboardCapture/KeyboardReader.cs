@@ -1,11 +1,15 @@
-﻿namespace Fischless.KeyboardCapture;
+﻿using System.Diagnostics;
 
+namespace Fischless.KeyboardCapture;
+
+[DebuggerDisplay("{result.ToString()}")]
 public class KeyboardReader : IDisposable
 {
     public static KeyboardReader Default { get; } = new();
 
     public event EventHandler<KeyboardResult> Received = null!;
 
+    public bool IsCombinationOnly = false;
     public bool IsCaseSensitived = false;
     protected KeyboardHook KeyboardHook = new();
     protected bool IsShift = false;
@@ -52,7 +56,10 @@ public class KeyboardReader : IDisposable
          || e.KeyCode == Keys.RShiftKey)
         {
             IsShift = true;
-            return;
+            if (IsCombinationOnly)
+            {
+                return;
+            }
         }
         else if (e.KeyCode == Keys.Control
               || e.KeyCode == Keys.ControlKey
@@ -60,18 +67,29 @@ public class KeyboardReader : IDisposable
               || e.KeyCode == Keys.RControlKey)
         {
             IsCtrl = true;
-            return;
+            if (IsCombinationOnly)
+            {
+                return;
+            }
         }
         else if (e.KeyCode == Keys.LWin
               || e.KeyCode == Keys.RWin)
         {
             IsWin = true;
+            if (IsCombinationOnly)
+            {
+                return;
+            }
         }
         else if (e.KeyCode == Keys.Alt
               || e.KeyCode == Keys.LMenu
               || e.KeyCode == Keys.RMenu)
         {
             IsAlt = true;
+            if (IsCombinationOnly)
+            {
+                return;
+            }
         }
 
         var now = DateTime.Now;
