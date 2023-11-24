@@ -3,10 +3,10 @@ using Fischless.KeyboardCapture;
 using Fischless.Logging;
 using Fischless.MouseCapture;
 using Fischless.Native;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Vanara.PInvoke;
+using Process = System.Diagnostics.Process;
 
 namespace Fischless.Fetch.DragMove;
 
@@ -36,6 +36,9 @@ public static class DragMoveProvider
 
                     KeyboardReader.Default.Received += OnKeyReceived;
                     KeyboardReader.Default.Start();
+
+                    timer?.Dispose();
+                    timer = new(OnTimerCallback, null, 0, 3000);
                 }
                 else
                 {
@@ -46,39 +49,67 @@ public static class DragMoveProvider
 
                     KeyboardReader.Default.Received -= OnKeyReceived;
                     KeyboardReader.Default.Stop();
+
+                    timer?.Dispose();
+                    timer = null!;
                 }
             }
         }
     }
 
+    private static System.Threading.Timer timer = null!;
+    private static nint hWnd = IntPtr.Zero;
     private static Point? latestLocation = null;
     private static bool isMouseDown = false;
     private static bool isHover = false;
+
+    private static void OnTimerCallback(object? state)
+    {
+        _ = state;
+
+        if (!IsEnabled)
+        {
+            timer?.Dispose();
+            timer = null!;
+            return;
+        }
+
+        if (GILauncher.TryGetProcess(out Process? p))
+        {
+            hWnd = p.MainWindowHandle;
+        }
+        else
+        {
+            hWnd = IntPtr.Zero;
+        }
+    }
 
     private static void OnMouseDown(object? sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
-            HMENU hMenu = User32.GetSystemMenu(Process.GetCurrentProcess().MainWindowHandle, false);
-
-            if (!hMenu.IsNull)
-            {
-                //_ = User32.DestroyMenu(hMenu);
-            }
+            isMouseDown = true;
         }
-        isMouseDown = true;
     }
 
     private static void OnMouseUp(object? sender, MouseEventArgs e)
     {
-        isMouseDown = false;
+        if (e.Button == MouseButtons.Left)
+        {
+            isMouseDown = false;
+        }
 
         if (isHover && e.Button == MouseButtons.Right)
         {
-            if (GILauncher.TryGetProcess(out Process? p))
+            if (hWnd != IntPtr.Zero && User32.IsWindow(hWnd))
             {
-                nint hWnd = Process.GetCurrentProcess().MainWindowHandle;
-                HMENU hMenu = User32.GetSystemMenu(hWnd, false);
+                if (User32.GetForegroundWindow() != hWnd)
+                {
+                    return;
+                }
+
+                nint hWndCur = Process.GetCurrentProcess().MainWindowHandle;
+                HMENU hMenu = User32.GetSystemMenu(hWndCur, false);
 
                 if (hMenu.IsNull)
                 {
@@ -86,7 +117,7 @@ public static class DragMoveProvider
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_CLOSE, "Close");
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_MINIMIZE, "Minimize");
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_MAXIMIZE, "Maximize");
-                    _ = User32.SetMenu(hWnd, hMenu);
+                    _ = User32.SetMenu(hWndCur, hMenu);
                 }
 
                 if (User32.GetCursorPos(out POINT pt))
@@ -99,7 +130,7 @@ public static class DragMoveProvider
                     {
                         try
                         {
-                            p.Kill();
+                            Kernel32.TerminateProcess(hWnd, HRESULT.E_ABORT + int.MaxValue);
                         }
                         catch (Exception ex)
                         {
@@ -108,12 +139,12 @@ public static class DragMoveProvider
                     }
                     else if (command == (uint)User32.SysCommand.SC_MINIMIZE)
                     {
-                        _ = User32.ShowWindow(p.MainWindowHandle, ShowWindowCommand.SW_MINIMIZE);
+                        _ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_MINIMIZE);
                     }
                     else if (command == (uint)User32.SysCommand.SC_MAXIMIZE)
                     {
-                        Screen screen = Screen.FromHandle(p.MainWindowHandle);
-                        _ = User32.SetWindowPos(p.MainWindowHandle, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                        Screen screen = Screen.FromHandle(hWnd);
+                        _ = User32.SetWindowPos(hWnd, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
                     }
                 }
             }
@@ -144,12 +175,15 @@ public static class DragMoveProvider
             return;
         }
 
-        if (GILauncher.TryGetProcess(out Process? p))
+        if (hWnd != IntPtr.Zero && User32.IsWindow(hWnd))
         {
-            nint hWnd = p.MainWindowHandle;
+            if (User32.GetForegroundWindow() != hWnd)
+            {
+                return;
+            }
 
             if (User32.GetWindowRect(hWnd, out RECT windowRect)
-             && User32.GetClientRect(p.MainWindowHandle, out RECT clientRect))
+             && User32.GetClientRect(hWnd, out RECT clientRect))
             {
                 if ((windowRect.bottom - windowRect.top) != (clientRect.bottom - clientRect.top))
                 {
@@ -159,14 +193,17 @@ public static class DragMoveProvider
                 Point lp = latestLocation ?? default;
                 Point cp = e.Location;
 
-                if (windowRect.ContainsUpper(lp, 35))
+                if (Math.Abs(cp.X - lp.X) < 100d || Math.Abs(cp.Y - lp.Y) < 100d)
                 {
-                    isHover = true;
-                    _ = User32.MoveWindow(p.MainWindowHandle, windowRect.X + cp.X - lp.X, windowRect.Y + cp.Y - lp.Y, windowRect.Width, windowRect.Height, false);
-                }
-                else
-                {
-                    isHover = false;
+                    if (windowRect.ContainsUpper(lp, 25))
+                    {
+                        isHover = true;
+                        _ = User32.MoveWindow(hWnd, windowRect.X + cp.X - lp.X, windowRect.Y + cp.Y - lp.Y, windowRect.Width, windowRect.Height, false);
+                    }
+                    else
+                    {
+                        isHover = false;
+                    }
                 }
             }
         }
@@ -177,7 +214,7 @@ public static class DragMoveProvider
 
     private static void OnKeyReceived(object? sender, KeyboardResult e)
     {
-        if (e.IsAlt)
+        if (e.IsCtrl)
         {
             int interval = (int)(e.KeyboardItem.DateTime - latestAlt).TotalMilliseconds;
 
@@ -190,6 +227,7 @@ public static class DragMoveProvider
                 if (process != null && (process.ProcessName == GILauncher.ProcessNameCN || process.ProcessName == GILauncher.ProcessNameOVERSEA))
                 {
                     User32.SwitchToThisWindow(User32.GetWindow(hWnd, User32.GetWindowCmd.GW_HWNDNEXT), true);
+                    Log.Debug("SwitchToNextWindow");
                 }
             }
 
