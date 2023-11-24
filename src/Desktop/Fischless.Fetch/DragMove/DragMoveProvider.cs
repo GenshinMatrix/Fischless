@@ -130,7 +130,13 @@ public static class DragMoveProvider
                     {
                         try
                         {
-                            Kernel32.TerminateProcess(hWnd, HRESULT.E_ABORT + int.MaxValue);
+                            uint tid = User32.GetWindowThreadProcessId(hWnd, out uint pid);
+
+                            if (tid != 0)
+                            {
+                                using Kernel32.SafeHPROCESS hProcess = Kernel32.OpenProcess(new ACCESS_MASK(Kernel32.ProcessAccess.PROCESS_TERMINATE), false, pid);
+                                _ = Kernel32.TerminateProcess(hProcess, default);
+                            }
                         }
                         catch (Exception ex)
                         {
