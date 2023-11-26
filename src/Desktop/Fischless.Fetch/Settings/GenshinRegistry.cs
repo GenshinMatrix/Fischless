@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Fischless.Fetch.Settings;
 
-internal class GenshinRegistry
+public sealed class GenshinRegistry
 {
     public static RegistryKey GetRegistryKey()
     {

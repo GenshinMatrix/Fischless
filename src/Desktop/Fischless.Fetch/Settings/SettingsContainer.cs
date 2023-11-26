@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Fischless.Fetch.Settings;
 
-internal class SettingsContainer
+public sealed class SettingsContainer
 {
-    protected MainJson? data = null;
+    private MainJson? data = null;
     public LanguageSettings? Language;
     public ResolutionSettings? Resolution;
     public InputDataSettings? InputData;

@@ -2,7 +2,7 @@
 
 namespace Fischless.Fetch.Settings;
 
-public class MainJson
+public sealed class MainJson
 {
     [JsonProperty("deviceLanguageType")]
     public int DeviceLanguageType { get; set; }

@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Fischless.Fetch.Settings;
 
-internal class InputDataSettings
+public sealed class InputDataSettings
 {
     public InputDataConfig? data = null;
     public double MouseSensitivity => data!.MouseSensitivity;
@@ -28,7 +28,7 @@ internal class InputDataSettings
     }
 }
 
-internal class InputDataConfig
+public class InputDataConfig
 {
     [JsonProperty("mouseSensitivity")]
     public double MouseSensitivity { get; set; }

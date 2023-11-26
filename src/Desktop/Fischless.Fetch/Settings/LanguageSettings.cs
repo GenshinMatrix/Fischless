@@ -1,9 +1,9 @@
 ﻿namespace Fischless.Fetch.Settings;
 
-internal class LanguageSettings
+public sealed class LanguageSettings
 {
-    public TextLanguage TextLang { get; protected set; }
-    public VoiceLanguage VoiceLang { get; protected set; }
+    public TextLanguage TextLang { get; private set; }
+    public VoiceLanguage VoiceLang { get; private set; }
 
     public LanguageSettings(MainJson data)
     {

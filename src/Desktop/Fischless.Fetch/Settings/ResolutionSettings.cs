@@ -2,15 +2,15 @@
 
 namespace Fischless.Fetch.Settings;
 
-internal class ResolutionSettings
+public sealed class ResolutionSettings
 {
-    protected string? height_name = null;
-    protected string? width_name = null;
-    protected string? fullscreen_name = null;
+    private string? height_name = null;
+    private string? width_name = null;
+    private string? fullscreen_name = null;
 
-    public int Height { get; protected set; }
-    public int Width { get; protected set; }
-    public bool FullScreen { get; protected set; }
+    public int Height { get; private set; }
+    public int Width { get; private set; }
+    public bool FullScreen { get; private set; }
 
     public ResolutionSettings()
     {
