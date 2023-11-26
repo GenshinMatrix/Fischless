@@ -46,7 +46,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
     }
 
     [ObservableProperty]
-    private bool desktopShortcut = LnkHelper.HasShortcutOnDesktop(AppConfig.PackName);
+    private bool desktopShortcut = ShortcutHelper.HasShortcutOnDesktop(AppConfig.PackName);
 
     partial void OnDesktopShortcutChanged(bool value)
     {
@@ -54,7 +54,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
         {
             try
             {
-                LnkHelper.CreateShortcutOnDesktop(AppConfig.PackName, Environment.ProcessPath!);
+                ShortcutHelper.CreateShortcutOnDesktop(AppConfig.PackName, Environment.ProcessPath!);
                 Notification.AddNotice(Mui("CreateDesktopShortcut"), Mui("OperationSuccessfully"));
             }
             catch (Exception e)
@@ -65,7 +65,7 @@ public partial class PageSettingsViewModel : ObservableRecipient, IDisposable
         }
         else
         {
-            LnkHelper.RemoveShortcutOnDesktop(AppConfig.PackName);
+            ShortcutHelper.RemoveShortcutOnDesktop(AppConfig.PackName);
         }
     }
 

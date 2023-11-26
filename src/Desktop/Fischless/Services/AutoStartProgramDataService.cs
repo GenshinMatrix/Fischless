@@ -26,7 +26,7 @@ public class AutoStartProgramDataService : IAutoStartService
         {
             if (Directory.Exists(StartupFolder))
             {
-                LnkHelper.CreateShortcut(StartupFolder, GetAppName(), Environment.ProcessPath!, GetLaunchCommand());
+                ShortcutHelper.CreateShortcut(StartupFolder, GetAppName(), Environment.ProcessPath!, GetLaunchCommand());
             }
         }
         catch (Exception e)
