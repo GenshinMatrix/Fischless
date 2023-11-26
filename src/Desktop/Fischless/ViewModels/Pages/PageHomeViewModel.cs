@@ -194,11 +194,11 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                 await ReShadeLoader.LaunchAsync(Configurations.ReShadePath.Get(), Configurations.IsUseReShadeSlient.Get());
             }
 
-            await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill, launchParameter: new GILaunchParameter() 
+            await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill, launchParameter: new GILaunchParameter()
             {
-                GamePath = Configurations.GamePath.Get(),
                 Server = contact.Server,
                 Prod = contact.Prod,
+                GamePath = Configurations.IsUseGamePath.Get() ? Configurations.GamePath.Get() : null,
                 IsFullScreen = Configurations.IsUseResolution.Get() ? Configurations.IsUseFullScreen.Get() : null,
                 IsBorderless = Configurations.IsUseResolution.Get() ? Configurations.IsUseBorderless.Get() : null,
                 ScreenWidth = Configurations.IsUseResolution.Get() ? Configurations.ResolutionWidth.Get() : null,
@@ -224,9 +224,9 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
 
             await GILauncher.LaunchAsync(delayMs: 1000, relaunchMethod: GIRelaunchMethod.Kill, launchParameter: new GILaunchParameter()
             {
-                GamePath = Configurations.GamePath.Get(),
                 Server = contact.Server,
                 Prod = contact.Prod,
+                GamePath = Configurations.IsUseGamePath.Get() ? Configurations.GamePath.Get() : null,
                 IsFullScreen = Configurations.IsUseResolution.Get() ? Configurations.IsUseFullScreen.Get() : null,
                 IsBorderless = Configurations.IsUseResolution.Get() ? Configurations.IsUseBorderless.Get() : null,
                 ScreenWidth = Configurations.IsUseResolution.Get() ? Configurations.ResolutionWidth.Get() : null,
