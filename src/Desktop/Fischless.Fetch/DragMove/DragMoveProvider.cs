@@ -99,7 +99,9 @@ public static class DragMoveProvider
             isMouseDown = false;
         }
 
-        if (isHover && e.Button == MouseButtons.Right)
+        if (e.Button == MouseButtons.Right
+         && e.Location == latestLocation
+         && isHover)
         {
             if (hWnd != IntPtr.Zero && User32.IsWindow(hWnd))
             {

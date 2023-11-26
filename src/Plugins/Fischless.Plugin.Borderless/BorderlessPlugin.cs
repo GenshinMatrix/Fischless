@@ -36,7 +36,7 @@ public class BorderlessPlugin : IPlugin, IPlugin2
     public string Description => MuiLanguage.Mui("BorderlessHint");
     public object Icon => IconProvider.GetFontIcon(FontSymbols.QuickNote);
     public string Author => "GenshinMatrix";
-    public Version Version => new(0, 0, 3);
+    public Version Version => new(0, 0, 4);
     public int Index => 1;
     public bool IsShowButton => true;
     public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
