@@ -13,7 +13,7 @@ namespace Fischless.Plugin.LaunchBetterGI;
 public class LaunchBetterGIPlugin : IPlugin, IPlugin2
 {
     public string PluginName => "BetterGI · 更好的原神";
-    public string Description => "需要版本大于 v0.16.0";
+    public string Description => "更好的原神启动";
     public object Icon => "🍨";
     public string Author => "蜜汁老芭";
     public Version Version => new(0, 0, 1);
