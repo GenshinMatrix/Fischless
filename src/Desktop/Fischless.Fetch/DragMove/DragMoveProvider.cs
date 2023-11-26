@@ -89,7 +89,38 @@ public static class DragMoveProvider
     {
         if (e.Button == MouseButtons.Left)
         {
-            isMouseDown = true;
+            if (hWnd != IntPtr.Zero && User32.IsWindow(hWnd))
+            {
+                if (User32.GetForegroundWindow() != hWnd)
+                {
+                    return;
+                }
+
+                if (User32.GetWindowRect(hWnd, out RECT windowRect)
+                 && User32.GetClientRect(hWnd, out RECT clientRect))
+                {
+                    if ((windowRect.bottom - windowRect.top) != (clientRect.bottom - clientRect.top))
+                    {
+                        return;
+                    }
+
+                    Point lp = latestLocation ?? default;
+                    Point cp = e.Location;
+
+                    if (Math.Abs(cp.X - lp.X) < 100d || Math.Abs(cp.Y - lp.Y) < 100d)
+                    {
+                        if (windowRect.ContainsUpper(lp, 25))
+                        {
+                            isHover = true;
+                            isMouseDown = true;
+                        }
+                        else
+                        {
+                            isHover = false;
+                        }
+                    }
+                }
+            }
         }
     }
 
