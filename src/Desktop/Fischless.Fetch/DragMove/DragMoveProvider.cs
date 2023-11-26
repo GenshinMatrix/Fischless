@@ -7,6 +7,7 @@ using Fischless.Native;
 using System.Drawing;
 using System.Windows.Forms;
 using Vanara.PInvoke;
+using Windows.System;
 using Process = System.Diagnostics.Process;
 
 namespace Fischless.Fetch.DragMove;
@@ -158,6 +159,7 @@ public static class DragMoveProvider
                 {
                     hMenu = User32.CreatePopupMenu();
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_RESTORE, "Restore");
+                    _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_MOVE, "Move");
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_MINIMIZE, "Minimize");
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_MAXIMIZE, "Maximize");
                     _ = User32.AppendMenu(hMenu, User32.MenuFlags.MF_STRING, (nint)User32.SysCommand.SC_CLOSE, "Close");
@@ -167,47 +169,68 @@ public static class DragMoveProvider
                 if (User32.GetCursorPos(out POINT pt))
                 {
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_RESTORE, User32.MenuFlags.MF_ENABLED);
+                    _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MOVE, User32.MenuFlags.MF_ENABLED);
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MINIMIZE, User32.MenuFlags.MF_ENABLED);
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MAXIMIZE, User32.MenuFlags.MF_ENABLED);
                     uint command = User32.TrackPopupMenuEx(hMenu, User32.TrackPopupMenuFlags.TPM_RETURNCMD, (int)DpiHelper.CalcDPiX(pt.X), (int)DpiHelper.CalcDPiY(pt.Y), Process.GetCurrentProcess().MainWindowHandle, default);
 
-                    if (command == (uint)User32.SysCommand.SC_RESTORE)
+                    if (command == (uint)User32.SysCommand.SC_MOVE)
                     {
-                        SettingsContainer sc = new();
-
-                        sc.FromReg();
-
-                        ResolutionSettings? res = sc.Resolution;
-
-                        if (res != null)
+                        if (User32.IsWindow(hWnd) && User32.GetClientRect(hWnd, out RECT lpRect))
                         {
-                            _ = User32.SetWindowPos(hWnd, IntPtr.Zero, windowRect.X, windowRect.Y, res.Width, res.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                            Screen screen = Screen.FromHandle(hWnd);
+                            _ = User32.SetWindowPos(hWnd, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, lpRect.Width, lpRect.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                        }
+                    }
+                    else if (command == (uint)User32.SysCommand.SC_RESTORE)
+                    {
+                        if (User32.IsWindow(hWnd))
+                        {
+                            SettingsContainer sc = new();
+
+                            sc.FromReg();
+
+                            ResolutionSettings? res = sc.Resolution;
+
+                            if (res != null)
+                            {
+                                _ = User32.SetWindowPos(hWnd, IntPtr.Zero, windowRect.X, windowRect.Y, res.Width, res.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                            }
                         }
                     }
                     else if (command == (uint)User32.SysCommand.SC_MINIMIZE)
                     {
-                        _ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_MINIMIZE);
+                        if (User32.IsWindow(hWnd))
+                        {
+                            _ = User32.ShowWindow(hWnd, ShowWindowCommand.SW_MINIMIZE);
+                        }
                     }
                     else if (command == (uint)User32.SysCommand.SC_MAXIMIZE)
                     {
-                        Screen screen = Screen.FromHandle(hWnd);
-                        _ = User32.SetWindowPos(hWnd, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                        if (User32.IsWindow(hWnd))
+                        {
+                            Screen screen = Screen.FromHandle(hWnd);
+                            _ = User32.SetWindowPos(hWnd, IntPtr.Zero, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, User32.SetWindowPosFlags.SWP_NOZORDER);
+                        }
                     }
                     else if (command == (uint)User32.SysCommand.SC_CLOSE)
                     {
-                        try
+                        if (User32.IsWindow(hWnd))
                         {
-                            uint tid = User32.GetWindowThreadProcessId(hWnd, out uint pid);
-
-                            if (tid != 0)
+                            try
                             {
-                                using Kernel32.SafeHPROCESS hProcess = Kernel32.OpenProcess(new ACCESS_MASK(Kernel32.ProcessAccess.PROCESS_TERMINATE), false, pid);
-                                _ = Kernel32.TerminateProcess(hProcess, default);
+                                uint tid = User32.GetWindowThreadProcessId(hWnd, out uint pid);
+
+                                if (tid != 0)
+                                {
+                                    using Kernel32.SafeHPROCESS hProcess = Kernel32.OpenProcess(new ACCESS_MASK(Kernel32.ProcessAccess.PROCESS_TERMINATE), false, pid);
+                                    _ = Kernel32.TerminateProcess(hProcess, default);
+                                }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error(ex);
+                            catch (Exception ex)
+                            {
+                                Log.Error(ex);
+                            }
                         }
                     }
                 }
