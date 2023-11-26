@@ -4,21 +4,20 @@ using System.Text;
 
 namespace Fischless.Fetch.ConfigIni;
 
-public static class GIConfigIni
+public class GIConfigIni
 {
-    public static string FilePath => @$"{GIRegedit.InstallPath}\config.ini";
-    public static Dictionary<string, string> Launcher { get; } = new();
+    public Dictionary<string, string> Launcher { get; } = [];
 
-    static GIConfigIni()
+    public GIConfigIni()
     {
         Fetch();
     }
 
-    public static void Fetch()
+    public void Fetch(string? installPath = null)
     {
         List<KeyValuePair<string, string>> list =
             new ConfigurationBuilder()
-                ?.AddIniFile(FilePath)
+                ?.AddIniFile(@$"{installPath ?? GIRegedit.InstallPath}\config.ini")
                 ?.Build()
                 ?.GetSection("launcher")
                 ?.AsEnumerable().ToList()!;
@@ -35,7 +34,7 @@ public static class GIConfigIni
         }
     }
 
-    public static void Save()
+    public void Save(string? installPath = null)
     {
         StringBuilder sb = new();
 
@@ -44,6 +43,6 @@ public static class GIConfigIni
         {
             sb.AppendLine($"{kv.Key}={kv.Value}");
         }
-        File.WriteAllText(FilePath, sb.ToString());
+        File.WriteAllText(@$"{installPath ?? GIRegedit.InstallPath}\config.ini", sb.ToString());
     }
 }
