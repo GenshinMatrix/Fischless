@@ -31,7 +31,7 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     private ContactViewModel selectedItem = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<ContactViewModel> contacts = new();
+    private ObservableCollectionEx<ContactViewModel> contacts = [];
 
     [ObservableProperty]
     private CancellationTokenSource cancelLaunchGameDelayTokenSource = null!;
