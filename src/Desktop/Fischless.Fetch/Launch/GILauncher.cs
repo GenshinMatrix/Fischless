@@ -123,74 +123,71 @@ public class GILauncher
     {
         await KillAsync(relaunchMethod);
 
-        if (string.IsNullOrEmpty(GIRegedit.InstallPathCN) && string.IsNullOrEmpty(GIRegedit.InstallPathOVERSEA))
+        if (delayMs != null)
         {
-            throw new Exception("Genshin Impact not installed.");
+            await Task.Delay((int)delayMs);
+        }
+
+        launchParameter ??= new();
+
+        string fileName = null!;
+
+        if (string.IsNullOrWhiteSpace(launchParameter.GamePath))
+        {
+            _ = TryGetGamePath(out fileName);
         }
         else
         {
-            if (delayMs != null)
+            FileInfo fileInfo = new(launchParameter.GamePath);
+
+            if (fileInfo.Name.Equals(FileNameCN, StringComparison.OrdinalIgnoreCase)
+             || fileInfo.Name.Equals(FileNameOVERSEA, StringComparison.OrdinalIgnoreCase))
             {
-                await Task.Delay((int)delayMs);
+                fileName = launchParameter.GamePath;
             }
 
-            launchParameter ??= new();
-
-            string fileName = null!;
-
-            if (string.IsNullOrWhiteSpace(launchParameter.GamePath))
+            if (!File.Exists(fileName))
             {
+                if (string.IsNullOrEmpty(GIRegedit.InstallPathCN) && string.IsNullOrEmpty(GIRegedit.InstallPathOVERSEA))
+                {
+                    throw new Exception("Genshin Impact not installed.");
+                }
                 _ = TryGetGamePath(out fileName);
             }
-            else
+        }
+
+        if (string.IsNullOrEmpty(launchParameter.Server) || launchParameter.Server == RegionCN)
+        {
+            if (!string.IsNullOrEmpty(launchParameter.Prod))
             {
-                FileInfo fileInfo = new(launchParameter.GamePath);
-
-                if (fileInfo.Name.Equals(FileNameCN, StringComparison.OrdinalIgnoreCase)
-                 || fileInfo.Name.Equals(FileNameOVERSEA, StringComparison.OrdinalIgnoreCase))
-                {
-                    fileName = launchParameter.GamePath;
-                }
-
-                if (!File.Exists(fileName))
-                {
-                    _ = TryGetGamePath(out fileName);
-                }
+                GIRegedit.ProdCN = launchParameter.Prod;
             }
-
-            if (string.IsNullOrEmpty(launchParameter.Server) || launchParameter.Server == RegionCN)
+        }
+        else if (launchParameter.Server == RegionOVERSEA)
+        {
+            if (!string.IsNullOrEmpty(launchParameter.Prod))
             {
-                if (!string.IsNullOrEmpty(launchParameter.Prod))
-                {
-                    GIRegedit.ProdCN = launchParameter.Prod;
-                }
+                GIRegedit.ProdOVERSEA = launchParameter.Prod;
             }
-            else if (launchParameter.Server == RegionOVERSEA)
+        }
+
+        Process gameProcess = Process.Start(new ProcessStartInfo()
+        {
+            UseShellExecute = true,
+            FileName = fileName,
+            Arguments = launchParameter.ToString(),
+            WorkingDirectory = launchParameter.WorkingDirectory ?? new FileInfo(fileName).DirectoryName,
+            Verb = "runas",
+        });
+
+        if (launchParameter.Fps != null && launchParameter.Fps > 60)
+        {
+            try
             {
-                if (!string.IsNullOrEmpty(launchParameter.Prod))
-                {
-                    GIRegedit.ProdOVERSEA = launchParameter.Prod;
-                }
+                await new GameFpsUnlocker(gameProcess).UnlockAsync(new UnlockTimingOptions(100, 20000, 3000));
             }
-
-            Process gameProcess = Process.Start(new ProcessStartInfo()
+            catch
             {
-                UseShellExecute = true,
-                FileName = fileName,
-                Arguments = launchParameter.ToString(),
-                WorkingDirectory = launchParameter.WorkingDirectory ?? new FileInfo(fileName).DirectoryName,
-                Verb = "runas",
-            });
-
-            if (launchParameter.Fps != null && launchParameter.Fps > 60)
-            {
-                try
-                {
-                    await new GameFpsUnlocker(gameProcess).UnlockAsync(new UnlockTimingOptions(100, 20000, 3000));
-                }
-                catch
-                {
-                }
             }
         }
     }
