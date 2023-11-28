@@ -45,14 +45,23 @@ public partial class ContactSettingsViewModel : ObservableObject
             _ = GILauncher.TryGetGamePath(out gamePath);
         }
 
-        FileInfo gameFileInfo = new(gamePath);
+        string? restoreDirName = null;
+        string? restoreName = null;
+
+        if (!string.IsNullOrWhiteSpace(gamePath))
+        {
+            FileInfo gameFileInfo = new(gamePath);
+
+            restoreDirName = gameFileInfo.DirectoryName;
+            restoreName = gameFileInfo.Name;
+        }
 
         OpenFileDialog dialog = new()
         {
             Title = Mui("LaunchGameSelectGamePathHint", GILauncher.FileNameCN, GILauncher.FileNameOVERSEA),
             RestoreDirectory = true,
-            InitialDirectory = gameFileInfo.DirectoryName,
-            FileName = gameFileInfo.Name,
+            InitialDirectory = restoreDirName,
+            FileName = restoreName,
             DefaultExt = "*.exe",
             Filter = "*.exe|*.exe",
         };
