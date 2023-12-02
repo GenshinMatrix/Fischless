@@ -18,7 +18,7 @@ public partial class PageModelViewerViewModel : ObservableRecipient
     private Func<string[], Task<string>> selector = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<string> pmxs = new();
+    private ObservableCollectionEx<string> pmxs = [];
 
     public PageModelViewerViewModel()
     {

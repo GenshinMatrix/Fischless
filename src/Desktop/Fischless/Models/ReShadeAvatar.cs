@@ -226,7 +226,7 @@ public partial class ReShadeFolderList : ObservableObject
 public partial class ReShadeFolderListDetail : ObservableObject
 {
     [ObservableProperty]
-    private ObservableCollectionEx<ReShadeFolderListDetailImage> images = new();
+    private ObservableCollectionEx<ReShadeFolderListDetailImage> images = [];
 }
 
 [DebuggerDisplay("{ImagePath}")]

@@ -20,7 +20,7 @@ namespace Fischless.ViewModels;
 public partial class PagePluginManagerViewModel : ObservableRecipient
 {
     [ObservableProperty]
-    private ObservableCollectionEx<PluginViewModel> plugins = new();
+    private ObservableCollectionEx<PluginViewModel> plugins = [];
 
     public PagePluginManagerViewModel()
     {

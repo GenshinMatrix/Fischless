@@ -31,16 +31,16 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
     private IEnumerable<ReShadeAvatar> avatarStocks = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<ReShadeAvatar> avatars = new();
+    private ObservableCollectionEx<ReShadeAvatar> avatars = [];
 
     [ObservableProperty]
     private IAsyncEnumerable<ReShadeFolder> folder = null!;
 
     [ObservableProperty]
-    private ObservableCollectionEx<ReShadeFolderList> avatarList = new();
+    private ObservableCollectionEx<ReShadeFolderList> avatarList = [];
 
     [ObservableProperty]
-    private Dictionary<string, List<ReShadeFolderList>> avatarListDict = new();
+    private Dictionary<string, List<ReShadeFolderList>> avatarListDict = [];
 
     [ObservableProperty]
     private ReShadeFolderList selectedAvatarList = null!;
@@ -212,7 +212,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
 
             if (!AvatarListDict.ContainsKey(nameKey))
             {
-                AvatarListDict.Add(nameKey, new());
+                AvatarListDict.Add(nameKey, []);
             }
             ReShadeFolderList list = new()
             {
