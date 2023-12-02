@@ -208,6 +208,9 @@ public partial class ContactSettingsViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool isInstallReShade = string.IsNullOrEmpty(Configurations.ReShadePath.Get());
+
+    [ObservableProperty]
     private bool isUseReShade = Configurations.IsUseReShade.Get();
 
     partial void OnIsUseReShadeChanged(bool value)
