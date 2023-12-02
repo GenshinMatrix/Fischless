@@ -14,7 +14,6 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <mui:MuiLanguageResources />
                 <ui:ThemeResources RequestedTheme="Dark" />
                 <ui:XamlControlsResources />
                 <ui:ResourceDictionaryEx />
@@ -54,7 +53,7 @@
                                 <TextBlock Margin="8,0,0,0"
                                            FontFamily="{StaticResource TextThemeFontFamily}"
                                            FontSize="14"
-                                           Text="{DynamicResource AutoMute}" />
+                                           Text="{I18N Key=AutoMute}" />
                             </MenuItem.Header>
                         </wui:MenuItem>
                         <wui:MenuItem Command="{Binding RestartCommand}"
@@ -75,7 +74,7 @@
                                 <TextBlock Margin="18,0,0,0"
                                            FontFamily="{StaticResource TextThemeFontFamily}"
                                            FontSize="14"
-                                           Text="{DynamicResource Restart}" />
+                                           Text="{I18N Key=Restart}" />
                             </MenuItem.Header>
                         </wui:MenuItem>
                         <wui:MenuItem Command="{Binding ExitCommand}"
@@ -91,7 +90,7 @@
                                 <TextBlock Margin="18,0,0,0"
                                            FontFamily="{StaticResource TextThemeFontFamily}"
                                            FontSize="14"
-                                           Text="{DynamicResource Exit}" />
+                                           Text="{I18N Key=Exit}" />
                             </MenuItem.Header>
                         </wui:MenuItem>
                     </ContextMenu>

@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutProgram" xml:space="preserve">
+    <value>关于程序</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="AutoMute" xml:space="preserve">
+    <value>自动静音</value>
+  </data>
+  <data name="AvatarNameOfAlbedo" xml:space="preserve">
+    <value>阿贝多</value>
+  </data>
+  <data name="AvatarNameOfAlhatham" xml:space="preserve">
+    <value>艾尔海森</value>
+  </data>
+  <data name="AvatarNameOfAloy" xml:space="preserve">
+    <value>埃洛伊</value>
+  </data>
+  <data name="AvatarNameOfAmbor" xml:space="preserve">
+    <value>安柏</value>
+  </data>
+  <data name="AvatarNameOfAozi" xml:space="preserve">
+    <value>奥兹</value>
+  </data>
+  <data name="AvatarNameOfAyaka" xml:space="preserve">
+    <value>神里绫华</value>
+  </data>
+  <data name="AvatarNameOfAyato" xml:space="preserve">
+    <value>神里绫人</value>
+  </data>
+  <data name="AvatarNameOfBaizhuer" xml:space="preserve">
+    <value>白术</value>
+  </data>
+  <data name="AvatarNameOfBarbara" xml:space="preserve">
+    <value>芭芭拉</value>
+  </data>
+  <data name="AvatarNameOfBeidou" xml:space="preserve">
+    <value>北斗</value>
+  </data>
+  <data name="AvatarNameOfBennett" xml:space="preserve">
+    <value>班尼特</value>
+  </data>
+  <data name="AvatarNameOfCandace" xml:space="preserve">
+    <value>坎蒂丝</value>
+  </data>
+  <data name="AvatarNameOfCharlotte" xml:space="preserve">
+    <value>夏洛蒂</value>
+  </data>
+  <data name="AvatarNameOfChongyun" xml:space="preserve">
+    <value>重云</value>
+  </data>
+  <data name="AvatarNameOfCollei" xml:space="preserve">
+    <value>柯莱</value>
+  </data>
+  <data name="AvatarNameOfCyno" xml:space="preserve">
+    <value>赛诺</value>
+  </data>
+  <data name="AvatarNameOfDehya" xml:space="preserve">
+    <value>迪希雅</value>
+  </data>
+  <data name="AvatarNameOfDiluc" xml:space="preserve">
+    <value>迪卢克</value>
+  </data>
+  <data name="AvatarNameOfDiona" xml:space="preserve">
+    <value>迪奥娜</value>
+  </data>
+  <data name="AvatarNameOfDori" xml:space="preserve">
+    <value>多莉</value>
+  </data>
+  <data name="AvatarNameOfEula" xml:space="preserve">
+    <value>优菈</value>
+  </data>
+  <data name="AvatarNameOfFaruzan" xml:space="preserve">
+    <value>珐露珊</value>
+  </data>
+  <data name="AvatarNameOfFeiyan" xml:space="preserve">
+    <value>烟绯</value>
+  </data>
+  <data name="AvatarNameOfFischl" xml:space="preserve">
+    <value>菲谢尔</value>
+  </data>
+  <data name="AvatarNameOfFreminet" xml:space="preserve">
+    <value>菲米尼</value>
+  </data>
+  <data name="AvatarNameOfFurina" xml:space="preserve">
+    <value>芙宁娜</value>
+  </data>
+  <data name="AvatarNameOfGanyu" xml:space="preserve">
+    <value>甘雨</value>
+  </data>
+  <data name="AvatarNameOfGorou" xml:space="preserve">
+    <value>五郎</value>
+  </data>
+  <data name="AvatarNameOfHeizo" xml:space="preserve">
+    <value>鹿野院平藏</value>
+  </data>
+  <data name="AvatarNameOfHutao" xml:space="preserve">
+    <value>胡桃</value>
+  </data>
+  <data name="AvatarNameOfItto" xml:space="preserve">
+    <value>荒泷一斗</value>
+  </data>
+  <data name="AvatarNameOfKaeya" xml:space="preserve">
+    <value>凯亚</value>
+  </data>
+  <data name="AvatarNameOfKaveh" xml:space="preserve">
+    <value>卡维</value>
+  </data>
+  <data name="AvatarNameOfKazuha" xml:space="preserve">
+    <value>枫原万叶</value>
+  </data>
+  <data name="AvatarNameOfKeqing" xml:space="preserve">
+    <value>刻晴</value>
+  </data>
+  <data name="AvatarNameOfKlee" xml:space="preserve">
+    <value>可莉</value>
+  </data>
+  <data name="AvatarNameOfKokomi" xml:space="preserve">
+    <value>珊瑚宫心海</value>
+  </data>
+  <data name="AvatarNameOfLayla" xml:space="preserve">
+    <value>莱依拉</value>
+  </data>
+  <data name="AvatarNameOfLinette" xml:space="preserve">
+    <value>琳妮特</value>
+  </data>
+  <data name="AvatarNameOfLiney" xml:space="preserve">
+    <value>林尼</value>
+  </data>
+  <data name="AvatarNameOfLisa" xml:space="preserve">
+    <value>丽莎</value>
+  </data>
+  <data name="AvatarNameOfMika" xml:space="preserve">
+    <value>米卡</value>
+  </data>
+  <data name="AvatarNameOfMomoka" xml:space="preserve">
+    <value>绮良良</value>
+  </data>
+  <data name="AvatarNameOfMona" xml:space="preserve">
+    <value>莫娜</value>
+  </data>
+  <data name="AvatarNameOfNahida" xml:space="preserve">
+    <value>纳西妲</value>
+  </data>
+  <data name="AvatarNameOfNeuvillette" xml:space="preserve">
+    <value>那维莱特</value>
+  </data>
+  <data name="AvatarNameOfNilou" xml:space="preserve">
+    <value>妮露</value>
+  </data>
+  <data name="AvatarNameOfNingguang" xml:space="preserve">
+    <value>凝光</value>
+  </data>
+  <data name="AvatarNameOfNoel" xml:space="preserve">
+    <value>诺艾尔</value>
+  </data>
+  <data name="AvatarNameOfPaimon" xml:space="preserve">
+    <value>派蒙</value>
+  </data>
+  <data name="AvatarNameOfPlayerBoy" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="AvatarNameOfPlayerGirl" xml:space="preserve">
+    <value>荧</value>
+  </data>
+  <data name="AvatarNameOfQin" xml:space="preserve">
+    <value>琴</value>
+  </data>
+  <data name="AvatarNameOfQiqi" xml:space="preserve">
+    <value>七七</value>
+  </data>
+  <data name="AvatarNameOfRazor" xml:space="preserve">
+    <value>雷泽</value>
+  </data>
+  <data name="AvatarNameOfRosaria" xml:space="preserve">
+    <value>罗莎莉亚</value>
+  </data>
+  <data name="AvatarNameOfSara" xml:space="preserve">
+    <value>九条裟罗</value>
+  </data>
+  <data name="AvatarNameOfSayu" xml:space="preserve">
+    <value>早柚</value>
+  </data>
+  <data name="AvatarNameOfShenhe" xml:space="preserve">
+    <value>申鹤</value>
+  </data>
+  <data name="AvatarNameOfShinobu" xml:space="preserve">
+    <value>久岐忍</value>
+  </data>
+  <data name="AvatarNameOfShougun" xml:space="preserve">
+    <value>雷电将军</value>
+  </data>
+  <data name="AvatarNameOfSucrose" xml:space="preserve">
+    <value>砂糖</value>
+  </data>
+  <data name="AvatarNameOfTartaglia" xml:space="preserve">
+    <value>达达利亚</value>
+  </data>
+  <data name="AvatarNameOfTighnari" xml:space="preserve">
+    <value>提纳里</value>
+  </data>
+  <data name="AvatarNameOfTohma" xml:space="preserve">
+    <value>托马</value>
+  </data>
+  <data name="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken" xml:space="preserve">
+    <value>幽夜华尔兹</value>
+  </data>
+  <data name="AvatarNameOfUI_FlycloakIcon_Psalmus" xml:space="preserve">
+    <value>降临之翼</value>
+  </data>
+  <data name="AvatarNameOfVenti" xml:space="preserve">
+    <value>温迪</value>
+  </data>
+  <data name="AvatarNameOfWanderer" xml:space="preserve">
+    <value>流浪者</value>
+  </data>
+  <data name="AvatarNameOfWriothesley" xml:space="preserve">
+    <value>莱欧斯利</value>
+  </data>
+  <data name="AvatarNameOfXiangling" xml:space="preserve">
+    <value>香菱</value>
+  </data>
+  <data name="AvatarNameOfXiao" xml:space="preserve">
+    <value>魈</value>
+  </data>
+  <data name="AvatarNameOfXingqiu" xml:space="preserve">
+    <value>行秋</value>
+  </data>
+  <data name="AvatarNameOfXinyan" xml:space="preserve">
+    <value>辛焱</value>
+  </data>
+  <data name="AvatarNameOfYae" xml:space="preserve">
+    <value>八重神子</value>
+  </data>
+  <data name="AvatarNameOfYaoyao" xml:space="preserve">
+    <value>瑶瑶</value>
+  </data>
+  <data name="AvatarNameOfYelan" xml:space="preserve">
+    <value>夜兰</value>
+  </data>
+  <data name="AvatarNameOfYoimiya" xml:space="preserve">
+    <value>宵宫</value>
+  </data>
+  <data name="AvatarNameOfYunjin" xml:space="preserve">
+    <value>云堇</value>
+  </data>
+  <data name="AvatarNameOfZhongli" xml:space="preserve">
+    <value>钟离</value>
+  </data>
+  <data name="Borderless" xml:space="preserve">
+    <value>无界</value>
+  </data>
+  <data name="BorderlessHint" xml:space="preserve">
+    <value>无界游戏体验</value>
+  </data>
+  <data name="BorderlessMenu0" xml:space="preserve">
+    <value>生效</value>
+  </data>
+  <data name="BorderlessMenu1" xml:space="preserve">
+    <value>无界游戏生效</value>
+  </data>
+  <data name="BorderlessMenu2" xml:space="preserve">
+    <value>无界游戏无效</value>
+  </data>
+  <data name="BorderlessMenu3" xml:space="preserve">
+    <value>恢复最大化按钮</value>
+  </data>
+  <data name="BorderlessMenu4" xml:space="preserve">
+    <value>置顶游戏生效</value>
+  </data>
+  <data name="BorderlessMenu5" xml:space="preserve">
+    <value>置顶游戏无效</value>
+  </data>
+  <data name="BorderlessMenu6" xml:space="preserve">
+    <value>恢复到屏幕零点</value>
+  </data>
+  <data name="BorderlessMenu7" xml:space="preserve">
+    <value>窗口拖动生效</value>
+  </data>
+  <data name="BorderlessMenu8" xml:space="preserve">
+    <value>窗口拖动无效</value>
+  </data>
+  <data name="CacheData" xml:space="preserve">
+    <value>用户数据</value>
+  </data>
+  <data name="CacheDataHint" xml:space="preserve">
+    <value>本地记录的用户数据</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CheckUpdate" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>角色账号</value>
+  </data>
+  <data name="CopyFailed" xml:space="preserve">
+    <value>复制失败</value>
+  </data>
+  <data name="CopySuccessfully" xml:space="preserve">
+    <value>复制成功</value>
+  </data>
+  <data name="CopyVersionInfo" xml:space="preserve">
+    <value>复制版本信息</value>
+  </data>
+  <data name="CreateDesktopShortcut" xml:space="preserve">
+    <value>创建桌面快捷方式</value>
+  </data>
+  <data name="CreationFailed" xml:space="preserve">
+    <value>创建失败</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>详情</value>
+  </data>
+  <data name="DeveloperTools" xml:space="preserve">
+    <value>开发者工具</value>
+  </data>
+  <data name="DisplayDefault" xml:space="preserve">
+    <value>图形设置</value>
+  </data>
+  <data name="DisplayDefaultHint" xml:space="preserve">
+    <value>打开系统图形设置</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Fischless" xml:space="preserve">
+    <value>极夜真梦</value>
+  </data>
+  <data name="GlobalSettings" xml:space="preserve">
+    <value>全局设定</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="LaunchGameAddAccountSuccessed" xml:space="preserve">
+    <value>添加 {0} 成功</value>
+  </data>
+  <data name="LaunchGameCookieCopied" xml:space="preserve">
+    <value>Cookie 已复制到剪贴板</value>
+  </data>
+  <data name="LaunchGameDeleteAccount" xml:space="preserve">
+    <value>删除账号</value>
+  </data>
+  <data name="LaunchGameDeleteAccountHint" xml:space="preserve">
+    <value>是否确定要删除账号“{0}”？</value>
+  </data>
+  <data name="LaunchGamePlayingGame" xml:space="preserve">
+    <value>正在游戏</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToCopy" xml:space="preserve">
+    <value>请选择要复制的账号</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToDelete" xml:space="preserve">
+    <value>请选择要删除的账号</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToEdit" xml:space="preserve">
+    <value>请选择要编辑的账号</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToLaunch" xml:space="preserve">
+    <value>请选择要启动的账号</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToRefresh" xml:space="preserve">
+    <value>请选择要刷新的账号</value>
+  </data>
+  <data name="LaunchGameSelectAccountDisCookie" xml:space="preserve">
+    <value>选中账号未启用 Cookie 使用</value>
+  </data>
+  <data name="LaunchGameSelectAccountNoCookie" xml:space="preserve">
+    <value>选中账号无 Cookie 信息</value>
+  </data>
+  <data name="LaunchGameSelectGamePathHint" xml:space="preserve">
+    <value>选择 {0} 或 {1}</value>
+  </data>
+  <data name="LaunchGameSettingsEnableDetectAccountGaming" xml:space="preserve">
+    <value>启用识别账号是否</value>
+  </data>
+  <data name="LaunchGameSettingsEnableDetectAccountGamingHint" xml:space="preserve">
+    <value>很智能但消耗少量资源轮询检测</value>
+  </data>
+  <data name="LaunchGameSettingsEnableLazy" xml:space="preserve">
+    <value>启用世界任务组件</value>
+  </data>
+  <data name="LaunchGameSettingsEnableLazyPrivate" xml:space="preserve">
+    <value>私有组件</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShade" xml:space="preserve">
+    <value>启用幽夜净土组件</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShadeSilent" xml:space="preserve">
+    <value>静默模式</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShadeSilentUAC" xml:space="preserve">
+    <value>需要管理员权限</value>
+  </data>
+  <data name="LaunchGameSettingsGameBorderless" xml:space="preserve">
+    <value>无界</value>
+  </data>
+  <data name="LaunchGameSettingsGameFps" xml:space="preserve">
+    <value>解锁帧率</value>
+  </data>
+  <data name="LaunchGameSettingsGameFpsHint" xml:space="preserve">
+    <value>以注入渲染引擎方式调整帧率</value>
+  </data>
+  <data name="LaunchGameSettingsGameFullScreen" xml:space="preserve">
+    <value>独占全屏</value>
+  </data>
+  <data name="LaunchGameSettingsGamePath" xml:space="preserve">
+    <value>游戏路径</value>
+  </data>
+  <data name="LaunchGameSettingsGameResolution" xml:space="preserve">
+    <value>分辨率</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchCopyCookie" xml:space="preserve">
+    <value>复制 Cookie</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchCopyUID" xml:space="preserve">
+    <value>复制 UID</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGame" xml:space="preserve">
+    <value>启动游戏</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlow" xml:space="preserve">
+    <value>缓启动游戏</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlowCancel" xml:space="preserve">
+    <value>取消缓启动游戏</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlowHint" xml:space="preserve">
+    <value>3分钟后启动选中账号</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchLazy" xml:space="preserve">
+    <value>启动组件</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchReShade" xml:space="preserve">
+    <value>启动幽夜净土</value>
+  </data>
+  <data name="LaunchGameSettingsLazy" xml:space="preserve">
+    <value>每日世界任务</value>
+  </data>
+  <data name="LaunchGameSettingsLazyCompleted" xml:space="preserve">
+    <value>任务已完成</value>
+  </data>
+  <data name="LaunchGameSettingsLazyNotCompleted" xml:space="preserve">
+    <value>任务未完成</value>
+  </data>
+  <data name="LaunchGameSettingsPotentialRisks" xml:space="preserve">
+    <value>潜在风险</value>
+  </data>
+  <data name="LaunchGameSettingsTitle" xml:space="preserve">
+    <value>功能配置</value>
+  </data>
+  <data name="LaunchGameUidCopied" xml:space="preserve">
+    <value>角色UID:{0}已复制到剪贴板</value>
+  </data>
+  <data name="LaunchHyperion" xml:space="preserve">
+    <value>米游社安卓子系统</value>
+  </data>
+  <data name="LaunchHyperionHint" xml:space="preserve">
+    <value>使用Win11的WSA启动国服米游社</value>
+  </data>
+  <data name="LazyPleaseInputTokenHint" xml:space="preserve">
+    <value>请输入令牌</value>
+  </data>
+  <data name="LazySearchRecord" xml:space="preserve">
+    <value>查看记录</value>
+  </data>
+  <data name="LazySearchRecordFailedHint" xml:space="preserve">
+    <value>请保证服务器令牌路径正确后重试</value>
+  </data>
+  <data name="LazySearchRecordFailedTitle" xml:space="preserve">
+    <value>查看记录失败</value>
+  </data>
+  <data name="LazySetupNoTokenHint" xml:space="preserve">
+    <value>请查阅组件使用说明设定好令牌后重试</value>
+  </data>
+  <data name="LazySetupNoTokenTitle" xml:space="preserve">
+    <value>未探测到接入服务器令牌</value>
+  </data>
+  <data name="LazySetupToken" xml:space="preserve">
+    <value>设定令牌</value>
+  </data>
+  <data name="LazyTestTokenFailHint" xml:space="preserve">
+    <value>测试失败：令牌有误或网络环境欠佳</value>
+  </data>
+  <data name="LazyTestTokenPassHint" xml:space="preserve">
+    <value>测试通过：耗时 {0} 毫秒</value>
+  </data>
+  <data name="LazyTestTokenTitle" xml:space="preserve">
+    <value>测试服务器令牌</value>
+  </data>
+  <data name="LazyTokenErrorHint" xml:space="preserve">
+    <value>令牌有误</value>
+  </data>
+  <data name="LicenseInfo" xml:space="preserve">
+    <value>许可信息</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>载入中</value>
+  </data>
+  <data name="MessageBoxCaptionError" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="MessageBoxCaptionInfo" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="MessageBoxCaptionQuestion" xml:space="preserve">
+    <value>询问</value>
+  </data>
+  <data name="MessageBoxCaptionWarn" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="ModelViewer" xml:space="preserve">
+    <value>模型预览</value>
+  </data>
+  <data name="ModelViewerClickOrDropHint" xml:space="preserve">
+    <value>点击此处选择MMD文件或将其拖放到此处...</value>
+  </data>
+  <data name="ModelViewerSelectMMD" xml:space="preserve">
+    <value>选择MMD模型文件</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="OpenUrlGameBanana" xml:space="preserve">
+    <value>游戏香蕉</value>
+  </data>
+  <data name="OpenUrlInteractiveMap" xml:space="preserve">
+    <value>提瓦特地图</value>
+  </data>
+  <data name="OpenUrlPlayBox" xml:space="preserve">
+    <value>模之屋</value>
+  </data>
+  <data name="OperationSuccessfully" xml:space="preserve">
+    <value>操作成功</value>
+  </data>
+  <data name="Plugin" xml:space="preserve">
+    <value>插件</value>
+  </data>
+  <data name="PluginManager" xml:space="preserve">
+    <value>插件管理</value>
+  </data>
+  <data name="PluginManagerInstallNeedRestartHint" xml:space="preserve">
+    <value>需要应用重启后生效，是否立即重启应用？</value>
+  </data>
+  <data name="PluginManagerPlugin" xml:space="preserve">
+    <value>插件</value>
+  </data>
+  <data name="PluginManagerPluginIllegal" xml:space="preserve">
+    <value>插件不合法</value>
+  </data>
+  <data name="PluginManagerSelectPlugin" xml:space="preserve">
+    <value>选择插件</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>隐私政策</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="RepairRegedit" xml:space="preserve">
+    <value>修复注册表</value>
+  </data>
+  <data name="RepairRegeditHint" xml:space="preserve">
+    <value>修复游戏注册表安装信息</value>
+  </data>
+  <data name="ReShade" xml:space="preserve">
+    <value>幽夜净土</value>
+  </data>
+  <data name="ReShadeLoaderExeNotExists" xml:space="preserve">
+    <value>{0} 不存在</value>
+  </data>
+  <data name="ReShadeMultiUnselectedHint" xml:space="preserve">
+    <value>是否取消当前列表中 {0} 个选中项？</value>
+  </data>
+  <data name="ReShadeRemovedToRecycleBin" xml:space="preserve">
+    <value>已删除至回收站</value>
+  </data>
+  <data name="ReShadeSelectFolder" xml:space="preserve">
+    <value>选择 3DMigoto 目录</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="RunLog" xml:space="preserve">
+    <value>应用日志</value>
+  </data>
+  <data name="RunLogHint" xml:space="preserve">
+    <value>本地记录的应用日志</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SetSuccessfully" xml:space="preserve">
+    <value>设定成功</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设定</value>
+  </data>
+  <data name="SystemEvent" xml:space="preserve">
+    <value>系统事件</value>
+  </data>
+  <data name="SystemVersion" xml:space="preserve">
+    <value>系统版本</value>
+  </data>
+  <data name="UACRequestRestartHint" xml:space="preserve">
+    <value>需要管理员权限，是否以管理员权限重启？</value>
+  </data>
+  <data name="UnneedOperation" xml:space="preserve">
+    <value>无需操作</value>
+  </data>
+  <data name="UsefullLinks" xml:space="preserve">
+    <value>常用链接</value>
+  </data>
+  <data name="UserManual" xml:space="preserve">
+    <value>用户手册</value>
+  </data>
+  <data name="__Colon__" xml:space="preserve">
+    <value>：</value>
+  </data>
+  <data name="__LeftParenthesis__" xml:space="preserve">
+    <value>（</value>
+  </data>
+  <data name="__RightParenthesis__" xml:space="preserve">
+    <value>）</value>
+  </data>
+</root>

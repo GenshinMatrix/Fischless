@@ -93,7 +93,7 @@
             <Button Margin="0,3,8,0"
                     Padding="5"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    ToolTip="{DynamicResource MoreActions}">
+                    ToolTip="{I18N Key=MoreActions}">
                 <Button.Content>
                     <TextBlock FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                FontSize="16"
@@ -109,14 +109,14 @@
                                  FontSize="12">
                         <MenuItem Command="{Binding ViewSettingsCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource GlobalSettings}">
+                                  Header="{I18N Key=GlobalSettings}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="16"
                                            Text="{x:Static fui:FontSymbols.Settings}" />
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem FontSize="12" Header="{DynamicResource Language}">
+                        <MenuItem FontSize="12" Header="{I18N Key=Language}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="16"
@@ -136,7 +136,7 @@
                                               Header="English"
                                               IsChecked="{Binding Language, Converter={StaticResource StringEqualityConverter}, ConverterParameter=en, Mode=TwoWay}" />
                         </MenuItem>
-                        <MenuItem FontSize="12" Header="{DynamicResource UsefullLinks}">
+                        <MenuItem FontSize="12" Header="{I18N Key=UsefullLinks}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="16"
@@ -144,7 +144,7 @@
                             </MenuItem.Icon>
                             <MenuItem Command="{Binding OpenUrlInteractiveMapCommand}"
                                       FontSize="12"
-                                      Header="{DynamicResource OpenUrlInteractiveMap}">
+                                      Header="{I18N Key=OpenUrlInteractiveMap}">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                FontSize="16"
@@ -153,7 +153,7 @@
                             </MenuItem>
                             <MenuItem Command="{Binding OpenUrlPlayBoxCommand}"
                                       FontSize="12"
-                                      Header="{DynamicResource OpenUrlPlayBox}">
+                                      Header="{I18N Key=OpenUrlPlayBox}">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                FontSize="16"
@@ -162,7 +162,7 @@
                             </MenuItem>
                             <MenuItem Command="{Binding OpenUrlGameBananaCommand}"
                                       FontSize="12"
-                                      Header="{DynamicResource OpenUrlGameBanana}">
+                                      Header="{I18N Key=OpenUrlGameBanana}">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                FontSize="16"
@@ -173,8 +173,8 @@
                         <Separator />
                         <MenuItem Command="{Binding OpenSpecialFolderCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource CacheData}"
-                                  ToolTip="{DynamicResource CacheDataHint}">
+                                  Header="{I18N Key=CacheData}"
+                                  ToolTip="{I18N Key=CacheDataHint}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -183,8 +183,8 @@
                         </MenuItem>
                         <MenuItem Command="{Binding OpenLogsFolderCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource RunLog}"
-                                  ToolTip="{DynamicResource RunLogHint}">
+                                  Header="{I18N Key=RunLog}"
+                                  ToolTip="{I18N Key=RunLogHint}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -194,14 +194,14 @@
                         <Separator />
                         <MenuItem Command="{Binding OpenUserManualCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource UserManual}">
+                                  Header="{I18N Key=UserManual}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
                                            Text="{x:Static fui:FontSymbols.ReadingMode}" />
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem FontSize="12" Header="{DynamicResource DeveloperTools}">
+                        <MenuItem FontSize="12" Header="{I18N Key=DeveloperTools}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -209,7 +209,7 @@
                             </MenuItem.Icon>
                             <MenuItem Command="{Binding ShowEventViewerCommand}"
                                       FontSize="12"
-                                      Header="{DynamicResource SystemEvent}">
+                                      Header="{I18N Key=SystemEvent}">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                FontSize="14"
@@ -218,7 +218,7 @@
                             </MenuItem>
                             <MenuItem Command="{Binding ShowVersionViewerCommand}"
                                       FontSize="12"
-                                      Header="{DynamicResource SystemVersion}">
+                                      Header="{I18N Key=SystemVersion}">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                FontSize="14"
@@ -228,7 +228,7 @@
                         </MenuItem>
                         <MenuItem Command="{Binding ViewAboutCommand}"
                                   FontSize="12"
-                                  Header="{DynamicResource AboutProgram}">
+                                  Header="{I18N Key=AboutProgram}">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -264,7 +264,7 @@
 
                 <ui:NavigationViewItem x:Name="HomeNavigationViewItem"
                                        fui:NavigationHelper.NavigateTo="{x:Type local:PageHome}"
-                                       Content="{DynamicResource Contact}"
+                                       Content="{I18N Key=Contact}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
@@ -275,7 +275,7 @@
                 </ui:NavigationViewItem>
 
                 <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PageReShade}"
-                                       Content="{DynamicResource ReShade}"
+                                       Content="{I18N Key=ReShade}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
@@ -284,7 +284,7 @@
                 </ui:NavigationViewItem>
 
                 <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PageModelViewer}"
-                                       Content="{DynamicResource ModelViewer}"
+                                       Content="{I18N Key=ModelViewer}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
@@ -292,10 +292,10 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
-                <ui:NavigationViewItemHeader Content="{DynamicResource Plugin}" Foreground="{DynamicResource WindowTitleForeground}" />
+                <ui:NavigationViewItemHeader Content="{I18N Key=Plugin}" Foreground="{DynamicResource WindowTitleForeground}" />
 
                 <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PagePluginManager}"
-                                       Content="{DynamicResource PluginManager}"
+                                       Content="{I18N Key=PluginManager}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}">
                     <ui:NavigationViewItem.Icon>
@@ -310,7 +310,7 @@
             <ui:NavigationView.FooterMenuItems>
 
                 <ui:NavigationViewItem fui:NavigationHelper.NavigateTo="{x:Type local:PageSettings}"
-                                       Content="{DynamicResource GlobalSettings}"
+                                       Content="{I18N Key=GlobalSettings}"
                                        CornerRadius="4"
                                        FontFamily="{DynamicResource TextThemeFontFamily}"
                                        Style="{StaticResource DefaultNavigationViewItemStyle}">

@@ -8,15 +8,17 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="{DynamicResource LaunchGameSettingsTitle}"
+                  Title="{I18N Key=LaunchGameSettingsTitle}"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   FontSize="14"
                   PrimaryButtonClick="OnPrimaryButtonClick"
-                  PrimaryButtonText="{DynamicResource Close}"
+                  PrimaryButtonText="{I18N Key=Close}"
                   Style="{DynamicResource DefaultContentDialogStyle}"
                   mc:Ignorable="d">
     <ui:ContentDialog.Resources>
         <fui:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <fui:ToStringConverter x:Key="ToStringConverter" />
+        <fui:MultiBindingStringFormatConverter x:Key="MultiBindingStringFormatConverter " />
     </ui:ContentDialog.Resources>
     <Grid>
         <Grid Margin="0,-40,0,0"
@@ -48,7 +50,7 @@
                           MinWidth="0"
                           Margin="0,0,0,0"
                           VerticalAlignment="Center"
-                          Content="{DynamicResource LaunchGameSettingsGamePath}"
+                          Content="{I18N Key=LaunchGameSettingsGamePath}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseGamePath, Mode=TwoWay}" />
                 <Grid Grid.Row="0"
@@ -61,14 +63,7 @@
                     </Grid.ColumnDefinitions>
                     <wui:TextBox Grid.Column="0"
                                  IsReadOnly="True"
-                                 Text="{Binding GamePath, Mode=TwoWay}">
-                        <wui:TextBox.PlaceholderText>
-                            <MultiBinding StringFormat="{StaticResource LaunchGameSelectGamePathHint}">
-                                <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameCN}" />
-                                <Binding Source="{x:Static fetchlaunch:GILauncher.FileNameOVERSEA}" />
-                            </MultiBinding>
-                        </wui:TextBox.PlaceholderText>
-                    </wui:TextBox>
+                                 Text="{Binding GamePath, Mode=TwoWay}" />
                     <Button Grid.Column="1"
                             Margin="8,0,0,0"
                             Command="{Binding SelectGamePathCommand}">
@@ -84,7 +79,7 @@
                           MinWidth="0"
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
-                          Content="{DynamicResource LaunchGameSettingsGameResolution}"
+                          Content="{I18N Key=LaunchGameSettingsGameResolution}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseResolution, Mode=TwoWay}" />
                 <Grid Grid.Row="1"
@@ -121,12 +116,12 @@
                                 VerticalAlignment="Center">
                         <CheckBox MinWidth="0"
                                   VerticalAlignment="Center"
-                                  Content="{DynamicResource LaunchGameSettingsGameFullScreen}"
+                                  Content="{I18N Key=LaunchGameSettingsGameFullScreen}"
                                   Cursor="{x:Null}"
                                   IsChecked="{Binding IsUseFullScreen, Mode=TwoWay}" />
                         <CheckBox MinWidth="0"
                                   VerticalAlignment="Center"
-                                  Content="{DynamicResource LaunchGameSettingsGameBorderless}"
+                                  Content="{I18N Key=LaunchGameSettingsGameBorderless}"
                                   Cursor="{x:Null}"
                                   IsChecked="{Binding IsUseBorderless, Mode=TwoWay}" />
                     </StackPanel>
@@ -136,7 +131,7 @@
                           MinWidth="0"
                           Margin="0,16,0,0"
                           VerticalAlignment="Center"
-                          Content="{DynamicResource LaunchGameSettingsGameFps}"
+                          Content="{I18N Key=LaunchGameSettingsGameFps}"
                           Cursor="{x:Null}"
                           IsChecked="{Binding IsUseFps, Mode=TwoWay}" />
                 <Grid Grid.Row="2"
@@ -160,7 +155,7 @@
                             Background="{DynamicResource AccentForeground}"
                             CornerRadius="4"
                             Opacity="0.8"
-                            ToolTip="{DynamicResource LaunchGameSettingsGameFpsHint}">
+                            ToolTip="{I18N Key=LaunchGameSettingsGameFpsHint}">
                         <StackPanel Orientation="Horizontal">
                             <ui:FontIcon VerticalAlignment="Center"
                                          FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -168,7 +163,7 @@
                                          Glyph="{x:Static fui:FontSymbols.Warning}" />
                             <TextBlock Margin="4,0,0,0"
                                        VerticalAlignment="Center"
-                                       Text="{DynamicResource LaunchGameSettingsPotentialRisks}" />
+                                       Text="{I18N Key=LaunchGameSettingsPotentialRisks}" />
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -182,18 +177,18 @@
                           IsChecked="{Binding IsUseGameRunningHint, Mode=TwoWay}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{DynamicResource LaunchGameSettingsEnableDetectAccountGaming}" />
+                            <TextBlock Text="{I18N Key=LaunchGameSettingsEnableDetectAccountGaming}" />
                             <Border Margin="3,0,0,0"
                                     Background="#EA1D953F"
                                     BorderBrush="AliceBlue"
                                     BorderThickness="0"
                                     CornerRadius="3"
-                                    ToolTip="{DynamicResource LaunchGameSettingsEnableDetectAccountGamingHint}">
+                                    ToolTip="{I18N Key=LaunchGameSettingsEnableDetectAccountGamingHint}">
                                 <TextBlock Margin="3,0,3,0"
                                            Foreground="#FFFFFF"
                                            Opacity="1"
-                                           Text="{DynamicResource LaunchGamePlayingGame}"
-                                           ToolTip="{DynamicResource LaunchGameSettingsEnableDetectAccountGamingHint}" />
+                                           Text="{I18N Key=LaunchGamePlayingGame}"
+                                           ToolTip="{I18N Key=LaunchGameSettingsEnableDetectAccountGamingHint}" />
                             </Border>
                         </StackPanel>
                     </CheckBox.Content>
@@ -211,12 +206,12 @@
                               IsChecked="{Binding IsUseLazy, Mode=TwoWay}">
                         <CheckBox.Content>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{DynamicResource LaunchGameSettingsEnableLazy}" />
+                                <TextBlock Text="{I18N Key=LaunchGameSettingsEnableLazy}" />
                                 <ui:FontIcon Margin="8,0,8,0"
                                              FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="12"
                                              Glyph="{x:Static fui:FontSymbols.Lock}"
-                                             ToolTip="{DynamicResource LaunchGameSettingsEnableLazyPrivate}" />
+                                             ToolTip="{I18N Key=LaunchGameSettingsEnableLazyPrivate}" />
                             </StackPanel>
                         </CheckBox.Content>
                     </CheckBox>
@@ -226,7 +221,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="18"
                                              Glyph="{x:Static fui:FontSymbols.CloudSearch}" />
-                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource LazySearchRecord}" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=LazySearchRecord}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -236,7 +231,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="18"
                                              Glyph="{x:Static fui:FontSymbols.KeyboardDismiss}" />
-                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource LazySetupToken}" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=LazySetupToken}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -250,7 +245,7 @@
                             Visibility="{Binding IsInstallReShade, Converter={StaticResource BoolToVisibilityConverter}}">
                     <CheckBox MinWidth="0"
                               VerticalAlignment="Center"
-                              Content="{DynamicResource LaunchGameSettingsEnableReShade}"
+                              Content="{I18N Key=LaunchGameSettingsEnableReShade}"
                               Cursor="{x:Null}"
                               IsChecked="{Binding IsUseReShade, Mode=TwoWay}" />
                     <wui:ToggleSwitch Margin="8,0,0,0"
@@ -263,7 +258,7 @@
                                              FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="14"
                                              Glyph="{x:Static fui:FontSymbols.LaptopSecure}"
-                                             ToolTip="{DynamicResource LaunchGameSettingsEnableReShadeSilentUAC}" />
+                                             ToolTip="{I18N Key=LaunchGameSettingsEnableReShadeSilentUAC}" />
                             </StackPanel>
                         </wui:ToggleSwitch.Content>
                     </wui:ToggleSwitch>

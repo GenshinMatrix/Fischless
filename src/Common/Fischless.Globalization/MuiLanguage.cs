@@ -1,16 +1,17 @@
-﻿using Fischless.Globalization.Helpers;
+﻿using Fischless.Globalization.Properties;
 using Fischless.Logging;
 using System.ComponentModel;
 using System.Globalization;
-using System.IO;
+using System.Resources;
 using System.Windows;
 
 namespace Fischless.Globalization;
 
 public static class MuiLanguage
 {
-    public static bool IsResourceReady { get; private set; } = false;
     public static string MuiLanguageName { get; private set; } = string.Empty;
+
+    public static ResourceManager ResourceManager { get; } = new("Fischless.Globalization.Properties.Resources", typeof(Resources).Assembly);
 
     public static string DetectLanguage() => CultureInfo.CurrentUICulture.TwoLetterISOLanguageName switch
     {
@@ -49,29 +50,9 @@ public static class MuiLanguage
             }
         }
 
-        if (Application.Current == null)
-        {
-            return false;
-        }
-
         try
         {
-            foreach (ResourceDictionary dictionaryOuter in Application.Current.Resources.MergedDictionaries)
-            {
-                if (dictionaryOuter is MuiLanguageResources reses)
-                {
-                    foreach (ResourceDictionary dictionaryInner in reses.MergedDictionaries)
-                    {
-                        if (dictionaryInner.Source != null && dictionaryInner.Source.OriginalString.EndsWith($"/Assets/Langs/{name}.xaml", StringComparison.Ordinal))
-                        {
-                            reses.MergedDictionaries.Remove(dictionaryInner);
-                            reses.MergedDictionaries.Add(dictionaryInner);
-                            IsResourceReady = true;
-                            return true;
-                        }
-                    }
-                }
-            }
+            I18NExtension.Culture = new CultureInfo(name);
         }
         catch (Exception e)
         {
@@ -84,69 +65,23 @@ public static class MuiLanguage
     {
         try
         {
-            if (Application.Current == null || !IsResourceReady)
-            {
-                return MuiBaml(key);
-            }
-            if (Application.Current!.FindResource(key) is string value)
-            {
-                return value;
-            }
+            return I18NExtension.Translate(key);
         }
         catch (Exception e)
         {
             _ = e;
         }
         return null!;
+    }
+
+    public static string Mui(CultureInfo cultureInfo, string key)
+    {
+        return ResourceManager.GetString(key, cultureInfo);
     }
 
     public static string Mui(string key, params object[] args)
     {
         return string.Format(Mui(key)?.ToString(), args);
-    }
-
-    private static string MuiBaml(string key)
-    {
-        try
-        {
-            using Stream resourceXaml = ResourceHelper.GetStream(GetXamlUriString());
-            if (BamlHelper.LoadBaml(resourceXaml) is ResourceDictionary resourceDictionary)
-            {
-                return (resourceDictionary[key] as string)!;
-            }
-        }
-        catch (Exception e)
-        {
-            _ = e;
-        }
-        return null!;
-    }
-
-    private static string GetXamlUriString()
-    {
-        static string GetUriString(string name) => $"pack://application:,,,/Fischless.Globalization;component/Assets/Langs/{name}.xaml";
-
-        if (ResourceHelper.HasResource(GetUriString(CultureInfo.CurrentUICulture.Name)))
-        {
-            return GetUriString(CultureInfo.CurrentUICulture.Name);
-        }
-        else
-        {
-            if (ResourceHelper.HasResource(GetUriString(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName)))
-            {
-                return GetUriString(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
-            }
-            else
-            {
-                if (ResourceHelper.HasResource(GetUriString(CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName)))
-                {
-                    return GetUriString(CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName);
-                }
-            }
-        }
-
-        Log.Debug($"[MuiLanguageService] NotFound with match mui lang name of '{CultureInfo.CurrentUICulture.Name}' or '{CultureInfo.CurrentUICulture.TwoLetterISOLanguageName}' or '{CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName}'.");
-        return GetUriString("en");
     }
 }
 

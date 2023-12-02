@@ -8,10 +8,10 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="{DynamicResource AboutProgram}"
+                  Title="{I18N Key=AboutProgram}"
                   d:DesignHeight="NaN"
                   d:DesignWidth="NaN"
-                  CloseButtonText="{DynamicResource Close}"
+                  CloseButtonText="{I18N Key=Close}"
                   DefaultButton="Close"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   FontSize="14"
@@ -103,7 +103,7 @@
                                 Background="Transparent"
                                 Command="{Binding CopyVersionCommand}"
                                 Cursor="Hand"
-                                ToolTip="{DynamicResource CopyVersionInfo}">
+                                ToolTip="{I18N Key=CopyVersionInfo}">
                             <Button.Content>
                                 <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                            FontSize="14"
@@ -117,7 +117,7 @@
                     <TextBlock Margin="4,0,0,0"
                                FontFamily="{DynamicResource TextThemeFontFamily}"
                                Foreground="{DynamicResource AccentFillColorDefaultBrush}"
-                               Text="{DynamicResource HomePage}" />
+                               Text="{I18N Key=HomePage}" />
                     <wui:HyperlinkButton Margin="0,4,0,0"
                                          Padding="4,2,4,2"
                                          Command="{Binding ViewWebsiteCommand}"

@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutProgram" xml:space="preserve">
+    <value>About Program</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AutoMute" xml:space="preserve">
+    <value>Auto Mute</value>
+  </data>
+  <data name="AvatarNameOfAlbedo" xml:space="preserve">
+    <value>Albedo</value>
+  </data>
+  <data name="AvatarNameOfAlhatham" xml:space="preserve">
+    <value>Alhaitham</value>
+  </data>
+  <data name="AvatarNameOfAloy" xml:space="preserve">
+    <value>Aloy</value>
+  </data>
+  <data name="AvatarNameOfAmbor" xml:space="preserve">
+    <value>Amber</value>
+  </data>
+  <data name="AvatarNameOfAozi" xml:space="preserve">
+    <value>Oz</value>
+  </data>
+  <data name="AvatarNameOfAyaka" xml:space="preserve">
+    <value>Kamisato Ayaka</value>
+  </data>
+  <data name="AvatarNameOfAyato" xml:space="preserve">
+    <value>Kamisato Ayato</value>
+  </data>
+  <data name="AvatarNameOfBaizhuer" xml:space="preserve">
+    <value>Baizhu</value>
+  </data>
+  <data name="AvatarNameOfBarbara" xml:space="preserve">
+    <value>Barbara</value>
+  </data>
+  <data name="AvatarNameOfBeidou" xml:space="preserve">
+    <value>Beidou</value>
+  </data>
+  <data name="AvatarNameOfBennett" xml:space="preserve">
+    <value>Bennett</value>
+  </data>
+  <data name="AvatarNameOfCandace" xml:space="preserve">
+    <value>Candace</value>
+  </data>
+  <data name="AvatarNameOfCharlotte" xml:space="preserve">
+    <value>Charlotte</value>
+  </data>
+  <data name="AvatarNameOfChongyun" xml:space="preserve">
+    <value>Chongyun</value>
+  </data>
+  <data name="AvatarNameOfCollei" xml:space="preserve">
+    <value>Collei</value>
+  </data>
+  <data name="AvatarNameOfCyno" xml:space="preserve">
+    <value>Cyno</value>
+  </data>
+  <data name="AvatarNameOfDehya" xml:space="preserve">
+    <value>Dehya</value>
+  </data>
+  <data name="AvatarNameOfDiluc" xml:space="preserve">
+    <value>Diluc</value>
+  </data>
+  <data name="AvatarNameOfDiona" xml:space="preserve">
+    <value>Diona</value>
+  </data>
+  <data name="AvatarNameOfDori" xml:space="preserve">
+    <value>Dori</value>
+  </data>
+  <data name="AvatarNameOfEula" xml:space="preserve">
+    <value>Eula</value>
+  </data>
+  <data name="AvatarNameOfFaruzan" xml:space="preserve">
+    <value>Faruzan</value>
+  </data>
+  <data name="AvatarNameOfFeiyan" xml:space="preserve">
+    <value>Yanfei</value>
+  </data>
+  <data name="AvatarNameOfFischl" xml:space="preserve">
+    <value>Fischl</value>
+  </data>
+  <data name="AvatarNameOfFreminet" xml:space="preserve">
+    <value>Freminet</value>
+  </data>
+  <data name="AvatarNameOfFurina" xml:space="preserve">
+    <value>Furina</value>
+  </data>
+  <data name="AvatarNameOfGanyu" xml:space="preserve">
+    <value>Ganyu</value>
+  </data>
+  <data name="AvatarNameOfGorou" xml:space="preserve">
+    <value>Gorou</value>
+  </data>
+  <data name="AvatarNameOfHeizo" xml:space="preserve">
+    <value>Shikanoin Heizou</value>
+  </data>
+  <data name="AvatarNameOfHutao" xml:space="preserve">
+    <value>Hu Tao</value>
+  </data>
+  <data name="AvatarNameOfItto" xml:space="preserve">
+    <value>Arataki Itto</value>
+  </data>
+  <data name="AvatarNameOfKaeya" xml:space="preserve">
+    <value>Kaeya</value>
+  </data>
+  <data name="AvatarNameOfKaveh" xml:space="preserve">
+    <value>Kaveh</value>
+  </data>
+  <data name="AvatarNameOfKazuha" xml:space="preserve">
+    <value>Kaedehara Kazuha</value>
+  </data>
+  <data name="AvatarNameOfKeqing" xml:space="preserve">
+    <value>Keqing</value>
+  </data>
+  <data name="AvatarNameOfKlee" xml:space="preserve">
+    <value>Klee</value>
+  </data>
+  <data name="AvatarNameOfKokomi" xml:space="preserve">
+    <value>Sangonomiya Kokomi</value>
+  </data>
+  <data name="AvatarNameOfLayla" xml:space="preserve">
+    <value>Layla</value>
+  </data>
+  <data name="AvatarNameOfLinette" xml:space="preserve">
+    <value>Lynette</value>
+  </data>
+  <data name="AvatarNameOfLiney" xml:space="preserve">
+    <value>Lyney</value>
+  </data>
+  <data name="AvatarNameOfLisa" xml:space="preserve">
+    <value>Lisa</value>
+  </data>
+  <data name="AvatarNameOfMika" xml:space="preserve">
+    <value>Mika</value>
+  </data>
+  <data name="AvatarNameOfMomoka" xml:space="preserve">
+    <value>Kirara</value>
+  </data>
+  <data name="AvatarNameOfMona" xml:space="preserve">
+    <value>Mona</value>
+  </data>
+  <data name="AvatarNameOfNahida" xml:space="preserve">
+    <value>Nahida</value>
+  </data>
+  <data name="AvatarNameOfNeuvillette" xml:space="preserve">
+    <value>Neuvillette</value>
+  </data>
+  <data name="AvatarNameOfNilou" xml:space="preserve">
+    <value>Nilou</value>
+  </data>
+  <data name="AvatarNameOfNingguang" xml:space="preserve">
+    <value>Ningguang</value>
+  </data>
+  <data name="AvatarNameOfNoel" xml:space="preserve">
+    <value>Noelle</value>
+  </data>
+  <data name="AvatarNameOfPaimon" xml:space="preserve">
+    <value>Paimon</value>
+  </data>
+  <data name="AvatarNameOfPlayerBoy" xml:space="preserve">
+    <value>Aether</value>
+  </data>
+  <data name="AvatarNameOfPlayerGirl" xml:space="preserve">
+    <value>Lumine</value>
+  </data>
+  <data name="AvatarNameOfQin" xml:space="preserve">
+    <value>Jean</value>
+  </data>
+  <data name="AvatarNameOfQiqi" xml:space="preserve">
+    <value>Qiqi</value>
+  </data>
+  <data name="AvatarNameOfRazor" xml:space="preserve">
+    <value>Razor</value>
+  </data>
+  <data name="AvatarNameOfRosaria" xml:space="preserve">
+    <value>Rosaria</value>
+  </data>
+  <data name="AvatarNameOfSara" xml:space="preserve">
+    <value>Kujou Sara</value>
+  </data>
+  <data name="AvatarNameOfSayu" xml:space="preserve">
+    <value>Sayu</value>
+  </data>
+  <data name="AvatarNameOfShenhe" xml:space="preserve">
+    <value>Shenhe</value>
+  </data>
+  <data name="AvatarNameOfShinobu" xml:space="preserve">
+    <value>Kuki Shinobu</value>
+  </data>
+  <data name="AvatarNameOfShougun" xml:space="preserve">
+    <value>Raiden Shogun</value>
+  </data>
+  <data name="AvatarNameOfSucrose" xml:space="preserve">
+    <value>Sucrose</value>
+  </data>
+  <data name="AvatarNameOfTartaglia" xml:space="preserve">
+    <value>Tartaglia</value>
+  </data>
+  <data name="AvatarNameOfTighnari" xml:space="preserve">
+    <value>Tighnari</value>
+  </data>
+  <data name="AvatarNameOfTohma" xml:space="preserve">
+    <value>Thoma</value>
+  </data>
+  <data name="AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken" xml:space="preserve">
+    <value>Mitternachts Waltz</value>
+  </data>
+  <data name="AvatarNameOfUI_FlycloakIcon_Psalmus" xml:space="preserve">
+    <value>Psalmus</value>
+  </data>
+  <data name="AvatarNameOfVenti" xml:space="preserve">
+    <value>Venti</value>
+  </data>
+  <data name="AvatarNameOfWanderer" xml:space="preserve">
+    <value>Wanderer</value>
+  </data>
+  <data name="AvatarNameOfWriothesley" xml:space="preserve">
+    <value>Wriothesley</value>
+  </data>
+  <data name="AvatarNameOfXiangling" xml:space="preserve">
+    <value>Xiangling</value>
+  </data>
+  <data name="AvatarNameOfXiao" xml:space="preserve">
+    <value>Xiao</value>
+  </data>
+  <data name="AvatarNameOfXingqiu" xml:space="preserve">
+    <value>Xingqiu</value>
+  </data>
+  <data name="AvatarNameOfXinyan" xml:space="preserve">
+    <value>Xinyan</value>
+  </data>
+  <data name="AvatarNameOfYae" xml:space="preserve">
+    <value>Yae Miko</value>
+  </data>
+  <data name="AvatarNameOfYaoyao" xml:space="preserve">
+    <value>Yaoyao</value>
+  </data>
+  <data name="AvatarNameOfYelan" xml:space="preserve">
+    <value>Yelan</value>
+  </data>
+  <data name="AvatarNameOfYoimiya" xml:space="preserve">
+    <value>Yoimiya</value>
+  </data>
+  <data name="AvatarNameOfYunjin" xml:space="preserve">
+    <value>Yun Jin</value>
+  </data>
+  <data name="AvatarNameOfZhongli" xml:space="preserve">
+    <value>Zhongli</value>
+  </data>
+  <data name="Borderless" xml:space="preserve">
+    <value>Borderless</value>
+  </data>
+  <data name="BorderlessHint" xml:space="preserve">
+    <value>Borderless Game</value>
+  </data>
+  <data name="BorderlessMenu0" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="BorderlessMenu1" xml:space="preserve">
+    <value>Enable Borderless Game</value>
+  </data>
+  <data name="BorderlessMenu2" xml:space="preserve">
+    <value>Disable Borderless Game</value>
+  </data>
+  <data name="BorderlessMenu3" xml:space="preserve">
+    <value>Restore Maximize button</value>
+  </data>
+  <data name="BorderlessMenu4" xml:space="preserve">
+    <value>Enable Topmost Game</value>
+  </data>
+  <data name="BorderlessMenu5" xml:space="preserve">
+    <value>Disable Topmost Game</value>
+  </data>
+  <data name="BorderlessMenu6" xml:space="preserve">
+    <value>Restore Screen Zero Position</value>
+  </data>
+  <data name="BorderlessMenu7" xml:space="preserve">
+    <value>Enable Drag Move</value>
+  </data>
+  <data name="BorderlessMenu8" xml:space="preserve">
+    <value>Disable Drag Move</value>
+  </data>
+  <data name="CacheData" xml:space="preserve">
+    <value>User data</value>
+  </data>
+  <data name="CacheDataHint" xml:space="preserve">
+    <value>User data recorded locally</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CheckUpdate" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="CopyFailed" xml:space="preserve">
+    <value>Copy failed</value>
+  </data>
+  <data name="CopySuccessfully" xml:space="preserve">
+    <value>Successfully copied</value>
+  </data>
+  <data name="CopyVersionInfo" xml:space="preserve">
+    <value>Copy version information</value>
+  </data>
+  <data name="CreateDesktopShortcut" xml:space="preserve">
+    <value>Create Desktop Shortcut</value>
+  </data>
+  <data name="CreationFailed" xml:space="preserve">
+    <value>Creation Failed</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="DeveloperTools" xml:space="preserve">
+    <value>Developer Tools</value>
+  </data>
+  <data name="DisplayDefault" xml:space="preserve">
+    <value>Display Settings</value>
+  </data>
+  <data name="DisplayDefaultHint" xml:space="preserve">
+    <value>Open the System Display Settings</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Fischless" xml:space="preserve">
+    <value>Fischless</value>
+  </data>
+  <data name="GlobalSettings" xml:space="preserve">
+    <value>Global Settings</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LaunchGameAddAccountSuccessed" xml:space="preserve">
+    <value>Add {0} Successfully</value>
+  </data>
+  <data name="LaunchGameCookieCopied" xml:space="preserve">
+    <value>Cookie copied to clipboard</value>
+  </data>
+  <data name="LaunchGameDeleteAccount" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="LaunchGameDeleteAccountHint" xml:space="preserve">
+    <value>Sure you want to delete account '{0}'?</value>
+  </data>
+  <data name="LaunchGamePlayingGame" xml:space="preserve">
+    <value>Playing</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToCopy" xml:space="preserve">
+    <value>Please select the account wana copy</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToDelete" xml:space="preserve">
+    <value>Please select the account wana delete</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToEdit" xml:space="preserve">
+    <value>Please select the account wana edit</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToLaunch" xml:space="preserve">
+    <value>Please select the account wana launch</value>
+  </data>
+  <data name="LaunchGamePleaseSelectAccountToRefresh" xml:space="preserve">
+    <value>Please select the account wana refresh</value>
+  </data>
+  <data name="LaunchGameSelectAccountDisCookie" xml:space="preserve">
+    <value>The selected account is not enabled for cookie usage</value>
+  </data>
+  <data name="LaunchGameSelectAccountNoCookie" xml:space="preserve">
+    <value>The selected account has no cookie information</value>
+  </data>
+  <data name="LaunchGameSelectGamePathHint" xml:space="preserve">
+    <value>Select {0} or {1}</value>
+  </data>
+  <data name="LaunchGameSettingsEnableDetectAccountGaming" xml:space="preserve">
+    <value>Enable account recognition</value>
+  </data>
+  <data name="LaunchGameSettingsEnableDetectAccountGamingHint" xml:space="preserve">
+    <value>Very intelligent but consumes a small amount of resources for polling detection</value>
+  </data>
+  <data name="LaunchGameSettingsEnableLazy" xml:space="preserve">
+    <value>Enable Lazy</value>
+  </data>
+  <data name="LaunchGameSettingsEnableLazyPrivate" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShade" xml:space="preserve">
+    <value>Enable ReShade</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShadeSilent" xml:space="preserve">
+    <value>Silent Mode</value>
+  </data>
+  <data name="LaunchGameSettingsEnableReShadeSilentUAC" xml:space="preserve">
+    <value>Needs UAC Permissions</value>
+  </data>
+  <data name="LaunchGameSettingsGameBorderless" xml:space="preserve">
+    <value>Borderless</value>
+  </data>
+  <data name="LaunchGameSettingsGameFps" xml:space="preserve">
+    <value>Unlock FPS</value>
+  </data>
+  <data name="LaunchGameSettingsGameFpsHint" xml:space="preserve">
+    <value>Adjusting FPS through injection into rendering engines</value>
+  </data>
+  <data name="LaunchGameSettingsGameFullScreen" xml:space="preserve">
+    <value>FullScreen</value>
+  </data>
+  <data name="LaunchGameSettingsGamePath" xml:space="preserve">
+    <value>Game Path</value>
+  </data>
+  <data name="LaunchGameSettingsGameResolution" xml:space="preserve">
+    <value>Resolution</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchCopyCookie" xml:space="preserve">
+    <value>Copy Cookie</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchCopyUID" xml:space="preserve">
+    <value>Copy UID</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGame" xml:space="preserve">
+    <value>Launch Game</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlow" xml:space="preserve">
+    <value>Launch Game Slowly</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlowCancel" xml:space="preserve">
+    <value>Cancel Launch Game Slowly</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchGameSlowHint" xml:space="preserve">
+    <value>Start the selected account in 3 minutes</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchLazy" xml:space="preserve">
+    <value>Start component</value>
+  </data>
+  <data name="LaunchGameSettingsLaunchReShade" xml:space="preserve">
+    <value>Activate the ReShade</value>
+  </data>
+  <data name="LaunchGameSettingsLazy" xml:space="preserve">
+    <value>Daily World Quest</value>
+  </data>
+  <data name="LaunchGameSettingsLazyCompleted" xml:space="preserve">
+    <value>Quest completed</value>
+  </data>
+  <data name="LaunchGameSettingsLazyNotCompleted" xml:space="preserve">
+    <value>Quest incomplete</value>
+  </data>
+  <data name="LaunchGameSettingsPotentialRisks" xml:space="preserve">
+    <value>Potential Risks</value>
+  </data>
+  <data name="LaunchGameSettingsTitle" xml:space="preserve">
+    <value>Functions Settings</value>
+  </data>
+  <data name="LaunchGameUidCopied" xml:space="preserve">
+    <value>Your UID:{0} was copied to clipboard</value>
+  </data>
+  <data name="LaunchHyperion" xml:space="preserve">
+    <value>HoYoLAB Android</value>
+  </data>
+  <data name="LaunchHyperionHint" xml:space="preserve">
+    <value>Launch HoYoLAB by Win11 WSA (Chinese only).</value>
+  </data>
+  <data name="LazyPleaseInputTokenHint" xml:space="preserve">
+    <value>Please enter a token</value>
+  </data>
+  <data name="LazySearchRecord" xml:space="preserve">
+    <value>Search Record</value>
+  </data>
+  <data name="LazySearchRecordFailedHint" xml:space="preserve">
+    <value>Please ensure that the server token path is correct and try again.</value>
+  </data>
+  <data name="LazySearchRecordFailedTitle" xml:space="preserve">
+    <value>Search Record failed</value>
+  </data>
+  <data name="LazySetupNoTokenHint" xml:space="preserve">
+    <value>Please refer to the component instructions and set the token and try again.</value>
+  </data>
+  <data name="LazySetupNoTokenTitle" xml:space="preserve">
+    <value>No accessable server token detected</value>
+  </data>
+  <data name="LazySetupToken" xml:space="preserve">
+    <value>Setup Token</value>
+  </data>
+  <data name="LazyTestTokenFailHint" xml:space="preserve">
+    <value>Test failed: incorrect token or poor network environment</value>
+  </data>
+  <data name="LazyTestTokenPassHint" xml:space="preserve">
+    <value>Test passed: took {0} milliseconds</value>
+  </data>
+  <data name="LazyTestTokenTitle" xml:space="preserve">
+    <value>Test server token</value>
+  </data>
+  <data name="LazyTokenErrorHint" xml:space="preserve">
+    <value>Token Error</value>
+  </data>
+  <data name="LicenseInfo" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="MessageBoxCaptionError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MessageBoxCaptionInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="MessageBoxCaptionQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="MessageBoxCaptionWarn" xml:space="preserve">
+    <value>Warn</value>
+  </data>
+  <data name="ModelViewer" xml:space="preserve">
+    <value>Model Viewer</value>
+  </data>
+  <data name="ModelViewerClickOrDropHint" xml:space="preserve">
+    <value>Click here to select a DMM file or drop down it here ...</value>
+  </data>
+  <data name="ModelViewerSelectMMD" xml:space="preserve">
+    <value>Select a MMD model file</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="OpenUrlGameBanana" xml:space="preserve">
+    <value>Game Banana</value>
+  </data>
+  <data name="OpenUrlInteractiveMap" xml:space="preserve">
+    <value>Teyvat Map</value>
+  </data>
+  <data name="OpenUrlPlayBox" xml:space="preserve">
+    <value>Play Box</value>
+  </data>
+  <data name="OperationSuccessfully" xml:space="preserve">
+    <value>Operation Successfully</value>
+  </data>
+  <data name="Plugin" xml:space="preserve">
+    <value>Plugin</value>
+  </data>
+  <data name="PluginManager" xml:space="preserve">
+    <value>Plugin Manager</value>
+  </data>
+  <data name="PluginManagerInstallNeedRestartHint" xml:space="preserve">
+    <value>Take effect after App Restart. Restarted immediately?</value>
+  </data>
+  <data name="PluginManagerPlugin" xml:space="preserve">
+    <value>Plugin</value>
+  </data>
+  <data name="PluginManagerPluginIllegal" xml:space="preserve">
+    <value>Illegal Plugin</value>
+  </data>
+  <data name="PluginManagerSelectPlugin" xml:space="preserve">
+    <value>Select Plugin</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RepairRegedit" xml:space="preserve">
+    <value>Repair Regedit</value>
+  </data>
+  <data name="RepairRegeditHint" xml:space="preserve">
+    <value>Repair Game Regedit about installtion.</value>
+  </data>
+  <data name="ReShade" xml:space="preserve">
+    <value>ReShade</value>
+  </data>
+  <data name="ReShadeLoaderExeNotExists" xml:space="preserve">
+    <value>{0} Not Exists</value>
+  </data>
+  <data name="ReShadeMultiUnselectedHint" xml:space="preserve">
+    <value>Do you want to disable {0} selection(s) in the current list?</value>
+  </data>
+  <data name="ReShadeRemovedToRecycleBin" xml:space="preserve">
+    <value>Deleted to the Recycle Bin</value>
+  </data>
+  <data name="ReShadeSelectFolder" xml:space="preserve">
+    <value>Select 3DMigoto Folder</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="RunLog" xml:space="preserve">
+    <value>Application logs</value>
+  </data>
+  <data name="RunLogHint" xml:space="preserve">
+    <value>Application log recorded locally</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SetSuccessfully" xml:space="preserve">
+    <value>Set Successfully</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SystemEvent" xml:space="preserve">
+    <value>System Event</value>
+  </data>
+  <data name="SystemVersion" xml:space="preserve">
+    <value>System Version</value>
+  </data>
+  <data name="UACRequestRestartHint" xml:space="preserve">
+    <value>Admin UAC required. Do you want to restart with admin?</value>
+  </data>
+  <data name="UnneedOperation" xml:space="preserve">
+    <value>Unneed Operate</value>
+  </data>
+  <data name="UsefullLinks" xml:space="preserve">
+    <value>Usefull Links</value>
+  </data>
+  <data name="UserManual" xml:space="preserve">
+    <value>User Manual</value>
+  </data>
+  <data name="__Colon__" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="__LeftParenthesis__" xml:space="preserve">
+    <value>(</value>
+  </data>
+  <data name="__RightParenthesis__" xml:space="preserve">
+    <value>)</value>
+  </data>
+</root>

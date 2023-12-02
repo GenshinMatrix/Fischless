@@ -52,7 +52,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.AddFriend}" />
-                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Add}" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Add}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -64,7 +64,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Settings}" />
-                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Settings}" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Settings}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -76,7 +76,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Refresh}" />
-                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Refresh}" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Refresh}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -165,7 +165,7 @@
                                                            FontSize="16"
                                                            Foreground="#FFFFFF"
                                                            Opacity="1"
-                                                           Text="{DynamicResource LaunchGamePlayingGame}" />
+                                                           Text="{I18N Key=LaunchGamePlayingGame}" />
                                             </Border>
                                         </StackPanel>
                                         <StackPanel Grid.Column="0"
@@ -263,7 +263,7 @@
                                                                        Stretch="Uniform" />
                                                             </Grid>
                                                             <StackPanel Margin="12,0,0,0">
-                                                                <TextBlock Text="{DynamicResource LaunchGameSettingsLazy}" />
+                                                                <TextBlock Text="{I18N Key=LaunchGameSettingsLazy}" />
                                                                 <ContentControl FontFamily="{DynamicResource TextThemeFontFamily}" FontSize="12">
                                                                     <ContentControl.Style>
                                                                         <Style TargetType="ContentControl">
@@ -271,14 +271,14 @@
                                                                                 <DataTrigger Binding="{Binding LazyInfoFetched.IsFinished}" Value="False">
                                                                                     <Setter Property="Content">
                                                                                         <Setter.Value>
-                                                                                            <TextBlock Foreground="{DynamicResource AccentForeground}" Text="{DynamicResource LaunchGameSettingsLazyNotCompleted}" />
+                                                                                            <TextBlock Foreground="{DynamicResource AccentForeground}" Text="{I18N Key=LaunchGameSettingsLazyNotCompleted}" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                 </DataTrigger>
                                                                                 <DataTrigger Binding="{Binding LazyInfoFetched.IsFinished}" Value="True">
                                                                                     <Setter Property="Content">
                                                                                         <Setter.Value>
-                                                                                            <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="{DynamicResource LaunchGameSettingsLazyCompleted}" />
+                                                                                            <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="{I18N Key=LaunchGameSettingsLazyCompleted}" />
                                                                                         </Setter.Value>
                                                                                     </Setter>
                                                                                 </DataTrigger>
@@ -290,7 +290,7 @@
                                                             <Button Margin="10,0,0,0"
                                                                     Padding="0"
                                                                     Command="{Binding LaunchLazyCommand}"
-                                                                    ToolTipService.ToolTip="{DynamicResource LaunchGameSettingsLaunchLazy}">
+                                                                    ToolTipService.ToolTip="{I18N Key=LaunchGameSettingsLaunchLazy}">
                                                                 <Grid Width="30"
                                                                       Height="30"
                                                                       VerticalAlignment="Center">
@@ -328,7 +328,7 @@
                     </ListView.ItemTemplate>
                     <ListView.ContextMenu>
                         <ContextMenu Cursor="{DynamicResource ThemeCursor}">
-                            <MenuItem Command="{Binding LaunchGameFromListCommand}" Header="{DynamicResource LaunchGameSettingsLaunchGame}">
+                            <MenuItem Command="{Binding LaunchGameFromListCommand}" Header="{I18N Key=LaunchGameSettingsLaunchGame}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
@@ -336,8 +336,8 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding LaunchGameFromListWithDelayCommand}"
-                                      Header="{DynamicResource LaunchGameSettingsLaunchGameSlow}"
-                                      ToolTip="{DynamicResource LaunchGameSettingsLaunchGameSlowHint}">
+                                      Header="{I18N Key=LaunchGameSettingsLaunchGameSlow}"
+                                      ToolTip="{I18N Key=LaunchGameSettingsLaunchGameSlowHint}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
@@ -345,7 +345,7 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding CancelLaunchGameFromListWithDelayCommand}"
-                                      Header="{DynamicResource LaunchGameSettingsLaunchGameSlowCancel}"
+                                      Header="{I18N Key=LaunchGameSettingsLaunchGameSlowCancel}"
                                       Visibility="{Binding CancelLaunchGameDelayTokenSource, Converter={StaticResource NotNullToVisibilityConverter}}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -354,7 +354,7 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Command="{Binding LaunchGameFromListWithReShadeCommand}"
-                                      Header="{DynamicResource LaunchGameSettingsLaunchReShade}"
+                                      Header="{I18N Key=LaunchGameSettingsLaunchReShade}"
                                       Visibility="{Binding IsInstalleShade}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
@@ -363,21 +363,21 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
-                            <MenuItem Command="{Binding RefreshContactCommand}" Header="{DynamicResource Refresh}">
+                            <MenuItem Command="{Binding RefreshContactCommand}" Header="{I18N Key=Refresh}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
                                                  Glyph="{x:Static fui:FontSymbols.Refresh}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{Binding CopyUidCommand}" Header="{DynamicResource LaunchGameSettingsLaunchCopyUID}">
+                            <MenuItem Command="{Binding CopyUidCommand}" Header="{I18N Key=LaunchGameSettingsLaunchCopyUID}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
                                                  Glyph="{x:Static fui:FontSymbols.Copy}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{Binding CopyCookieCommand}" Header="{DynamicResource LaunchGameSettingsLaunchCopyCookie}">
+                            <MenuItem Command="{Binding CopyCookieCommand}" Header="{I18N Key=LaunchGameSettingsLaunchCopyCookie}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
@@ -385,14 +385,14 @@
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator />
-                            <MenuItem Command="{Binding EditContactCommand}" Header="{DynamicResource Edit}">
+                            <MenuItem Command="{Binding EditContactCommand}" Header="{I18N Key=Edit}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"
                                                  Glyph="{x:Static fui:FontSymbols.Edit}" />
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Command="{Binding DeleteContactCommand}" Header="{DynamicResource Delete}">
+                            <MenuItem Command="{Binding DeleteContactCommand}" Header="{I18N Key=Delete}">
                                 <MenuItem.Icon>
                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                  FontSize="16"

@@ -320,7 +320,7 @@
                                                 <TextBlock MaxWidth="79"
                                                            FontWeight="DemiBold"
                                                            Foreground="#84603D"
-                                                           Text="{fui:DynamicResourceEx ResourceKey={Binding NameKey}}">
+                                                           Text="{I18N {Binding NameKey}}">
                                                     <i:Interaction.Behaviors>
                                                         <fui:TextBlockWidthAutoFontSizeBehavior Max="12" Min="7" />
                                                     </i:Interaction.Behaviors>
