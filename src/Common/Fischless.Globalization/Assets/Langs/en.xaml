@@ -44,7 +44,7 @@
     <s:String x:Key="Detail">Detail</s:String>
     <s:String x:Key="CopySuccessfully">Successfully copied</s:String>
     <s:String x:Key="CopyFailed">Copy failed</s:String>
-    <s:String x:Key="SetSuccessfully">Set　Successfully</s:String>
+    <s:String x:Key="SetSuccessfully">Set Successfully</s:String>
     <s:String x:Key="UnneedOperation">Unneed Operate</s:String>
     <s:String x:Key="OperationSuccessfully">Operation Successfully</s:String>
     <s:String x:Key="CreationFailed">Creation Failed</s:String>
@@ -124,7 +124,7 @@
     <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">Needs UAC Permissions</s:String>
 
     <!--  Model Viewer  -->
-    <s:String x:Key="ModelViewerSelectDMM">Select a DMM model file</s:String>
+    <s:String x:Key="ModelViewerSelectMMD">Select a MMD model file</s:String>
     <s:String x:Key="ModelViewerClickOrDropHint">Click here to select a DMM file or drop down it here ...</s:String>
 
     <!--  Plugin Manager  -->

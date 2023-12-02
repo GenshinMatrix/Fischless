@@ -124,7 +124,7 @@
     <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">UAC権限必要</s:String>
 
     <!--  Model Viewer  -->
-    <s:String x:Key="ModelViewerSelectDMM">ＤＭＭモデルファイルを選択</s:String>
+    <s:String x:Key="ModelViewerSelectMMD">ＭＭＤモデルファイルを選択</s:String>
     <s:String x:Key="ModelViewerClickOrDropHint">ここをクリックしてＤＭＭファイルを選択、またはここにドロップダウンする...</s:String>
 
     <!--  Plugin Manager  -->

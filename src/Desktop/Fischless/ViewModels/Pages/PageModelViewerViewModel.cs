@@ -45,8 +45,8 @@ public partial class PageModelViewerViewModel : ObservableRecipient
     {
         OpenFileDialog dialog = new()
         {
-            Title = Mui("ModelViewerSelectDMM"),
-            Filter = "DMM(*.pmx,*.zip,*.7z,*.rar)|*.pmx;*.zip;*.7z;*.rar",
+            Title = Mui("ModelViewerSelectMMD"),
+            Filter = "MMD(*.pmx,*.zip,*.7z,*.rar)|*.pmx;*.zip;*.7z;*.rar",
             RestoreDirectory = true,
             DefaultExt = "pmx",
             InitialDirectory = Directory.Exists(ForDispatcher.ApplicationModelPath) ? ForDispatcher.ApplicationModelPath : null,

@@ -72,7 +72,7 @@
     <!--  Home Launch  -->
     <s:String x:Key="LaunchGameSelectGamePathHint">选择 {0} 或 {1}</s:String>
     <s:String x:Key="LaunchGamePleaseSelectAccountToLaunch">请选择要启动的账号</s:String>
-    <s:String x:Key="LaunchGamePleaseSelectAccountToRefresh">请选择要启动的账号</s:String>
+    <s:String x:Key="LaunchGamePleaseSelectAccountToRefresh">请选择要刷新的账号</s:String>
     <s:String x:Key="LaunchGamePleaseSelectAccountToCopy">请选择要复制的账号</s:String>
     <s:String x:Key="LaunchGamePleaseSelectAccountToEdit">请选择要编辑的账号</s:String>
     <s:String x:Key="LaunchGamePleaseSelectAccountToDelete">请选择要删除的账号</s:String>
@@ -124,8 +124,8 @@
     <s:String x:Key="LaunchGameSettingsEnableReShadeSilentUAC">需要管理员权限</s:String>
 
     <!--  Model Viewer  -->
-    <s:String x:Key="ModelViewerSelectDMM">选择DMM模型文件</s:String>
-    <s:String x:Key="ModelViewerClickOrDropHint">点击此处选择DMM文件或将其拖放到此处...</s:String>
+    <s:String x:Key="ModelViewerSelectMMD">选择MMD模型文件</s:String>
+    <s:String x:Key="ModelViewerClickOrDropHint">点击此处选择MMD文件或将其拖放到此处...</s:String>
 
     <!--  Plugin Manager  -->
     <s:String x:Key="PluginManagerSelectPlugin">选择插件</s:String>
