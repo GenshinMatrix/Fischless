@@ -6,15 +6,15 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="修复注册表"
+                  Title="{I18N Key=RepairRegedit}"
                   CloseButtonClick="OnCloseButtonClick"
-                  CloseButtonText="关闭"
+                  CloseButtonText="{I18N Key=Close}"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   FontSize="14"
                   PrimaryButtonClick="OnPrimaryButtonClick"
-                  PrimaryButtonText="导出"
+                  PrimaryButtonText="{I18N Key=Export}"
                   SecondaryButtonClick="OnSecondaryButtonClick"
-                  SecondaryButtonText="保存"
+                  SecondaryButtonText="{I18N Key=Save}"
                   Style="{DynamicResource DefaultContentDialogStyle}"
                   mc:Ignorable="d">
     <ui:ContentDialog.Resources>
@@ -36,7 +36,7 @@
                         <Run FontWeight="Bold"
                              Foreground="{DynamicResource AccentForeground}"
                              Text="*" />
-                        <Run Text="服务器" />
+                        <Run Text="{I18N Key=Server}" />
                     </TextBlock.Inlines>
                 </TextBlock>
                 <StackPanel Orientation="Horizontal">
@@ -44,9 +44,9 @@
                               Margin="0,4,0,0"
                               SelectedIndex="{Binding RegionType}">
                         <ComboBox.Items>
-                            <ComboBoxItem Content="自动" />
-                            <ComboBoxItem Content="国服" />
-                            <ComboBoxItem Content="国际服" />
+                            <ComboBoxItem Content="{I18N Key=Auto}" />
+                            <ComboBoxItem Content="{I18N Key=ChineseServer}" />
+                            <ComboBoxItem Content="{I18N Key=GlobalServer}" />
                         </ComboBox.Items>
                     </ComboBox>
                 </StackPanel>
@@ -56,7 +56,7 @@
                         <Run FontWeight="Bold"
                              Foreground="{DynamicResource AccentForeground}"
                              Text="*" />
-                        <Run Text="注册表路径" />
+                        <Run Text="{I18N Key=RegistryPath}" />
                     </TextBlock.Inlines>
                 </TextBlock>
                 <Grid Margin="0,4,0,0">
@@ -88,7 +88,7 @@
                         <Run FontWeight="Bold"
                              Foreground="{DynamicResource AccentForeground}"
                              Text="*" />
-                        <Run Text="安装路径" />
+                        <Run Text="{I18N Key=InstallationPath}" />
                     </TextBlock.Inlines>
                 </TextBlock>
                 <Grid Margin="6,4,0,0">

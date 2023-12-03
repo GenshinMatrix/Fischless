@@ -100,7 +100,7 @@
                                                VerticalAlignment="Center"
                                                FontSize="12"
                                                Foreground="{DynamicResource WindowTitleForeground}"
-                                               Text="预览版" />
+                                               Text="{I18N Key=PreviewVersion}" />
                                 </Border>
                                 <TextBlock Margin="4,0,0,0"
                                            VerticalAlignment="Center"
@@ -109,7 +109,7 @@
                                            Visibility="{fui:Converter Value={x:Static helpers:RuntimeHelper.IsElevated},
                                                                       Converter={StaticResource BoolToVisibilityConverter}}">
                                     <TextBlock.Inlines>
-                                        <Run Text="{fui:StringFormat Format='[{0}]', Arg0='管理员'}" />
+                                        <Run Text="[" /><Run Text="{I18N Key=Admin}" /><Run Text="]" />
                                     </TextBlock.Inlines>
                                 </TextBlock>
                             </StackPanel>
@@ -179,10 +179,10 @@
                             <TextBlock FontSize="14"
                                        FontWeight="Bold"
                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                       Text="通知与行为" />
+                                       Text="{I18N Key=NotificationBehavior}" />
                             <TextBlock FontSize="13"
                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                       Text="自定义通知与行为" />
+                                       Text="{I18N Key=NotificationBehaviorHint}" />
                         </StackPanel>
                     </wui:CardExpander.Header>
                     <wui:CardExpander.Content>
@@ -205,18 +205,18 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="管理员权限" />
+                                                 Text="{I18N Key=AdminPermission}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="部分操作需要管理员权限" />
+                                                 Text="{I18N Key=AdminPermissionHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Grid.Column="1"
                                             Margin="0,0,45,0"
                                             Orientation="Horizontal">
-                                    <Button Command="{Binding RestartAsElevatedCommand}" ToolTip="确认以管理员方式重启">
+                                    <Button Command="{Binding RestartAsElevatedCommand}" ToolTip="{I18N Key=EnsureRestartAdmin}">
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
@@ -253,11 +253,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="开机启动" />
+                                                 Text="{I18N Key=StartupWithSystem}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="开机后将自动后台启动" />
+                                                 Text="{I18N Key=StartupWithSystemHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -290,11 +290,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="快捷方式" />
+                                                 Text="{I18N Key=Shortcut}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="创建桌面快捷方式" />
+                                                 Text="{I18N Key=CreateDesktopShortcut}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -327,11 +327,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="托盘隐藏" />
+                                                 Text="{I18N Key=HiddenInTray}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="主窗口关闭自动托盘隐藏" />
+                                                 Text="{I18N Key=HiddenInTrayHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -364,18 +364,18 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="自动静音" />
+                                                 Text="{I18N Key=AutoMute}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="当游戏窗口非前台状态时自动静音" />
+                                                 Text="{I18N Key=AutoMuteHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Grid.Column="1"
                                             Margin="0,0,45,0"
                                             Orientation="Horizontal">
-                                    <Button Command="{Binding LaunchWindowsSettingsAppsVolumeCommand}" ToolTip="前往设置">
+                                    <Button Command="{Binding LaunchWindowsSettingsAppsVolumeCommand}" ToolTip="{I18N Key=GoToSettings}">
                                         <Button.Content>
                                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                          FontSize="16"
@@ -407,10 +407,10 @@
                             <TextBlock FontSize="14"
                                        FontWeight="Bold"
                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                       Text="外观与表现" />
+                                       Text="{I18N Key=AppearancePerformance}" />
                             <TextBlock FontSize="13"
                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                       Text="自定义外观与表现" />
+                                       Text="{I18N Key=AppearancePerformanceHint}" />
                         </StackPanel>
                     </wui:CardExpander.Header>
                     <wui:CardExpander.Content>
@@ -433,11 +433,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="主题颜色" />
+                                                 Text="{I18N Key=ThemeColor}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="更改应用中显示的颜色" />
+                                                 Text="{I18N Key=ThemeColorHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -448,7 +448,8 @@
                                               Margin="0,0,0,0"
                                               Cursor="{x:Null}"
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="深色" />
+                                        <ComboBoxItem Content="{I18N Key=Dark}" />
+                                        <ComboBoxItem Content="{I18N Key=Light}" IsEnabled="False" />
                                     </ComboBox>
                                 </StackPanel>
                             </Grid>
@@ -470,11 +471,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="个性背景" />
+                                                 Text="{I18N Key=PersonalityBackground}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="更改应用中显示的背景" />
+                                                 Text="{I18N Key=PersonalityBackgroundHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -485,8 +486,8 @@
                                               Margin="0,0,0,0"
                                               Cursor="{x:Null}"
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="默认" />
-                                        <ComboBoxItem Content="幻灯片" IsEnabled="False" />
+                                        <ComboBoxItem Content="{I18N Key=Default}" />
+                                        <ComboBoxItem Content="{I18N Key=Slide}" IsEnabled="False" />
                                     </ComboBox>
                                 </StackPanel>
                             </Grid>
@@ -508,11 +509,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="主题光标" />
+                                                 Text="{I18N Key=ThemeCursor}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="启用应用主题光标" />
+                                                 Text="{I18N Key=ThemeCursorHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -545,11 +546,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="主题字体" />
+                                                 Text="{I18N Key=ThemeFont}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="启用应用主题字体家族" />
+                                                 Text="{I18N Key=ThemeFontHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -591,11 +592,11 @@
                                             <Run FontSize="14"
                                                  FontWeight="Bold"
                                                  Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                 Text="细小尺寸" />
+                                                 Text="{I18N Key=SmallSize}" />
                                             <LineBreak />
                                             <Run FontSize="13"
                                                  Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                                 Text="启用主窗口细小默认尺寸" />
+                                                 Text="{I18N Key=SmallSizeHint}" />
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </StackPanel>
@@ -616,7 +617,7 @@
                 <TextBlock Margin="3,8,0,0"
                            FontSize="14"
                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
-                           Text="数据存储" />
+                           Text="{I18N Key=DataStorage}" />
                 <wui:CardAction Margin="3,8,0,0" Command="{Binding OpenSpecialFolderCommand}">
                     <wui:CardAction.Icon>
                         <wui:FontIcon Height="40"

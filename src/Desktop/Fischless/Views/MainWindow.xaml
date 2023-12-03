@@ -81,7 +81,7 @@
                                    VerticalAlignment="Center"
                                    FontSize="12"
                                    Foreground="{DynamicResource WindowTitleForeground}"
-                                   Text="预览版" />
+                                   Text="{I18N Key=PreviewVersion}" />
                     </Border>
                 </StackPanel>
             </StackPanel>

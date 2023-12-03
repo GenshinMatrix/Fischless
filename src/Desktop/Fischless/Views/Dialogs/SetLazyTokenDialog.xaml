@@ -4,7 +4,7 @@
              xmlns:fui="urn:fischless.design"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-             Title="设定令牌"
+             Title="{I18N Key=LazySetupToken}"
              Width="450"
              Height="260"
              Cursor="{DynamicResource ThemeCursor}"
@@ -27,7 +27,7 @@
             <StackPanel Margin="0,0,0,0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="{DynamicResource AccentForeground}" Text="*" />
-                    <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="输入令牌" />
+                    <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="{I18N Key=LazyPleaseInputTokenHint}" />
                 </StackPanel>
                 <Grid Margin="0,8,0,0">
                     <Grid.ColumnDefinitions>
@@ -40,7 +40,7 @@
                     <Button Grid.Column="1"
                             Margin="8,0,0,0"
                             Command="{Binding OpenTokenCommand}"
-                            ToolTipService.ToolTip="打开令牌文件">
+                            ToolTipService.ToolTip="{I18N Key=LazyOpenToken}">
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="20"
                                      Glyph="{x:Static fui:FontSymbols.OpenFolderHorizontal}" />
@@ -50,7 +50,7 @@
             <StackPanel Margin="0,16,0,0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="{DynamicResource AccentForeground}" Text="*" />
-                    <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="加密令牌" />
+                    <TextBlock Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}" Text="{I18N Key=LazyEncryptToken}" />
                 </StackPanel>
                 <Grid Margin="0,8,0,0">
                     <Grid.ColumnDefinitions>
@@ -64,7 +64,7 @@
                     <Button Grid.Column="1"
                             Margin="8,0,0,0"
                             Command="{Binding TestTokenCommand}"
-                            ToolTipService.ToolTip="测试服务器">
+                            ToolTipService.ToolTip="{I18N Key=LazyTestTokenTitle}">
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="20"
                                      Glyph="{x:Static fui:FontSymbols.WifiHotspot}" />
@@ -73,7 +73,7 @@
             </StackPanel>
             <TextBlock Margin="0,8,0,0"
                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                       Text="提示：输入令牌后自动生成加密令牌" />
+                       Text="{I18N Key=LazyEncryptTokenHint}" />
             <StackPanel Margin="0,16,0,0"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
@@ -83,7 +83,7 @@
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="14"
                                          Glyph="{x:Static fui:FontSymbols.Cancel}" />
-                            <TextBlock Margin="8,0,0,0" Text="取消" />
+                            <TextBlock Margin="8,0,0,0" Text="{I18N Key=Cancel}" />
                         </StackPanel>
                     </Button.Content>
                 </Button>
@@ -96,7 +96,7 @@
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="14"
                                          Glyph="{x:Static fui:FontSymbols.Accept}" />
-                            <TextBlock Margin="8,0,0,0" Text="保存" />
+                            <TextBlock Margin="8,0,0,0" Text="{I18N Key=Save}" />
                         </StackPanel>
                     </Button.Content>
                 </wui:Button>

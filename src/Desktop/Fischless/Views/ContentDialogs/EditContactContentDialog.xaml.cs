@@ -74,7 +74,7 @@ public partial class EditContactContentDialog : ContentDialog
     {
         if (string.IsNullOrWhiteSpace(ViewModel.AliasName))
         {
-            Toast.Warning("咱们还是先取个别名吧", ToastLocation.BottomCenter);
+            Toast.Warning(Mui("LaunchGameSettingsAliasNamingHint"), ToastLocation.BottomCenter);
             e.Cancel = true;
             return;
         }

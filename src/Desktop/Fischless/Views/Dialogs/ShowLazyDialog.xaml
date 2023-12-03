@@ -7,7 +7,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-             Title="查看记录"
+             Title="{I18N Key=LazySearchRecord}"
              Width="450"
              Height="260"
              Cursor="{DynamicResource ThemeCursor}"
@@ -96,7 +96,7 @@
                                     Binding="{Binding DateTime}"
                                     IsReadOnly="True">
                     <DataGridTextColumn.Header>
-                        <TextBlock HorizontalAlignment="Center" Text="记录时间" />
+                        <TextBlock HorizontalAlignment="Center" Text="{I18N Key=LazySearchRecordTime}" />
                     </DataGridTextColumn.Header>
                     <DataGridTextColumn.CellStyle>
                         <Style BasedOn="{StaticResource DefaultDataGridCellStyle}" TargetType="{x:Type DataGridCell}">
@@ -124,7 +124,7 @@
                                         Binding="{Binding Today}"
                                         IsReadOnly="True">
                     <DataGridCheckBoxColumn.Header>
-                        <TextBlock HorizontalAlignment="Center" Text="今天记录" />
+                        <TextBlock HorizontalAlignment="Center" Text="{I18N Key=LazySearchRecordToday}" />
                     </DataGridCheckBoxColumn.Header>
                     <DataGridCheckBoxColumn.ElementStyle>
                         <Style BasedOn="{StaticResource {x:Type CheckBox}}" TargetType="CheckBox">

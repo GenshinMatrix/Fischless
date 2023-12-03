@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Fischless.Design.Controls;
 using Fischless.Fetch.Regedit;
+using Fischless.Globalization;
 using Fischless.Logging;
 using Fischless.Mapper;
 using Fischless.Models;
@@ -151,7 +152,7 @@ public partial class RepairRegeditViewModel : ObservableObject
             RestoreDirectory = true,
             InitialDirectory = Configurations.ReShadePath.Get(),
             DefaultDirectory = Configurations.ReShadePath.Get(),
-            Title = "选择 Genshin Impact 目录"
+            Title = MuiLanguage.Mui("SelectGenshinImpactDirectory"),
         };
 
         if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
@@ -160,7 +161,7 @@ public partial class RepairRegeditViewModel : ObservableObject
 
             if (!File.Exists(Path.Combine(selectedDirectory, "launcher.exe")))
             {
-                Toast.Warning($"launcher.exe 不存在");
+                Toast.Warning(MuiLanguage.Mui("FileNotExistsHint", "launcher.exe"));
                 return;
             }
 

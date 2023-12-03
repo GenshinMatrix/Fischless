@@ -97,11 +97,101 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
             get {
                 return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Account.
+        /// </summary>
+        public static string AddAccount {
+            get {
+                return ResourceManager.GetString("AddAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Admin.
+        /// </summary>
+        public static string Admin {
+            get {
+                return ResourceManager.GetString("Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administrator Permission.
+        /// </summary>
+        public static string AdminPermission {
+            get {
+                return ResourceManager.GetString("AdminPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some operations require administrator privileges.
+        /// </summary>
+        public static string AdminPermissionHint {
+            get {
+                return ResourceManager.GetString("AdminPermissionHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alias.
+        /// </summary>
+        public static string Alias {
+            get {
+                return ResourceManager.GetString("Alias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance and Performance.
+        /// </summary>
+        public static string AppearancePerformance {
+            get {
+                return ResourceManager.GetString("AppearancePerformance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize appearance and presentation.
+        /// </summary>
+        public static string AppearancePerformanceHint {
+            get {
+                return ResourceManager.GetString("AppearancePerformanceHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto.
+        /// </summary>
+        public static string Auto {
+            get {
+                return ResourceManager.GetString("Auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is automatically obtained from the registry and supports global server at the same time.
+        /// </summary>
+        public static string AutoFromRegistryHint {
+            get {
+                return ResourceManager.GetString("AutoFromRegistryHint", resourceCulture);
             }
         }
         
@@ -115,7 +205,25 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Automatically mute when the game window is not in the foreground state.
+        /// </summary>
+        public static string AutoMuteHint {
+            get {
+                return ResourceManager.GetString("AutoMuteHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon.
+        /// </summary>
+        public static string AvatarIcon {
+            get {
+                return ResourceManager.GetString("AvatarIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Albedo.
         /// </summary>
         public static string AvatarNameOfAlbedo {
             get {
@@ -124,7 +232,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Alhaitham.
         /// </summary>
         public static string AvatarNameOfAlhatham {
             get {
@@ -133,7 +241,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Aloy.
         /// </summary>
         public static string AvatarNameOfAloy {
             get {
@@ -142,7 +250,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Amber.
         /// </summary>
         public static string AvatarNameOfAmbor {
             get {
@@ -151,7 +259,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Oz.
         /// </summary>
         public static string AvatarNameOfAozi {
             get {
@@ -160,7 +268,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kamisato Ayaka.
         /// </summary>
         public static string AvatarNameOfAyaka {
             get {
@@ -169,7 +277,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kamisato Ayato.
         /// </summary>
         public static string AvatarNameOfAyato {
             get {
@@ -178,7 +286,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Baizhu.
         /// </summary>
         public static string AvatarNameOfBaizhuer {
             get {
@@ -187,7 +295,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Barbara.
         /// </summary>
         public static string AvatarNameOfBarbara {
             get {
@@ -196,7 +304,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Beidou.
         /// </summary>
         public static string AvatarNameOfBeidou {
             get {
@@ -205,7 +313,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Bennett.
         /// </summary>
         public static string AvatarNameOfBennett {
             get {
@@ -214,7 +322,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Candace.
         /// </summary>
         public static string AvatarNameOfCandace {
             get {
@@ -223,7 +331,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Charlotte.
         /// </summary>
         public static string AvatarNameOfCharlotte {
             get {
@@ -232,7 +340,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Chongyun.
         /// </summary>
         public static string AvatarNameOfChongyun {
             get {
@@ -241,7 +349,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Collei.
         /// </summary>
         public static string AvatarNameOfCollei {
             get {
@@ -250,7 +358,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Cyno.
         /// </summary>
         public static string AvatarNameOfCyno {
             get {
@@ -259,7 +367,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Dehya.
         /// </summary>
         public static string AvatarNameOfDehya {
             get {
@@ -268,7 +376,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Diluc.
         /// </summary>
         public static string AvatarNameOfDiluc {
             get {
@@ -277,7 +385,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Diona.
         /// </summary>
         public static string AvatarNameOfDiona {
             get {
@@ -286,7 +394,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Dori.
         /// </summary>
         public static string AvatarNameOfDori {
             get {
@@ -295,7 +403,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Eula.
         /// </summary>
         public static string AvatarNameOfEula {
             get {
@@ -304,7 +412,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Faruzan.
         /// </summary>
         public static string AvatarNameOfFaruzan {
             get {
@@ -313,7 +421,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yanfei.
         /// </summary>
         public static string AvatarNameOfFeiyan {
             get {
@@ -322,7 +430,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Fischl.
         /// </summary>
         public static string AvatarNameOfFischl {
             get {
@@ -331,7 +439,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Freminet.
         /// </summary>
         public static string AvatarNameOfFreminet {
             get {
@@ -340,7 +448,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Furina.
         /// </summary>
         public static string AvatarNameOfFurina {
             get {
@@ -349,7 +457,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Ganyu.
         /// </summary>
         public static string AvatarNameOfGanyu {
             get {
@@ -358,7 +466,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Gorou.
         /// </summary>
         public static string AvatarNameOfGorou {
             get {
@@ -367,7 +475,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Shikanoin Heizou.
         /// </summary>
         public static string AvatarNameOfHeizo {
             get {
@@ -376,7 +484,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Hu Tao.
         /// </summary>
         public static string AvatarNameOfHutao {
             get {
@@ -385,7 +493,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Arataki Itto.
         /// </summary>
         public static string AvatarNameOfItto {
             get {
@@ -394,7 +502,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kaeya.
         /// </summary>
         public static string AvatarNameOfKaeya {
             get {
@@ -403,7 +511,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kaveh.
         /// </summary>
         public static string AvatarNameOfKaveh {
             get {
@@ -412,7 +520,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kaedehara Kazuha.
         /// </summary>
         public static string AvatarNameOfKazuha {
             get {
@@ -421,7 +529,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Keqing.
         /// </summary>
         public static string AvatarNameOfKeqing {
             get {
@@ -430,7 +538,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Klee.
         /// </summary>
         public static string AvatarNameOfKlee {
             get {
@@ -439,7 +547,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sangonomiya Kokomi.
         /// </summary>
         public static string AvatarNameOfKokomi {
             get {
@@ -448,7 +556,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Layla.
         /// </summary>
         public static string AvatarNameOfLayla {
             get {
@@ -457,7 +565,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Lynette.
         /// </summary>
         public static string AvatarNameOfLinette {
             get {
@@ -466,7 +574,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Lyney.
         /// </summary>
         public static string AvatarNameOfLiney {
             get {
@@ -475,7 +583,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Lisa.
         /// </summary>
         public static string AvatarNameOfLisa {
             get {
@@ -484,7 +592,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Mika.
         /// </summary>
         public static string AvatarNameOfMika {
             get {
@@ -493,7 +601,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kirara.
         /// </summary>
         public static string AvatarNameOfMomoka {
             get {
@@ -502,7 +610,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Mona.
         /// </summary>
         public static string AvatarNameOfMona {
             get {
@@ -511,7 +619,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Nahida.
         /// </summary>
         public static string AvatarNameOfNahida {
             get {
@@ -520,7 +628,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Neuvillette.
         /// </summary>
         public static string AvatarNameOfNeuvillette {
             get {
@@ -529,7 +637,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Nilou.
         /// </summary>
         public static string AvatarNameOfNilou {
             get {
@@ -538,7 +646,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Ningguang.
         /// </summary>
         public static string AvatarNameOfNingguang {
             get {
@@ -547,7 +655,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Noelle.
         /// </summary>
         public static string AvatarNameOfNoel {
             get {
@@ -556,7 +664,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Paimon.
         /// </summary>
         public static string AvatarNameOfPaimon {
             get {
@@ -565,7 +673,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Aether.
         /// </summary>
         public static string AvatarNameOfPlayerBoy {
             get {
@@ -574,7 +682,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Lumine.
         /// </summary>
         public static string AvatarNameOfPlayerGirl {
             get {
@@ -583,7 +691,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Jean.
         /// </summary>
         public static string AvatarNameOfQin {
             get {
@@ -592,7 +700,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Qiqi.
         /// </summary>
         public static string AvatarNameOfQiqi {
             get {
@@ -601,7 +709,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Razor.
         /// </summary>
         public static string AvatarNameOfRazor {
             get {
@@ -610,7 +718,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rosaria.
         /// </summary>
         public static string AvatarNameOfRosaria {
             get {
@@ -619,7 +727,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kujou Sara.
         /// </summary>
         public static string AvatarNameOfSara {
             get {
@@ -628,7 +736,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sayu.
         /// </summary>
         public static string AvatarNameOfSayu {
             get {
@@ -637,7 +745,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Shenhe.
         /// </summary>
         public static string AvatarNameOfShenhe {
             get {
@@ -646,7 +754,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Kuki Shinobu.
         /// </summary>
         public static string AvatarNameOfShinobu {
             get {
@@ -655,7 +763,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Raiden Shogun.
         /// </summary>
         public static string AvatarNameOfShougun {
             get {
@@ -664,7 +772,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sucrose.
         /// </summary>
         public static string AvatarNameOfSucrose {
             get {
@@ -673,7 +781,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Tartaglia.
         /// </summary>
         public static string AvatarNameOfTartaglia {
             get {
@@ -682,7 +790,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Tighnari.
         /// </summary>
         public static string AvatarNameOfTighnari {
             get {
@@ -691,7 +799,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Thoma.
         /// </summary>
         public static string AvatarNameOfTohma {
             get {
@@ -700,7 +808,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Mitternachts Waltz.
         /// </summary>
         public static string AvatarNameOfUI_EquipIcon_Bow_Nachtblind_Awaken {
             get {
@@ -709,7 +817,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Psalmus.
         /// </summary>
         public static string AvatarNameOfUI_FlycloakIcon_Psalmus {
             get {
@@ -718,7 +826,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Venti.
         /// </summary>
         public static string AvatarNameOfVenti {
             get {
@@ -727,7 +835,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Wanderer.
         /// </summary>
         public static string AvatarNameOfWanderer {
             get {
@@ -736,7 +844,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Wriothesley.
         /// </summary>
         public static string AvatarNameOfWriothesley {
             get {
@@ -745,7 +853,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Xiangling.
         /// </summary>
         public static string AvatarNameOfXiangling {
             get {
@@ -754,7 +862,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Xiao.
         /// </summary>
         public static string AvatarNameOfXiao {
             get {
@@ -763,7 +871,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Xingqiu.
         /// </summary>
         public static string AvatarNameOfXingqiu {
             get {
@@ -772,7 +880,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Xinyan.
         /// </summary>
         public static string AvatarNameOfXinyan {
             get {
@@ -781,7 +889,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yae Miko.
         /// </summary>
         public static string AvatarNameOfYae {
             get {
@@ -790,7 +898,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yaoyao.
         /// </summary>
         public static string AvatarNameOfYaoyao {
             get {
@@ -799,7 +907,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yelan.
         /// </summary>
         public static string AvatarNameOfYelan {
             get {
@@ -808,7 +916,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yoimiya.
         /// </summary>
         public static string AvatarNameOfYoimiya {
             get {
@@ -817,7 +925,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Yun Jin.
         /// </summary>
         public static string AvatarNameOfYunjin {
             get {
@@ -826,7 +934,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Zhongli.
         /// </summary>
         public static string AvatarNameOfZhongli {
             get {
@@ -934,7 +1042,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to User data.
         /// </summary>
         public static string CacheData {
             get {
@@ -943,7 +1051,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to User data recorded locally.
         /// </summary>
         public static string CacheDataHint {
             get {
@@ -966,6 +1074,15 @@ namespace Fischless.Globalization.Properties {
         public static string CheckUpdate {
             get {
                 return ResourceManager.GetString("CheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chinese Server.
+        /// </summary>
+        public static string ChineseServer {
+            get {
+                return ResourceManager.GetString("ChineseServer", resourceCulture);
             }
         }
         
@@ -1033,11 +1150,65 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Current Account.
+        /// </summary>
+        public static string CurrentAccount {
+            get {
+                return ResourceManager.GetString("CurrentAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string Dark {
+            get {
+                return ResourceManager.GetString("Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data storage.
+        /// </summary>
+        public static string DataStorage {
+            get {
+                return ResourceManager.GetString("DataStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Folder.
+        /// </summary>
+        public static string DeleteFolder {
+            get {
+                return ResourceManager.GetString("DeleteFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desp.
+        /// </summary>
+        public static string Desp {
+            get {
+                return ResourceManager.GetString("Desp", resourceCulture);
             }
         }
         
@@ -1051,7 +1222,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Developer Tools.
         /// </summary>
         public static string DeveloperTools {
             get {
@@ -1078,11 +1249,29 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty.
+        /// </summary>
+        public static string Empty {
+            get {
+                return ResourceManager.GetString("Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ensure to restart with administrator.
+        /// </summary>
+        public static string EnsureRestartAdmin {
+            get {
+                return ResourceManager.GetString("EnsureRestartAdmin", resourceCulture);
             }
         }
         
@@ -1096,11 +1285,38 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {0} not exists.
+        /// </summary>
+        public static string FileNotExistsHint {
+            get {
+                return ResourceManager.GetString("FileNotExistsHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fischless.
         /// </summary>
         public static string Fischless {
             get {
                 return ResourceManager.GetString("Fischless", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Server.
+        /// </summary>
+        public static string GlobalServer {
+            get {
+                return ResourceManager.GetString("GlobalServer", resourceCulture);
             }
         }
         
@@ -1114,6 +1330,33 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go to Settings.
+        /// </summary>
+        public static string GoToSettings {
+            get {
+                return ResourceManager.GetString("GoToSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden in tray.
+        /// </summary>
+        public static string HiddenInTray {
+            get {
+                return ResourceManager.GetString("HiddenInTray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close the main window and hide the automatic tray.
+        /// </summary>
+        public static string HiddenInTrayHint {
+            get {
+                return ResourceManager.GetString("HiddenInTrayHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -1123,11 +1366,38 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Home Page.
         /// </summary>
         public static string HomePage {
             get {
                 return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installation path.
+        /// </summary>
+        public static string InstallationPath {
+            get {
+                return ResourceManager.GetString("InstallationPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install Plugin.
+        /// </summary>
+        public static string InstallPlugin {
+            get {
+                return ResourceManager.GetString("InstallPlugin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support HoYoLAB, and just access basic information.
+        /// </summary>
+        public static string IsUseCookieHint {
+            get {
+                return ResourceManager.GetString("IsUseCookieHint", resourceCulture);
             }
         }
         
@@ -1150,7 +1420,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Cookie copied to clipboard.
         /// </summary>
         public static string LaunchGameCookieCopied {
             get {
@@ -1159,7 +1429,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Account.
+        ///   Looks up a localized string similar to Delete account.
         /// </summary>
         public static string LaunchGameDeleteAccount {
             get {
@@ -1168,7 +1438,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sure you want to delete account &apos;{0}&apos;?.
         /// </summary>
         public static string LaunchGameDeleteAccountHint {
             get {
@@ -1177,7 +1447,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Playing.
         /// </summary>
         public static string LaunchGamePlayingGame {
             get {
@@ -1186,7 +1456,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Please select the account wana copy.
         /// </summary>
         public static string LaunchGamePleaseSelectAccountToCopy {
             get {
@@ -1195,7 +1465,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Please select the account wana delete.
         /// </summary>
         public static string LaunchGamePleaseSelectAccountToDelete {
             get {
@@ -1204,7 +1474,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Please select the account wana edit.
         /// </summary>
         public static string LaunchGamePleaseSelectAccountToEdit {
             get {
@@ -1213,7 +1483,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 请选择要启动的账号.
+        ///   Looks up a localized string similar to Please select the account wana launch.
         /// </summary>
         public static string LaunchGamePleaseSelectAccountToLaunch {
             get {
@@ -1222,7 +1492,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Please select the account wana refresh.
         /// </summary>
         public static string LaunchGamePleaseSelectAccountToRefresh {
             get {
@@ -1231,7 +1501,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The selected account is not enabled for cookie usage.
         /// </summary>
         public static string LaunchGameSelectAccountDisCookie {
             get {
@@ -1240,7 +1510,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The selected account has no cookie information.
         /// </summary>
         public static string LaunchGameSelectAccountNoCookie {
             get {
@@ -1258,7 +1528,16 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Let&apos;s take an alias first.
+        /// </summary>
+        public static string LaunchGameSettingsAliasNamingHint {
+            get {
+                return ResourceManager.GetString("LaunchGameSettingsAliasNamingHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable account recognition.
         /// </summary>
         public static string LaunchGameSettingsEnableDetectAccountGaming {
             get {
@@ -1267,7 +1546,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Very intelligent but consumes a small amount of resources for polling detection.
         /// </summary>
         public static string LaunchGameSettingsEnableDetectAccountGamingHint {
             get {
@@ -1276,7 +1555,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Enable Lazy.
         /// </summary>
         public static string LaunchGameSettingsEnableLazy {
             get {
@@ -1285,7 +1564,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Private.
         /// </summary>
         public static string LaunchGameSettingsEnableLazyPrivate {
             get {
@@ -1294,7 +1573,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Enable ReShade.
         /// </summary>
         public static string LaunchGameSettingsEnableReShade {
             get {
@@ -1303,7 +1582,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Silent Mode.
         /// </summary>
         public static string LaunchGameSettingsEnableReShadeSilent {
             get {
@@ -1312,7 +1591,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Needs UAC Permissions.
         /// </summary>
         public static string LaunchGameSettingsEnableReShadeSilentUAC {
             get {
@@ -1321,7 +1600,16 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Enter your Cookie.
+        /// </summary>
+        public static string LaunchGameSettingsEnterCookieHint {
+            get {
+                return ResourceManager.GetString("LaunchGameSettingsEnterCookieHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Borderless.
         /// </summary>
         public static string LaunchGameSettingsGameBorderless {
             get {
@@ -1330,7 +1618,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Unlock FPS.
         /// </summary>
         public static string LaunchGameSettingsGameFps {
             get {
@@ -1339,7 +1627,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Adjusting FPS through injection into rendering engines.
         /// </summary>
         public static string LaunchGameSettingsGameFpsHint {
             get {
@@ -1348,7 +1636,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to FullScreen.
         /// </summary>
         public static string LaunchGameSettingsGameFullScreen {
             get {
@@ -1357,7 +1645,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Game Path.
         /// </summary>
         public static string LaunchGameSettingsGamePath {
             get {
@@ -1366,7 +1654,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Resolution.
         /// </summary>
         public static string LaunchGameSettingsGameResolution {
             get {
@@ -1375,7 +1663,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Copy Cookie.
         /// </summary>
         public static string LaunchGameSettingsLaunchCopyCookie {
             get {
@@ -1384,7 +1672,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Copy UID.
         /// </summary>
         public static string LaunchGameSettingsLaunchCopyUID {
             get {
@@ -1393,7 +1681,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Launch Game.
         /// </summary>
         public static string LaunchGameSettingsLaunchGame {
             get {
@@ -1402,7 +1690,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Launch Game Slowly.
         /// </summary>
         public static string LaunchGameSettingsLaunchGameSlow {
             get {
@@ -1411,7 +1699,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Cancel Launch Game Slowly.
         /// </summary>
         public static string LaunchGameSettingsLaunchGameSlowCancel {
             get {
@@ -1420,7 +1708,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Start the selected account in 3 minutes.
         /// </summary>
         public static string LaunchGameSettingsLaunchGameSlowHint {
             get {
@@ -1429,7 +1717,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Start component.
         /// </summary>
         public static string LaunchGameSettingsLaunchLazy {
             get {
@@ -1438,7 +1726,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Activate the ReShade.
         /// </summary>
         public static string LaunchGameSettingsLaunchReShade {
             get {
@@ -1447,7 +1735,16 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Open ReShade Folder.
+        /// </summary>
+        public static string LaunchGameSettingsLaunchReShadeFolder {
+            get {
+                return ResourceManager.GetString("LaunchGameSettingsLaunchReShadeFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily World Quest.
         /// </summary>
         public static string LaunchGameSettingsLazy {
             get {
@@ -1456,7 +1753,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Quest completed.
         /// </summary>
         public static string LaunchGameSettingsLazyCompleted {
             get {
@@ -1465,7 +1762,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Quest incomplete.
         /// </summary>
         public static string LaunchGameSettingsLazyNotCompleted {
             get {
@@ -1474,7 +1771,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Potential Risks.
         /// </summary>
         public static string LaunchGameSettingsPotentialRisks {
             get {
@@ -1501,7 +1798,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MiYouShe Android.
+        ///   Looks up a localized string similar to HoYoLAB Android.
         /// </summary>
         public static string LaunchHyperion {
             get {
@@ -1510,7 +1807,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launch the MiYouShe using Windows 11 WSA (Chinese server only)..
+        ///   Looks up a localized string similar to Launch HoYoLAB by Win11 WSA (Chinese only).
         /// </summary>
         public static string LaunchHyperionHint {
             get {
@@ -1519,7 +1816,34 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Encrypt token.
+        /// </summary>
+        public static string LazyEncryptToken {
+            get {
+                return ResourceManager.GetString("LazyEncryptToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip: An encryption token is auto generated after you enter the token.
+        /// </summary>
+        public static string LazyEncryptTokenHint {
+            get {
+                return ResourceManager.GetString("LazyEncryptTokenHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Token.
+        /// </summary>
+        public static string LazyOpenToken {
+            get {
+                return ResourceManager.GetString("LazyOpenToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a token.
         /// </summary>
         public static string LazyPleaseInputTokenHint {
             get {
@@ -1528,7 +1852,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Search Record.
         /// </summary>
         public static string LazySearchRecord {
             get {
@@ -1537,7 +1861,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Please ensure that the server token path is correct and try again.
         /// </summary>
         public static string LazySearchRecordFailedHint {
             get {
@@ -1546,7 +1870,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Search Record failed.
         /// </summary>
         public static string LazySearchRecordFailedTitle {
             get {
@@ -1555,7 +1879,25 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Record Time.
+        /// </summary>
+        public static string LazySearchRecordTime {
+            get {
+                return ResourceManager.GetString("LazySearchRecordTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record Today.
+        /// </summary>
+        public static string LazySearchRecordToday {
+            get {
+                return ResourceManager.GetString("LazySearchRecordToday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please refer to the component instructions and set the token and try again.
         /// </summary>
         public static string LazySetupNoTokenHint {
             get {
@@ -1564,7 +1906,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to No accessable server token detected.
         /// </summary>
         public static string LazySetupNoTokenTitle {
             get {
@@ -1573,7 +1915,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Setup Token.
         /// </summary>
         public static string LazySetupToken {
             get {
@@ -1582,7 +1924,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Test failed: incorrect token or poor network environment.
         /// </summary>
         public static string LazyTestTokenFailHint {
             get {
@@ -1591,7 +1933,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Test passed: took {0} milliseconds.
         /// </summary>
         public static string LazyTestTokenPassHint {
             get {
@@ -1600,7 +1942,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Test server token.
         /// </summary>
         public static string LazyTestTokenTitle {
             get {
@@ -1609,11 +1951,29 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Token Error.
         /// </summary>
         public static string LazyTokenErrorHint {
             get {
                 return ResourceManager.GetString("LazyTokenErrorHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave it blank means that you only launch the game without switching account.
+        /// </summary>
+        public static string LeaveAccountBlankMeanHint {
+            get {
+                return ResourceManager.GetString("LeaveAccountBlankMeanHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can leave it blank here.
+        /// </summary>
+        public static string LeaveItBlankOkay {
+            get {
+                return ResourceManager.GetString("LeaveItBlankOkay", resourceCulture);
             }
         }
         
@@ -1623,6 +1983,15 @@ namespace Fischless.Globalization.Properties {
         public static string LicenseInfo {
             get {
                 return ResourceManager.GetString("LicenseInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string Light {
+            get {
+                return ResourceManager.GetString("Light", resourceCulture);
             }
         }
         
@@ -1681,7 +2050,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Click here to select a DMM file or drop down it here ....
         /// </summary>
         public static string ModelViewerClickOrDropHint {
             get {
@@ -1690,11 +2059,38 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Select a MMD model file.
         /// </summary>
-        public static string ModelViewerSelectDMM {
+        public static string ModelViewerSelectMMD {
             get {
-                return ResourceManager.GetString("ModelViewerSelectDMM", resourceCulture);
+                return ResourceManager.GetString("ModelViewerSelectMMD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More.
+        /// </summary>
+        public static string More {
+            get {
+                return ResourceManager.GetString("More", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification and Behavior.
+        /// </summary>
+        public static string NotificationBehavior {
+            get {
+                return ResourceManager.GetString("NotificationBehavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize notifications and behaviors.
+        /// </summary>
+        public static string NotificationBehaviorHint {
+            get {
+                return ResourceManager.GetString("NotificationBehaviorHint", resourceCulture);
             }
         }
         
@@ -1708,6 +2104,15 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Official.
+        /// </summary>
+        public static string Official {
+            get {
+                return ResourceManager.GetString("Official", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to On.
         /// </summary>
         public static string On {
@@ -1717,7 +2122,34 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Only show in effect.
+        /// </summary>
+        public static string OnlyShowInEffect {
+            get {
+                return ResourceManager.GetString("OnlyShowInEffect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Open {
+            get {
+                return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Folder.
+        /// </summary>
+        public static string OpenFolder {
+            get {
+                return ResourceManager.GetString("OpenFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Banana.
         /// </summary>
         public static string OpenUrlGameBanana {
             get {
@@ -1726,7 +2158,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Teyvat Map.
         /// </summary>
         public static string OpenUrlInteractiveMap {
             get {
@@ -1735,11 +2167,20 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Play Box.
         /// </summary>
         public static string OpenUrlPlayBox {
             get {
                 return ResourceManager.GetString("OpenUrlPlayBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation Failed.
+        /// </summary>
+        public static string OperationFailed {
+            get {
+                return ResourceManager.GetString("OperationFailed", resourceCulture);
             }
         }
         
@@ -1753,11 +2194,38 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Personality background.
+        /// </summary>
+        public static string PersonalityBackground {
+            get {
+                return ResourceManager.GetString("PersonalityBackground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the background displayed in the application.
+        /// </summary>
+        public static string PersonalityBackgroundHint {
+            get {
+                return ResourceManager.GetString("PersonalityBackgroundHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugin.
         /// </summary>
         public static string Plugin {
             get {
                 return ResourceManager.GetString("Plugin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugin Folder.
+        /// </summary>
+        public static string PluginFolder {
+            get {
+                return ResourceManager.GetString("PluginFolder", resourceCulture);
             }
         }
         
@@ -1771,7 +2239,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Take effect after App Restart. Restarted immediately?.
         /// </summary>
         public static string PluginManagerInstallNeedRestartHint {
             get {
@@ -1780,7 +2248,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Plugin.
         /// </summary>
         public static string PluginManagerPlugin {
             get {
@@ -1789,7 +2257,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Illegal Plugin.
         /// </summary>
         public static string PluginManagerPluginIllegal {
             get {
@@ -1798,11 +2266,29 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Select Plugin.
         /// </summary>
         public static string PluginManagerSelectPlugin {
             get {
                 return ResourceManager.GetString("PluginManagerSelectPlugin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugin Market.
+        /// </summary>
+        public static string PluginMarket {
+            get {
+                return ResourceManager.GetString("PluginMarket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string PreviewVersion {
+            get {
+                return ResourceManager.GetString("PreviewVersion", resourceCulture);
             }
         }
         
@@ -1816,11 +2302,56 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Randomly.
+        /// </summary>
+        public static string RandomlyGenerated {
+            get {
+                return ResourceManager.GetString("RandomlyGenerated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reacquire.
+        /// </summary>
+        public static string Reacquire {
+            get {
+                return ResourceManager.GetString("Reacquire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recognizable naming.
+        /// </summary>
+        public static string RecognizableNaming {
+            get {
+                return ResourceManager.GetString("RecognizableNaming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string Refresh {
             get {
                 return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registry path.
+        /// </summary>
+        public static string RegistryPath {
+            get {
+                return ResourceManager.GetString("RegistryPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename Folder.
+        /// </summary>
+        public static string RenameFolder {
+            get {
+                return ResourceManager.GetString("RenameFolder", resourceCulture);
             }
         }
         
@@ -1843,6 +2374,15 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ReShade.
         /// </summary>
         public static string ReShade {
@@ -1852,7 +2392,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {0} Not Exists.
         /// </summary>
         public static string ReShadeLoaderExeNotExists {
             get {
@@ -1861,7 +2401,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Do you want to disable {0} selection(s) in the current list?.
         /// </summary>
         public static string ReShadeMultiUnselectedHint {
             get {
@@ -1870,7 +2410,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Deleted to the Recycle Bin.
         /// </summary>
         public static string ReShadeRemovedToRecycleBin {
             get {
@@ -1879,7 +2419,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Select 3DMigoto Folder.
         /// </summary>
         public static string ReShadeSelectFolder {
             get {
@@ -1897,7 +2437,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Application logs.
         /// </summary>
         public static string RunLog {
             get {
@@ -1906,7 +2446,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Application log recorded locally.
         /// </summary>
         public static string RunLogHint {
             get {
@@ -1924,6 +2464,24 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select the Genshin Impact Directory.
+        /// </summary>
+        public static string SelectGenshinImpactDirectory {
+            get {
+                return ResourceManager.GetString("SelectGenshinImpactDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serve.
+        /// </summary>
+        public static string Serve {
+            get {
+                return ResourceManager.GetString("Serve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set Successfully.
         /// </summary>
         public static string SetSuccessfully {
@@ -1933,7 +2491,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
             get {
@@ -1942,7 +2500,61 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Shortcut.
+        /// </summary>
+        public static string Shortcut {
+            get {
+                return ResourceManager.GetString("Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide.
+        /// </summary>
+        public static string Slide {
+            get {
+                return ResourceManager.GetString("Slide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small size.
+        /// </summary>
+        public static string SmallSize {
+            get {
+                return ResourceManager.GetString("SmallSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable small default size for the main window.
+        /// </summary>
+        public static string SmallSizeHint {
+            get {
+                return ResourceManager.GetString("SmallSizeHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startup with system.
+        /// </summary>
+        public static string StartupWithSystem {
+            get {
+                return ResourceManager.GetString("StartupWithSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After system startup up, it will auto start in the background.
+        /// </summary>
+        public static string StartupWithSystemHint {
+            get {
+                return ResourceManager.GetString("StartupWithSystemHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Event.
         /// </summary>
         public static string SystemEvent {
             get {
@@ -1951,11 +2563,65 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to System Version.
         /// </summary>
         public static string SystemVersion {
             get {
                 return ResourceManager.GetString("SystemVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme colors.
+        /// </summary>
+        public static string ThemeColor {
+            get {
+                return ResourceManager.GetString("ThemeColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the color displayed in the application.
+        /// </summary>
+        public static string ThemeColorHint {
+            get {
+                return ResourceManager.GetString("ThemeColorHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme cursor.
+        /// </summary>
+        public static string ThemeCursor {
+            get {
+                return ResourceManager.GetString("ThemeCursor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable application theme cursor.
+        /// </summary>
+        public static string ThemeCursorHint {
+            get {
+                return ResourceManager.GetString("ThemeCursorHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme font.
+        /// </summary>
+        public static string ThemeFont {
+            get {
+                return ResourceManager.GetString("ThemeFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable application theme font family.
+        /// </summary>
+        public static string ThemeFontHint {
+            get {
+                return ResourceManager.GetString("ThemeFontHint", resourceCulture);
             }
         }
         
@@ -1978,7 +2644,7 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Usefull Links.
         /// </summary>
         public static string UsefullLinks {
             get {
@@ -1987,11 +2653,20 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to User Manual.
         /// </summary>
         public static string UserManual {
             get {
                 return ResourceManager.GetString("UserManual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
     }

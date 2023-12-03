@@ -103,8 +103,44 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="AddAccount" xml:space="preserve">
+    <value>Add Account</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="AdminPermission" xml:space="preserve">
+    <value>Administrator Permission</value>
+  </data>
+  <data name="AdminPermissionHint" xml:space="preserve">
+    <value>Some operations require administrator privileges</value>
+  </data>
+  <data name="Alias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="AppearancePerformance" xml:space="preserve">
+    <value>Appearance and Performance</value>
+  </data>
+  <data name="AppearancePerformanceHint" xml:space="preserve">
+    <value>Customize appearance and presentation</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="AutoFromRegistryHint" xml:space="preserve">
+    <value>It is automatically obtained from the registry and supports global server at the same time</value>
+  </data>
   <data name="AutoMute" xml:space="preserve">
     <value>Auto Mute</value>
+  </data>
+  <data name="AutoMuteHint" xml:space="preserve">
+    <value>Automatically mute when the game window is not in the foreground state</value>
+  </data>
+  <data name="AvatarIcon" xml:space="preserve">
+    <value>Icon</value>
   </data>
   <data name="AvatarNameOfAlbedo" xml:space="preserve">
     <value>Albedo</value>
@@ -391,6 +427,9 @@
   <data name="CheckUpdate" xml:space="preserve">
     <value>Check for updates</value>
   </data>
+  <data name="ChineseServer" xml:space="preserve">
+    <value>Chinese Server</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -412,8 +451,26 @@
   <data name="CreationFailed" xml:space="preserve">
     <value>Creation Failed</value>
   </data>
+  <data name="CurrentAccount" xml:space="preserve">
+    <value>Current Account</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="DataStorage" xml:space="preserve">
+    <value>Data storage</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="DeleteFolder" xml:space="preserve">
+    <value>Delete Folder</value>
+  </data>
+  <data name="Desp" xml:space="preserve">
+    <value>Desp</value>
   </data>
   <data name="Detail" xml:space="preserve">
     <value>Detail</value>
@@ -430,20 +487,53 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="EnsureRestartAdmin" xml:space="preserve">
+    <value>Ensure to restart with administrator</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="FileNotExistsHint" xml:space="preserve">
+    <value>File {0} not exists</value>
   </data>
   <data name="Fischless" xml:space="preserve">
     <value>Fischless</value>
   </data>
+  <data name="GlobalServer" xml:space="preserve">
+    <value>Global Server</value>
+  </data>
   <data name="GlobalSettings" xml:space="preserve">
     <value>Global Settings</value>
+  </data>
+  <data name="GoToSettings" xml:space="preserve">
+    <value>Go to Settings</value>
+  </data>
+  <data name="HiddenInTray" xml:space="preserve">
+    <value>Hidden in tray</value>
+  </data>
+  <data name="HiddenInTrayHint" xml:space="preserve">
+    <value>Close the main window and hide the automatic tray</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="HomePage" xml:space="preserve">
     <value>Home Page</value>
+  </data>
+  <data name="InstallationPath" xml:space="preserve">
+    <value>Installation path</value>
+  </data>
+  <data name="InstallPlugin" xml:space="preserve">
+    <value>Install Plugin</value>
+  </data>
+  <data name="IsUseCookieHint" xml:space="preserve">
+    <value>Support HoYoLAB, and just access basic information</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -487,6 +577,9 @@
   <data name="LaunchGameSelectGamePathHint" xml:space="preserve">
     <value>Select {0} or {1}</value>
   </data>
+  <data name="LaunchGameSettingsAliasNamingHint" xml:space="preserve">
+    <value>Let's take an alias first</value>
+  </data>
   <data name="LaunchGameSettingsEnableDetectAccountGaming" xml:space="preserve">
     <value>Enable account recognition</value>
   </data>
@@ -507,6 +600,9 @@
   </data>
   <data name="LaunchGameSettingsEnableReShadeSilentUAC" xml:space="preserve">
     <value>Needs UAC Permissions</value>
+  </data>
+  <data name="LaunchGameSettingsEnterCookieHint" xml:space="preserve">
+    <value>Enter your Cookie</value>
   </data>
   <data name="LaunchGameSettingsGameBorderless" xml:space="preserve">
     <value>Borderless</value>
@@ -550,6 +646,9 @@
   <data name="LaunchGameSettingsLaunchReShade" xml:space="preserve">
     <value>Activate the ReShade</value>
   </data>
+  <data name="LaunchGameSettingsLaunchReShadeFolder" xml:space="preserve">
+    <value>Open ReShade Folder</value>
+  </data>
   <data name="LaunchGameSettingsLazy" xml:space="preserve">
     <value>Daily World Quest</value>
   </data>
@@ -572,7 +671,16 @@
     <value>HoYoLAB Android</value>
   </data>
   <data name="LaunchHyperionHint" xml:space="preserve">
-    <value>Launch HoYoLAB by Win11 WSA (Chinese only).</value>
+    <value>Launch HoYoLAB by Win11 WSA (Chinese only)</value>
+  </data>
+  <data name="LazyEncryptToken" xml:space="preserve">
+    <value>Encrypt token</value>
+  </data>
+  <data name="LazyEncryptTokenHint" xml:space="preserve">
+    <value>Tip: An encryption token is auto generated after you enter the token</value>
+  </data>
+  <data name="LazyOpenToken" xml:space="preserve">
+    <value>Open Token</value>
   </data>
   <data name="LazyPleaseInputTokenHint" xml:space="preserve">
     <value>Please enter a token</value>
@@ -581,13 +689,19 @@
     <value>Search Record</value>
   </data>
   <data name="LazySearchRecordFailedHint" xml:space="preserve">
-    <value>Please ensure that the server token path is correct and try again.</value>
+    <value>Please ensure that the server token path is correct and try again</value>
   </data>
   <data name="LazySearchRecordFailedTitle" xml:space="preserve">
     <value>Search Record failed</value>
   </data>
+  <data name="LazySearchRecordTime" xml:space="preserve">
+    <value>Record Time</value>
+  </data>
+  <data name="LazySearchRecordToday" xml:space="preserve">
+    <value>Record Today</value>
+  </data>
   <data name="LazySetupNoTokenHint" xml:space="preserve">
-    <value>Please refer to the component instructions and set the token and try again.</value>
+    <value>Please refer to the component instructions and set the token and try again</value>
   </data>
   <data name="LazySetupNoTokenTitle" xml:space="preserve">
     <value>No accessable server token detected</value>
@@ -607,8 +721,17 @@
   <data name="LazyTokenErrorHint" xml:space="preserve">
     <value>Token Error</value>
   </data>
+  <data name="LeaveAccountBlankMeanHint" xml:space="preserve">
+    <value>Leave it blank means that you only launch the game without switching account</value>
+  </data>
+  <data name="LeaveItBlankOkay" xml:space="preserve">
+    <value>You can leave it blank here</value>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>License</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading</value>
@@ -634,11 +757,32 @@
   <data name="ModelViewerSelectMMD" xml:space="preserve">
     <value>Select a MMD model file</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="NotificationBehavior" xml:space="preserve">
+    <value>Notification and Behavior</value>
+  </data>
+  <data name="NotificationBehaviorHint" xml:space="preserve">
+    <value>Customize notifications and behaviors</value>
+  </data>
   <data name="Off" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="Official" xml:space="preserve">
+    <value>Official</value>
+  </data>
   <data name="On" xml:space="preserve">
     <value>On</value>
+  </data>
+  <data name="OnlyShowInEffect" xml:space="preserve">
+    <value>Only show in effect</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Open Folder</value>
   </data>
   <data name="OpenUrlGameBanana" xml:space="preserve">
     <value>Game Banana</value>
@@ -649,11 +793,23 @@
   <data name="OpenUrlPlayBox" xml:space="preserve">
     <value>Play Box</value>
   </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Operation Failed</value>
+  </data>
   <data name="OperationSuccessfully" xml:space="preserve">
     <value>Operation Successfully</value>
   </data>
+  <data name="PersonalityBackground" xml:space="preserve">
+    <value>Personality background</value>
+  </data>
+  <data name="PersonalityBackgroundHint" xml:space="preserve">
+    <value>Change the background displayed in the application</value>
+  </data>
   <data name="Plugin" xml:space="preserve">
     <value>Plugin</value>
+  </data>
+  <data name="PluginFolder" xml:space="preserve">
+    <value>Plugin Folder</value>
   </data>
   <data name="PluginManager" xml:space="preserve">
     <value>Plugin Manager</value>
@@ -670,17 +826,41 @@
   <data name="PluginManagerSelectPlugin" xml:space="preserve">
     <value>Select Plugin</value>
   </data>
+  <data name="PluginMarket" xml:space="preserve">
+    <value>Plugin Market</value>
+  </data>
+  <data name="PreviewVersion" xml:space="preserve">
+    <value>Preview</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy Policy</value>
   </data>
+  <data name="RandomlyGenerated" xml:space="preserve">
+    <value>Randomly</value>
+  </data>
+  <data name="Reacquire" xml:space="preserve">
+    <value>Reacquire</value>
+  </data>
+  <data name="RecognizableNaming" xml:space="preserve">
+    <value>Recognizable naming</value>
+  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
+  </data>
+  <data name="RegistryPath" xml:space="preserve">
+    <value>Registry path</value>
+  </data>
+  <data name="RenameFolder" xml:space="preserve">
+    <value>Rename Folder</value>
   </data>
   <data name="RepairRegedit" xml:space="preserve">
     <value>Repair Regedit</value>
   </data>
   <data name="RepairRegeditHint" xml:space="preserve">
     <value>Repair Game Regedit about installtion.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="ReShade" xml:space="preserve">
     <value>ReShade</value>
@@ -709,17 +889,59 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SelectGenshinImpactDirectory" xml:space="preserve">
+    <value>Select the Genshin Impact Directory</value>
+  </data>
+  <data name="Serve" xml:space="preserve">
+    <value>Serve</value>
+  </data>
   <data name="SetSuccessfully" xml:space="preserve">
     <value>Set Successfully</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Shortcut" xml:space="preserve">
+    <value>Shortcut</value>
+  </data>
+  <data name="Slide" xml:space="preserve">
+    <value>Slide</value>
+  </data>
+  <data name="SmallSize" xml:space="preserve">
+    <value>Small size</value>
+  </data>
+  <data name="SmallSizeHint" xml:space="preserve">
+    <value>Enable small default size for the main window</value>
+  </data>
+  <data name="StartupWithSystem" xml:space="preserve">
+    <value>Startup with system</value>
+  </data>
+  <data name="StartupWithSystemHint" xml:space="preserve">
+    <value>After system startup up, it will auto start in the background</value>
+  </data>
   <data name="SystemEvent" xml:space="preserve">
     <value>System Event</value>
   </data>
   <data name="SystemVersion" xml:space="preserve">
     <value>System Version</value>
+  </data>
+  <data name="ThemeColor" xml:space="preserve">
+    <value>Theme colors</value>
+  </data>
+  <data name="ThemeColorHint" xml:space="preserve">
+    <value>Change the color displayed in the application</value>
+  </data>
+  <data name="ThemeCursor" xml:space="preserve">
+    <value>Theme cursor</value>
+  </data>
+  <data name="ThemeCursorHint" xml:space="preserve">
+    <value>Enable application theme cursor</value>
+  </data>
+  <data name="ThemeFont" xml:space="preserve">
+    <value>Theme font</value>
+  </data>
+  <data name="ThemeFontHint" xml:space="preserve">
+    <value>Enable application theme font family</value>
   </data>
   <data name="UACRequestRestartHint" xml:space="preserve">
     <value>Admin UAC required. Do you want to restart with admin?</value>
@@ -732,6 +954,9 @@
   </data>
   <data name="UserManual" xml:space="preserve">
     <value>User Manual</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
   </data>
   <data name="__Colon__" xml:space="preserve">
     <value>:</value>

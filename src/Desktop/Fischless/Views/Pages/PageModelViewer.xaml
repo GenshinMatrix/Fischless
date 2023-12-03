@@ -35,7 +35,7 @@
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="16"
                                          Glyph="{x:Static fui:FontSymbols.Folder}" />
-                            <TextBlock Margin="5,0,0,0" Text="打开" />
+                            <TextBlock Margin="5,0,0,0" Text="{I18N Key=Open}" />
                         </StackPanel>
                     </Button.Content>
                 </Button>
@@ -48,7 +48,7 @@
                             <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                          FontSize="16"
                                          Glyph="{x:Static fui:FontSymbols.UpdateRestore}" />
-                            <TextBlock Margin="5,0,0,0" Text="重置" />
+                            <TextBlock Margin="5,0,0,0" Text="{I18N Key=Reset}" />
                         </StackPanel>
                     </Button.Content>
                 </Button>

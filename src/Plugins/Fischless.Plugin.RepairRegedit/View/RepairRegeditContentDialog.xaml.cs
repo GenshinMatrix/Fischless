@@ -38,7 +38,7 @@ public partial class RepairRegeditContentDialog : ContentDialog
             if (dialog.ShowDialog() ?? false)
             {
                 File.WriteAllText(dialog.FileName, ViewModel.ToRegFileText(), Encoding.Unicode);
-                Toast.Information("操作成功");
+                Toast.Information(MuiLanguage.Mui("OperationSuccessfully"));
             }
         }
         catch (Exception ex)
@@ -65,11 +65,11 @@ public partial class RepairRegeditContentDialog : ContentDialog
 
         if (result)
         {
-            _ = MessageBoxX.Info("操作成功");
+            _ = MessageBoxX.Info(MuiLanguage.Mui("OperationSuccessfully"));
         }
         else
         {
-            _ = MessageBoxX.Error("操作失败");
+            _ = MessageBoxX.Error(MuiLanguage.Mui("OperationFailed"));
         }
     }
 

@@ -7,7 +7,7 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:ui="http://schemas.modernwpf.com/2019"
                   xmlns:wui="http://schemas.lepo.co/wpfui/2022/xaml"
-                  Title="添加账号"
+                  Title="{I18N Key=AddAccount}"
                   DefaultButton="Secondary"
                   FontFamily="{DynamicResource TextThemeFontFamily}"
                   PrimaryButtonClick="OnPrimaryButtonClick"
@@ -32,7 +32,7 @@
                         <Run FontWeight="Bold"
                              Foreground="{DynamicResource AccentForeground}"
                              Text="*" />
-                        <Run FontSize="16" Text="头像" />
+                        <Run FontSize="16" Text="{I18N Key=AvatarIcon}" />
                     </TextBlock.Inlines>
                 </TextBlock>
                 <Button x:Name="LocalIconButton"
@@ -110,14 +110,14 @@
                                 <Run FontWeight="Bold"
                                      Foreground="{DynamicResource AccentForeground}"
                                      Text="*" />
-                                <Run FontSize="16" Text="别名" />
+                                <Run FontSize="16" Text="{I18N Key=Alias}" />
                             </TextBlock.Inlines>
                         </TextBlock>
                         <Button Margin="5,0,0,0"
                                 Padding="0"
                                 Command="{Binding GenerateAliasNameCommand}"
                                 Style="{StaticResource DateTimePickerFlyoutButtonStyle}"
-                                ToolTipService.ToolTip="随机生成">
+                                ToolTipService.ToolTip="{I18N Key=RandomlyGenerated}">
                             <Button.Content>
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
@@ -126,7 +126,7 @@
                         </Button>
                     </StackPanel>
                     <wui:TextBox Margin="0,8,0,0"
-                                 PlaceholderText="取个好辨认的名字"
+                                 PlaceholderText="{I18N Key=RecognizableNaming}"
                                  Text="{Binding AliasName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="8,0,0,0">
@@ -135,15 +135,15 @@
                             <Run FontWeight="Bold"
                                  Foreground="{DynamicResource AccentForeground}"
                                  Text="*" />
-                            <Run FontSize="16" Text="服务器" />
+                            <Run FontSize="16" Text="{I18N Key=Serve}" />
                         </TextBlock.Inlines>
                     </TextBlock>
                     <ComboBox Margin="0,8,0,0"
                               Cursor="{x:Null}"
                               SelectedIndex="{Binding SelectedServerIndex, Mode=TwoWay}">
-                        <ComboBoxItem Content="自动" />
-                        <ComboBoxItem Content="国服" />
-                        <ComboBoxItem Content="国际服" />
+                        <ComboBoxItem Content="{I18N Key=Auto}" />
+                        <ComboBoxItem Content="{I18N Key=ChineseServer}" />
+                        <ComboBoxItem Content="{I18N Key=GlobalServer}" />
                     </ComboBox>
                 </StackPanel>
             </Grid>
@@ -152,14 +152,14 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
                             <TextBlock.Inlines>
-                                <Run FontSize="16" Text="当前账号" />
+                                <Run FontSize="16" Text="{DynamicResource CurrentAccount}" />
                             </TextBlock.Inlines>
                         </TextBlock>
                         <Button Margin="5,0,0,0"
                                 Padding="0"
                                 Command="{Binding RegetProdCommand}"
                                 Style="{StaticResource DateTimePickerFlyoutButtonStyle}"
-                                ToolTipService.ToolTip="重新获取">
+                                ToolTipService.ToolTip="{I18N Key=Reacquire}">
                             <Button.Content>
                                 <ui:FontIcon FontSize="14" Glyph="&#xe72c;" />
                             </Button.Content>
@@ -168,32 +168,32 @@
                     <TextBlock Margin="2,0,0,0"
                                FontSize="14"
                                Foreground="#61666D"
-                               Text="从注册表自动获取，同时支持国际服。" />
+                               Text="{I18N AutoFromRegistryHint}" />
                 </StackPanel>
             </Grid>
             <wui:TextBox Height="80"
                          MaxHeight="80"
                          AcceptsReturn="False"
-                         PlaceholderText="留空表示仅启动游戏不切换账号"
+                         PlaceholderText="{I18N Key=LeaveAccountBlankMeanHint}"
                          Style="{StaticResource MonoUiTextBoxStyle}"
                          Text="{Binding Prod, Mode=TwoWay}"
                          TextWrapping="Wrap" />
             <TextBlock Foreground="#61666D" Text="{Binding ProdMD5}" />
             <StackPanel>
                 <CheckBox Margin="0,8,0,0"
-                          Content="输入 Cookie"
+                          Content="{I18N Key=LaunchGameSettingsEnterCookieHint}"
                           Cursor="{x:Null}"
                           FontSize="16"
                           IsChecked="{Binding IsUseCookie, Mode=TwoWay}" />
                 <TextBlock Margin="0,0,0,5"
                            FontSize="14"
                            Foreground="#61666D"
-                           Text="支持国服米游社，同时支持国际服，风控原因仅访问基本信息。"
+                           Text="{I18N Key=IsUseCookieHint}"
                            TextWrapping="Wrap" />
             </StackPanel>
             <wui:TextBox Margin="0,0,0,16"
                          IsEnabled="{Binding IsUseCookie}"
-                         PlaceholderText="此处可留空"
+                         PlaceholderText="{I18N Key=LeaveItBlankOkay}"
                          Style="{StaticResource MonoUiTextBoxStyle}"
                          Text="{Binding Cookie, Mode=TwoWay}" />
         </StackPanel>

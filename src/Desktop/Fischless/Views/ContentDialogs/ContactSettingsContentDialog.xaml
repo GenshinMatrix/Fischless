@@ -18,7 +18,6 @@
     <ui:ContentDialog.Resources>
         <fui:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <fui:ToStringConverter x:Key="ToStringConverter" />
-        <fui:MultiBindingStringFormatConverter x:Key="MultiBindingStringFormatConverter " />
     </ui:ContentDialog.Resources>
     <Grid>
         <Grid Margin="0,-40,0,0"

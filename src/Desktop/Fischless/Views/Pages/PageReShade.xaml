@@ -169,7 +169,7 @@
                                   Padding="5,2,5,2"
                                   IsChecked="{Binding IsEnableOnly, Mode=TwoWay}"
                                   Style="{StaticResource ImageToggleButtonStyle}"
-                                  ToolTip="仅显示生效中">
+                                  ToolTip="{I18N Key=OnlyShowInEffect}">
                         <ToggleButton.Content>
                             <svgc:SvgViewbox Width="28"
                                              Height="28"
@@ -189,7 +189,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Refresh}" />
-                                <TextBlock Margin="5,0,0,0" Text="刷新" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Refresh}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -201,7 +201,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.Settings}" />
-                                <TextBlock Margin="5,0,0,0" Text="设定" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Settings}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -213,7 +213,7 @@
                                 <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                              FontSize="16"
                                              Glyph="{x:Static fui:FontSymbols.ErrorBadge}" />
-                                <TextBlock Margin="5,0,0,0" Text="取消" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=Cancel}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -227,7 +227,7 @@
                                         <RotateTransform Angle="90" CenterX="8" CenterY="8" />
                                     </ui:FontIcon.LayoutTransform>
                                 </ui:FontIcon>
-                                <TextBlock Margin="5,0,0,0" Text="更多" />
+                                <TextBlock Margin="5,0,0,0" Text="{I18N Key=More}" />
                             </StackPanel>
                         </Button.Content>
                         <Button.ContextMenu>
@@ -236,7 +236,7 @@
                                          FontSize="12">
                                 <MenuItem Command="{Binding LaunchGameCommand}"
                                           FontSize="12"
-                                          Header="启动游戏">
+                                          Header="{I18N Key=LaunchGameSettingsLaunchGame}">
                                     <MenuItem.Icon>
                                         <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                    FontSize="16"
@@ -245,7 +245,7 @@
                                 </MenuItem>
                                 <MenuItem Command="{Binding LaunchLoaderCommand}"
                                           FontSize="12"
-                                          Header="启动幽夜净土">
+                                          Header="{I18N Key=LaunchGameSettingsLaunchReShade}">
                                     <MenuItem.Icon>
                                         <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                    FontSize="16"
@@ -254,7 +254,7 @@
                                 </MenuItem>
                                 <MenuItem Command="{Binding OpenLoaderFolderCommand}"
                                           FontSize="12"
-                                          Header="打开幽夜净土目录">
+                                          Header="{I18N Key=LaunchGameSettingsLaunchReShadeFolder}">
                                     <MenuItem.Icon>
                                         <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
                                                    FontSize="16"
@@ -348,7 +348,7 @@
                                          Glyph="{x:Static m:IcoMoonFontSymbols.Empty}" />
                             <TextBlock Margin="0,8,0,0"
                                        Foreground="{DynamicResource WindowTitleForeground}"
-                                       Text="空空如也" />
+                                       Text="{I18N Key=Empty}" />
                         </StackPanel>
                         <fui:SmoothScrollViewer>
                             <ListView AllowDrop="True"
@@ -399,14 +399,14 @@
                                                     </Button.Content>
                                                     <Button.ContextMenu>
                                                         <ContextMenu Cursor="{DynamicResource ThemeCursor}">
-                                                            <MenuItem Command="{Binding OpenFolderCommand}" Header="打开目录">
+                                                            <MenuItem Command="{Binding OpenFolderCommand}" Header="{I18N Key=OpenFolder}">
                                                                 <MenuItem.Icon>
                                                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                                                  FontSize="16"
                                                                                  Glyph="{x:Static fui:FontSymbols.Folder}" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
-                                                            <MenuItem Command="{Binding RemoveFolderCommand}" Header="删除目录">
+                                                            <MenuItem Command="{Binding RemoveFolderCommand}" Header="{I18N Key=DeleteFolder}">
                                                                 <MenuItem.Icon>
                                                                     <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                                                  FontSize="16"
@@ -422,7 +422,7 @@
                                                                 </MenuItem.Icon>
                                                                 <MenuItem.Header>
                                                                     <StackPanel>
-                                                                        <TextBlock Text="重命名目录" />
+                                                                        <TextBlock Text="{I18N Key=RenameFolder}" />
                                                                         <TextBox MaxWidth="400"
                                                                                  Margin="0,6,0,0"
                                                                                  Padding="2,2,0,0"

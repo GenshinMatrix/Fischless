@@ -35,7 +35,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="16"
                                      Glyph="{x:Static fui:FontSymbols.Folder}" />
-                        <TextBlock Margin="5,0,0,0" Text="插件目录" />
+                        <TextBlock Margin="5,0,0,0" Text="{I18N Key=PluginFolder}" />
                     </StackPanel>
                 </Button.Content>
             </Button>
@@ -47,7 +47,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="16"
                                      Glyph="{x:Static fui:FontSymbols.Download}" />
-                        <TextBlock Margin="5,0,0,0" Text="安装插件" />
+                        <TextBlock Margin="5,0,0,0" Text="{I18N Key=InstallPlugin}" />
                     </StackPanel>
                 </Button.Content>
             </Button>
@@ -59,7 +59,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                      FontSize="16"
                                      Glyph="{x:Static fui:FontSymbols.CloudDownload}" />
-                        <TextBlock Margin="5,0,0,0" Text="插件市场" />
+                        <TextBlock Margin="5,0,0,0" Text="{I18N Key=PluginMarket}" />
                     </StackPanel>
                 </Button.Content>
             </Button>
@@ -74,7 +74,7 @@
                              Glyph="{x:Static m:IcoMoonFontSymbols.Empty}" />
                 <TextBlock Margin="0,8,0,0"
                            Foreground="{DynamicResource WindowTitleForeground}"
-                           Text="空空如也" />
+                           Text="{I18N Key=Empty}" />
             </StackPanel>
             <fui:SmoothScrollViewer HorizontalAlignment="Left"
                                     PanningMode="None"
@@ -109,13 +109,13 @@
                                                            VerticalAlignment="Center"
                                                            FontSize="12"
                                                            Foreground="{DynamicResource WindowTitleForeground}"
-                                                           Text="官方"
+                                                           Text="{I18N Key=Official}"
                                                            Visibility="{Binding IsOfficial, Converter={StaticResource BoolToVisibilityConverter}}" />
                                             </Border>
                                         </StackPanel>
                                         <TextBlock Margin="0,6,0,0" Foreground="{DynamicResource WindowTitleForeground}">
                                             <TextBlock.Inlines>
-                                                <Run Text="说明：" />
+                                                <Run Text="{I18N Key=Desp}" /><Run Text="{I18N Key=__Colon__}" />
                                                 <Run Text="{Binding Description}" />
                                             </TextBlock.Inlines>
                                         </TextBlock>
@@ -123,13 +123,13 @@
                                             <StackPanel>
                                                 <TextBlock Foreground="{DynamicResource WindowTitleForeground}">
                                                     <TextBlock.Inlines>
-                                                        <Run Text="作者：" />
+                                                        <Run Text="{I18N Key=Author}" /><Run Text="{I18N Key=__Colon__}" />
                                                         <Run Text="{Binding Author}" />
                                                     </TextBlock.Inlines>
                                                 </TextBlock>
                                                 <TextBlock Foreground="{DynamicResource WindowTitleForeground}">
                                                     <TextBlock.Inlines>
-                                                        <Run Text="版本：" />
+                                                        <Run Text="{I18N Key=Version}" /><Run Text="{I18N Key=__Colon__}" />
                                                         <Run Text="{Binding Version, StringFormat='{}v{0}'}" />
                                                     </TextBlock.Inlines>
                                                 </TextBlock>
