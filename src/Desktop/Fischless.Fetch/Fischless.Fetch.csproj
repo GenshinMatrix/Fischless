@@ -21,7 +21,6 @@
 		<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.17" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.17" />
 		<PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.17" />
-		<PackageReference Include="MKL.NET" Version="1.5.0" />
 	</ItemGroup>
 
 	<ItemGroup>

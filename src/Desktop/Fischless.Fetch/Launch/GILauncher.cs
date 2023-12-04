@@ -4,16 +4,18 @@ using System.Diagnostics;
 
 namespace Fischless.Fetch.Launch;
 
-public class GILauncher
+public static class GILauncher
 {
     public const string RegionCN = "CN";
     public const string RegionOVERSEA = "OVERSEA";
 
     public const string ProcessNameCN = "YuanShen";
     public const string ProcessNameOVERSEA = "GenshinImpact";
+    public const string ProcessNameCloud = "Genshin Impact Cloud Game";
 
     public const string FileNameCN = "YuanShen.exe";
     public const string FileNameOVERSEA = "GenshinImpact.exe";
+    public const string FileNameCloud = "Genshin Impact Cloud Game.exe";
 
     public const string FolderName = "Genshin Impact Game";
 
@@ -21,14 +23,12 @@ public class GILauncher
     {
         try
         {
-            Process[] ps = Process.GetProcessesByName(ProcessNameCN);
+            string[] names = [ProcessNameCN, ProcessNameOVERSEA];
 
-            if (ps.Length <= 0)
+            foreach (string name in names)
             {
-                ps = Process.GetProcessesByName(ProcessNameOVERSEA);
-            }
-            if (ps.Length > 0)
-            {
+                Process[] ps = Process.GetProcessesByName(name);
+
                 foreach (Process? p in ps)
                 {
                     process = p;
@@ -48,21 +48,19 @@ public class GILauncher
         region = null!;
         try
         {
-            Process[] ps = Process.GetProcessesByName(ProcessNameCN);
+            string[] names = [ProcessNameCN, ProcessNameOVERSEA];
 
-            if (ps.Length <= 0)
+            foreach (string name in names)
             {
-                ps = Process.GetProcessesByName(ProcessNameOVERSEA);
-            }
-            else
-            {
-                region = RegionCN;
-            }
-            if (ps.Length > 0)
-            {
-                region ??= RegionOVERSEA;
+                Process[] ps = Process.GetProcessesByName(name);
+
                 foreach (Process? p in ps)
                 {
+                    region = name switch
+                    {
+                        ProcessNameOVERSEA => RegionOVERSEA,
+                        ProcessNameCN or _ => RegionCN,
+                    };
                     return true;
                 }
             }
@@ -180,7 +178,7 @@ public class GILauncher
             Verb = "runas",
         });
 
-        if (launchParameter.Fps != null && launchParameter.Fps > 60)
+        if (launchParameter.Fps > 60)
         {
             try
             {
@@ -198,17 +196,15 @@ public class GILauncher
         {
             try
             {
-                Process[] processes = Process.GetProcessesByName(ProcessNameCN);
+                string[] names = [ProcessNameCN, ProcessNameOVERSEA];
 
-                if (processes.Length <= 0)
+                foreach (string name in names)
                 {
-                    processes = Process.GetProcessesByName(ProcessNameOVERSEA);
-                }
-                if (processes.Length > 0)
-                {
-                    foreach (Process? process in processes)
+                    Process[] ps = Process.GetProcessesByName(name);
+
+                    foreach (Process? p in ps)
                     {
-                        await callback?.Invoke(process)!;
+                        await callback?.Invoke(p)!;
                         return true;
                     }
                 }
