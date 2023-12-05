@@ -4,6 +4,14 @@ cd /d %~dp0
 del MicaSetup.exe
 for /f "usebackq tokens=*" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath`) do set "path=%path%;%%i\MSBuild\Current\Bin;%%i\Common7\IDE"
 
+@echo [prepare version]
+cd /d .\MicaSetup
+set "script=Get-Content 'Program.cs' ^| Select-String -Pattern 'DisplayVersion.*\"(.*)\"' ^| ForEach-Object { $_.Matches.Groups[1].Value }"
+
+for /f "usebackq delims=" %%i in (`powershell -NoLogo -NoProfile -Command ^"%script%^"`) do set version=%%i
+
+echo currnet version is %version%
+
 echo [build app using vs2022]
 cd ..\src\
 dotnet restore
@@ -20,6 +28,7 @@ copy ..\src\Plugins\Fischless.Plugin.Borderless\bin\x64\Release\net8.0-windows10
 copy ..\src\Plugins\Fischless.Plugin.LaunchBetterGI\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Fischless.Plugin.LaunchBetterGI.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
 MicaSetup.Tools\7-Zip\7z a publish.7z ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\* -t7z -mx=5 -mf=BCJ2 -r -y
 copy /y publish.7z .\MicaSetup\Resources\Setups\publish.7z
+move publish.7z Fischless_v%version%.7z
 
 @echo [build uninst using vs2022]
 msbuild MicaSetup\MicaSetup.Uninst.csproj /t:Rebuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /restore
@@ -31,6 +40,6 @@ msbuild MicaSetup\MicaSetup.csproj /t:Build /p:Configuration=Release /p:DeployOn
 @echo [finish]
 copy /y .\MicaSetup\bin\Release\net472\MicaSetup.exe .\
 del FischlessSetup.exe
-move MicaSetup.exe FischlessSetup.exe
+move MicaSetup.exe FischlessSetup_v%version%.exe
 
 @pause
