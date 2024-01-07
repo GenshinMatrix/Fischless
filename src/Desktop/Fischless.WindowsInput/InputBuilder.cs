@@ -7,7 +7,7 @@ internal class InputBuilder : IEnumerable<User32.INPUT>, IEnumerable
 {
     public InputBuilder()
     {
-        _inputList = new List<User32.INPUT>();
+        _inputList = [];
     }
 
     public User32.INPUT[] ToArray()

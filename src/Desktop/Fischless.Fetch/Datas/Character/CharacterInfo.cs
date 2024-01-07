@@ -89,7 +89,7 @@ public class BeginTimeJsonConverter : JsonConverter<DateTime>
             if (root.TryGetProperty("$date", out var dateProp) && dateProp.ValueKind == JsonValueKind.String)
             {
                 var dateString = dateProp.GetString();
-                if (DateTime.TryParseExact(dateString, "yyyy-MM-ddTHH:mm:ss.fffffffZ",
+                if (DateTime.TryParseExact(dateString, "yyyy-MM-ddTHH:mm:ssZ",
                     System.Globalization.CultureInfo.InvariantCulture,
                     System.Globalization.DateTimeStyles.AssumeUniversal | System.Globalization.DateTimeStyles.AdjustToUniversal,
                     out DateTime dateTime))

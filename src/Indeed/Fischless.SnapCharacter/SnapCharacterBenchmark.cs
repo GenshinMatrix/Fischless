@@ -1,12 +1,12 @@
 ﻿using Fischless.Fetch.Datas.Character;
 using Fischless.Fetch.Datas.Core;
 using Fischless.Fetch.Datas.Snap;
+using LiteDB;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using System.Text.Json;
-using System.Windows;
 
 namespace Fischless.SnapCharacter;
 
@@ -14,7 +14,7 @@ internal static class SnapCharacterBenchmark
 {
     public static void Action()
     {
-        string jigsawJsons = Clipboard.GetText();
+        string jigsawJsons = GetTxtString();
 
         if (string.IsNullOrEmpty(jigsawJsons))
         {
@@ -40,7 +40,7 @@ internal static class SnapCharacterBenchmark
                         string json = sb.ToString();
                         sb.Clear();
 
-                        CharacterInfo character = JsonSerializer.Deserialize<CharacterInfo>(json);
+                        CharacterInfo character = System.Text.Json.JsonSerializer.Deserialize<CharacterInfo>(json);
                         SnapCharacterInfo snapCharacter = TryMapProperties<SnapCharacterInfo>(character);
 
                         if (character.Outfits != null && character.Outfits.Count > 0)
@@ -74,6 +74,25 @@ internal static class SnapCharacterBenchmark
 
             File.WriteAllText("SnapCharacterProvider.cs", code);
         }
+    }
+
+    private static string GetTxtString()
+    {
+        using LiteDatabase db = new(@"C:\Users\ema\Documents\Xunkong\Database\GenshinData.db");
+        ILiteCollection<BsonDocument> characterInfoCollection = db.GetCollection("CharacterInfo");
+        IEnumerable<BsonDocument>? result = characterInfoCollection.FindAll();
+
+        StringBuilder sb = new();
+        ulong i = default;
+        foreach (BsonDocument? document in result)
+        {
+            object? bsonObject = JsonConvert.DeserializeObject(document.ToString());
+            string jsonString = JsonConvert.SerializeObject(bsonObject, Formatting.Indented);
+
+            sb.Append($"/* {++i} */{Environment.NewLine}");
+            sb.Append(jsonString);
+        }
+        return sb.ToString();
     }
 
     private static string GenerateSnapCharacterProviderCode(IEnumerable<SnapCharacterInfo> snapCharacters)
