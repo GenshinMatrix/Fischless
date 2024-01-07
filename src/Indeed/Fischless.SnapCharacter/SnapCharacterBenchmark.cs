@@ -14,53 +14,32 @@ internal static class SnapCharacterBenchmark
 {
     public static void Action()
     {
-        string jigsawJsons = GetTxtString();
-
-        if (string.IsNullOrEmpty(jigsawJsons))
-        {
-            return;
-        }
-
         List<SnapCharacterInfo> snapCharacters = new(999);
 
-        jigsawJsons = jigsawJsons.Replace("\r", string.Empty);
         try
         {
-            string[] lines = jigsawJsons.Split('\n');
-            StringBuilder sb = new();
-
-            for (int i = default; i < lines.Length; i++)
+            foreach (string json in GetTxtStrings())
             {
-                string line = lines[i];
-
-                if (line.StartsWith("/*") && line.EndsWith("*/") || i == lines.Length - 1)
+                if (string.IsNullOrEmpty(json))
                 {
-                    if (sb.ToString() != string.Empty)
+                    return;
+                }
+
+                CharacterInfo character = System.Text.Json.JsonSerializer.Deserialize<CharacterInfo>(json);
+                SnapCharacterInfo snapCharacter = TryMapProperties<SnapCharacterInfo>(character);
+
+                if (character.Outfits != null && character.Outfits.Count > 0)
+                {
+                    foreach (var outfit in character.Outfits)
                     {
-                        string json = sb.ToString();
-                        sb.Clear();
+                        SnapCharacterOutfit snapOutfit = TryMapProperties<SnapCharacterOutfit>(outfit);
 
-                        CharacterInfo character = System.Text.Json.JsonSerializer.Deserialize<CharacterInfo>(json);
-                        SnapCharacterInfo snapCharacter = TryMapProperties<SnapCharacterInfo>(character);
-
-                        if (character.Outfits != null && character.Outfits.Count > 0)
-                        {
-                            foreach (var outfit in character.Outfits)
-                            {
-                                SnapCharacterOutfit snapOutfit = TryMapProperties<SnapCharacterOutfit>(outfit);
-
-                                snapCharacter.Outfits ??= new();
-                                snapCharacter.Outfits.Add(snapOutfit);
-                            }
-                        }
-
-                        snapCharacters.Add(snapCharacter);
+                        snapCharacter.Outfits ??= new();
+                        snapCharacter.Outfits.Add(snapOutfit);
                     }
                 }
-                else
-                {
-                    sb.AppendLine(line);
-                }
+
+                snapCharacters.Add(snapCharacter);
             }
         }
         catch (Exception e)
@@ -76,23 +55,18 @@ internal static class SnapCharacterBenchmark
         }
     }
 
-    private static string GetTxtString()
+    private static IEnumerable<string> GetTxtStrings()
     {
         using LiteDatabase db = new(@"C:\Users\ema\Documents\Xunkong\Database\GenshinData.db");
         ILiteCollection<BsonDocument> characterInfoCollection = db.GetCollection("CharacterInfo");
         IEnumerable<BsonDocument>? result = characterInfoCollection.FindAll();
 
-        StringBuilder sb = new();
-        ulong i = default;
         foreach (BsonDocument? document in result)
         {
             object? bsonObject = JsonConvert.DeserializeObject(document.ToString());
             string jsonString = JsonConvert.SerializeObject(bsonObject, Formatting.Indented);
-
-            sb.Append($"/* {++i} */{Environment.NewLine}");
-            sb.Append(jsonString);
+            yield return jsonString;
         }
-        return sb.ToString();
     }
 
     private static string GenerateSnapCharacterProviderCode(IEnumerable<SnapCharacterInfo> snapCharacters)
