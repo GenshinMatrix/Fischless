@@ -11,6 +11,7 @@ set "script=Get-Content 'Program.cs' ^| Select-String -Pattern 'DisplayVersion.*
 for /f "usebackq delims=" %%i in (`powershell -NoLogo -NoProfile -Command ^"%script%^"`) do set version=%%i
 
 echo currnet version is %version%
+cd /d %~dp0
 
 echo [build app using vs2022]
 cd ..\src\
