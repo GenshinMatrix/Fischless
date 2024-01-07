@@ -2683,6 +2683,74 @@ public static class SnapCharacterProvider
             TextureOverride = ReShadeIniMapper.Map(10000089),
         };
 
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000090,
+            Name = "夏沃蕾",
+            Title = "明律决罚",
+            Rarity = 4,
+            Gender = 1,
+            Element = ElementType.Fire,
+            WeaponType = WeaponType.Polearm,
+            Card = "UI_AvatarIcon_Chevreuse_Card.png",
+            FaceIcon = "UI_AvatarIcon_Chevreuse.png",
+            SideIcon = "UI_AvatarIcon_Side_Chevreuse.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Chevreuse.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Chevreuse.png",
+            SortId = 76,
+            BeginTime = "2024-01-09T10:00:00.00000000Z".ParseExactDateTime(),
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 209000,
+                    CharacterId = 10000090,
+                    Name = "守正之枪",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000090),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000091,
+            Name = "娜维娅",
+            Title = "明花蔓舵",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Rock,
+            WeaponType = WeaponType.Claymore,
+            Card = "UI_AvatarIcon_Navia_Card.png",
+            FaceIcon = "UI_AvatarIcon_Navia.png",
+            SideIcon = "UI_AvatarIcon_Side_Navia.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Navia.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Navia.png",
+            SortId = 75,
+            BeginTime = "2023-12-18T16:00:00.00000000Z".ParseExactDateTime(),
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = 209100,
+                    CharacterId = 10000091,
+                    Name = "黄丝绒沙龙",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000091),
+        };
+
         ///
 
         yield return new SnapCharacterInfo()

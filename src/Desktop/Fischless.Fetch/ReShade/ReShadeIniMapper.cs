@@ -82,6 +82,8 @@ public static class ReShadeIniMapper
             10000087 => "Neuvillette;Naweilaite",
             10000088 => "Charlotte;Xialuodi",
             10000089 => "Furina;Focalor;Funingna",
+            10000090 => "Chevreuse;Xiawolei",
+            10000091 => "Navia;Naweiya",
             -2 => "Paimon",
             -1 or _ => "Aozi",
         };

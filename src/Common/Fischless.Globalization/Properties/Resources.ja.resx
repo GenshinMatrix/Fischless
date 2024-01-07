@@ -181,6 +181,9 @@
   <data name="AvatarNameOfCharlotte" xml:space="preserve">
     <value>シャルロット</value>
   </data>
+  <data name="AvatarNameOfChevreuse" xml:space="preserve">
+    <value>シュヴルーズ</value>
+  </data>
   <data name="AvatarNameOfChongyun" xml:space="preserve">
     <value>重雲</value>
   </data>
@@ -276,6 +279,9 @@
   </data>
   <data name="AvatarNameOfNahida" xml:space="preserve">
     <value>ナヒーダ</value>
+  </data>
+  <data name="AvatarNameOfNavia" xml:space="preserve">
+    <value>ナヴィア</value>
   </data>
   <data name="AvatarNameOfNeuvillette" xml:space="preserve">
     <value>ヌヴィレット</value>
