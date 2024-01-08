@@ -76,7 +76,7 @@ public static class ReShadeIniMapper
             10000081 => "Kaveh;Kawei",
             10000082 => "Baizhuer;Baizhu",
             10000083 => "Linette;Lynette;Linnite",
-            10000084 => "Liney;Lyney;Linni",
+            10000084 => "Liney;Lyney;Linni$",
             10000085 => "Freminet;Feimini",
             10000086 => "Wriothesley;Laiousili",
             10000087 => "Neuvillette;Naweilaite",

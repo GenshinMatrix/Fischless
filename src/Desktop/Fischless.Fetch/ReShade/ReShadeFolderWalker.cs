@@ -149,9 +149,22 @@ public static partial class ReShadeFolderWalker
                     {
                         foreach (string tex in avatar.TextureOverride.SplitTextureOverride())
                         {
-                            if (result?.StartsWith(tex, StringComparison.OrdinalIgnoreCase) ?? false)
+                            if (tex.EndsWith('$'))
                             {
-                                return true;
+                                if (result?.StartsWith(tex[..^1], StringComparison.OrdinalIgnoreCase) ?? false)
+                                {
+                                    if (result.Length >= tex.Length + 2 && char.IsUpper(result.Substring(tex.Length + 1, 1)[0]))
+                                    {
+                                        return true;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (result?.StartsWith(tex, StringComparison.OrdinalIgnoreCase) ?? false)
+                                {
+                                    return true;
+                                }
                             }
                         }
                     }
