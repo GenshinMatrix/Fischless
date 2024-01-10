@@ -1,17 +1,7 @@
 ---
-name: Bug report / 错误报告
-about: Create a report to help us improve
-title: "[BUG] "
-labels: bug
-
+name: Feel free to express / 随便写写
+about: Create a report to help us improve / 创建报告以帮助我们改进
 ---
 
-请提供下述完整信息以便快速定位问题 / Please provide the following information to quickly locate the problem
+- Feel free to express yourself / 请自由发挥
 
-- 系统环境 / System Environment：
-
-
-- Fischless版本号 / Fischless Version：
-
-
-- 问题描述 / Description of the issue：
