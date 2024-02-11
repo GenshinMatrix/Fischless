@@ -223,6 +223,9 @@
   <data name="AvatarNameOfFurina" xml:space="preserve">
     <value>芙宁娜</value>
   </data>
+  <data name="AvatarNameOfGaming" xml:space="preserve">
+    <value>嘉明</value>
+  </data>
   <data name="AvatarNameOfGanyu" xml:space="preserve">
     <value>甘雨</value>
   </data>
@@ -267,6 +270,9 @@
   </data>
   <data name="AvatarNameOfLisa" xml:space="preserve">
     <value>丽莎</value>
+  </data>
+  <data name="AvatarNameOfLiuyun" xml:space="preserve">
+    <value>闲云</value>
   </data>
   <data name="AvatarNameOfMika" xml:space="preserve">
     <value>米卡</value>

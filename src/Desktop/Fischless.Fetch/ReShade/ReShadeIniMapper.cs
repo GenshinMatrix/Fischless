@@ -84,6 +84,8 @@ public static class ReShadeIniMapper
             10000089 => "Furina;Focalor;Funingna",
             10000090 => "Chevreuse;Xiawolei",
             10000091 => "Navia;Naweiya",
+            10000092 => "Gaming;Jiaming",
+            10000093 => "Liuyun;Xianyun",
             -2 => "Paimon",
             -1 or _ => "Aozi",
         };

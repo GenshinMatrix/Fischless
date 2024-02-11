@@ -2731,7 +2731,7 @@ public static class SnapCharacterProvider
             SideIcon = "UI_AvatarIcon_Side_Navia.png",
             GachaCard = "UI_Gacha_AvatarIcon_Navia.png",
             GachaSplash = "UI_Gacha_AvatarImg_Navia.png",
-            SortId = 75,
+            SortId = 77,
             BeginTime = "2023-12-18T16:00:00.00000000Z".ParseExactDateTime(),
             Outfits = new List<SnapCharacterOutfit>
             {
@@ -2751,6 +2751,73 @@ public static class SnapCharacterProvider
             TextureOverride = ReShadeIniMapper.Map(10000091),
         };
 
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000092,
+            Name = "嘉明",
+            Title = "?",
+            Rarity = 4,
+            Gender = 0,
+            Element = ElementType.Fire,
+            WeaponType = WeaponType.Claymore,
+            Card = "UI_AvatarIcon_Gaming_Card.png",
+            FaceIcon = "UI_AvatarIcon_Gaming.png",
+            SideIcon = "UI_AvatarIcon_Side_Gaming.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Gaming.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Gaming.png",
+            SortId = 78,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000092,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000092),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000093,
+            Name = "闲云",
+            Title = "?",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Wind,
+            WeaponType = WeaponType.Catalyst,
+            Card = "UI_AvatarIcon_Liuyun_Card.png",
+            FaceIcon = "UI_AvatarIcon_Liuyun.png",
+            SideIcon = "UI_AvatarIcon_Side_Liuyun.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Liuyun.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Liuyun.png",
+            SortId = 79,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000093,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000093),
+        };
         ///
 
         yield return new SnapCharacterInfo()
