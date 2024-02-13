@@ -34,6 +34,7 @@ public class Startup
 
         IHost host = new App()
             .UseDispatcherUnhandledExceptionCatched()
+            //.UseWatchdog()
             .UseMuiLanguage();
 
         services.AddSingleton(host)

@@ -1,4 +1,5 @@
-﻿using Fischless.Globalization;
+﻿using Fischless.Common;
+using Fischless.Globalization;
 using Fischless.Hosting.Absraction;
 using Fischless.Logging;
 using Fischless.Models;
@@ -54,6 +55,12 @@ public static class HostExtension
             }
         }
         return app!;
+    }
+
+    public static IHost UseWatchdog(this IHost app)
+    {
+        Watchdog.Instance.Value.Start();
+        return app;
     }
 
     public static void Forget(this IHost builder)
