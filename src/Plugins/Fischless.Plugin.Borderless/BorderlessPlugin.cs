@@ -39,7 +39,7 @@ public class BorderlessPlugin : IPlugin, IPlugin2
     public Version Version => new(0, 0, 4);
     public int Index => 1;
     public bool IsShowButton => true;
-    public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
+    public ICommand ButtonCommand => ButtonMethod.Instance.Value.GoToCommand;
 }
 
 file class IconProvider
@@ -57,7 +57,7 @@ file class IconProvider
 
 internal partial class ButtonMethod : ObservableObject
 {
-    public static ButtonMethod Default { get; } = new();
+    public static Lazy<ButtonMethod> Instance { get; } = new();
 
     [RelayCommand]
     public void GoTo(object param)

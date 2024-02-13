@@ -25,7 +25,7 @@ public class DisplayDefaultPlugin : IPlugin, IPlugin2
     public Version Version => new(0, 0, 1);
     public int Index => 3;
     public bool IsShowButton => true;
-    public ICommand ButtonCommand => ButtonMethod.Default.GoToCommand;
+    public ICommand ButtonCommand => ButtonMethod.Instance.Value.GoToCommand;
 }
 
 file class IconProvider
@@ -43,7 +43,7 @@ file class IconProvider
 
 internal partial class ButtonMethod : ObservableObject
 {
-    public static ButtonMethod Default { get; } = new();
+    public static Lazy<ButtonMethod> Instance { get; } = new();
 
     [RelayCommand]
     public async Task GoToAsync()
