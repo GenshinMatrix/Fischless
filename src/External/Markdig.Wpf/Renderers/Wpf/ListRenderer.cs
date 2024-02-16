@@ -8,43 +8,42 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace Markdig.Renderers.Wpf
+namespace Markdig.Renderers.Wpf;
+
+public class ListRenderer : WpfObjectRenderer<ListBlock>
 {
-    public class ListRenderer : WpfObjectRenderer<ListBlock>
+    protected override void Write(WpfRenderer renderer, ListBlock listBlock)
     {
-        protected override void Write(WpfRenderer renderer, ListBlock listBlock)
+        if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+        if (listBlock == null) throw new ArgumentNullException(nameof(listBlock));
+
+        var list = new List();
+
+        if (listBlock.IsOrdered)
         {
-            if (renderer == null) throw new ArgumentNullException(nameof(renderer));
-            if (listBlock == null) throw new ArgumentNullException(nameof(listBlock));
+            list.MarkerStyle = TextMarkerStyle.Decimal;
 
-            var list = new List();
-
-            if (listBlock.IsOrdered)
+            if (listBlock.OrderedStart != null && (listBlock.DefaultOrderedStart != listBlock.OrderedStart))
             {
-                list.MarkerStyle = TextMarkerStyle.Decimal;
-
-                if (listBlock.OrderedStart != null && (listBlock.DefaultOrderedStart != listBlock.OrderedStart))
-                {
-                    list.StartIndex = int.Parse(listBlock.OrderedStart, NumberFormatInfo.InvariantInfo);
-                }
+                list.StartIndex = int.Parse(listBlock.OrderedStart, NumberFormatInfo.InvariantInfo);
             }
-            else
-            {
-                list.MarkerStyle = TextMarkerStyle.Disc;
-            }
+        }
+        else
+        {
+            list.MarkerStyle = TextMarkerStyle.Disc;
+        }
 
-            renderer.Push(list);
+        renderer.Push(list);
 
-            foreach (var item in listBlock)
-            {
-                var listItemBlock = (ListItemBlock)item;
-                var listItem = new ListItem();
-                renderer.Push(listItem);
-                renderer.WriteChildren(listItemBlock);
-                renderer.Pop();
-            }
-
+        foreach (var item in listBlock)
+        {
+            var listItemBlock = (ListItemBlock)item;
+            var listItem = new ListItem();
+            renderer.Push(listItem);
+            renderer.WriteChildren(listItemBlock);
             renderer.Pop();
         }
+
+        renderer.Pop();
     }
 }

@@ -4,17 +4,16 @@
 
 using Markdig.Syntax;
 
-namespace Markdig.Renderers.Xaml
+namespace Markdig.Renderers.Xaml;
+
+/// <summary>
+/// A XAML renderer for a <see cref="HtmlBlock"/>.
+/// </summary>
+/// <seealso cref="Xaml.XamlObjectRenderer{T}" />
+public class HtmlBlockRenderer : XamlObjectRenderer<HtmlBlock>
 {
-    /// <summary>
-    /// A XAML renderer for a <see cref="HtmlBlock"/>.
-    /// </summary>
-    /// <seealso cref="Xaml.XamlObjectRenderer{T}" />
-    public class HtmlBlockRenderer : XamlObjectRenderer<HtmlBlock>
+    protected override void Write(XamlRenderer renderer, HtmlBlock obj)
     {
-        protected override void Write(XamlRenderer renderer, HtmlBlock obj)
-        {
-            // TODO
-        }
+        // TODO
     }
 }

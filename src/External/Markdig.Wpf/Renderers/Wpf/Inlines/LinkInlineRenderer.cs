@@ -11,62 +11,61 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace Markdig.Renderers.Wpf.Inlines
+namespace Markdig.Renderers.Wpf.Inlines;
+
+/// <summary>
+/// A WPF renderer for a <see cref="LinkInline"/>.
+/// </summary>
+/// <seealso cref="Markdig.Renderers.Wpf.WpfObjectRenderer{Markdig.Syntax.Inlines.LinkInline}" />
+public class LinkInlineRenderer : WpfObjectRenderer<LinkInline>
 {
-    /// <summary>
-    /// A WPF renderer for a <see cref="LinkInline"/>.
-    /// </summary>
-    /// <seealso cref="Markdig.Renderers.Wpf.WpfObjectRenderer{Markdig.Syntax.Inlines.LinkInline}" />
-    public class LinkInlineRenderer : WpfObjectRenderer<LinkInline>
+    /// <inheritdoc/>
+    protected override void Write(WpfRenderer renderer, LinkInline link)
     {
-        /// <inheritdoc/>
-        protected override void Write(WpfRenderer renderer, LinkInline link)
+        if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+        if (link == null) throw new ArgumentNullException(nameof(link));
+
+        var url = link.GetDynamicUrl != null ? link.GetDynamicUrl() ?? link.Url : link.Url;
+
+        if (!Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
         {
-            if (renderer == null) throw new ArgumentNullException(nameof(renderer));
-            if (link == null) throw new ArgumentNullException(nameof(link));
+            url = "#";
+        }
 
-            var url = link.GetDynamicUrl != null ? link.GetDynamicUrl() ?? link.Url : link.Url;
+        if (link.IsImage)
+        {
+            var template = new ControlTemplate();
+            var image = new FrameworkElementFactory(typeof(Image));
+            image.SetValue(Image.SourceProperty, new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute)));
+            image.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ImageStyleKey);
+            template.VisualTree = image;
 
-            if (!Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+            var btn = new Button()
             {
-                url = "#";
-            }
+                Template = template,
+                Command = Commands.Image,
+                CommandParameter = url
+            };
 
-            if (link.IsImage)
+            renderer.WriteInline(new InlineUIContainer(btn));
+        }
+        else
+        {
+            var hyperlink = new Hyperlink
             {
-                var template = new ControlTemplate();
-                var image = new FrameworkElementFactory(typeof(Image));
-                image.SetValue(Image.SourceProperty, new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute)));
-                image.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ImageStyleKey);
-                template.VisualTree = image;
+                Command = Commands.Hyperlink,
+                CommandParameter = url,
+                NavigateUri = new Uri(url, UriKind.RelativeOrAbsolute),
+                ToolTip = !string.IsNullOrEmpty(link.Title) ? link.Title : null,
+            };
 
-                var btn = new Button()
-                {
-                    Template = template,
-                    Command = Commands.Image,
-                    CommandParameter = url
-                };
+            hyperlink.CommandBindings.Add(new CommandBinding(Commands.Hyperlink, Commands.OpenUrlCommandExecutedHandler));
 
-                renderer.WriteInline(new InlineUIContainer(btn));
-            }
-            else
-            {
-                var hyperlink = new Hyperlink
-                {
-                    Command = Commands.Hyperlink,
-                    CommandParameter = url,
-                    NavigateUri = new Uri(url, UriKind.RelativeOrAbsolute),
-                    ToolTip = !string.IsNullOrEmpty(link.Title) ? link.Title : null,
-                };
+            hyperlink.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.HyperlinkStyleKey);
 
-                hyperlink.CommandBindings.Add(new CommandBinding(Commands.Hyperlink, Commands.OpenUrlCommandExecutedHandler));
-
-                hyperlink.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.HyperlinkStyleKey);
-
-                renderer.Push(hyperlink);
-                renderer.WriteChildren(link);
-                renderer.Pop();
-            }
+            renderer.Push(hyperlink);
+            renderer.WriteChildren(link);
+            renderer.Pop();
         }
     }
 }

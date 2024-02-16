@@ -8,59 +8,58 @@ using System;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace Markdig.Renderers.Wpf.Inlines
+namespace Markdig.Renderers.Wpf.Inlines;
+
+/// <summary>
+/// A WPF renderer for an <see cref="EmphasisInline"/>.
+/// </summary>
+/// <seealso cref="EmphasisInline" />
+public class EmphasisInlineRenderer : WpfObjectRenderer<EmphasisInline>
 {
-    /// <summary>
-    /// A WPF renderer for an <see cref="EmphasisInline"/>.
-    /// </summary>
-    /// <seealso cref="EmphasisInline" />
-    public class EmphasisInlineRenderer : WpfObjectRenderer<EmphasisInline>
+    protected override void Write(WpfRenderer renderer, EmphasisInline obj)
     {
-        protected override void Write(WpfRenderer renderer, EmphasisInline obj)
+        if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+        if (obj == null) throw new ArgumentNullException(nameof(obj));
+
+        Span? span = null;
+
+        switch (obj.DelimiterChar)
         {
-            if (renderer == null) throw new ArgumentNullException(nameof(renderer));
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            case '*':
+            case '_':
+                span = obj.DelimiterCount == 2 ? (Span)new Bold() : new Italic();
+                break;
 
-            Span? span = null;
+            case '~':
+                span = new Span();
+                span.SetResourceReference(FrameworkContentElement.StyleProperty, obj.DelimiterCount == 2 ? Styles.StrikeThroughStyleKey : Styles.SubscriptStyleKey);
+                break;
 
-            switch (obj.DelimiterChar)
-            {
-                case '*':
-                case '_':
-                    span = obj.DelimiterCount == 2 ? (Span)new Bold() : new Italic();
-                    break;
+            case '^':
+                span = new Span();
+                span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.SuperscriptStyleKey);
+                break;
 
-                case '~':
-                    span = new Span();
-                    span.SetResourceReference(FrameworkContentElement.StyleProperty, obj.DelimiterCount == 2 ? Styles.StrikeThroughStyleKey : Styles.SubscriptStyleKey);
-                    break;
+            case '+':
+                span = new Span();
+                span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.InsertedStyleKey);
+                break;
 
-                case '^':
-                    span = new Span();
-                    span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.SuperscriptStyleKey);
-                    break;
+            case '=':
+                span = new Span();
+                span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.MarkedStyleKey);
+                break;
+        }
 
-                case '+':
-                    span = new Span();
-                    span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.InsertedStyleKey);
-                    break;
-
-                case '=':
-                    span = new Span();
-                    span.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.MarkedStyleKey);
-                    break;
-            }
-
-            if (span != null)
-            {
-                renderer.Push(span);
-                renderer.WriteChildren(obj);
-                renderer.Pop();
-            }
-            else
-            {
-                renderer.WriteChildren(obj);
-            }
+        if (span != null)
+        {
+            renderer.Push(span);
+            renderer.WriteChildren(obj);
+            renderer.Pop();
+        }
+        else
+        {
+            renderer.WriteChildren(obj);
         }
     }
 }

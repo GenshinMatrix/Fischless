@@ -1,4 +1,8 @@
-﻿using ColorCode;
+﻿// Copyright (c) ema All rights reserved.
+// This file is licensed under the MIT license.
+// See the LICENSE.md file in the project root for more information.
+
+using ColorCode;
 using ColorCode.Styling;
 using ColorCode.Wpf;
 using Markdig.Parsers;

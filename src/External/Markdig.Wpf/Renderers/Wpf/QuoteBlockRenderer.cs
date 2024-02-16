@@ -8,22 +8,21 @@ using System;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace Markdig.Renderers.Wpf
+namespace Markdig.Renderers.Wpf;
+
+public class QuoteBlockRenderer : WpfObjectRenderer<QuoteBlock>
 {
-    public class QuoteBlockRenderer : WpfObjectRenderer<QuoteBlock>
+    /// <inheritdoc/>
+    protected override void Write(WpfRenderer renderer, QuoteBlock obj)
     {
-        /// <inheritdoc/>
-        protected override void Write(WpfRenderer renderer, QuoteBlock obj)
-        {
-            if (renderer == null) throw new ArgumentNullException(nameof(renderer));
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+        if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+        if (obj == null) throw new ArgumentNullException(nameof(obj));
 
-            var section = new Section();
+        var section = new Section();
 
-            renderer.Push(section);
-            renderer.WriteChildren(obj);
-            section.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.QuoteBlockStyleKey);
-            renderer.Pop();
-        }
+        renderer.Push(section);
+        renderer.WriteChildren(obj);
+        section.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.QuoteBlockStyleKey);
+        renderer.Pop();
     }
 }

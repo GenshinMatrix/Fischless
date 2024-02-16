@@ -8,24 +8,23 @@ using System;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace Markdig.Renderers.Wpf
+namespace Markdig.Renderers.Wpf;
+
+public class ThematicBreakRenderer : WpfObjectRenderer<ThematicBreakBlock>
 {
-    public class ThematicBreakRenderer : WpfObjectRenderer<ThematicBreakBlock>
+    protected override void Write(WpfRenderer renderer, ThematicBreakBlock obj)
     {
-        protected override void Write(WpfRenderer renderer, ThematicBreakBlock obj)
+        if (renderer == null) throw new ArgumentNullException(nameof(renderer));
+        if (obj == null) throw new ArgumentNullException(nameof(obj));
+
+        var line = new System.Windows.Shapes.Line { X2 = 1 };
+        line.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ThematicBreakStyleKey);
+
+        var paragraph = new Paragraph
         {
-            if (renderer == null) throw new ArgumentNullException(nameof(renderer));
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            Inlines = { new InlineUIContainer(line) }
+        };
 
-            var line = new System.Windows.Shapes.Line { X2 = 1 };
-            line.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ThematicBreakStyleKey);
-
-            var paragraph = new Paragraph
-            {
-                Inlines = { new InlineUIContainer(line) }
-            };
-
-            renderer.WriteBlock(paragraph);
-        }
+        renderer.WriteBlock(paragraph);
     }
 }
