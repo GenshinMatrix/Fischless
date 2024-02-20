@@ -9,8 +9,8 @@
     </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Dumpify" Version="0.6.0" />
-		<PackageReference Include="ObjectDumper.NET" Version="4.1.13-pre" />
+		<PackageReference Include="Dumpify" Version="0.6.5" />
+		<PackageReference Include="ObjectDumper.NET" Version="4.1.15" />
 	</ItemGroup>
 	
 </Project>
