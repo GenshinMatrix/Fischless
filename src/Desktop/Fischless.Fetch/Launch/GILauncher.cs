@@ -182,7 +182,9 @@ public static class GILauncher
         {
             try
             {
-                await new GameFpsUnlocker(gameProcess).UnlockAsync(new UnlockTimingOptions(100, 20000, 3000));
+                await new GameFpsUnlocker(gameProcess)
+                    .SetTargetFps(launchParameter.Fps.Value)
+                    .UnlockAsync(new UnlockTimingOptions(100, 20000, 3000));
             }
             catch
             {

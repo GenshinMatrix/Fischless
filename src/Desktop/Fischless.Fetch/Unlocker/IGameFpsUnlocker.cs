@@ -1,8 +1,6 @@
 ﻿namespace Fischless.Fetch.Unlocker;
 
-public interface IGameFpsUnlocker
+internal interface IGameFpsUnlocker
 {
-    public int TargetFps { get; set; }
-
-    public Task UnlockAsync(UnlockTimingOptions options);
+    ValueTask UnlockAsync(UnlockTimingOptions options, IProgress<UnlockerStatus> progress, CancellationToken token = default);
 }

@@ -1,15 +1,10 @@
 ﻿namespace Fischless.Fetch.Unlocker;
 
-public readonly struct UnlockTimingOptions
+internal readonly struct UnlockTimingOptions(int findModuleDelayMilliseconds, int findModuleLimitMilliseconds, int adjustFpsDelayMilliseconds)
 {
-    public readonly TimeSpan FindModuleDelay;
-    public readonly TimeSpan FindModuleLimit;
-    public readonly TimeSpan AdjustFpsDelay;
+    public readonly TimeSpan FindModuleDelay = TimeSpan.FromMilliseconds(findModuleDelayMilliseconds);
 
-    public UnlockTimingOptions(int findModuleDelayMilliseconds, int findModuleLimitMilliseconds, int adjustFpsDelayMilliseconds)
-    {
-        FindModuleDelay = TimeSpan.FromMilliseconds(findModuleDelayMilliseconds);
-        FindModuleLimit = TimeSpan.FromMilliseconds(findModuleLimitMilliseconds);
-        AdjustFpsDelay = TimeSpan.FromMilliseconds(adjustFpsDelayMilliseconds);
-    }
+    public readonly TimeSpan FindModuleLimit = TimeSpan.FromMilliseconds(findModuleLimitMilliseconds);
+
+    public readonly TimeSpan AdjustFpsDelay = TimeSpan.FromMilliseconds(adjustFpsDelayMilliseconds);
 }
