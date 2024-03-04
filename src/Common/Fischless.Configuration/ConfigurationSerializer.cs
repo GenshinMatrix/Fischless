@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Serialization;
+﻿using System.Diagnostics;
+using YamlDotNet.Serialization;
 
 namespace Fischless.Configuration;
 
@@ -32,7 +33,7 @@ internal class ConfigurationSerializer
         }
         catch (Exception e)
         {
-            _ = e;
+            Debug.WriteLine($"[Configuration] SerializeFile failed, detail: {e}.");
         }
         return ret;
     }
@@ -49,7 +50,7 @@ internal class ConfigurationSerializer
         }
         catch (Exception e)
         {
-            _ = e;
+            Debug.WriteLine($"[Configuration] DeserializeFile failed, detail: {e}.");
         }
         return info;
     }
