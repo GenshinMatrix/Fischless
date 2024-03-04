@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Reflection;
 
 namespace Fischless.Models;
 
+[Obfuscation]
 public partial class Contact : ObservableObject
 {
     [ObservableProperty]

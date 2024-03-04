@@ -16,7 +16,7 @@ public static class Configurations
     public static ConfigurationDefinition<bool> IsUseFps { get; } = new(nameof(IsUseFps), false);
     public static ConfigurationDefinition<uint> Fps { get; } = new(nameof(Fps), 60);
     public static ConfigurationDefinition<bool> IsUseGamePath { get; } = new(nameof(IsUseGamePath), false);
-    public static ConfigurationDefinition<string> GamePath { get; } = new(nameof(GamePath), null!);
+    public static ConfigurationDefinition<string> GamePath { get; } = new(nameof(GamePath), string.Empty);
     public static ConfigurationDefinition<bool> IsUseResolution { get; } = new(nameof(IsUseResolution), false);
     public static ConfigurationDefinition<uint> ResolutionWidth { get; } = new(nameof(ResolutionWidth), 1920);
     public static ConfigurationDefinition<uint> ResolutionHeight { get; } = new(nameof(ResolutionHeight), 1080);
@@ -29,5 +29,5 @@ public static class Configurations
     public static ConfigurationDefinition<int> ThemeTextFontFamily { get; } = new(nameof(ThemeTextFontFamily), 0);
     public static ConfigurationDefinition<bool> IsUseThemeCursor { get; } = new(nameof(IsUseThemeCursor), false);
     public static ConfigurationDefinition<bool> IsUseSmallerSize { get; } = new(nameof(IsUseSmallerSize), false);
-    public static ConfigurationDefinition<string> ReShadePath { get; } = new(nameof(ReShadePath), null!);
+    public static ConfigurationDefinition<string> ReShadePath { get; } = new(nameof(ReShadePath), string.Empty);
 }
