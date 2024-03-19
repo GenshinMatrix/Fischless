@@ -2818,6 +2818,41 @@ public static class SnapCharacterProvider
             },
             TextureOverride = ReShadeIniMapper.Map(10000093),
         };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000094,
+            Name = "千织",
+            Title = "?",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Geo,
+            WeaponType = WeaponType.Sword,
+            Card = "UI_AvatarIcon_Chiori_Card.png",
+            FaceIcon = "UI_AvatarIcon_Chiori.png",
+            SideIcon = "UI_AvatarIcon_Side_Chiori.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Chiori.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Chiori.png",
+            SortId = 80,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000094,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000094),
+        };
+
         ///
 
         yield return new SnapCharacterInfo()

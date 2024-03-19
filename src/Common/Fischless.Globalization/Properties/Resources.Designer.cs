@@ -349,6 +349,15 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chiori.
+        /// </summary>
+        public static string AvatarNameOfChiori {
+            get {
+                return ResourceManager.GetString("AvatarNameOfChiori", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chongyun.
         /// </summary>
         public static string AvatarNameOfChongyun {
