@@ -67,7 +67,7 @@ public sealed class NavigationViewClosePaneOnLoadedBehavior : Behavior<Navigatio
 
         if (methodInfo != null)
         {
-            bool result = (bool)methodInfo.Invoke(AssociatedObject, new object[] { useTransitions })!;
+            bool result = (bool)methodInfo.Invoke(AssociatedObject, [useTransitions])!;
             return result;
         }
         return false;

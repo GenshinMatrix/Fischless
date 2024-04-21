@@ -637,7 +637,7 @@
         <Setter Property="OpenPaneLength" Value="{StaticResource NavigationViewOpenPaneLength}" />
         <Setter Property="CompactPaneLength" Value="{StaticResource NavigationViewCompactPaneLength}" />
         <Setter Property="IsBackButtonVisible" Value="Collapsed" />
-        <Setter Property="PaneDisplayMode" Value="Left" />
+        <Setter Property="PaneDisplayMode" Value="Auto" />
         <Setter Property="IsSettingsVisible" Value="False" />
         <Setter Property="CompactModeThresholdWidth" Value="480" />
         <Setter Property="ExpandedModeThresholdWidth" Value="480" />
