@@ -6,7 +6,7 @@ namespace Fischless.Mapper;
 
 public static class MapperAssemblyResolver
 {
-    private static readonly HashSet<Assembly> stock = new();
+    private static readonly HashSet<Assembly> stock = [];
 
     public static void Register(Assembly assembly = null!)
     {

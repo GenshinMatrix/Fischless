@@ -2853,6 +2853,39 @@ public static class SnapCharacterProvider
             TextureOverride = ReShadeIniMapper.Map(10000094),
         };
 
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000095,
+            Name = "阿蕾奇诺",
+            Title = "?",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Pyro,
+            WeaponType = WeaponType.Polearm,
+            Card = "UI_AvatarIcon_Arlecchino_Card.png",
+            FaceIcon = "UI_AvatarIcon_Arlecchino.png",
+            SideIcon = "UI_AvatarIcon_Side_Arlecchino.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Arlecchino.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Arlecchino.png",
+            SortId = 81,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000094,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000095),
+        };
         ///
 
         yield return new SnapCharacterInfo()

@@ -157,6 +157,9 @@
   <data name="AvatarNameOfAozi" xml:space="preserve">
     <value>Oz</value>
   </data>
+  <data name="AvatarNameOfArlecchino" xml:space="preserve">
+    <value>Arlecchino</value>
+  </data>
   <data name="AvatarNameOfAyaka" xml:space="preserve">
     <value>Kamisato Ayaka</value>
   </data>
