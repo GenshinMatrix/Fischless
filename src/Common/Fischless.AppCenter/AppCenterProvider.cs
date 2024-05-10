@@ -8,6 +8,7 @@ using Windows.System;
 
 namespace Fischless;
 
+[Obsolete("Visual Studio App Center is scheduled for retirement on March 31, 2025. Learn more about support timelines and recommended alternatives.")]
 public static class AppCenterProvider
 {
     public static string UserId { get; set; } = null!;
