@@ -58,7 +58,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Common\Fischless.AppCenter\Fischless.AppCenter.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Common\Fischless.Common.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Configuration\Fischless.Configuration.csproj" />
         <ProjectReference Include="..\..\Common\Fischless.Design\Fischless.Design.csproj" />

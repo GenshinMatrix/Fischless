@@ -60,7 +60,6 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWpfHostEnvironment env, IServiceCollection services)
     {
         app.UseMapper()
-           .UseAppCenter()
            .UseDpiAware()
            .UseDomainUnhandledExceptionCatched()
            .UseUnobservedTaskExceptionCatched()

@@ -48,7 +48,6 @@ public static class HostExtension
                     appX.DispatcherUnhandledException += (object s, DispatcherUnhandledExceptionEventArgs e) =>
                     {
                         Log.Critical("Application.DispatcherUnhandledException " + e?.Exception?.ToString() ?? string.Empty);
-                        AppCenterProvider.TrackError(e?.Exception);
                         e!.Handled = true;
                     };
                 }

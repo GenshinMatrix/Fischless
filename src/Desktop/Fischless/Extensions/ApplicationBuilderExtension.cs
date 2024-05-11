@@ -6,7 +6,6 @@ using Fischless.Logging;
 using Fischless.Mapper;
 using Fischless.Models;
 using Fischless.Native;
-using Microsoft.AppCenter;
 using System;
 using System.Threading.Tasks;
 
@@ -35,19 +34,6 @@ public static class ApplicationBuilderExtension
         return app;
     }
 
-    public static IApplicationBuilder UseAppCenter(this IApplicationBuilder app, string userId = null!, string appSecret = null!)
-    {
-        if (new Version(AppCenter.SdkVersion).Major < 5)
-        {
-            AppCenterProvider.Start(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? AppConfig.AppCenterSecret.AppSecret);
-        }
-        else
-        {
-            AppCenterProvider.StartPrepare(userId ?? HardInfoHelper.ComputerIdentityMD5, appSecret ?? AppConfig.AppCenterSecret.AppSecret);
-        }
-        return app;
-    }
-
     public static IApplicationBuilder UseDpiAware(this IApplicationBuilder app)
     {
         _ = DpiAwareHelper.SetProcessDpiAwareness();
@@ -65,7 +51,6 @@ public static class ApplicationBuilderExtension
             AppDomain.CurrentDomain.UnhandledException += (object s, UnhandledExceptionEventArgs e) =>
             {
                 Log.Critical("AppDomain.CurrentDomain.UnhandledException " + e?.ExceptionObject?.ToString() ?? string.Empty);
-                AppCenterProvider.TrackError(e?.ExceptionObject as Exception);
             };
         }
         return app;
@@ -82,7 +67,6 @@ public static class ApplicationBuilderExtension
             TaskScheduler.UnobservedTaskException += (s, e) =>
             {
                 Log.Critical("TaskScheduler.UnobservedTaskException " + e?.Exception?.ToString() ?? string.Empty);
-                AppCenterProvider.TrackError(e?.Exception);
                 e?.SetObserved();
             };
         }
