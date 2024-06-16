@@ -35,11 +35,11 @@ move publish.7z Fischless_v%version%.7z
 msbuild MicaSetup\MicaSetup.Uninst.csproj /t:Rebuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /restore
 
 @echo [build setup using vs2022]
-copy /y .\MicaSetup\bin\Release\net472\MicaSetup.exe .\MicaSetup\Resources\Setups\Uninst.exe
+copy /y .\MicaSetup\bin\Release\MicaSetup.exe .\MicaSetup\Resources\Setups\Uninst.exe
 msbuild MicaSetup\MicaSetup.csproj /t:Build /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /restore
 
 @echo [finish]
-copy /y .\MicaSetup\bin\Release\net472\MicaSetup.exe .\
+copy /y .\MicaSetup\bin\Release\MicaSetup.exe .\
 del FischlessSetup.exe
 move MicaSetup.exe FischlessSetup_v%version%.exe
 

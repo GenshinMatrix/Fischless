@@ -1,5 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using MicaSetup.Design.Commands;
+using MicaSetup.Design.ComponentModel;
 using MicaSetup.Helper;
 using System.Windows;
 
@@ -7,6 +7,8 @@ namespace MicaSetup.ViewModels;
 
 public partial class FinishViewModel : ObservableObject
 {
+    public string Message => Option.Current.MessageOfPage3;
+
     [RelayCommand]
     public void Close()
     {
@@ -15,4 +17,10 @@ public partial class FinishViewModel : ObservableObject
             SystemCommands.CloseWindow(window);
         }
     }
+}
+
+partial class FinishViewModel
+{
+    private RelayCommand? closeCommand;
+    public IRelayCommand CloseCommand => closeCommand ??= new RelayCommand(Close);
 }

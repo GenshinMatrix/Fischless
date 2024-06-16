@@ -1,7 +1,7 @@
 ﻿using MicaSetup.Design.Controls;
+using MicaSetup.Extension.DependencyInjection;
 using MicaSetup.Services;
 using MicaSetup.Views;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -12,8 +12,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Fischless Uninst")]
 [assembly: AssemblyCompany("GenshinMatrix")]
 [assembly: AssemblyCopyright("Under MIT License. Copyright (c) GenshinMatrix Contributors.")]
-[assembly: AssemblyVersion("0.4.6.0")]
-[assembly: AssemblyFileVersion("0.4.6.0")]
+[assembly: AssemblyVersion("0.4.7.0")]
+[assembly: AssemblyFileVersion("0.4.7.0")]
 
 namespace MicaSetup;
 
@@ -41,14 +41,17 @@ internal class Program
                 option.IsAllowFirewall = true;
                 option.IsRefreshExplorer = false;
                 option.IsInstallCertificate = false;
-                option.ExeName = "Fischless.exe";
-                option.KeyName = "Fischless";
-                option.DisplayName = "Fischless";
-                option.DisplayIcon = "Fischless.exe";
-                option.DisplayVersion = "0.4.6.0";
-                option.Publisher = "GenshinMatrix";
                 option.AppName = "Fischless";
-                option.SetupName = $"Fischless {Mui("UninstallProgram")}";
+                option.KeyName = "Fischless";
+                option.ExeName = "Fischless.exe";
+                option.DisplayName = $"{option.AppName}";
+                option.DisplayIcon = $"{option.ExeName}";
+                option.DisplayVersion = "0.4.7.0";
+                option.Publisher = "GenshinMatrix";
+                option.SetupName = $"{option.AppName} {Mui("UninstallProgram")}";
+                option.MessageOfPage1 = $"{option.AppName}";
+                option.MessageOfPage2 = Mui("ProgressTipsUninstalling");
+                option.MessageOfPage3 = Mui("UninstallFinishTips");
             })
             .UseServices(service =>
             {

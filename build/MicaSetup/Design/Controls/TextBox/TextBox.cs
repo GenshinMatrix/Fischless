@@ -1,4 +1,4 @@
-using CommunityToolkit.Mvvm.Input;
+using MicaSetup.Design.Commands;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,9 +47,6 @@ public class TextBoxEx : TextBox
         set => SetValue(PlaceholderEnabledProperty, value);
     }
 
-    /// <summary>
-    /// TODO
-    /// </summary>
     public bool IsTextSelectionEnabled
     {
         get => (bool)GetValue(IsTextSelectionEnabledProperty);

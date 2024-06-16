@@ -5,7 +5,7 @@
              xmlns:conv="clr-namespace:MicaSetup.Design.Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:design="clr-namespace:MicaSetup.Design"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:i="clr-namespace:MicaSetup.Design.Behaviors"
              xmlns:local="clr-namespace:MicaSetup.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DesignHeight="400"
@@ -48,7 +48,7 @@
                        Margin="0,8,0,8"
                        HorizontalAlignment="Center"
                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                       Text="Fischless" />
+                       Text="{Binding Message}" />
             <StackPanel>
                 <StackPanel Margin="30,55,30,0">
                     <control:SetupProgressBar d:IsIndeterminate="True"
