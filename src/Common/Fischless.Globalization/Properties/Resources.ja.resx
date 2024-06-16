@@ -193,6 +193,9 @@
   <data name="AvatarNameOfChongyun" xml:space="preserve">
     <value>重雲</value>
   </data>
+  <data name="AvatarNameOfClorinde" xml:space="preserve">
+    <value>クロリンデ</value>
+  </data>
   <data name="AvatarNameOfCollei" xml:space="preserve">
     <value>コレイ</value>
   </data>
@@ -333,6 +336,9 @@
   </data>
   <data name="AvatarNameOfSayu" xml:space="preserve">
     <value>早柚</value>
+  </data>
+  <data name="AvatarNameOfSethos" xml:space="preserve">
+    <value>セトス</value>
   </data>
   <data name="AvatarNameOfShenhe" xml:space="preserve">
     <value>申鶴</value>

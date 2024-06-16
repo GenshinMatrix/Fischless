@@ -2874,7 +2874,7 @@ public static class SnapCharacterProvider
                 new SnapCharacterOutfit()
                 {
                     Id = -1,
-                    CharacterId = 10000094,
+                    CharacterId = 10000095,
                     Name = "?",
                     IsDefault = true,
                     Card = "",
@@ -2885,6 +2885,74 @@ public static class SnapCharacterProvider
                 },
             },
             TextureOverride = ReShadeIniMapper.Map(10000095),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000096,
+            Name = "赛索斯",
+            Title = "?",
+            Rarity = 4,
+            Gender = 0,
+            Element = ElementType.Electro,
+            WeaponType = WeaponType.Bow,
+            Card = "UI_AvatarIcon_Sethos_Card.png",
+            FaceIcon = "UI_AvatarIcon_Sethos.png",
+            SideIcon = "UI_AvatarIcon_Side_Sethos.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Sethos.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Sethos.png",
+            SortId = 82,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000096,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000096),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000097,
+            Name = "克洛琳德",
+            Title = "?",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Electro,
+            WeaponType = WeaponType.Sword,
+            Card = "UI_AvatarIcon_Clorinde_Card.png",
+            FaceIcon = "UI_AvatarIcon_Clorinde.png",
+            SideIcon = "UI_AvatarIcon_Side_Clorinde.png",
+            GachaCard = "UI_Gacha_AvatarIcon_Clorinde.png",
+            GachaSplash = "UI_Gacha_AvatarImg_Clorinde.png",
+            SortId = 83,
+            BeginTime = DateTime.Now,
+            Outfits = new List<SnapCharacterOutfit>
+            {
+                new SnapCharacterOutfit()
+                {
+                    Id = -1,
+                    CharacterId = 10000097,
+                    Name = "?",
+                    IsDefault = true,
+                    Card = "",
+                    FaceIcon = "",
+                    SideIcon = "",
+                    GachaSplash = "",
+                    TextureOverride = "",
+                },
+            },
+            TextureOverride = ReShadeIniMapper.Map(10000097),
         };
         ///
 
