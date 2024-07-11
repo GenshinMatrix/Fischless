@@ -94,6 +94,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.ReShade.Disabled"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.ReShade.Enabled", "Indeed\Fischless.ReShade.Enabled\Fischless.ReShade.Enabled.csproj", "{ACFC4246-FB31-42CA-A5D9-48D25813F713}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fischless.UnityPatch", "Desktop\Fischless.UnityPatch\Fischless.UnityPatch.vcxproj", "{DF20E855-D5FF-4157-BD9A-1713239DB85F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -246,6 +248,10 @@ Global
 		{ACFC4246-FB31-42CA-A5D9-48D25813F713}.Debug|x64.ActiveCfg = Debug|x64
 		{ACFC4246-FB31-42CA-A5D9-48D25813F713}.Debug|x64.Build.0 = Debug|x64
 		{ACFC4246-FB31-42CA-A5D9-48D25813F713}.Release|x64.ActiveCfg = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|x64.ActiveCfg = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|x64.Build.0 = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|x64.ActiveCfg = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,9 +294,10 @@ Global
 		{97A0008E-21E8-498A-ACF4-D68E84CDF76F} = {2944494E-EB09-4387-9677-BB38A224A624}
 		{97483A55-3885-45EE-BD1F-6D0A5815E06E} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
 		{ACFC4246-FB31-42CA-A5D9-48D25813F713} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F} = {2944494E-EB09-4387-9677-BB38A224A624}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
 		RESX_SortFileContentOnSave = True
+		SolutionGuid = {2462D6EC-60E1-4B87-ABBA-B6F469E44A3A}
 	EndGlobalSection
 EndGlobal
