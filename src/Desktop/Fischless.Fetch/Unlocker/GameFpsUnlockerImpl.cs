@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
 using Vanara.PInvoke;
@@ -53,6 +55,14 @@ internal class GameFpsUnlockerImpl
         }
     }
 
+    private static class Extension
+    {
+        public static int[] ToPatternArray(string pattern)
+        {
+            return pattern.Split(' ').Select(p => p == "??" ? -1 : byte.Parse(p, NumberStyles.HexNumber, CultureInfo.InvariantCulture)).ToArray();
+        }
+    }
+
     private static bool GetModule2(Kernel32.SafeHPROCESS hProcess, string moduleName, out Kernel32.MODULEENTRY32 pEntry)
     {
         pEntry = new Kernel32.MODULEENTRY32 { dwSize = (uint)Marshal.SizeOf<Kernel32.MODULEENTRY32>() };
@@ -89,11 +99,11 @@ internal class GameFpsUnlockerImpl
         return false;
     }
 
-    private static unsafe nint PatternScan(nint module, uint dataLength, int[] pattern)
+    private static unsafe nint PatternScan(nint module, uint dataLength, string pattern)
     {
         byte* scanBytes = (byte*)module;
-        ulong s = (ulong)pattern.Length;
-        int[] d = pattern.Select(p => p == '?' ? -1 : p).ToArray();
+        int[] d = Extension.ToPatternArray(pattern);
+        ulong s = (ulong)d.Length;
 
         for (ulong i = 0ul; i < dataLength - s; ++i)
         {
@@ -111,6 +121,11 @@ internal class GameFpsUnlockerImpl
                 return IntPtr.Add(module, (int)i);
             }
         }
+        return IntPtr.Zero;
+    }
+
+    private static nint InjectPatch(nint unityModule, nint unityBaseAdd, nint fpsPtr, nint tarHandle)
+    {
         return IntPtr.Zero;
     }
 
@@ -194,7 +209,7 @@ internal class GameFpsUnlockerImpl
 
         Debug.WriteLine("[Unlocker] Searching for pattern...");
 
-        nint address = PatternScan(up, hUnityPlayer.modBaseSize, [0x7F, 0x0E, 0xE8, '?', '?', '?', '?', 0x66, 0x0F, 0x6E, 0xC8]);
+        nint address = PatternScan(up, hUnityPlayer.modBaseSize, "7F 0E E8 ?? ?? ?? ?? 66 0F 6E C8");
 
         if (address == IntPtr.Zero)
         {
@@ -210,6 +225,14 @@ internal class GameFpsUnlockerImpl
             rip += *(int*)(rip) + 4;
             pfps = rip - up + hUnityPlayer.modBaseAddr;
             Debug.WriteLine($"[Unlocker] FPS Offset: {pfps}");
+        }
+        nint patchPtr = 0;
+        {
+            patchPtr = InjectPatch(up, hUnityPlayer.modBaseAddr, pfps, hProcess.DangerousGetHandle());
+            if (patchPtr == IntPtr.Zero)
+            {
+                Debug.WriteLine("[Unlocker] Inject Patch Fail!");
+            }
         }
 
         uint exitCode = STILL_ACTIVE;
