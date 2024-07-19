@@ -3,11 +3,9 @@ using Fischless.Fetch.Settings;
 using Fischless.KeyboardCapture;
 using Fischless.Logging;
 using Fischless.MouseCapture;
-using Fischless.Native;
 using System.Drawing;
 using System.Windows.Forms;
 using Vanara.PInvoke;
-using Windows.System;
 using Process = System.Diagnostics.Process;
 
 namespace Fischless.Fetch.DragMove;
@@ -172,7 +170,7 @@ public static class DragMoveProvider
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MOVE, User32.MenuFlags.MF_ENABLED);
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MINIMIZE, User32.MenuFlags.MF_ENABLED);
                     _ = User32.EnableMenuItem(hMenu, (uint)User32.SysCommand.SC_MAXIMIZE, User32.MenuFlags.MF_ENABLED);
-                    uint command = User32.TrackPopupMenuEx(hMenu, User32.TrackPopupMenuFlags.TPM_RETURNCMD, (int)DpiHelper.CalcDPiX(pt.X), (int)DpiHelper.CalcDPiY(pt.Y), Process.GetCurrentProcess().MainWindowHandle, default);
+                    uint command = User32.TrackPopupMenuEx(hMenu, User32.TrackPopupMenuFlags.TPM_RETURNCMD, pt.X, pt.Y, Process.GetCurrentProcess().MainWindowHandle, default);
 
                     if (command == (uint)User32.SysCommand.SC_MOVE)
                     {
