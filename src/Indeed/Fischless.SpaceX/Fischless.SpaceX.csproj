@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Assets\Images\Favicon.ico</ApplicationIcon>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<Platforms>AnyCPU;x64</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\Images\*.ico" />
+		<Resource Include="Assets\Images\*.png" />
+		<Resource Include="Assets\Fonts\*.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Assets\Images\*.ico" />
+		<None Remove="Assets\Images\*.png" />
+		<None Remove="Assets\Fonts\*.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="PicaPico.NotifyIcon" Version="1.0.0" />
+		<PackageReference Include="IndexRange" Version="1.0.3" />
+		<PackageReference Include="Costura.Fody" Version="5.7.0" Condition=" '$(Configuration)' == 'Release'">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>compile; runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
+	
+</Project>
