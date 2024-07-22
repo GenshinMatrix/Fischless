@@ -216,6 +216,18 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
     {
         try
         {
+            if (GILauncher.TryGetGamePath(Configurations.IsUseGamePath.Get() ? Configurations.GamePath.Get() : null, out string fileName))
+            {
+                FluentProcess netsh1 = FluentProcess.Create()
+                    .FileName("netsh")
+                    .Arguments(@$"advfirewall firewall add rule name=""DIS_GENSHIN_NETWORK"" dir=out action=block program=""{fileName}""")
+                    .CreateNoWindow()
+                    .UseShellExecute(false)
+                    .Verb("runas")
+                    .Start()
+                    .WaitForExit();
+            }
+
             if (Configurations.IsUseReShade.Get() && Directory.Exists(Configurations.ReShadePath.Get()))
             {
                 await GILauncher.KillAsync(GIRelaunchMethod.Kill);
@@ -233,6 +245,16 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                 ScreenHeight = Configurations.IsUseResolution.Get() ? Configurations.ResolutionHeight.Get() : null,
                 Fps = Configurations.IsUseFps.Get() ? Configurations.Fps.Get() : null,
             });
+
+            // TODO: unlocker
+            FluentProcess netsh2 = FluentProcess.Create()
+                .FileName("netsh")
+                .Arguments(@"advfirewall firewall delete rule name=""DIS_GENSHIN_NETWORK""")
+                .CreateNoWindow()
+                .UseShellExecute(false)
+                .Verb("runas")
+                .Start()
+                .WaitForExit();
         }
         catch (Exception e)
         {

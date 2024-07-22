@@ -91,7 +91,38 @@ public static class GILauncher
         {
             fileName = Path.Combine(GIRegedit.InstallPathOVERSEA ?? string.Empty, FolderName, FileNameOVERSEA);
         }
-        return string.IsNullOrEmpty(gamePath = fileName);
+        return !string.IsNullOrEmpty(gamePath = fileName);
+    }
+
+    public static bool TryGetGamePath(string launchParameterGamePath, out string gamePath)
+    {
+        string fileName = null!;
+
+        if (string.IsNullOrWhiteSpace(launchParameterGamePath))
+        {
+            _ = TryGetGamePath(out fileName);
+        }
+        else
+        {
+            FileInfo fileInfo = new(launchParameterGamePath);
+
+            if (fileInfo.Name.Equals(FileNameCN, StringComparison.OrdinalIgnoreCase)
+             || fileInfo.Name.Equals(FileNameOVERSEA, StringComparison.OrdinalIgnoreCase))
+            {
+                fileName = launchParameterGamePath;
+            }
+
+            if (!File.Exists(fileName))
+            {
+                if (string.IsNullOrEmpty(GIRegedit.InstallPathCN) && string.IsNullOrEmpty(GIRegedit.InstallPathOVERSEA))
+                {
+                    throw new Exception("Genshin Impact not installed.");
+                }
+                _ = TryGetGamePath(out fileName);
+            }
+        }
+
+        return !string.IsNullOrEmpty(gamePath = fileName);
     }
 
     public static async Task KillAsync(GIRelaunchMethod relaunchMethod = GIRelaunchMethod.None)
@@ -128,31 +159,7 @@ public static class GILauncher
 
         launchParameter ??= new();
 
-        string fileName = null!;
-
-        if (string.IsNullOrWhiteSpace(launchParameter.GamePath))
-        {
-            _ = TryGetGamePath(out fileName);
-        }
-        else
-        {
-            FileInfo fileInfo = new(launchParameter.GamePath);
-
-            if (fileInfo.Name.Equals(FileNameCN, StringComparison.OrdinalIgnoreCase)
-             || fileInfo.Name.Equals(FileNameOVERSEA, StringComparison.OrdinalIgnoreCase))
-            {
-                fileName = launchParameter.GamePath;
-            }
-
-            if (!File.Exists(fileName))
-            {
-                if (string.IsNullOrEmpty(GIRegedit.InstallPathCN) && string.IsNullOrEmpty(GIRegedit.InstallPathOVERSEA))
-                {
-                    throw new Exception("Genshin Impact not installed.");
-                }
-                _ = TryGetGamePath(out fileName);
-            }
-        }
+        _ = TryGetGamePath(launchParameter.GamePath, out string fileName);
 
         if (string.IsNullOrEmpty(launchParameter.Server) || launchParameter.Server == RegionCN)
         {
