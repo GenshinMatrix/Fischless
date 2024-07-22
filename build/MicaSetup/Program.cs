@@ -12,8 +12,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Fischless Setup")]
 [assembly: AssemblyCompany("GenshinMatrix")]
 [assembly: AssemblyCopyright("Under MIT License. Copyright (c) GenshinMatrix Contributors.")]
-[assembly: AssemblyVersion("0.4.8.0")]
-[assembly: AssemblyFileVersion("0.4.8.0")]
+[assembly: AssemblyVersion("0.4.9.0")]
+[assembly: AssemblyFileVersion("0.4.9.0")]
 
 namespace MicaSetup;
 
@@ -53,7 +53,7 @@ internal class Program
                 option.ExeName = "Fischless.exe";
                 option.DisplayName = $"{option.AppName}";
                 option.DisplayIcon = $"{option.ExeName}";
-                option.DisplayVersion = "0.4.8.0";
+                option.DisplayVersion = "0.4.9.0";
                 option.Publisher = "GenshinMatrix";
                 option.SetupName = $"{option.AppName} {Mui("Setup")}";
                 option.MessageOfPage1 = $"{option.AppName}";
