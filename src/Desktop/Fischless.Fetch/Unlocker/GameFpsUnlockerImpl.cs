@@ -502,14 +502,14 @@ internal class GameFpsUnlockerImpl
             pfps = rip - up + hUnityPlayer.modBaseAddr;
             Debug.WriteLine($"[Unlocker] FPS Offset: {pfps}");
         }
-        nint patchPtr = 0;
+        //nint patchPtr = 0;
         {
             //patchPtr = InjectPatch(up, hUnityPlayer.modBaseSize, hUnityPlayer.modBaseAddr, pfps, hProcess.DangerousGetHandle(), targetFps);
-            patchPtr = Interop.InjectPatch(up, hUnityPlayer.modBaseAddr, pfps, hProcess.DangerousGetHandle(), targetFps);
-            if (patchPtr == IntPtr.Zero)
-            {
-                Debug.WriteLine("[Unlocker] Inject Patch Fail!");
-            }
+            //patchPtr = Interop.InjectPatch(up, hUnityPlayer.modBaseAddr, pfps, hProcess.DangerousGetHandle(), targetFps);
+            //if (patchPtr == IntPtr.Zero)
+            //{
+            //    Debug.WriteLine("[Unlocker] Inject Patch Fail!");
+            //}
         }
 
         uint exitCode = STILL_ACTIVE;

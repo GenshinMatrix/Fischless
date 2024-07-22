@@ -185,6 +185,7 @@ public static class GILauncher
             Verb = "runas",
         });
 
+#if false // Not stabled to unlock.
         if (launchParameter.Fps > 60)
         {
             try
@@ -197,6 +198,7 @@ public static class GILauncher
             {
             }
         }
+#endif
     }
 
     public static async Task<bool> TryGetProcessAsync(Func<Process?, Task> callback = null!)
