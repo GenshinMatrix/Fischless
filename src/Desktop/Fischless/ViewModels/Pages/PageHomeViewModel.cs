@@ -246,6 +246,8 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                 Fps = Configurations.IsUseFps.Get() ? Configurations.Fps.Get() : null,
             });
 
+            await Task.Delay(3000);
+
             // TODO: unlocker
             FluentProcess netsh2 = FluentProcess.Create()
                 .FileName("netsh")
