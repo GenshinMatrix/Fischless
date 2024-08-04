@@ -439,6 +439,15 @@ namespace Fischless.Globalization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Emilie.
+        /// </summary>
+        public static string AvatarNameOfEmilie {
+            get {
+                return ResourceManager.GetString("AvatarNameOfEmilie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eula.
         /// </summary>
         public static string AvatarNameOfEula {
@@ -840,6 +849,15 @@ namespace Fischless.Globalization.Properties {
         public static string AvatarNameOfShougun {
             get {
                 return ResourceManager.GetString("AvatarNameOfShougun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sigewinne.
+        /// </summary>
+        public static string AvatarNameOfSigewinne {
+            get {
+                return ResourceManager.GetString("AvatarNameOfSigewinne", resourceCulture);
             }
         }
         

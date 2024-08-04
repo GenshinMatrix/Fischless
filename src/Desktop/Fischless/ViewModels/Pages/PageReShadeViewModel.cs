@@ -146,7 +146,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                 Id = c.Id,
                 SortId = c.SortId,
                 BeginTime = c.BeginTime,
-                Outfits = c.Outfits.Select(o => new ReShadeAvatarOutfit()
+                Outfits = c.Outfits?.Select(o => new ReShadeAvatarOutfit()
                 {
                     Id = o.Id,
                     CharacterId = o.CharacterId,
@@ -154,7 +154,7 @@ public partial class PageReShadeViewModel : ObservableRecipient, IDisposable
                     NameKey = $"AvatarNameOf{c.FaceIcon.Replace("UI_AvatarIcon_", string.Empty).Replace(".png", string.Empty)}",
                     Card = $"{PackSchemeHelper.ImagesPrefix}AvatarIcons/{o.Card}",
                     FaceIcon = $"{PackSchemeHelper.ImagesPrefix}AvatarIcons/{o.FaceIcon}",
-                }),
+                }) ?? [],
                 TextureOverride = c.TextureOverride,
                 IsSelected = i == 0,
             })

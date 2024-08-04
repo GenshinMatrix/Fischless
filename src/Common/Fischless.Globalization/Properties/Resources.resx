@@ -142,6 +142,9 @@
   <data name="AvatarIcon" xml:space="preserve">
     <value>Icon</value>
   </data>
+  <data name="AvatarNameOfEmilie" xml:space="preserve">
+    <value>Emilie</value>
+  </data>
   <data name="AvatarNameOfAlbedo" xml:space="preserve">
     <value>Albedo</value>
   </data>
@@ -348,6 +351,9 @@
   </data>
   <data name="AvatarNameOfShougun" xml:space="preserve">
     <value>Raiden Shogun</value>
+  </data>
+  <data name="AvatarNameOfSigewinne" xml:space="preserve">
+    <value>Sigewinne</value>
   </data>
   <data name="AvatarNameOfSucrose" xml:space="preserve">
     <value>Sucrose</value>

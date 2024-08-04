@@ -214,6 +214,9 @@
   <data name="AvatarNameOfDori" xml:space="preserve">
     <value>ドリー</value>
   </data>
+  <data name="AvatarNameOfEmilie" xml:space="preserve">
+    <value>エミリエ</value>
+  </data>
   <data name="AvatarNameOfEula" xml:space="preserve">
     <value>エウルア</value>
   </data>
@@ -348,6 +351,9 @@
   </data>
   <data name="AvatarNameOfShougun" xml:space="preserve">
     <value>雷電将軍</value>
+  </data>
+  <data name="AvatarNameOfSigewinne" xml:space="preserve">
+    <value>シグウィン</value>
   </data>
   <data name="AvatarNameOfSucrose" xml:space="preserve">
     <value>スクロース</value>
