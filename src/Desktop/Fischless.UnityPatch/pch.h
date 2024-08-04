@@ -11,7 +11,7 @@
 #include "framework.h"
 
 extern "C" {
-    __declspec(dllexport) DWORD64 inject_patch(LPVOID unity_module, DWORD64 unity_baseaddr, DWORD64 _ptr_fps, HANDLE Tar_handle, int FpsValue);
+    __declspec(dllexport) int unlock(int pid, int targetFPS);
 }
 
 #endif //PCH_H

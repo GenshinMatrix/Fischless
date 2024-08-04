@@ -98,6 +98,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.SpaceX", "Indeed\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fischless.SnapAvatar", "Indeed\Fischless.SnapAvatar\Fischless.SnapAvatar.csproj", "{66225366-305B-449C-95C4-A9475101702F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fischless.UnityPatch", "Desktop\Fischless.UnityPatch\Fischless.UnityPatch.vcxproj", "{DF20E855-D5FF-4157-BD9A-1713239DB85F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -418,6 +420,14 @@ Global
 		{66225366-305B-449C-95C4-A9475101702F}.Release|Any CPU.Build.0 = Release|x64
 		{66225366-305B-449C-95C4-A9475101702F}.Release|x64.ActiveCfg = Release|x64
 		{66225366-305B-449C-95C4-A9475101702F}.Release|x64.Build.0 = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|Any CPU.Build.0 = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|x64.ActiveCfg = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Debug|x64.Build.0 = Debug|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|Any CPU.ActiveCfg = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|Any CPU.Build.0 = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|x64.ActiveCfg = Release|x64
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -462,6 +472,7 @@ Global
 		{ACFC4246-FB31-42CA-A5D9-48D25813F713} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
 		{E8437A1D-F64F-440D-BFF2-BC97AFF0BE5E} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
 		{66225366-305B-449C-95C4-A9475101702F} = {E5066E35-23C6-4F4E-8FDE-70EDE1745346}
+		{DF20E855-D5FF-4157-BD9A-1713239DB85F} = {2944494E-EB09-4387-9677-BB38A224A624}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		RESX_SortFileContentOnSave = True

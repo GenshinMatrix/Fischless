@@ -226,6 +226,20 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                     .Verb("runas")
                     .Start()
                     .WaitForExit();
+
+                _ = Task.Run(async () =>
+                {
+                    await Task.Delay(5000);
+
+                    FluentProcess netsh2 = FluentProcess.Create()
+                        .FileName("netsh")
+                        .Arguments(@"advfirewall firewall delete rule name=""DIS_GENSHIN_NETWORK""")
+                        .CreateNoWindow()
+                        .UseShellExecute(false)
+                        .Verb("runas")
+                        .Start()
+                        .WaitForExit();
+                });
             }
 
             if (Configurations.IsUseReShade.Get() && Directory.Exists(Configurations.ReShadePath.Get()))
@@ -245,18 +259,6 @@ public partial class PageHomeViewModel : ObservableRecipient, IDisposable, IDrop
                 ScreenHeight = Configurations.IsUseResolution.Get() ? Configurations.ResolutionHeight.Get() : null,
                 Fps = Configurations.IsUseFps.Get() ? Configurations.Fps.Get() : null,
             });
-
-            await Task.Delay(3000);
-
-            // TODO: unlocker
-            FluentProcess netsh2 = FluentProcess.Create()
-                .FileName("netsh")
-                .Arguments(@"advfirewall firewall delete rule name=""DIS_GENSHIN_NETWORK""")
-                .CreateNoWindow()
-                .UseShellExecute(false)
-                .Verb("runas")
-                .Start()
-                .WaitForExit();
         }
         catch (Exception e)
         {

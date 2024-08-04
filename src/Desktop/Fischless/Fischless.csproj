@@ -17,12 +17,12 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      <DefineConstants>$(DefineConstants);_DEMOPRO</DefineConstants>
-      <FileAlignment>512</FileAlignment>
+        <DefineConstants>$(DefineConstants);_DEMOPRO</DefineConstants>
+        <FileAlignment>512</FileAlignment>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      <FileAlignment>512</FileAlignment>
+        <FileAlignment>512</FileAlignment>
     </PropertyGroup>
 
     <ItemGroup>
