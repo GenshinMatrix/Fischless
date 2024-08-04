@@ -12,8 +12,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Fischless Uninst")]
 [assembly: AssemblyCompany("GenshinMatrix")]
 [assembly: AssemblyCopyright("Under MIT License. Copyright (c) GenshinMatrix Contributors.")]
-[assembly: AssemblyVersion("0.4.10.0")]
-[assembly: AssemblyFileVersion("0.4.10.0")]
+[assembly: AssemblyVersion("0.4.11.0")]
+[assembly: AssemblyFileVersion("0.4.11.0")]
 
 namespace MicaSetup;
 
@@ -46,7 +46,7 @@ internal class Program
                 option.ExeName = "Fischless.exe";
                 option.DisplayName = $"{option.AppName}";
                 option.DisplayIcon = $"{option.ExeName}";
-                option.DisplayVersion = "0.4.10.0";
+                option.DisplayVersion = "0.4.11.0";
                 option.Publisher = "GenshinMatrix";
                 option.SetupName = $"{option.AppName} {Mui("UninstallProgram")}";
                 option.MessageOfPage1 = $"{option.AppName}";
