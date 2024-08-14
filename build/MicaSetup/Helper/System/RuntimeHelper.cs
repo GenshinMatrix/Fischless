@@ -99,8 +99,7 @@ public static class RuntimeHelper
             callback?.Invoke(true);
             handle = new EventWaitHandle(false, EventResetMode.AutoReset, instanceName);
         }
-        GC.KeepAlive(handle);
-        _ = Task.Run(() =>
+        _ = Task.Factory.StartNew(() =>
         {
             while (handle.WaitOne())
             {
@@ -110,6 +109,6 @@ public static class RuntimeHelper
                     main?.Show();
                 });
             }
-        });
+        }, TaskCreationOptions.LongRunning);
     }
 }
