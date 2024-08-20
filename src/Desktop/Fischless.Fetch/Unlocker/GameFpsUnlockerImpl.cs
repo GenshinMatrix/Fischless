@@ -7,7 +7,7 @@ internal class GameFpsUnlockerImpl
 {
     private static class Interop
     {
-        [DllImport("Fischless.UnityPatch.dll", EntryPoint = "unlock")]
+        [DllImport(@".\runtimes\win-x64\native\Fischless.UnlockerPatch.dll", EntryPoint = "unlock")]
         public static extern int Unlock(int pid, int targetFPS);
     }
 

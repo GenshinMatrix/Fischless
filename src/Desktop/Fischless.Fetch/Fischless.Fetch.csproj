@@ -22,6 +22,10 @@
 		<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.17" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.17" />
 		<PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.17" />
+		<PackageReference Include="Fischless.UnlockerPatch" Version="4.8.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
