@@ -17,11 +17,9 @@ echo [build app using vs2022]
 cd ..\src\
 dotnet restore
 dotnet publish -c Release -p:PublishProfile=FolderProfile
-msbuild Desktop\Fischless.UnityPatch\Fischless.UnityPatch.vcxproj /t:Rebuild /p:Configuration=Release /p:OutDir=".\x64\Release"
 cd /d %~dp0
 
 echo [pack app using 7z]
-copy ..\src\Desktop\Fischless.UnityPatch\x64\Release\Fischless.UnityPatch.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\
 del ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\*.pdb
 mkdir ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins\
 copy ..\src\Plugins\Fischless.Plugin.DisplayDefault\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Fischless.Plugin.DisplayDefault.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
