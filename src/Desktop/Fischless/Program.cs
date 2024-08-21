@@ -1,5 +1,4 @@
-﻿using Fischless.Fetch.Responsive;
-using Fischless.Hosting;
+﻿using Fischless.Hosting;
 using Fischless.Hosting.Absraction;
 using Fischless.Hosting.Extension;
 using System;
@@ -11,7 +10,7 @@ internal class Program
     [STAThread]
     internal static void Main(string[] args)
     {
-        ResponsiveTester.Benchmark();
+        //ResponsiveTester.Benchmark();
         CreateHostBuilder(args).Build().Run();
     }
 
