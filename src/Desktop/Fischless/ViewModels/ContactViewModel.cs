@@ -50,7 +50,7 @@ public sealed partial class ContactViewModel : ObservableObject
         {
             try
             {
-                FetchLazyInfoAsync().Forget();
+                _ = FetchLazyInfoAsync();
                 await FetchHoyolabUserInfoAsync();
                 await FetchGenshinRoleInfosAsync();
 

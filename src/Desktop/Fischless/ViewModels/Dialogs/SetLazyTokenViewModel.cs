@@ -4,7 +4,6 @@ using Fischless.Design.Controls;
 using Fischless.Design.Helpers;
 using Fischless.Fetch.Lazy;
 using Fischless.Helpers;
-using Fischless.Threading;
 using Fischless.Views;
 using System;
 using System.Diagnostics;
@@ -40,7 +39,7 @@ public partial class SetLazyTokenViewModel : ObservableObject
 
     public SetLazyTokenViewModel()
     {
-        ReloadAsync().Forget();
+        _ = ReloadAsync();
     }
 
     private async Task ReloadAsync()

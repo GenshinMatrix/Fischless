@@ -136,6 +136,6 @@ public static class RuntimeHelper
                     main?.Show();
                 });
             }
-        }, TaskCreationOptions.LongRunning).KeepAlive();
+        }, TaskCreationOptions.LongRunning);
     }
 }
