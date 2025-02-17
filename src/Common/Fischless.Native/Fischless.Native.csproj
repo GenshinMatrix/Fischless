@@ -12,14 +12,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Management" Version="8.0.0" />
-        <PackageReference Include="Vanara.PInvoke.DwmApi" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.NtDll" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.User32" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.SHCore" Version="3.4.17" />
-        <PackageReference Include="Vanara.PInvoke.UxTheme" Version="3.4.17" />
+        <PackageReference Include="System.Management" Version="9.0.2" />
+        <PackageReference Include="Vanara.PInvoke.DwmApi" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.Gdi32" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.Kernel32" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.NtDll" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.User32" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.SHCore" Version="4.0.5" />
+        <PackageReference Include="Vanara.PInvoke.UxTheme" Version="4.0.5" />
     </ItemGroup>
 
 </Project>

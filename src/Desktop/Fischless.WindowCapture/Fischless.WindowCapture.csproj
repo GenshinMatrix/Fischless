@@ -9,15 +9,16 @@
 		<UseWPF>True</UseWPF>
 		<LangVersion>12.0</LangVersion>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <NoWarn>1701;1702;NU1903;</NoWarn>
     </PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
-		<PackageReference Include="Vanara.PInvoke.Gdi32" Version="3.4.17" />
-		<PackageReference Include="Vanara.PInvoke.User32" Version="3.4.17" />
-		<PackageReference Include="Vanara.PInvoke.DwmApi" Version="3.4.17" />
-		<PackageReference Include="Vanara.PInvoke.SHCore" Version="3.4.17" />
-		<PackageReference Include="Vanara.Windows.Extensions" Version="3.4.17" />
+		<PackageReference Include="Vanara.PInvoke.Gdi32" Version="4.0.5" />
+		<PackageReference Include="Vanara.PInvoke.User32" Version="4.0.5" />
+		<PackageReference Include="Vanara.PInvoke.DwmApi" Version="4.0.5" />
+		<PackageReference Include="Vanara.PInvoke.SHCore" Version="4.0.5" />
+		<PackageReference Include="Vanara.Windows.Extensions" Version="4.0.5" />
 	</ItemGroup>
 
 </Project>

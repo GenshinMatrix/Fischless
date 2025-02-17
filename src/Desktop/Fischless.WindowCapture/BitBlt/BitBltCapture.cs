@@ -58,7 +58,7 @@ public class BitBltCapture : IWindowCapture
                 Bitmap bitmap = new(width, height);
                 using System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap);
                 nint hdcDest = g.GetHdc();
-                Gdi32.SafeHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
+                User32.SafeReleaseHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
                 _ = Gdi32.StretchBlt(hdcDest, 0, 0, width, height, hdcSrc, x, y, width, height, Gdi32.RasterOperationMode.SRCCOPY);
                 g.ReleaseHdc();
                 _ = Gdi32.DeleteDC(hdcDest);
@@ -90,7 +90,7 @@ public class BitBltCapture : IWindowCapture
             Bitmap copied = new(width, height);
             using System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(copied);
             nint hdcDest = g.GetHdc();
-            Gdi32.SafeHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
+            User32.SafeReleaseHDC hdcSrc = User32.GetDC(_hWnd == IntPtr.Zero ? User32.GetDesktopWindow() : _hWnd);
             _ = Gdi32.StretchBlt(hdcDest, 0, 0, width, height, hdcSrc, x, y, width, height, Gdi32.RasterOperationMode.SRCCOPY);
             g.ReleaseHdc();
             _ = Gdi32.DeleteDC(hdcDest);

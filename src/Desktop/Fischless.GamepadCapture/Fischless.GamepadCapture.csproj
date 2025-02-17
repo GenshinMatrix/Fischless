@@ -9,8 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Vortice.DirectInput" Version="3.5.0" />
-		<PackageReference Include="Vortice.DirectX" Version="3.5.0" />
+		<PackageReference Include="Vortice.DirectInput" Version="3.6.2" />
+		<PackageReference Include="Vortice.DirectX" Version="3.6.2" />
 	</ItemGroup>
 
 </Project>
