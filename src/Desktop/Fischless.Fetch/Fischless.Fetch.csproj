@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Platforms>x64</Platforms>
-		<LangVersion>12.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
         <NoWarn>1701;1702;NU1903;</NoWarn>
     </PropertyGroup>

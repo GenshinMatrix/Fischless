@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseWPF>true</UseWPF>
-		<LangVersion>12.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<AssemblyName>ENABLED</AssemblyName>
 		<ApplicationIcon>Favicon.ico</ApplicationIcon>
 		<Platforms>x64</Platforms>
