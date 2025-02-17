@@ -1099,6 +1099,136 @@ public static class SnapCharacterProvider
             TextureOverride = ReShadeIniMapper.Map(10000099),
         };
 
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000100,
+            Name = "Kachina",
+            Rarity = 4,
+            Gender = 1,
+            Element = ElementType.Geo,
+            WeaponType = WeaponType.Polearm,
+            FaceIcon = "UI_AvatarIcon_Kachina.png",
+            SortId = 1724706000,
+            TextureOverride = ReShadeIniMapper.Map(10000100),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000102,
+            Name = "Mualani",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Hydro,
+            WeaponType = WeaponType.Catalyst,
+            FaceIcon = "UI_AvatarIcon_Mualani.png",
+            SortId = 1724706000,
+            TextureOverride = ReShadeIniMapper.Map(10000102),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000101,
+            Name = "Kinich",
+            Rarity = 5,
+            Gender = 0,
+            Element = ElementType.Dendro,
+            WeaponType = WeaponType.Claymore,
+            FaceIcon = "UI_AvatarIcon_Kinich.png",
+            SortId = 1726585200,
+            TextureOverride = ReShadeIniMapper.Map(10000101),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000103,
+            Name = "Xilonen",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Geo,
+            WeaponType = WeaponType.Sword,
+            FaceIcon = "UI_AvatarIcon_Xilonen.png",
+            SortId = 1728334800,
+            TextureOverride = ReShadeIniMapper.Map(10000103),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000104,
+            Name = "Chasca",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Anemo,
+            WeaponType = WeaponType.Bow,
+            FaceIcon = "UI_AvatarIcon_Chasca.png",
+            SortId = 1731967200,
+            TextureOverride = ReShadeIniMapper.Map(10000104),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000105,
+            Name = "Ororon",
+            Rarity = 4,
+            Gender = 0,
+            Element = ElementType.Electro,
+            WeaponType = WeaponType.Bow,
+            FaceIcon = "UI_AvatarIcon_Olorun.png",
+            SortId = 1731967200,
+            TextureOverride = ReShadeIniMapper.Map(10000105),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000107,
+            Name = "Citlali",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Cryo,
+            WeaponType = WeaponType.Catalyst,
+            FaceIcon = "UI_AvatarIcon_Citlali.png",
+            SortId = 1735596000,
+            TextureOverride = ReShadeIniMapper.Map(10000107),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000106,
+            Name = "Mavuika",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Pyro,
+            WeaponType = WeaponType.Claymore,
+            FaceIcon = "UI_AvatarIcon_Mavuika.png",
+            SortId = 1735596000,
+            TextureOverride = ReShadeIniMapper.Map(10000106),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000108,
+            Name = "Lan Yan",
+            Rarity = 4,
+            Gender = 1,
+            Element = ElementType.Anemo,
+            WeaponType = WeaponType.Catalyst,
+            FaceIcon = "UI_AvatarIcon_LanYan.png",
+            SortId = 1737475200,
+            TextureOverride = ReShadeIniMapper.Map(10000108),
+        };
+
+        yield return new SnapCharacterInfo()
+        {
+            Id = 10000109,
+            Name = "Yumemizuki Mizuki",
+            Rarity = 5,
+            Gender = 1,
+            Element = ElementType.Anemo,
+            WeaponType = WeaponType.Catalyst,
+            FaceIcon = "UI_AvatarIcon_Mizuki.png",
+            SortId = 1739224800,
+            TextureOverride = ReShadeIniMapper.Map(10000109),
+        };
+
         ///
         yield return new SnapCharacterInfo()
         {
@@ -1154,3 +1284,4 @@ public static class SnapCharacterProvider
         };
     }
 }
+

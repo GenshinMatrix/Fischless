@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Text;
 
+// https://github.com/dvaJi/genshin-data
 string directoryPath = @"D:\GitHub\genshin-data\src\data\english\characters";
 string[] jsonFiles = Directory.GetFiles(directoryPath, "*.json", SearchOption.AllDirectories);
 var jsons = jsonFiles.Select(jsonFile => JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(jsonFile))).OrderBy(j => (int)j["release"]);
@@ -30,9 +33,9 @@ foreach (dynamic json in jsons)
     sb.AppendLine($"            Id = {(int)json["_id"]},");
     sb.AppendLine($"            Name = \"{(string)json["name"]}\",");
     sb.AppendLine($"            Rarity = {(int)json["rarity"]},");
-    sb.AppendLine($"            Gender = {((string)json["gender"] == "Female" ? 1 : 0)},");
-    sb.AppendLine($"            Element = ElementType.{(string)json["element"]},");
-    sb.AppendLine($"            WeaponType = WeaponType.{(string)json["weapon_type"]},");
+    sb.AppendLine($"            Gender = {((string)json["gender"]["id"] == "female" ? 1 : 0)},");
+    sb.AppendLine($"            Element = ElementType.{((string)json["element"]["id"]).Capitalize()},");
+    sb.AppendLine($"            WeaponType = WeaponType.{((string)json["weapon_type"]["id"]).Capitalize()},");
     sb.AppendLine($"            FaceIcon = \"UI_AvatarIcon_{ToFileName((string)json["id"])}.png\",");
     sb.AppendLine($"            SortId = {(int)json["release"]},");
     sb.AppendLine($"            TextureOverride = ReShadeIniMapper.Map({(int)json["_id"]}),");
@@ -164,9 +167,17 @@ static string ToFileName(string id)
     {
         id = "Liney";
     }
+    else if (id == "lan_yan")
+    {
+        id = "LanYan";
+    }
     else if (id == "noelle")
     {
         id = "Noel";
+    }
+    else if (id == "ororon")
+    {
+        id = "Olorun";
     }
     else if (id == "raiden_shogun")
     {
@@ -200,6 +211,32 @@ static string ToFileName(string id)
     {
         id = "Yunjin";
     }
+    else if (id == "yumemizuki_mizuki")
+    {
+        id = "Mizuki";
+    }
 
-    return (id[0..1].ToUpper() + id[1..]).Replace(" ", string.Empty);
+    return (char.ToUpper(id[0]) + id[1..]).Replace(" ", string.Empty);
+}
+
+[SuppressMessage("Design", "CA1050:Declare types in namespaces")]
+[SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
+public static class StringExtensions
+{
+    public static string Capitalize(this object obj)
+    {
+        if (obj is null)
+        {
+            return string.Empty;
+        }
+        else if (obj is string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return char.ToUpper(input[0]) + input[1..];
+        }
+        else
+        {
+            return obj.ToString()!.Capitalize();
+        }
+    }
 }

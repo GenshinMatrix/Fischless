@@ -184,6 +184,9 @@
   <data name="AvatarNameOfCharlotte" xml:space="preserve">
     <value>夏洛蒂</value>
   </data>
+  <data name="AvatarNameOfChasca" xml:space="preserve">
+    <value>恰斯卡</value>
+  </data>
   <data name="AvatarNameOfChevreuse" xml:space="preserve">
     <value>夏沃蕾</value>
   </data>
@@ -192,6 +195,9 @@
   </data>
   <data name="AvatarNameOfChongyun" xml:space="preserve">
     <value>重云</value>
+  </data>
+  <data name="AvatarNameOfCitlali" xml:space="preserve">
+    <value>茜特菈莉</value>
   </data>
   <data name="AvatarNameOfClorinde" xml:space="preserve">
     <value>克洛琳德</value>
@@ -253,6 +259,9 @@
   <data name="AvatarNameOfItto" xml:space="preserve">
     <value>荒泷一斗</value>
   </data>
+  <data name="AvatarNameOfKachina" xml:space="preserve">
+    <value>卡齐娜</value>
+  </data>
   <data name="AvatarNameOfKaeya" xml:space="preserve">
     <value>凯亚</value>
   </data>
@@ -265,11 +274,17 @@
   <data name="AvatarNameOfKeqing" xml:space="preserve">
     <value>刻晴</value>
   </data>
+  <data name="AvatarNameOfKinich" xml:space="preserve">
+    <value>基尼奇</value>
+  </data>
   <data name="AvatarNameOfKlee" xml:space="preserve">
     <value>可莉</value>
   </data>
   <data name="AvatarNameOfKokomi" xml:space="preserve">
     <value>珊瑚宫心海</value>
+  </data>
+  <data name="AvatarNameOfLanYan" xml:space="preserve">
+    <value>蓝砚</value>
   </data>
   <data name="AvatarNameOfLayla" xml:space="preserve">
     <value>莱依拉</value>
@@ -286,6 +301,9 @@
   <data name="AvatarNameOfLiuyun" xml:space="preserve">
     <value>闲云</value>
   </data>
+  <data name="AvatarNameOfMavuika" xml:space="preserve">
+    <value>玛薇卡</value>
+  </data>
   <data name="AvatarNameOfMika" xml:space="preserve">
     <value>米卡</value>
   </data>
@@ -294,6 +312,9 @@
   </data>
   <data name="AvatarNameOfMona" xml:space="preserve">
     <value>莫娜</value>
+  </data>
+  <data name="AvatarNameOfMualani" xml:space="preserve">
+    <value>玛拉妮</value>
   </data>
   <data name="AvatarNameOfNahida" xml:space="preserve">
     <value>纳西妲</value>
@@ -312,6 +333,9 @@
   </data>
   <data name="AvatarNameOfNoel" xml:space="preserve">
     <value>诺艾尔</value>
+  </data>
+  <data name="AvatarNameOfOlorun" xml:space="preserve">
+    <value>欧洛伦</value>
   </data>
   <data name="AvatarNameOfPaimon" xml:space="preserve">
     <value>派蒙</value>
@@ -388,6 +412,9 @@
   <data name="AvatarNameOfXiao" xml:space="preserve">
     <value>魈</value>
   </data>
+  <data name="AvatarNameOfXilonen" xml:space="preserve">
+    <value>希诺宁</value>
+  </data>
   <data name="AvatarNameOfXingqiu" xml:space="preserve">
     <value>行秋</value>
   </data>
@@ -405,6 +432,9 @@
   </data>
   <data name="AvatarNameOfYoimiya" xml:space="preserve">
     <value>宵宫</value>
+  </data>
+  <data name="AvatarNameOfMizuki" xml:space="preserve">
+    <value>梦见月瑞希</value>
   </data>
   <data name="AvatarNameOfYunjin" xml:space="preserve">
     <value>云堇</value>

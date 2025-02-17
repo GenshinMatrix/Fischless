@@ -142,9 +142,6 @@
   <data name="AvatarIcon" xml:space="preserve">
     <value>Icon</value>
   </data>
-  <data name="AvatarNameOfEmilie" xml:space="preserve">
-    <value>Emilie</value>
-  </data>
   <data name="AvatarNameOfAlbedo" xml:space="preserve">
     <value>Albedo</value>
   </data>
@@ -187,6 +184,9 @@
   <data name="AvatarNameOfCharlotte" xml:space="preserve">
     <value>Charlotte</value>
   </data>
+  <data name="AvatarNameOfChasca" xml:space="preserve">
+    <value>Chasca</value>
+  </data>
   <data name="AvatarNameOfChevreuse" xml:space="preserve">
     <value>Chevreuse</value>
   </data>
@@ -195,6 +195,9 @@
   </data>
   <data name="AvatarNameOfChongyun" xml:space="preserve">
     <value>Chongyun</value>
+  </data>
+  <data name="AvatarNameOfCitlali" xml:space="preserve">
+    <value>Citlali</value>
   </data>
   <data name="AvatarNameOfClorinde" xml:space="preserve">
     <value>Clorinde</value>
@@ -216,6 +219,9 @@
   </data>
   <data name="AvatarNameOfDori" xml:space="preserve">
     <value>Dori</value>
+  </data>
+  <data name="AvatarNameOfEmilie" xml:space="preserve">
+    <value>Emilie</value>
   </data>
   <data name="AvatarNameOfEula" xml:space="preserve">
     <value>Eula</value>
@@ -253,6 +259,9 @@
   <data name="AvatarNameOfItto" xml:space="preserve">
     <value>Arataki Itto</value>
   </data>
+  <data name="AvatarNameOfKachina" xml:space="preserve">
+    <value>Kachina</value>
+  </data>
   <data name="AvatarNameOfKaeya" xml:space="preserve">
     <value>Kaeya</value>
   </data>
@@ -265,11 +274,17 @@
   <data name="AvatarNameOfKeqing" xml:space="preserve">
     <value>Keqing</value>
   </data>
+  <data name="AvatarNameOfKinich" xml:space="preserve">
+    <value>Kinich</value>
+  </data>
   <data name="AvatarNameOfKlee" xml:space="preserve">
     <value>Klee</value>
   </data>
   <data name="AvatarNameOfKokomi" xml:space="preserve">
     <value>Sangonomiya Kokomi</value>
+  </data>
+  <data name="AvatarNameOfLanYan" xml:space="preserve">
+    <value>Lan Yan</value>
   </data>
   <data name="AvatarNameOfLayla" xml:space="preserve">
     <value>Layla</value>
@@ -286,6 +301,9 @@
   <data name="AvatarNameOfLiuyun" xml:space="preserve">
     <value>Xianyun</value>
   </data>
+  <data name="AvatarNameOfMavuika" xml:space="preserve">
+    <value>Mavuika</value>
+  </data>
   <data name="AvatarNameOfMika" xml:space="preserve">
     <value>Mika</value>
   </data>
@@ -294,6 +312,9 @@
   </data>
   <data name="AvatarNameOfMona" xml:space="preserve">
     <value>Mona</value>
+  </data>
+  <data name="AvatarNameOfMualani" xml:space="preserve">
+    <value>Mualani</value>
   </data>
   <data name="AvatarNameOfNahida" xml:space="preserve">
     <value>Nahida</value>
@@ -312,6 +333,9 @@
   </data>
   <data name="AvatarNameOfNoel" xml:space="preserve">
     <value>Noelle</value>
+  </data>
+  <data name="AvatarNameOfOlorun" xml:space="preserve">
+    <value>Ororon</value>
   </data>
   <data name="AvatarNameOfPaimon" xml:space="preserve">
     <value>Paimon</value>
@@ -388,6 +412,9 @@
   <data name="AvatarNameOfXiao" xml:space="preserve">
     <value>Xiao</value>
   </data>
+  <data name="AvatarNameOfXilonen" xml:space="preserve">
+    <value>Xilonen</value>
+  </data>
   <data name="AvatarNameOfXingqiu" xml:space="preserve">
     <value>Xingqiu</value>
   </data>
@@ -405,6 +432,9 @@
   </data>
   <data name="AvatarNameOfYoimiya" xml:space="preserve">
     <value>Yoimiya</value>
+  </data>
+  <data name="AvatarNameOfMizuki" xml:space="preserve">
+    <value>Yumemizuki Mizuki</value>
   </data>
   <data name="AvatarNameOfYunjin" xml:space="preserve">
     <value>Yun Jin</value>
