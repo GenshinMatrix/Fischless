@@ -18,14 +18,14 @@ msbuild .\Plugins\Fischless.Plugin.LaunchBetterGI\Fischless.Plugin.LaunchBetterG
 cd /d %~dp0
 
 echo [pack app using 7z]
-del ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\*.pdb
-mkdir ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins\
-copy ..\src\Plugins\Fischless.Plugin.DisplayDefault\bin\Release\net8.0-windows10.0.22621.0\publish\Fischless.Plugin.DisplayDefault.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
-copy ..\src\Plugins\Fischless.Plugin.LaunchHyperion\bin\Release\net8.0-windows10.0.22621.0\publish\Fischless.Plugin.LaunchHyperion.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
-copy ..\src\Plugins\Fischless.Plugin.RepairRegedit\bin\Release\net8.0-windows10.0.22621.0\publish\Fischless.Plugin.RepairRegedit.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
-copy ..\src\Plugins\Fischless.Plugin.Borderless\bin\Release\net8.0-windows10.0.22621.0\publish\Fischless.Plugin.Borderless.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
-copy ..\src\Plugins\Fischless.Plugin.LaunchBetterGI\bin\Release\net8.0-windows10.0.22621.0\publish\Fischless.Plugin.LaunchBetterGI.dll ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\Plugins
-MicaSetup.Tools\7-Zip\7z a publish.7z ..\src\Desktop\Fischless\bin\x64\Release\net8.0-windows10.0.22621.0\publish\win-x64\* -t7z -mx=5 -mf=BCJ2 -r -y
+del ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\*.pdb
+mkdir ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins\
+copy ..\src\Plugins\Fischless.Plugin.DisplayDefault\bin\Release\net9.0-windows10.0.22621.0\publish\Fischless.Plugin.DisplayDefault.dll ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins
+copy ..\src\Plugins\Fischless.Plugin.LaunchHyperion\bin\Release\net9.0-windows10.0.22621.0\publish\Fischless.Plugin.LaunchHyperion.dll ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins
+copy ..\src\Plugins\Fischless.Plugin.RepairRegedit\bin\Release\net9.0-windows10.0.22621.0\publish\Fischless.Plugin.RepairRegedit.dll ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins
+copy ..\src\Plugins\Fischless.Plugin.Borderless\bin\Release\net9.0-windows10.0.22621.0\publish\Fischless.Plugin.Borderless.dll ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins
+copy ..\src\Plugins\Fischless.Plugin.LaunchBetterGI\bin\Release\net9.0-windows10.0.22621.0\publish\Fischless.Plugin.LaunchBetterGI.dll ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\Plugins
+MicaSetup.Tools\7-Zip\7z a publish.7z ..\src\Desktop\Fischless\bin\x64\Release\net9.0-windows10.0.22621.0\publish\win-x64\* -t7z -mx=5 -mf=BCJ2 -r -y
 copy /y publish.7z .\MicaSetup\Resources\Setups\publish.7z
 
 @echo [build uninst using vs2022]
